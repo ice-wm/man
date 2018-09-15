@@ -154,4 +154,5 @@ Locations for the menu file are as follows:
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
 
-[Index](/man) | [IceWM](/)
+| ------------: | :--------- |
+| [Index](/man) | [IceWM](/) |

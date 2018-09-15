@@ -54,4 +54,5 @@ Eduard Bloch [mailto:edi@gmx.de](mailto:edi@gmx.de).
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
 
-[Index](/man) | [IceWM](/)
+| ------------: | :--------- |
+| [Index](/man) | [IceWM](/) |

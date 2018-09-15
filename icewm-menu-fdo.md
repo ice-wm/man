@@ -77,4 +77,5 @@ See **--copying** for full copyright notice and copying permissions.
 See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
 
-[Index](/man) | [IceWM](/)
+| ------------: | :--------- |
+| [Index](/man) | [IceWM](/) |
