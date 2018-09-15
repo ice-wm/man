@@ -830,11 +830,11 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 
     Command to cancel logout.
 
-- **ShutdownCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl poweroff; } ||:""
+- **ShutdownCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl poweroff; } \||:""
 
     Command to shutdown the system.
 
-- **RebootCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl reboot; } ||:""
+- **RebootCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl reboot; } \||:""
 
     Command to reboot the system.
 

@@ -5,9 +5,9 @@
 # SYNOPSIS
 
 - **icesh** \[_OPTIONS_\] _ACTIONS_
-- **icesh** {**-h**|**--help**} \[_OPTIONS_\] \[_ACTIONS_\]
-- **icesh** {**-V**|**--version**}
-- **icesh** {**-C**|**--copying**}
+- **icesh** {**-h**\|**--help**} \[_OPTIONS_\] \[_ACTIONS_\]
+- **icesh** {**-V**\|**--version**}
+- **icesh** {**-C**\|**--copying**}
 
 # DESCRIPTION
 
@@ -117,7 +117,7 @@ argument parsing and processing is performed.
         _TRAYOPTION_.  See ["IceWM tray options"](#icewm-tray-options), below, for _TRAYOPTION_
         symbols.
 
-- **EXPRESSION** ::= _SYMBOL_ | _EXPRESSION_ { `+` | `|` }
+- **EXPRESSION** ::= _SYMBOL_ \| _EXPRESSION_ { `+` \| `\|` }
 _SYMBOL_
 
     Each _SYMBOL_ may be from one of the following applicable domains:

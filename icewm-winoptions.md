@@ -82,7 +82,7 @@ The following option control general characteristics of windows:
     Specifies the default workspace for the window.  _WORKSPACE_ is the
     workspace number counting from zero (0).
 
-- **layer**: {**Desktop**|**Below**|**Normal**|**OnTop**|**Dock**|**AboveDock**|**Menu**|_NUMBER_} (default: 4)
+- **layer**: {**Desktop**\|**Below**\|**Normal**\|**OnTop**\|**Dock**\|**AboveDock**\|**Menu**\|_NUMBER_} (default: 4)
 
     Specifies the default layer for the window.  Layer can be one of the
     following strings or a number from zero (0) to fifteen (15):
@@ -102,7 +102,7 @@ The following option control general characteristics of windows:
 
         [=][<width>{xX}<height>][{+-}<xoffset>{+-}<yoffset>]
 
-- **tray**: {**Ignore**|**Minimized**|**Exclusive**|_NUMBER_} (default: 0)
+- **tray**: {**Ignore**\|**Minimized**\|**Exclusive**\|_NUMBER_} (default: 0)
 
     The default tray option for the window.  This affects both the tray and
     the task pane.  Tray can be one of the following strings or a number
@@ -118,13 +118,13 @@ Function options enable/disable (1/0) the ability to take an action on
 the window.  The normal default for all options is enabled (1) unless
 overridden by the application.  The following options are defined:
 
-    fMove:     {0|1}  can be moved.         (default: 1)
-    fResize:   {0|1}  can be resized.       (default: 1)
-    fClose:    {0|1}  can be closed.        (default: 1)
-    fMinimize: {0|1}  can be minimized.     (default: 1)
-    fMaximize: {0|1}  can be maximized.     (default: 1)
-    fHide:     {0|1}  can be hidden.        (default: 1)
-    fRollup:   {0|1}  can be shaded.        (default: 1)
+    fMove:     {0\|1}  can be moved.         (default: 1)
+    fResize:   {0\|1}  can be resized.       (default: 1)
+    fClose:    {0\|1}  can be closed.        (default: 1)
+    fMinimize: {0\|1}  can be minimized.     (default: 1)
+    fMaximize: {0\|1}  can be maximized.     (default: 1)
+    fHide:     {0\|1}  can be hidden.        (default: 1)
+    fRollup:   {0\|1}  can be shaded.        (default: 1)
 
 ## DECOR OPTIONS
 
@@ -132,16 +132,16 @@ Decor options enable/disable (1/0) decorations on the window.  The
 normal default for all options is enabled (1) unless overridden by the
 application.  The following options are defined:
 
-    dTitleBar: {0|1}  has title bar.        (default: 1)
-    dSysMenu:  {0|1}  has window menu.      (default: 1)
-    dBorder:   {0|1}  has border.           (default: 1)
-    dResize:   {0|1}  has resize grips.     (default: 1)
-    dClose:    {0|1}  has close button.     (default: 1)
-    dMinimize: {0|1}  has minimize button.  (default: 1)
-    dMaximize: {0|1}  has maximize button.  (default: 1)
-    dHide:     {0|1}  has hide button.      (default: 1)
-    dRollup:   {0|1}  has shade button.     (default: 1)
-    dDepth:    {0|1}  has depth button.     (default: 1)
+    dTitleBar: {0\|1}  has title bar.        (default: 1)
+    dSysMenu:  {0\|1}  has window menu.      (default: 1)
+    dBorder:   {0\|1}  has border.           (default: 1)
+    dResize:   {0\|1}  has resize grips.     (default: 1)
+    dClose:    {0\|1}  has close button.     (default: 1)
+    dMinimize: {0\|1}  has minimize button.  (default: 1)
+    dMaximize: {0\|1}  has maximize button.  (default: 1)
+    dHide:     {0\|1}  has hide button.      (default: 1)
+    dRollup:   {0\|1}  has shade button.     (default: 1)
+    dDepth:    {0\|1}  has depth button.     (default: 1)
 
 ## FEATURE OPTIONS
 
@@ -149,27 +149,27 @@ Feature options enable/disable (1/0) additional features of the window.
 The normal default for all options is disabled (0) unless overridden by
 the application.  The following options are defined:
 
-    allWorkspaces:            {1|0}  on all workspaces.
-    ignoreTaskBar:            {1|0}  not on task bar.
-    noIgnoreTaskBar:          {1|0}  on task bar.
-    ignoreWinList:            {1|0}  not on window list.
-    ignoreQuickSwitch:        {1|0}  not on quick switch.
-    fullKeys:                 {1|0}  provided more keys.
-    noFocusOnAppRaise:        {1|0}  no focus on raise.
-    ignoreNoFocusHint:        {1|0}  focus even no-input.
-    ignorePositionHint:       {1|0}  place automatically.
-    doNotCover:               {1|0}  limits workspace if sticky.
-    doNotFocus:               {1|0}  do not focus.
-    startFullscreen:          {1|0}  start full screen.
-    startMinimized:           {1|0}  start minimized.
-    startMaximized:           {1|0}  start maximized.
-    startMaximizedVert:       {1|0}  start maximized vertical.
-    startMaximizedHorz:       {1|0}  start maximized horizontal.
-    nonICCCMconfigureRequest: {1|0}  more configure requests.
-    forcedClose:              {1|0}  no close dialog.
-    noFocusOnMap:             {1|0}  do not focus when mapped.
-    ignoreUrgentHint:         {1|0}  ignore urgent hints.
-    appTakesFocus:            {1|0}  let application take focus.
+    allWorkspaces:            {1\|0}  on all workspaces.
+    ignoreTaskBar:            {1\|0}  not on task bar.
+    noIgnoreTaskBar:          {1\|0}  on task bar.
+    ignoreWinList:            {1\|0}  not on window list.
+    ignoreQuickSwitch:        {1\|0}  not on quick switch.
+    fullKeys:                 {1\|0}  provided more keys.
+    noFocusOnAppRaise:        {1\|0}  no focus on raise.
+    ignoreNoFocusHint:        {1\|0}  focus even no-input.
+    ignorePositionHint:       {1\|0}  place automatically.
+    doNotCover:               {1\|0}  limits workspace if sticky.
+    doNotFocus:               {1\|0}  do not focus.
+    startFullscreen:          {1\|0}  start full screen.
+    startMinimized:           {1\|0}  start minimized.
+    startMaximized:           {1\|0}  start maximized.
+    startMaximizedVert:       {1\|0}  start maximized vertical.
+    startMaximizedHorz:       {1\|0}  start maximized horizontal.
+    nonICCCMconfigureRequest: {1\|0}  more configure requests.
+    forcedClose:              {1\|0}  no close dialog.
+    noFocusOnMap:             {1\|0}  do not focus when mapped.
+    ignoreUrgentHint:         {1\|0}  ignore urgent hints.
+    appTakesFocus:            {1\|0}  let application take focus.
 
 # EXAMPLES
 

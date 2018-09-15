@@ -5,9 +5,9 @@
 # SYNOPSIS
 
 - **icewmtray** \[_OPTIONS_\]
-- **icewmtray** {**-h**|**--help**} \[_OPTIONS_\]
-- **icewmtray** {**-V**|**--version**}
-- **icewmtray** {**-C**|**--copying**}
+- **icewmtray** {**-h**\|**--help**} \[_OPTIONS_\]
+- **icewmtray** {**-V**\|**--version**}
+- **icewmtray** {**-C**\|**--copying**}
 
 # DESCRIPTION
 

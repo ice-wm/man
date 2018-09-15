@@ -83,7 +83,7 @@ hints (except for the tray option argument).
     parsed by [XParseGeometry(3)](https://manned.org/XParseGeometry.3).  The default is the geometry provided by
     window manager hints.
 
-- **layer** {**Desktop**|**Below**|**Normal**|**OnTop**|**Dock**|**AboveDock**|**Menu**|_NUMBER_}
+- **layer** {**Desktop**\|**Below**\|**Normal**\|**OnTop**\|**Dock**\|**AboveDock**\|**Menu**\|_NUMBER_}
 
     The layer is a similar concept to the layer specified by GNOME/WMH and
     implied by NetWM/EWMH.  It is in this case however specific to
@@ -102,7 +102,7 @@ hints (except for the tray option argument).
         AboveDock (10)  above docks.
         Menu      (12)  above everything else.
 
-- **tray** {**Ignore**|**Minimized**|**Exclusive**|_NUMBER_}
+- **tray** {**Ignore**\|**Minimized**\|**Exclusive**\|_NUMBER_}
 
     Specifies the tray handling to be applied to windows with
     _CLASS_**.**_INSTANCE_.  This option is specific to [icewm(1)](icewm.md) and

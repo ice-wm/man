@@ -72,7 +72,7 @@ one.  By default it prefers them in the order of: **AO**, **ESD**,
     `$HOME/.config/icewm/sounds`, `$HOME/.icewm/sounds`, `CFGDIR/sounds`
     and `LIBDIR/sounds`.  See the output of `icewm --directories`.
 
-- **-i**, **--interface**={**AO**|**ESD**|**ALSA**|**OSS**}\[,{**AO**|**ESD**|**ALSA**|**OSS**}\]\*
+- **-i**, **--interface**={**AO**\|**ESD**\|**ALSA**\|**OSS**}\[,{**AO**\|**ESD**\|**ALSA**\|**OSS**}\]\*
 
     Specifies the audio output interfaces. One or more of: **AO**, **ESD**,
     **ALSA**, **OSS** separated by commas (`,`).

@@ -97,17 +97,17 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
     Use transparency colours for each _NAME_.
     This overrules the `DesktopTransparencyColor` preference.
 
-- **-e**, **--center**={_0_|_1_}
+- **-e**, **--center**={_0_\|_1_}
 
     Disable/Enable centring background.
     This overrules the `DesktopBackgroundCenter` preference.
 
-- **-a**, **--scaled**={_0_|_1_}
+- **-a**, **--scaled**={_0_\|_1_}
 
     Disable/Enable scaling background.
     This overrules the `DesktopBackgroundScaled` preference.
 
-- **-m**, **--multi**={_0_|_1_}
+- **-m**, **--multi**={_0_\|_1_}
 
     Disable/Enable multi-head background.
     This overrules the `DesktopBackgroundMultihead` preference.
