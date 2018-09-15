@@ -1,3 +1,6 @@
+---
+title: "icewm-winoptions(5)"
+---
 # NAME
 
     icewm-winoptions - IceWM window options configuration file
@@ -240,7 +243,7 @@ Locations for the window options file are as follows:
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

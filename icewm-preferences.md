@@ -1,3 +1,6 @@
+---
+title: "icewm-preferences(5)"
+---
 # NAME
 
     icewm-preferences - icewm preferences configuration file
@@ -1484,11 +1487,12 @@ Locations for the `preferences` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-prefoverride(5)](icewm-prefoverride.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

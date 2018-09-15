@@ -1,3 +1,6 @@
+---
+title: "icewm-set-gnomewm(1)"
+---
 # NAME
 
     icewm-set-gnomewm - modify GNOME settings to use IceWM 
@@ -31,7 +34,7 @@ for current versions to the source code repository at
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 

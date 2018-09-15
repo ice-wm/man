@@ -1,3 +1,6 @@
+---
+title: "icewm-env(5)"
+---
 # NAME
 
     icewm-env - icewm environment configuration file
@@ -42,11 +45,13 @@ Locations for the toolbar options file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-session(1)](icewm-session.md),
+[icewm-startup(5)](icewm-startup.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

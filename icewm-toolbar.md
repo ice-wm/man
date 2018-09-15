@@ -1,3 +1,6 @@
+---
+title: "icewm-toolbar(5)"
+---
 # NAME
 
     icewm-toolbar - icewm toolbar configuration file
@@ -90,11 +93,14 @@ Locations for the toolbar options file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-programs(5)](icewm-programs.md),
+[icewm-menu(5)](icewm-menu.md),
+[icewm-menu-fdo(1)](icewm-menu-fdo.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

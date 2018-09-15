@@ -1,3 +1,6 @@
+---
+title: "IceWM Man Pages"
+---
 [icehelp](icehelp.md)
 
 [icesh](icesh.md)

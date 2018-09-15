@@ -1,3 +1,6 @@
+---
+title: "icewm-startup(5)"
+---
 # NAME
 
     icewm-startup - icewm startup configuration file
@@ -33,11 +36,14 @@ Locations for the toolbar options file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-env(5)](icewm-env.md),
+[icewm-session(1)](icewm-session.md),
+[icewm-shutdown(5)](icewm-shutdown.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

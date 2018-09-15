@@ -1,3 +1,6 @@
+---
+title: "icewm-menu(5)"
+---
 # NAME
 
     icewm-menu - icewm menu configuration file
@@ -139,11 +142,12 @@ Locations for the menu file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-menu-fdo(1)](icewm-menu-fdo.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

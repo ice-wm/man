@@ -1,3 +1,6 @@
+---
+title: "icewm-menu-xrandr(1)"
+---
 # NAME
 
     icewm-menu-xrandr - IceWM menu provider for multi-monitor setup shortcuts

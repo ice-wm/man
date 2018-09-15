@@ -1,3 +1,6 @@
+---
+title: "icesh(1)"
+---
 # NAME
 
     icesh - control properties of windows
@@ -240,7 +243,7 @@ are quite capable of performing the necessary functions and more.
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 

@@ -1,3 +1,6 @@
+---
+title: "icewm-menu-fdo(1)"
+---
 # NAME
 
     icewm-menu-fdo - menu generator for .desktop files
@@ -52,7 +55,9 @@ is configured with the **--enable-menus-fdo** option.
 ["Desktop Entry Specification"](https://standards.freedesktop.org/desktop-entry-spec/latest/),
 ["Desktop Menu Specification"](https://specifications.freedesktop.org/menu-spec/latest/),
 [icewm(1)](icewm.md),
-[icewm-preferences(5)](icewm-preferences.md).
+[icewm-menu(5)](icewm-menu.md),
+[icewm-preferences(5)](icewm-preferences.md),
+[icewm-programs(5)](icewm-programs.md).
 
 # BUGS
 
@@ -62,7 +67,7 @@ for current versions to the source code repository at
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 

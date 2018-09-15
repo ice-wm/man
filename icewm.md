@@ -1,3 +1,6 @@
+---
+title: "icewm(1)"
+---
 # NAME
 
     icewm - lightweight X11 window manager
@@ -1026,7 +1029,7 @@ for current versions to the source code repository at
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 

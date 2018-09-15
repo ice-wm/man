@@ -1,3 +1,6 @@
+---
+title: "icewm-shutdown(5)"
+---
 # NAME
 
     icewm-shutdown - icewm shutdown configuration file
@@ -34,11 +37,14 @@ Locations for the toolbar options file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-env(5)](icewm-env.md),
+[icewm-session(1)](icewm-session.md),
+[icewm-startup(5)](icewm-startup.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

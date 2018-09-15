@@ -1,3 +1,6 @@
+---
+title: "icewm-theme(5)"
+---
 # NAME
 
     icewm-theme - icewm theme configuration file
@@ -61,11 +64,13 @@ Locations for the toolbar options file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-preferences(5)](icewm-preferences.md),
+[icewm-prefoverride(5)](icewm-prefoverride.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

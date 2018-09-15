@@ -1,3 +1,6 @@
+---
+title: "icewm-focus_mode(5)"
+---
 # NAME
 
     icewm-focus_mode - icewm focus mode configuration file
@@ -39,11 +42,12 @@ Locations for the toolbar options file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm.md),
+[icewm-preferences(5)](icewm-preferences.md).
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

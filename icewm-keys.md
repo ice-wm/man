@@ -1,3 +1,6 @@
+---
+title: "icewm-keys(5)"
+---
 # NAME
 
     icewm-keys - icewm keys configuration file
@@ -103,7 +106,7 @@ Locations for the `keys` file are as follows:
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 # LICENSE
 

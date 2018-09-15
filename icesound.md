@@ -1,3 +1,6 @@
+---
+title: "icesound(1)"
+---
 # NAME
 
     icesound - play audio files when interesting GUI events happen
@@ -169,7 +172,7 @@ for current versions to the source code repository at
 
 # AUTHOR
 
-Brian Bidulock [mailto:bidulock@openss7.org](mailto:bidulock@openss7.org).
+[Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
