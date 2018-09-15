@@ -15,7 +15,7 @@
 The IceWM window options configuration file is used to configure
 settings for individual application windows.  The window options that
 are established by this file when [icewm(1)](icewm.md) starts can be overridden
-while running using the [icesh(1)](icesh.md) or [icewmhints(1)](icewmhints.md) utilities.
+while running using the [icesh(1)](icesh.md) or [icewmhint(1)](icewmhint.md) utilities.
 
 Contains settings to control window appearance and behaviour which are
 specific to applications or groups of applications.  Options can control
@@ -235,7 +235,7 @@ Locations for the window options file are as follows:
 
 [icewm(1)](icewm.md),
 [icesh(1)](icesh.md),
-[icewmhints(1)](icewmhints.md),
+[icewmhint(1)](icewmhint.md),
 [XParseGeometry(3)](https://manned.org/XParseGeometry.3).
 
 # AUTHOR
