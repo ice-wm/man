@@ -21,8 +21,57 @@ display the ["IceWM Manual"](/manual) and the manual pages.
 
     Specifies the absolute or relative path (relative to the current working
     directory), that specifies the HTML file to browse.
+    _FILENAME_ may also be the URL of a website.
 
 # OPTIONS
+
+## SPECIFIC OPTIONS
+
+- **--display**=_DISPLAY_
+
+    Use _DISPLAY_ to connect to the X server.
+    If this option is missing then _DISPLAY_
+    is read from the environment variable `DISPLAY`.
+
+- **--sync**
+
+    Use a slower synchronous mode communication with _X11_ server.
+
+- **-B**
+
+    Display the IceWM icewmbg manpage.
+
+- **-b**, **--bugs**
+
+    Display the IceWM bug reports (primitively).
+
+- **-f**, **--faq**
+
+    Display the IceWM FAQ and Howto.
+
+- **-g**
+
+    Display the IceWM Github website.
+
+- **-i**, **--icewm**
+
+    Display the IceWM icewm manpage.
+
+- **-m**, **--manual**
+
+    Display the IceWM Manual (default).
+
+- **-s**
+
+    Display the IceWM icesound manpage.
+
+- **-t**, **--theme**
+
+    Display the IceWM themes Howto.
+
+- **-w**, **--website**
+
+    Display the IceWM website.
 
 ## GENERAL OPTIONS
 

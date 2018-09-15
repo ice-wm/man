@@ -8,7 +8,7 @@ title: "icesh(1)"
 # SYNOPSIS
 
 - **icesh** \[_OPTIONS_\] _ACTIONS_
-- **icesh** {**-h**\|**--help**} \[_OPTIONS_\] \[_ACTIONS_\]
+- **icesh** {**-h**\|**--help**}
 - **icesh** {**-V**\|**--version**}
 - **icesh** {**-C**\|**--copying**}
 
@@ -29,6 +29,33 @@ Command options are mutually exclusive.  Only one command option can be
 specified per invocation.  If no command option is specified, action
 argument parsing and processing is performed.
 
+- **-display** _DISPLAY_
+
+    Specifies the X11 _DISPLAY_ to use.  When unspecified, defaults to the
+    $DISPLAY environment variable.
+
+- **-window** _WINDOW\_ID_
+
+    Specifies the identifier of the window, _WINDOW\_ID_, for which the
+    action applies.
+    Special identifiers are **root** for the root window
+    and **focus** for the currently focused window.
+    When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
+    is invoked to select the desired window.
+
+- **-class** _WM\_CLASS_
+
+    Specifies the window manager class, _WM\_CLASS_, for which the action
+    applies.
+    If _WM\_CLASS_ contains a period, only windows with exactly
+    the same _WM\_CLASS_ property are matched.  If there is no period,
+    windows of the same class and windows of the same instance (aka. _-name_)
+    are selected.
+    When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
+    is invoked to select the desired window.
+
+## GENERAL OPTIONS
+
 - **-h**, **--help**
 
     Print a brief usage statement to `stdout` and exit.
@@ -40,27 +67,6 @@ argument parsing and processing is performed.
 - **-C**, **--copying**
 
     Print copying permissions to `stdout` for the program and exit.
-
-## GENERAL OPTIONS
-
-- **-display** _DISPLAY_
-
-    Specifies the X11 _DISPLAY_ to use.  When unspecified, defaults to the
-    $DISPLAY environment variable.
-
-- **-window** _WINDOW\_ID_
-
-    Specifies the identifier of the window, _WINDOW\_ID_, for which the
-    action applies.
-    When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
-    is invoked to select the desired window.
-
-- **-class** _WM\_CLASS_
-
-    Specifies the window manager class, _WM\_CLASS_, for which the action
-    applies.
-    When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
-    is invoked to select the desired window.
 
 # ARGUMENTS
 

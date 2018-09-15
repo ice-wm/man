@@ -170,7 +170,7 @@ The **icewm** program supports some additional options:
     stop execution.  This allows **icewm** to establish itself as the only
     active window manager.
 
-- **--restart**
+- **-r**, **--restart**
 
     Instructs **icewm** to restart itself, but one should not use this option
     directly. Instead one selects the `Restart IceWM` button from the menu
@@ -188,7 +188,7 @@ The **icewm** program supports some additional options:
     data.  This list is printed in the actual order in which **icewm** uses
     it to search for configuration files.
 
-- **--list-themes**
+- **-l**, **--list-themes**
 
     **icewm** will search all the configuration directories for theme files
     and print a list of all found themes.

@@ -18,7 +18,41 @@ support applications.
 
 # OPTIONS
 
+## SPECIFIC OPTIONS
+
+- **-c**, **--config=FILE**
+
+    Let IceWM load preferences from _FILE_.
+
+- **-t**, **--theme=FILE**
+
+    Let IceWM load the theme from _FILE_.
+
+- **-i**, **--icewm=FILE**
+
+    Use _FILE_ as the IceWM window manager.
+
+- **-n**, **--notray**
+
+    Do not start icewmtray.
+    This is only applicable if IceWM was explicitly configured
+    to use an external icewmtray process.
+
+- **-s**, **--sound**
+
+    Also start icesound.
+
 ## GENERAL OPTIONS
+
+- **--display**=_DISPLAY_
+
+    Use _DISPLAY_ to connect to the X server.
+    If this option is missing then _DISPLAY_
+    is read from the environment variable `DISPLAY`.
+
+- **--sync**
+
+    Use a slower synchronous mode communication with _X11_ server.
 
 - **-h**, **--help**
 
