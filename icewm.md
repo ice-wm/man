@@ -350,7 +350,7 @@ previous window, which will be raised to make it fully visible.
 
 A second important task of a window manager is to place new windows on
 the screen.  By default **icewm** chooses a placement with minimal
-overlap, but this is determined by the `SmartPlacement`> option in the
+overlap, but this is determined by the `SmartPlacement` option in the
 `preferences` file.  If `SmartPlacement` is turned off then windows
 are placed in sequence from left to right and top to bottom.  One can
 also turn on `ManualPlacement`.  Then new windows appear initially in
