@@ -20,7 +20,7 @@ root menu and start menu.
 
 A menu of applications; usually customized by the user.  **icewm**
 provides the [icewm-menu-fdo(1)](icewm-menu-fdo.md) program to generate a default menu.
-Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1)' (MenuMaker),
+Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1) (MenuMaker),
 [xde-menu(1)](https://manned.org/xde-menu.1), [xdgmenumaker(1)](https://manned.org/xdgmenumaker.1).
 
 # FORMAT
@@ -153,3 +153,5 @@ Locations for the menu file are as follows:
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
+
+[Index](/man) | [IceWM](/)

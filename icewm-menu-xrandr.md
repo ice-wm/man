@@ -42,7 +42,7 @@ is registered as special binding of type **switchkey** in
 
 **icewm-menu-xrandr** had no known bugs at the time of release.  Please report bugs
 for current versions to the source code repository at
-[https://github.com/bbidulock/icewm/issues](https://github.com/bbidulock/icewm/issues).
+[Github](https://github.com/bbidulock/icewm/issues).
 
 # AUTHOR
 
@@ -53,3 +53,5 @@ Eduard Bloch [mailto:edi@gmx.de](mailto:edi@gmx.de).
 **icewm-menu-xrandr** is licensed under the Simplified BSD License.
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
+
+[Index](/man) | [IceWM](/)

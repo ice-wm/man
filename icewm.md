@@ -831,7 +831,7 @@ the given order, until it finds one:
 
     A menu of applications; usually customized by the user.  **icewm**
     provides the [icewm-menu-fdo(1)](icewm-menu-fdo.md) program to generate a default menu.
-    Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1)' (MenuMaker),
+    Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1) (MenuMaker),
     [xde-menu(1)](https://manned.org/xde-menu.1), [xdgmenumaker(1)](https://manned.org/xdgmenumaker.1).
 
     See [icewm-menu(5)](icewm-menu.md).
@@ -994,26 +994,28 @@ See the file `COMPLIANCE` in the distribution for full details.
 
 # SEE ALSO
 
-[icewmbg(1)](icewmbg.md),
-[icewmtray(1)](icewmtray.md),
-[icewm-session(1)](icewm-session.md),
-[icesh(1)](icesh.md),
 [icehelp(1)](icehelp.md),
-[icewmhint(1)](icewmhint.md),
+[icesh(1)](icesh.md),
 [icesound(1)](icesound.md),
-[icewm-menu-fdo(1)](icewm-menu-fdo.md),
 [icewm-env(5)](icewm-env.md),
 [icewm-focus\_mode(5)](icewm-focus.md_mode),
 [icewm-keys(5)](icewm-keys.md),
 [icewm-menu(5)](icewm-menu.md),
+[icewm-menu-fdo(1)](icewm-menu-fdo.md),
+[icewm-menu-xrandr(1)](icewm-menu-xrandr.md),
 [icewm-preferences(5)](icewm-preferences.md),
 [icewm-prefoverride(5)](icewm-prefoverride.md),
 [icewm-programs(5)](icewm-programs.md),
+[icewm-session(1)](icewm-session.md),
+[icewm-set-gnomewm(1)](icewm-set-gnomewm.md),
+[icewm-shutdown(5)](icewm-shutdown.md),
+[icewm-startup(5)](icewm-startup.md),
 [icewm-theme(5)](icewm-theme.md),
 [icewm-toolbar(5)](icewm-toolbar.md),
 [icewm-winoptions(5)](icewm-winoptions.md),
-[icewm-startup(5)](icewm-startup.md),
-[icewm-shutdown(5)](icewm-shutdown.md),
+[icewmbg(1)](icewmbg.md),
+[icewmhint(1)](icewmhint.md),
+[icewmtray(1)](icewmtray.md),
 [Xorg(1)](https://manned.org/Xorg.1),
 [Xserver(1)](https://manned.org/Xserver.1),
 [xinit(1)](https://manned.org/xinit.1),
@@ -1025,7 +1027,7 @@ See the file `COMPLIANCE` in the distribution for full details.
 
 **icewm** had no known bugs at the time of release.  Please report bugs
 for current versions to the source code repository at
-[https://github.com/bbidulock/icewm/issues](https://github.com/bbidulock/icewm/issues).
+[Github](https://github.com/bbidulock/icewm/issues).
 
 # AUTHOR
 
@@ -1038,3 +1040,5 @@ See **--copying** for full copyright notice and copying permissions.
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
+
+[Index](/man) | [IceWM](/)

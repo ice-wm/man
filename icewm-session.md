@@ -36,7 +36,7 @@ support applications.
 
 **icewm-session** had no known bugs at the time of release.  Please report bugs
 for current versions to the source code repository at
-[https://github.com/bbidulock/icewm/issues](https://github.com/bbidulock/icewm/issues).
+[Github](https://github.com/bbidulock/icewm/issues).
 
 # AUTHOR
 
@@ -49,3 +49,5 @@ See **--copying** for full copyright notice and copying permissions.
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
+
+[Index](/man) | [IceWM](/)
