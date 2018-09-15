@@ -1,0 +1,2 @@
+# man
+IceWM man pages
