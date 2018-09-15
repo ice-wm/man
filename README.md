@@ -1,3 +1,3 @@
 ## IceWM man pages
 
-[Man pages](index.md) for [IceWM](https://ice-wm.org).
+[Man pages](/man) for [![IceWM](/images/logo.jpg)](/).
