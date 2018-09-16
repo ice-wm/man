@@ -46,7 +46,7 @@ for current versions to the source code repository at
 
 # AUTHOR
 
-Eduard Bloch [mailto:edi@gmx.de](mailto:edi@gmx.de).
+[Eduard Bloch](mailto:edi@gmx.de).
 
 # LICENSE
 
