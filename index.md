@@ -16,4 +16,4 @@ title: "IceWM Man Pages"
 | [icewmtray](icewmtray.md)                 | [icewm-toolbar](icewm-toolbar.md)           |
 |                                           | [icewm-winoptions](icewm-winoptions.md)     |
 
-[IceWM](/)
+[![IceWM][/images/logom.jpg "ice-wm.org"]](https://ice-wm.org "ice-wm.org")

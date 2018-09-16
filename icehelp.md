@@ -106,4 +106,4 @@ See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
 
 | ------------: | :--------- |
-| [Index](/man) | [IceWM](/) |
+| [Index](/man) | [![IceWM][/images/logom.jpg "ice-wm.org"]](https://ice-wm.org "ice-wm.org") |

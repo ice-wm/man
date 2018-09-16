@@ -115,9 +115,9 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
     Disable/Enable multi-head background.
     This overrules the `DesktopBackgroundMultihead` preference.
 
-- **-y**, **--cycle**={_SECONDS_}
+- **-y**, **--cycle**=_SECONDS_
 
-    Cycle over the list of background images every SECONDS.
+    Cycle over the list of background images every _SECONDS_.
     This overrules the `CycleBackgroundsPeriod` preference.
 
 - **--display**=_DISPLAY_
@@ -228,4 +228,4 @@ See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
 
 | ------------: | :--------- |
-| [Index](/man) | [IceWM](/) |
+| [Index](/man) | [![IceWM][/images/logom.jpg "ice-wm.org"]](https://ice-wm.org "ice-wm.org") |

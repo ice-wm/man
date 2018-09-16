@@ -78,4 +78,4 @@ Locations for the toolbar options file are as follows:
 See the `COPYING` file in the distribution.
 
 | ------------: | :--------- |
-| [Index](/man) | [IceWM](/) |
+| [Index](/man) | [![IceWM][/images/logom.jpg "ice-wm.org"]](https://ice-wm.org "ice-wm.org") |
