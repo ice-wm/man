@@ -458,6 +458,10 @@ their preferences names and short descriptions of their effect:
 
     `KeyWinMaximizeVert` maximizes the active window vertically.
 
+- `undefined`
+
+    `KeyWinMaximizeHoriz` maximizes the active window horizontally.
+
 - `Alt+F11`
 
     `KeyWinFullscreen` maximizes the active window without borders.
@@ -513,6 +517,22 @@ their preferences names and short descriptions of their effect:
 - `Shift+Esc`
 
     `KeySysWinMenu` posts the system window menu.
+
+- `Alt+Tab`
+
+    `KeySysSwitchNext`
+
+- `Alt+Shift+Tab`
+
+    `KeySysSwitchLast`
+
+- `Alt+Esc`
+
+    `KeySysWinNext` give focus to the next window and raise it.
+
+- `Alt+Shift+Esc`
+
+    `KeySysWinPrev` give focus to the previous window and raise it.
 
 - `Alt+Ctrl+Del`
 
@@ -689,6 +709,28 @@ their preferences names and short descriptions of their effect:
 - `Alt+Ctrl+h`
 
     `KeySysCollapseTaskBar` hides the task bar.
+
+- `undefined`
+
+    `KeyTaskBarSwitchNext` switches to the next window in the task bar.
+
+- `undefined`
+
+    `KeyTaskBarSwitchPrev` switches to the previous window in the task bar.
+
+- `undefined`
+
+    `KeyTaskBarMoveNext` moves the task bar button of the current window
+    right.
+
+- `undefined`
+
+    `KeyTaskBarMovePrev` moves the task bar button of the current window
+    left.
+
+- `undefined`
+
+    `KeySysWinListMenu` shows the window list menu.
 
 ## MOUSE BINDINGS
 
@@ -906,7 +948,7 @@ the given order, until it finds one:
     the border, whether it appears on the task bar, the window list, the
     system tray and the work spaces.  Also its layer, geometry, whether it
     can be moved, resized and closed.  Full details for this file are
-    explained in the ["IceWM Manual"](/manual).
+    explained in the [IceWM Manual](https://ice-wm.org/manual).
 
     See [icewm-winoptions(5)](icewm-winoptions.md).
 

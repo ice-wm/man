@@ -25,7 +25,7 @@ specific to applications or groups of applications.  Options can control
 the border, whether it appears on the task bar, the window list, the
 system tray and the work spaces.  Also its layer, geometry, whether it
 can be moved, resized and closed.  Full details for this file are
-explained in the ["IceWM Manual"](/manual).
+explained in the [IceWM Manual](https://ice-wm.org/manual).
 
 # FORMAT
 

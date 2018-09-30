@@ -13,7 +13,7 @@ title: "icehelp(1)"
 
 **icehelp** is a very simple HTML browser that displays the document
 specified on the command line.  It is used by [icewm(1)](icewm.md) internal to
-display the ["IceWM Manual"](/manual) and the manual pages.
+display the [IceWM Manual](https://ice-wm.org/manual) and the manual pages.
 
 # ARGUMENTS
 
