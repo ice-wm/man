@@ -31,8 +31,8 @@ explained in the [IceWM Manual](https://ice-wm.org/manual).
 
 Each line in the file must be in one of the following formats:
 
-> - _CLASS_**.**_NAME_**.**_ROLE_**.**_OPTION_**:** _VALUE_
-> - _CLASS_**.**_NAME_**.**_OPTION_**:** _VALUE_
+> - _NAME_**.**_CLASS_**.**_ROLE_**.**_OPTION_**:** _VALUE_
+> - _NAME_**.**_CLASS_**.**_OPTION_**:** _VALUE_
 > - _CLASS_**.**_ROLE_**.**_OPTION_**:** _VALUE_
 > - _NAME_**.**_ROLE_**.**_OPTION_**:** _VALUE_
 > - _CLASS_**.**_OPTION_**:** _VALUE_
@@ -115,18 +115,25 @@ The following option control general characteristics of windows:
         Minimized  (1)  Add to tray, no task when minimized.
         Exclusive  (2)  Add to tray, no task button.
 
+- **order**: _NUMBER_ (default: 0)
+
+    The sorting order of task buttons and tray icons. The default value is
+    zero. Increasing positive values go farther right, while decreasing
+    negative values go farther left. The order option applies to the task
+    pane, the tray pane and the system tray.
+
 ## FUNCTION OPTIONS
 
 Function options enable/disable (1/0) the ability to take an action on
 the window.  The normal default for all options is enabled (1) unless
 overridden by the application.  The following options are defined:
 
+    fClose:    {0\|1}  can be closed.        (default: 1)
+    fHide:     {0\|1}  can be hidden.        (default: 1)
+    fMaximize: {0\|1}  can be maximized.     (default: 1)
+    fMinimize: {0\|1}  can be minimized.     (default: 1)
     fMove:     {0\|1}  can be moved.         (default: 1)
     fResize:   {0\|1}  can be resized.       (default: 1)
-    fClose:    {0\|1}  can be closed.        (default: 1)
-    fMinimize: {0\|1}  can be minimized.     (default: 1)
-    fMaximize: {0\|1}  can be maximized.     (default: 1)
-    fHide:     {0\|1}  can be hidden.        (default: 1)
     fRollup:   {0\|1}  can be shaded.        (default: 1)
 
 ## DECOR OPTIONS
@@ -135,16 +142,16 @@ Decor options enable/disable (1/0) decorations on the window.  The
 normal default for all options is enabled (1) unless overridden by the
 application.  The following options are defined:
 
-    dTitleBar: {0\|1}  has title bar.        (default: 1)
-    dSysMenu:  {0\|1}  has window menu.      (default: 1)
     dBorder:   {0\|1}  has border.           (default: 1)
-    dResize:   {0\|1}  has resize grips.     (default: 1)
     dClose:    {0\|1}  has close button.     (default: 1)
-    dMinimize: {0\|1}  has minimize button.  (default: 1)
-    dMaximize: {0\|1}  has maximize button.  (default: 1)
-    dHide:     {0\|1}  has hide button.      (default: 1)
-    dRollup:   {0\|1}  has shade button.     (default: 1)
     dDepth:    {0\|1}  has depth button.     (default: 1)
+    dHide:     {0\|1}  has hide button.      (default: 1)
+    dMaximize: {0\|1}  has maximize button.  (default: 1)
+    dMinimize: {0\|1}  has minimize button.  (default: 1)
+    dResize:   {0\|1}  has resize grips.     (default: 1)
+    dRollup:   {0\|1}  has shade button.     (default: 1)
+    dSysMenu:  {0\|1}  has window menu.      (default: 1)
+    dTitleBar: {0\|1}  has title bar.        (default: 1)
 
 ## FEATURE OPTIONS
 
@@ -153,26 +160,27 @@ The normal default for all options is disabled (0) unless overridden by
 the application.  The following options are defined:
 
     allWorkspaces:            {1\|0}  on all workspaces.
-    ignoreTaskBar:            {1\|0}  not on task bar.
-    noIgnoreTaskBar:          {1\|0}  on task bar.
-    ignoreWinList:            {1\|0}  not on window list.
-    ignoreQuickSwitch:        {1\|0}  not on quick switch.
-    fullKeys:                 {1\|0}  provided more keys.
-    noFocusOnAppRaise:        {1\|0}  no focus on raise.
-    ignoreNoFocusHint:        {1\|0}  focus even no-input.
-    ignorePositionHint:       {1\|0}  place automatically.
+    appTakesFocus:            {1\|0}  let application take focus.
     doNotCover:               {1\|0}  limits workspace if sticky.
     doNotFocus:               {1\|0}  do not focus.
-    startFullscreen:          {1\|0}  start full screen.
-    startMinimized:           {1\|0}  start minimized.
-    startMaximized:           {1\|0}  start maximized.
-    startMaximizedVert:       {1\|0}  start maximized vertical.
-    startMaximizedHorz:       {1\|0}  start maximized horizontal.
-    nonICCCMconfigureRequest: {1\|0}  more configure requests.
     forcedClose:              {1\|0}  no close dialog.
-    noFocusOnMap:             {1\|0}  do not focus when mapped.
+    fullKeys:                 {1\|0}  provided more keys.
+    ignoreNoFocusHint:        {1\|0}  focus even no-input.
+    ignorePagerPreview:       {1\|0}  do not show in pager preview.
+    ignorePositionHint:       {1\|0}  place automatically.
+    ignoreQuickSwitch:        {1\|0}  not on quick switch.
+    ignoreTaskBar:            {1\|0}  not on task bar.
     ignoreUrgentHint:         {1\|0}  ignore urgent hints.
-    appTakesFocus:            {1\|0}  let application take focus.
+    ignoreWinList:            {1\|0}  not on window list.
+    noFocusOnAppRaise:        {1\|0}  no focus on raise.
+    noFocusOnMap:             {1\|0}  do not focus when mapped.
+    noIgnoreTaskBar:          {1\|0}  on task bar.
+    nonICCCMconfigureRequest: {1\|0}  more configure requests.
+    startFullscreen:          {1\|0}  start full screen.
+    startMaximized:           {1\|0}  start maximized.
+    startMaximizedHorz:       {1\|0}  start maximized horizontal.
+    startMaximizedVert:       {1\|0}  start maximized vertical.
+    startMinimized:           {1\|0}  start minimized.
 
 # EXAMPLES
 

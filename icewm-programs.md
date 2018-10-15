@@ -15,14 +15,10 @@ title: "icewm-programs(5)"
 
 # DESCRIPTION
 
-The `menu` file is responsible for configuring most of the generated
-items in the [icewm(1)](icewm.md) root menu and start menu, and is normally
-included in those menus using the **menufile** keyword.
-
-An automatically generated menu of applications.  This could be used by
-[wmconfig(1)](https://manned.org/wmconfig.1), menu or similar programs to give easy access to all the
-desktop applications which are installed on the system.
-See [icewm-programs(5)](icewm-programs.md).
+The `programs` file is an automatically generated menu configuration
+file of installed programs. This file should be automatically generated
+by wmconfig (Redhat), menu (Debian), or icewm-menu-fdo,
+perhaps as part of the login or X startup sequence.
 
 # FORMAT
 
@@ -51,7 +47,7 @@ The format of the file contains one of the following line syntax:
     Specifies a sub-menu.  The lines that appear between the braces can be
     any menu item described here.
 
-- **menufile** \[**"**\]_title_\[**"**\] _icon_ _filename_, **separator**
+- **menufile** \[**"**\]_title_\[**"**\] _icon_ \[**"**\]_filename_\[**"**\]
 
     Specifies a file from which to collect sub-menu items (lines) and place
     them at this point in the menu.
@@ -61,6 +57,20 @@ The format of the file contains one of the following line syntax:
     Specifies a program that will print sub-menu items on standard output
     and will be collected and placed in the sub-menu at this point.
 
+- **menuprogreload** \[**"**\]_title_\[**"**\] _icon_ _timeout_
+_program_ _options_
+
+    Similar to **menuprog**, but after at least _timeout_ seconds
+    the menu is regenerated.
+
+- **include** \[**"**\]_filename_\[**"**\]
+
+    Read additional entries from the file _filename_
+
+- **includeprog** _program_ _options_
+
+    Read additional entries from the output of _program_ _options_.
+
 - **separator**
 
     A separator for menu items.
@@ -68,7 +78,7 @@ The format of the file contains one of the following line syntax:
 where,
 
 - **prog**, **restart**, **runonce**, **menu**, **menufile**,
-**menuprog**, **separator**
+**menuprog**, **menuprogreload**, **include**, **includeprog**, **separator**
 
     These are literal string keywords.
 

@@ -50,7 +50,7 @@ The format of the file contains one of the following line syntax:
     Specifies a sub-menu.  The lines that appear between the braces can be
     any menu item described here.
 
-- **menufile** \[**"**\]_title_\[**"**\] _icon_ _filename_
+- **menufile** \[**"**\]_title_\[**"**\] _icon_ \[**"**\]_filename_\[**"**\]
 
     Specifies a file from which to collect sub-menu items (lines) and place
     them at this point in the menu.
@@ -60,6 +60,20 @@ The format of the file contains one of the following line syntax:
     Specifies a program that will print sub-menu items on standard output
     and will be collected and placed in the sub-menu at this point.
 
+- **menuprogreload** \[**"**\]_title_\[**"**\] _icon_ _timeout_
+_program_ _options_
+
+    Similar to **menuprog**, but after at least _timeout_ seconds
+    the menu is regenerated.
+
+- **include** \[**"**\]_filename_\[**"**\]
+
+    Read additional entries from the file _filename_
+
+- **includeprog** _program_ _options_
+
+    Read additional entries from the output of _program_ _options_.
+
 - **separator**
 
     A separator for menu items.
@@ -67,7 +81,7 @@ The format of the file contains one of the following line syntax:
 where,
 
 - **prog**, **restart**, **runonce**, **menu**, **menufile**,
-**menuprog**, **separator**
+**menuprog**, **menuprogreload**, **include**, **includeprog**, **separator**
 
     These are literal string keywords.
 

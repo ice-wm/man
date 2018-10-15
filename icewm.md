@@ -214,7 +214,7 @@ root menu. This menu has sub-menus to start applications, to control
 The _Show Desktop_ button unmaps all application windows to fully
 uncover the desktop.
 
-The _Window List_ menu button gives access to a menu with a list of
+The _Window List Menu_ button gives access to a menu with a list of
 active windows for the current work space and a list of work spaces
 with sub-menus for their active application windows.
 
@@ -232,11 +232,15 @@ which is running on the current work space.  Each task button shows the
 application icon and the application title.  The active application is
 indicated by a pressed button.  This is the application which has input
 focus.  Pressing another button activates that application: it is
-brought to the foreground and receives input focus.
+brought to the foreground and receives input focus.  Other mouse
+controlled activities on the window buttons are dragging window buttons to
+(temporarily) rearrange the order (with left mouse button) or closing
+the application window (with middle button while pressing and holding `Alt`).
 
 If there are not many application buttons then a stretch of plain task
 bar is visible.  Clicking on it with the right mouse button gives the
-task bar menu.
+task bar menu.  Even with a full task pane, this menu can be usually
+accessed by right-clicking the bottom right corner of the taskbar.
 
 The _Tray Applet_ shows system tray objects.
 
@@ -251,9 +255,9 @@ The _CPU Applet_ monitors processor utilization.
 
 The _Mailbox Applet_ monitors mailbox status changes.  The location of
 the mailbox is given by the `MailBoxPath` preferences option or else by
-the `MAIL` environment variable.  It can be the path of a local mail
-spool file or the specification of a remote POP3 or IMAP location.
-For example:
+the `MAILPATH` or `MAIL` environment variables.  It can be the path of
+a local mail spool file or the specification of a remote POP3 or IMAP
+location.  For example:
 
     MailBoxPath="pop3://myname:password@host.com/"
 
@@ -349,6 +353,11 @@ The second keyboard method involves pressing `Alt+Esc` or
 `Alt+Shift+Esc`.  Input focus is immediately changed to the next or
 previous window, which will be raised to make it fully visible.
 
+And finally, there is another way which is a hybrid of keyboard and
+mouse control. It involves the `QuickSwitch` popup explained before,
+after pressing `Alt+Tab` and while still holding `Alt` a left click
+on one of the list items causes the activation of the related window.
+
 ## WINDOW PLACEMENT
 
 A second important task of a window manager is to place new windows on
@@ -402,6 +411,22 @@ to wait before a change of workspace occurs.
 To move an application window to a different work space one can use a
 keyboard shortcut.  Another option is to select the _Move To_ submenu
 in the window menu of the window frame.
+
+## ADDRESS BAR
+
+If **EnableAddressBar**=1 then **KeySysAddressBar**=`Alt+Ctrl+Space`
+activates the address bar in the task bar.
+If **ShowAddressBar**=1 it is always shown. This is a command line in
+the task bar where a shell command can be typed.
+Pressing `Enter` will execute the command.
+**AddressBarCommand**=`/bin/sh` will be used to execute the command.
+On `Control+Enter` the command is executed in a terminal
+as given by **TerminalCommand**.
+The address bar maintains a history which is navigable by the _Up_
+and _Down_ keys.
+It supports file completion using `Tab` or `Ctrl+I`.
+A rich set of editing operations is supported,
+including cut-/copy-/paste-operations.
 
 ## KEYBOARD SHORTCUTS
 
@@ -517,14 +542,6 @@ their preferences names and short descriptions of their effect:
 - `Shift+Esc`
 
     `KeySysWinMenu` posts the system window menu.
-
-- `Alt+Tab`
-
-    `KeySysSwitchNext`
-
-- `Alt+Shift+Tab`
-
-    `KeySysSwitchLast`
 
 - `Alt+Esc`
 
@@ -732,6 +749,16 @@ their preferences names and short descriptions of their effect:
 
     `KeySysWinListMenu` shows the window list menu.
 
+- `Alt+Tab`
+
+    `KeySysSwitchNext` opens the `QuickSwitch` popup (see ["INPUT FOCUS"](#input-focus))
+    and/or moves the selector in the `QuickSwitch` popup.
+
+- `Alt+Shift+Tab`
+
+    `KeySysSwitchLast` works like `KeySysSwitchNext` but moving in the
+    opposite direction.
+
 ## MOUSE BINDINGS
 
 You can control windows by a modified mouse button press:
@@ -749,6 +776,12 @@ You can control windows by a modified mouse button press:
 - `Ctrl+Alt+Pointer_Button1`
 
     `MouseWinRaise` raises the window under the mouse.
+
+- `Ctrl+Alt+Pointer_Button1`
+
+    `MouseWinLower` lowers the window under the mouse.
+    If this is equal to `MouseWinRaise` and the window can be raised
+    then `MouseWinRaise` takes preference over `MouseWinLower`.
 
 Clicking on the desktop activates a menu.  The middle button shows the
 window list (`DesktopWinListButton=2`).  The right button shows the
@@ -796,7 +829,7 @@ right button moves the window.
     The name of the X11 server.  See [Xorg(1)](https://manned.org/Xorg.1) or [Xserver(1)](https://manned.org/Xserver.1).  This
     value can be overridden by the **--display** option.
 
-- **MAIL**
+- **MAILPATH**, **MAIL**
 
     Gives the location of your mailbox.  If the schema is omitted the local
     "file" schema is assumed.  This is used by the mailbox applet in the
@@ -841,7 +874,7 @@ the given order, until it finds one:
 
     [icewm-session(1)](icewm-session.md) loads additional environment variables from the file
     `env`.  Each line is subjected to POSIX shell expansion by
-    [wordexp(3)](https://manned.org/wordexp.3).  Comment lines starting by a hash-sign (`#`)are ignored.
+    [wordexp(3)](https://manned.org/wordexp.3).  Comment lines starting by a hash-sign (`#`) are ignored.
     [icewm-session(1)](icewm-session.md) will load those expanded lines which contain a name,
     followed by an equals sign, followed by the value (which may be empty).
 
@@ -1022,6 +1055,8 @@ the given order, until it finds one:
     `default.theme` file, and optionally theme alternatives which are
     additional files which have a `.theme` file name extension and which
     contain tweaks of the `default.theme` file.
+    How to create a theme is explained in the
+    [IceWM Theme Creation Howto](https://ice-wm.org/themes).
 
 # EXAMPLES
 

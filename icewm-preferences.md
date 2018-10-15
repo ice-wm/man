@@ -76,6 +76,10 @@ The following preferences affect focus and general behavior of
 
     Change to the workspace of newly focused windows.
 
+- **FocusCurrentWorkspace**=0
+
+    Move newly focused windows to current workspace.
+
 - **FocusOnMap**=1
 
     Focus normal window when initially mapped.

@@ -41,6 +41,11 @@ Where,
 
     The literal string keyword.
 
+- **switchkey**
+
+    The literal string keyword, used as alternative to `key` to build
+    menu-like quickswitch popups.
+
 - _key\_combination_
 
     Any combination of keys, separated by plus-sign (`+`).
@@ -49,8 +54,8 @@ Where,
 
     _program_ is the name of the executable or full path to the executable
     file that will be run in response to selecting the menu item.  When used
-    with the **menuprog** keyword, the _program_ must print on standard
-    output the contents of the menu and is used for dynamic menus.
+    with the **switchkey** keyword, the _program_ must print on standard
+    output the contents of the popup like it would be used for dynamic menus.
 
     _options_ is the options and arguments passed to the _program_
     verbatim.
@@ -89,6 +94,9 @@ Following is the example `keys` file that ships with [icewm(1)](icewm.md):
     key "XF86HomePage" xdg-open about:blank
     key "XF86Search" xdg-open http://www.google.com
     key "XF86Eject" eject
+
+    # display and select monitor setup configurations
+    switchkey "Super+p" icewm-menu-xrandr
 
 # FILES
 
