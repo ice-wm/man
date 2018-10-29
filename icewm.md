@@ -759,6 +759,11 @@ their preferences names and short descriptions of their effect:
     `KeySysSwitchLast` works like `KeySysSwitchNext` but moving in the
     opposite direction.
 
+- `Alt+grave`
+
+    `KeySysSwitchClass` is like `KeySysSwitchNext` but only for windows
+    with the same WM\_CLASS property as the currently focused window.
+
 ## MOUSE BINDINGS
 
 You can control windows by a modified mouse button press:
