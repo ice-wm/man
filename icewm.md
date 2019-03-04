@@ -172,9 +172,7 @@ The **icewm** program supports some additional options:
 
 - **-r**, **--restart**
 
-    Instructs **icewm** to restart itself, but one should not use this option
-    directly. Instead one selects the `Restart IceWM` button from the menu
-    in the lower left corner of the desktop.
+    Tell **icewm** to restart itself. This reloads the configuration from file.
 
 - **--configured**
 
