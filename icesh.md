@@ -8,16 +8,13 @@ title: "icesh(1)"
 # SYNOPSIS
 
 - **icesh** \[_OPTIONS_\] _ACTIONS_
-- **icesh** {**-h**\|**--help**}
-- **icesh** {**-V**\|**--version**}
-- **icesh** {**-C**\|**--copying**}
 
 # DESCRIPTION
 
 **icesh** provides commands for use by shell scripts that affect a
-window's state similar to [wmctrl(1)](https://manned.org/wmctrl.1) or [xdotool(1)](https://manned.org/xdotool.1), except more
-limited, specifically for **icewm(1)**, and limited to affecting GNOME
-WinWM/WMH properties.
+window's state, similar to [wmctrl(1)](https://manned.org/wmctrl.1) or [xdotool(1)](https://manned.org/xdotool.1), except
+mostly limited to GNOME WinWM/WMH properties
+and **icewm(1)** specific commands.
 
 # OPTIONS
 
@@ -29,12 +26,7 @@ Command options are mutually exclusive.  Only one command option can be
 specified per invocation.  If no command option is specified, action
 argument parsing and processing is performed.
 
-- **-display** _DISPLAY_
-
-    Specifies the X11 _DISPLAY_ to use.  When unspecified, defaults to the
-    $DISPLAY environment variable.
-
-- **-window** _WINDOW\_ID_
+- **-w**, **-window** _WINDOW\_ID_
 
     Specifies the identifier of the window, _WINDOW\_ID_, for which the
     action applies.
@@ -43,7 +35,7 @@ argument parsing and processing is performed.
     When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
     is invoked to select the desired window.
 
-- **-class** _WM\_CLASS_
+- **-c**, **-class** _WM\_CLASS_
 
     Specifies the window manager class, _WM\_CLASS_, for which the action
     applies.
@@ -54,7 +46,20 @@ argument parsing and processing is performed.
     When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
     is invoked to select the desired window.
 
+- **-r**, **-root**
+
+    Is equivalent to **-window** **root**.
+
+- **-f**, **-focus**
+
+    Is equivalent to **-window** **focus**.
+
 ## GENERAL OPTIONS
+
+- **-d**, **-display** _DISPLAY_
+
+    Specifies the X11 _DISPLAY_ to use.  When unspecified, defaults to the
+    $DISPLAY environment variable.
 
 - **-h**, **--help**
 
@@ -72,7 +77,7 @@ argument parsing and processing is performed.
 
 **icesh** accepts the following arguments:
 
-- **ACTIONS** ::= _ACTION_\[ _ACTION_\]\*
+- **ACTIONS** ::= _ACTION_ \[_ACTION_\]\*
 
     Actions can be one of:
 
@@ -99,7 +104,7 @@ argument parsing and processing is performed.
 
         Toggle the GNOME window state bits specified by the _STATE_ expression
         for the specified window.  See ["GNOME window state"](#gnome-window-state), below, for
-            _STATE_ symbols.
+        _STATE_ symbols.
 
     - **setHints** _HINTS_
 
@@ -114,7 +119,8 @@ argument parsing and processing is performed.
     - **setWorkspace** _WORKSPACE_
 
         Moves the specified window to another workspace.  Select the root
-        window to change the current workspace.
+        window to change the current workspace. If _WORKSPACE_ is `All`
+        then the specified window becomes visible on all workspaces.
 
     - **listWorkspaces**
 
@@ -125,6 +131,74 @@ argument parsing and processing is performed.
         Set the _IceWM tray option_ hint for the specified window to
         _TRAYOPTION_.  See ["IceWM tray options"](#icewm-tray-options), below, for _TRAYOPTION_
         symbols.
+
+    The following actions do not require a window or class option:
+
+    - **check**
+
+        Prints information about the current window manager, like name,
+        version, class, locale, command, host name and pid.
+
+    - **clients**
+
+        Lists all managed client windows, their titles and geometries.
+
+    - **shown**
+
+        Lists all managed client windows for the current desktop,
+        their titles and geometries.
+
+    - **windows**
+
+        Lists all toplevel windows, their titles and geometries.
+
+    - **logout**
+
+        Ask IceWM to execute the `LogoutCommand`.
+
+    - **reboot**
+
+        Ask IceWM to execute the `RebootCommand`.
+
+    - **shutdown**
+
+        Ask IceWM to execute the `ShutdownCommand`.
+
+    - **cancel**
+
+        Ask IceWM to cancel the logout/reboot/shutdown.
+
+    - **about**
+
+        Ask IceWM to show the about window.
+
+    - **windowlist**
+
+        Ask IceWM to show the window list window.
+
+    - **restart**
+
+        Ask IceWM to restart.
+
+    - **suspend**
+
+        Ask IceWM to execute the `SuspendCommand`.
+
+    - **guievents**
+
+        Monitor the **ICEWM\_GUI\_EVENT** property and report all changes.
+
+    - **colormaps**
+
+        Monitor which colormap is installed.
+
+    - **runonce** _program_ \[_arguments..._\]
+
+        This action is meant to be used together with the **-class** option.
+        Only if no window is matched by _WM\_CLASS_ then
+        _program_ \[_arguments..._\] is executed.
+
+    Some actions require one or two _EXPRESSION_ arguments.
 
 - **EXPRESSION** ::= _SYMBOL_ \| _EXPRESSION_ { `+` \| `\|` }
 _SYMBOL_
@@ -198,13 +272,12 @@ associated with a window, or to list and parse information about
 existing windows.
 
 It should be noted that **icesh** works on any window manager that is
-compliant with the GNOME WinWM/WMH specification.  The `setTrayOption`
-action; however, is IceWM specific.
+compliant with the GNOME WinWM/WMH specification.  Some commands, like
+`setTrayOption` and the actions, however, are IceWM specific.
 
 # EXAMPLES
 
-The following command will list all the workspaces associated with the
-root window after a window (any window) is selected:
+The following command lists all workspace names:
 
     icesh listWorkspaces
 
@@ -225,8 +298,7 @@ The following environment variables are set or examined by **icesh**:
 
 - **DISPLAY**
 
-    When the **-display** option is not specified, the `DISPLAY` environment
-    variable is consulted to determine the display.
+    Which display to use, in case the **-display** option is not specified.
 
 # COMPLIANCE
 
@@ -241,10 +313,10 @@ for current versions to the source code repository at
 
 # HISTORY
 
-**icesh** is historical and deprecated.  The command originally (and
-still) only supported the GNOME WinWM/WMH specification.  Unlike
-[wmctrl(1)](https://manned.org/wmctrl.1) and [xdotool(1)](https://manned.org/xdotool.1), NetWM/EWMH support was never included.
-Except for the `setTrayOption` command, [wmctrl(1)](https://manned.org/wmctrl.1) and [xdotool(1)](https://manned.org/xdotool.1)
+**icesh** is historical and deprecated.  The command only supports
+the GNOME WinWM/WMH specification and IceWM specific commands.  Unlike
+[wmctrl(1)](https://manned.org/wmctrl.1) and [xdotool(1)](https://manned.org/xdotool.1), support for NetWM/EWMH was never included.
+For most of the supported commands, [wmctrl(1)](https://manned.org/wmctrl.1) and [xdotool(1)](https://manned.org/xdotool.1)
 are quite capable of performing the necessary functions and more.
 
 # AUTHOR
