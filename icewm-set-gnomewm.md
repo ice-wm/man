@@ -3,7 +3,7 @@ title: "icewm-set-gnomewm(1)"
 ---
 # NAME
 
-    icewm-set-gnomewm - modify GNOME settings to use IceWM 
+    icewm-set-gnomewm - modify GNOME settings to use IceWM
 
 # SYNOPSIS
 

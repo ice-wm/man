@@ -420,6 +420,10 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 
     Show windows in the tray.
 
+- **TaskBarEnableSystemTray**=1
+
+    Enable the system tray in the taskbar.
+
 - **TrayShowAllWindows**=1
 
     Show windows from all workspaces on tray.
@@ -492,6 +496,17 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 
     Place workspace pager on top row when using dual-height taskbar.
 
+- **TaskBarUseMouseWheel**=1
+
+    Enable mouse wheel cycling over workspaces and task buttons in taskbar.
+
+- **TaskBarClockLeds**=0 # 0/1
+
+    Task bar clock/APM uses nice pixmapped LCD display (but then it
+    doesn't display correctly in many languages anymore, e.g. for
+    Japanese and Korean it works only when a real font is used and not
+    the LEDs.
+
 - **PagerShowPreview**=1
 
     Show a mini desktop preview on each workspace button.
@@ -523,6 +538,30 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 - **ShowAddressBar**=1
 
     Show address bar in task bar.
+
+- **MultiByte**=1
+
+    Overrides automatic multiple byte detection.
+
+- **ConfirmLogout**=1
+
+    Confirm logout.
+
+- **ShapesProtectClientWindow**=1
+
+    Don't cut client windows by shapes set trough frame corner pixmap.
+
+- **DoubleBuffer**=1
+
+    Use double buffering when redrawing the display.
+
+- **XRRDisable**=1
+
+    Disable use of new XRANDR API for dual head (nvidia workaround).
+
+- **PreferFreetypeFonts**=1
+
+    Favor Xft fonts over core X11 fonts where possible.
 
 - **MailBoxPath**=""
 
@@ -560,6 +599,15 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 
     Clock Date format for tooltip (strftime format string).
 
+- **XRRPrimaryScreenName**=""
+
+    Screen/output name of the primary screen.
+
+- **AcpiIgnoreBatteries**=""
+
+    List of battery names (directories) in /proc/acpi/battery to ignore.
+    Useful when more slots are built-in, but only one battery is used.
+
 - **TaskBarCPUSamples**=20  \[2-1000\]
 
     Width of CPU Monitor.
@@ -595,6 +643,22 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 - **XineramaPrimaryScreen**=0  \[0-63\]
 
     Primary screen for xinerama (taskbar, ...).
+
+- **TaskbuttonIconOffset**=0 # \[0-16\]
+
+    Width of taskbutton side icons.
+
+- **TrayIconMaxWidth**=32 # \[16-128\]
+
+    Maximum scaled width of tray icons.
+
+- **TrayIconMaxHeight**=24 # \[16-128\]
+
+    Maximum scaled height of tray icons.
+
+- **TrayDrawBevel**=0 # 0/1
+
+    Surround the tray with plastic border.
 
 ## MENUS
 
@@ -767,6 +831,10 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 
     Desktop mouse-button click to show the window list menu.
 
+- **DesktopWinListButton**=2 # \[0-20\]
+
+    Desktop mouse-button click to show the window list
+
 - **DesktopMenuButton**=3  \[0-20\]
 
     Desktop mouse-button click to show the root menu.
@@ -845,6 +913,10 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 
     Command to reboot the system.
 
+- **SuspendCommand**="test -e /run/systemd/system && systemctl suspend"
+
+    Command to send the system to standby mode
+
 - **CPUStatusCommand**="xterm -name top -title Process\\ Status -e top"
 
     Command to run on CPU status.
@@ -871,6 +943,18 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 
 ## WINDOW MENUS
 
+- **WinMenuItems**="rmsnxfhualyticw"
+
+    Items supported in menu window (rmsnxfhualytickw)
+
+- **RolloverButtonsSupported**=0
+
+    Does it support the 'O' title bar button images (for mouse rollover).
+
+- **ShowMenuButtonIcon**=1 # 0/1
+
+    Show application icon over menu button
+
 ## THEME SETTINGS
 
 This section shows settings that can be set in theme files.  They can
@@ -888,6 +972,16 @@ values are shown following the equal sign.
 - **ThemeDescription**=""
 
     Description of the theme, credits.
+
+- **Look**="nice"
+
+    Choose a theme look from one of:
+    "win95", "motif", "warp3", "warp4",
+    "nice", "pixmap", "metal", "gtk", "flat".
+
+- **Gradients**=""
+
+    List of gradient pixmaps in the current theme.
 
 ### Borders, Icons, Margins and Buttons
 
@@ -986,6 +1080,18 @@ values are shown following the equal sign.
 - **TitleButtonsSupported**="xmis"
 
     Titlebar buttons supported by theme (x,m,i,r,h,s,d).
+
+- **TitleBarCentered**=0 # 0/1
+
+    Draw window title centered (obsoleted by TitleBarJustify).
+
+- **TitleBarJoinLeft**=0 # 0/1
+
+    Join title\*S and title\*T.
+
+- **TitleBarJoinRight**=0 # 0/1
+
+    Join title\*T and title\*B.
 
 ### Fonts
 
@@ -1354,7 +1460,7 @@ values are shown following the equal sign.
 
     Textcolor of APM monitor.
 
-- **ColorApmBattary** = "rgb:FF/FF/00"
+- **ColorApmBattery** = "rgb:FF/FF/00"
 
     Color of APM monitor in battary mode.
 
@@ -1475,8 +1581,6 @@ The following preferences are read by [icewmbg(1)](icewmbg.md):
 
     Paint the background image over all multihead monitors combined.
 
-### Task Bar
-
 # EXAMPLES
 
 # FILES
@@ -1502,6 +1606,18 @@ Locations for the `preferences` file are as follows:
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 989:
+
+    '=item' outside of any '=over'
+
+- Around line 1001:
+
+    You forgot a '=back' before '=head2'
 
 | ------------: | :--------- |
 | [Index](/man) | [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org") |

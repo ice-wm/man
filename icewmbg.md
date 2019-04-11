@@ -120,7 +120,7 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
     Cycle over the list of background images every _SECONDS_.
     This overrules the `CycleBackgroundsPeriod` preference.
 
-- **--display**=_DISPLAY_
+- **-d**, **--display**=_DISPLAY_
 
     Use _DISPLAY_ to connect to the X server.
     If this option is missing then _DISPLAY_

@@ -129,7 +129,7 @@ Following is the example `programs` file that ships with [icewm(1)](icewm.md):
     # mostly obsolete, fixme
     menu Editors folder {
         prog fte fte fte
-        prog vim vim gvim 
+        prog vim vim gvim
         prog xemacs xemacs xemacs
         prog emacs emacs emacs
         prog NEdit nedit nedit

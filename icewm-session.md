@@ -44,7 +44,7 @@ support applications.
 
 ## GENERAL OPTIONS
 
-- **--display**=_DISPLAY_
+- **-d**, **--display**=_DISPLAY_
 
     Use _DISPLAY_ to connect to the X server.
     If this option is missing then _DISPLAY_

@@ -277,7 +277,7 @@ created that window.  A primary task of a window manager is to allow the
 user to switch input focus between different windows.  The primary means
 to do this is the mouse pointer.  By moving the mouse pointer over the
 screen to another window, and perhaps also by clicking on a window,
-input focus can be directed. 
+input focus can be directed.
 
 The `FocusMode` option controls the way **icewm** gives input focus to
 applications.  It is initialized by the `focus_mode` configuration
@@ -435,7 +435,7 @@ their preferences names and short descriptions of their effect:
 
 - `Alt+F1`
 
-    `KeyWinRaise` raises the window which currently has input focus. 
+    `KeyWinRaise` raises the window which currently has input focus.
 
 - `Alt+F2`
 

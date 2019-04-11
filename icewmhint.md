@@ -27,6 +27,12 @@ Command options are mutually exclusive.  Only one command option can be
 specified per invocation.  If no command option is specified, argument
 parsing and processing is performed.
 
+- **-d**, **--display**=_DISPLAY_
+
+    Use _DISPLAY_ to connect to the X server.
+    If this option is missing then _DISPLAY_
+    is read from the environment variable `DISPLAY`.
+
 - **-h**, **--help**
 
     Print a brief usage statement to `stdout` and exit.

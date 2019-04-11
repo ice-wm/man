@@ -27,16 +27,6 @@ display the [IceWM Manual](https://ice-wm.org/manual) and the manual pages.
 
 ## SPECIFIC OPTIONS
 
-- **--display**=_DISPLAY_
-
-    Use _DISPLAY_ to connect to the X server.
-    If this option is missing then _DISPLAY_
-    is read from the environment variable `DISPLAY`.
-
-- **--sync**
-
-    Use a slower synchronous mode communication with _X11_ server.
-
 - **-B**
 
     Display the IceWM icewmbg manpage.
@@ -74,6 +64,16 @@ display the [IceWM Manual](https://ice-wm.org/manual) and the manual pages.
     Display the IceWM website.
 
 ## GENERAL OPTIONS
+
+- **-d**, **--display**=_DISPLAY_
+
+    Use _DISPLAY_ to connect to the X server.
+    If this option is missing then _DISPLAY_
+    is read from the environment variable `DISPLAY`.
+
+- **--sync**
+
+    Use a slower synchronous mode communication with _X11_ server.
 
 - **-h**, **--help**
 

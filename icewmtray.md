@@ -58,6 +58,12 @@ parsing and processing is performed.
 
     Specifies an override theme to use.
 
+- **-d**, **--display**=_DISPLAY_
+
+    Use _DISPLAY_ to connect to the X server.
+    If this option is missing then _DISPLAY_
+    is read from the environment variable `DISPLAY`.
+
 - **--debug**
 
     Specifies that debugging is to be turned on.  **icewmtray** must have
