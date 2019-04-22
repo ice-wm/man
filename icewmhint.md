@@ -3,35 +3,35 @@ title: "icewmhint(1)"
 ---
 # NAME
 
-    icewmhint - set IceWM hints by window class and instance
+icewmhint - set IceWM hints by window class and instance
 
 # SYNOPSIS
 
-**icewmhint** \[_CLASS_**.**_INSTANCE_\] _OPTION_ _VALUE_
+**icewmhint** _CLASS_**.**_INSTANCE_ _OPTION_ _VALUE_ ...
 
 # DESCRIPTION
 
-**icewmhint** is a simple utility for passing IceWM hints to [icewm(1)](icewm.md)
-by window class and instance.  Unlike tools that use WMH or EWMH, such
-as [icesh(1)](icesh.md), [wmctrl(1)](https://manned.org/wmctrl.1) and [xdotool(1)](https://manned.org/xdotool.1), **icewmhint** uses a
-special property, `_ICEWM_WINOPHINT`, on the root window to pass
-special hints to [icewm(1)](icewm.md).
+**icewmhint** is a utility for passing IceWM hints to [icewm(1)](icewm.md).
+**icewm** uses these hints for the first _X11 client_ which is
+subsequently started. They take precedence over hints from
+the [icewm-winoptions(1)](icewm-winoptions.md) file.
+
+A hint is a triplet consisting of a _class.instance_, an
+_IceWM winoption_ and its value. Multiple hints can be given per
+invocation of **icewmhint**.
+
+The hints are communicated over the `_ICEWM_WINOPTHINT` property on
+the root window.  **icewmhint** appends hints to this property, while
+**icewm** removes the property after reading it.
 
 # OPTIONS
 
-**icesh** recognizes the following options:
+**icewmhint** recognizes the following options:
 
 ## COMMAND OPTIONS
 
-Command options are mutually exclusive.  Only one command option can be
-specified per invocation.  If no command option is specified, argument
-parsing and processing is performed.
-
-- **-d**, **--display**=_DISPLAY_
-
-    Use _DISPLAY_ to connect to the X server.
-    If this option is missing then _DISPLAY_
-    is read from the environment variable `DISPLAY`.
+Only one command option can be specified per invocation.  If no command
+option is specified, argument parsing and processing is performed.
 
 - **-h**, **--help**
 
@@ -47,43 +47,48 @@ parsing and processing is performed.
 
 ## GENERAL OPTIONS
 
-**icewmhint** has not general options: all information is passed using
-non-option arguments.
+- **-d**, **--display**=_DISPLAY_
+
+    Specifies the X11 DISPLAY. If unspecified, defaults to **$DISPLAY**.
 
 # ARGUMENTS
 
-The following arguments are required:
+The following three arguments are required for each hint.
 
-- \[_CLASS_**.**_INSTANCE_\]
+- _CLASS_**.**_INSTANCE_
 
-    Specifies the ICCCM 2.0 **WM\_CLASS** property in terms of resource name
-    and resource class separated by a period (`.`).  For example:
-    `XTerm.xterm`.  This argument must be specified for all commands
-    affecting client windows.
+    Specifies the ICCCM 2.0 **WM\_CLASS** property in terms of resource class
+    and resource name separated by a period (`.`).  For example:
+    `XTerm.xterm`. Just the resource class or resource name without a dot
+    is also acceptable, like `XTerm` or `xterm`.
 
-- _OPTION_ _VALUE_
+- _OPTION_
 
-    Specifies the _OPTION_ to affect and the _VALUE_ that goes with the
-    option.  Options and their arguments are as follows:
+    Specifies the _OPTION_ to affect.
+
+- _VALUE_
+
+    Gives the _VALUE_ for the option.
+
+Multiple hints can be given.
 
 ## GENERAL OPTION ARGUMENTS
 
-General option arguments are normally associated with GNOME WinWM/WMH
+General option arguments are normally associated with _GNOME WinWM/WMH_
 hints (except for the tray option argument).
 
 - **icon** _NAME_
 
     Specifies the icon name for windows of _CLASS_**.**_INSTANCE_.
-    _NAME_ should be the name of the icon.  [icewm(1)](icewm.md) will use is
-    usual method to find the icon.  The default is the name provided by
-    window manager hints.
+    _NAME_ should be the name of the icon.  [icewm(1)](icewm.md) will use its
+    usual method to locate the icon.  The default is the name provided
+    by window manager hints.
 
 - **workspace** _WORKSPACE_
 
     Specifies the workspace on which a window of _CLASS_**.**_INSTANCE_
-    will be initially placed.  The default is to place the window on the
-    current workspace.  _WORKSPACE_ should be a numeric workspace
-    number (counting from 0).
+    will be initially placed.  The default is the current workspace.
+    _WORKSPACE_ should be a workspace number counting from 0.
 
 - **geometry** _GEOMETRY_
 
@@ -94,14 +99,14 @@ hints (except for the tray option argument).
 
 - **layer** {**Desktop**\|**Below**\|**Normal**\|**OnTop**\|**Dock**\|**AboveDock**\|**Menu**\|_NUMBER_}
 
-    The layer is a similar concept to the layer specified by GNOME/WMH and
-    implied by NetWM/EWMH.  It is in this case however specific to
+    The layer is a similar concept to the layer specified by _GNOME/WMH_ and
+    implied by _NetWM/EWMH_.  It is in this case however specific to
     [icewm(1)](icewm.md).
 
-    The command option specifies the layer to be associated with an
+    This command option specifies the layer to be associated with a
     _CLASS_**.**_INSTANCE_.  The default is the `Normal` layer.  _VALUE_
-    is either a numeric layer _NUMBER_ or a symbolic layer name.  Symbolic
-    layer names are one of the following:
+    is either a layer number or a symbolic layer name.  Symbolic
+    layer names are:
 
         Desktop    (0)  desktop window layer.
         Below      (2)  below normal windows.
@@ -116,7 +121,7 @@ hints (except for the tray option argument).
     Specifies the tray handling to be applied to windows with
     _CLASS_**.**_INSTANCE_.  This option is specific to [icewm(1)](icewm.md) and
     sets the `_ICEWM_TRAY` property associated with the window.
-    The default is `Ignore`.  _VALUE_ can be a numerical option _NUMBER_
+    The default is `Ignore`.  _VALUE_ can be an option number
     or a symbolic name as follows:
 
         Ignore     (0)  only in task list.
@@ -125,10 +130,10 @@ hints (except for the tray option argument).
 
 ## FUNCTION OPTION ARGUMENTS
 
-Specifies which functions are disabled/enabled (0/1) for windows with
-_CLASS_**.**_INSTANCE_.  All function options have a default value of
-enabled (1) unless overridden by the application.  The Motif-like
-functions are as follows:
+Specifies which functions are disabled or enabled (0/1) for windows with
+_CLASS_**.**_INSTANCE_.  All functions have a default value of enabled
+(1) unless overridden by the application.  The Motif-like functions are
+as follows:
 
     fClose     can be closed:        (default: 1).
     fHide      can be hidden:        (default: 1).
@@ -140,9 +145,9 @@ functions are as follows:
 
 ## DECOR OPTION ARGUMENTS
 
-Specifies which decorations are disabled/enabled (0/1) for windows with
-_CLASS_**.**_INSTANCE_.  All decor options have a default value of
-enabled (1) unless overridden by the application. The Motif-like
+Specifies which decorations are disabled or enabled (0/1) for windows
+with _CLASS_**.**_INSTANCE_.  All decor options have a default value
+of enabled (1) unless overridden by the application. The Motif-like
 decorations are as follows:
 
     dBorder    has border:           (default: 1).
@@ -170,6 +175,7 @@ advanced features are as follows:
     forcedClose               no close dialog.
     fullKeys                  provided more keys.
     ignoreNoFocusHint         focus even no-input.
+    ignorePagerPreview        do not show in pager preview.
     ignorePositionHint        place automatically.
     ignoreQuickSwitch         not on quick switch.
     ignoreTaskBar             not on task bar.
@@ -184,6 +190,19 @@ advanced features are as follows:
     startMaximizedHorz        start maximized horizontal.
     startMaximizedVert        start maximized vertical.
     startMinimized            start minimized.
+
+# EXAMPLE
+
+    # Here is how to preload an invisible background process of chromium
+    # on the fourth workspace which is only visible on the Window List.
+
+    icewmhint Chromium-browser startMinimized 1 \
+              Chromium-browser workspace 3 \
+              Chromium-browser ignorePagerPreview 1 \
+              Chromium-browser ignorePositionHint 1 \
+              Chromium-browser ignoreTaskBar 1 \
+              Chromium-browser ignoreQuickSwitch 1
+    chromium
 
 # BUGS
 

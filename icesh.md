@@ -22,29 +22,24 @@ and **icewm(1)** specific commands.
 
 ## COMMAND OPTIONS
 
-Command options are mutually exclusive.  Only one command option can be
-specified per invocation.  If no command option is specified, action
-argument parsing and processing is performed.
+A command option specifies the window or windows to which subsequent
+arguments apply. If no command option is given, but an argument
+does require a window then a selection crossbar is invoked to select
+the desired window interactively. Some arguments do not require this.
 
 - **-w**, **-window** _WINDOW\_ID_
 
     Specifies the identifier of the window, _WINDOW\_ID_, for which the
-    action applies.
-    Special identifiers are **root** for the root window
+    action applies.  Special identifiers are **root** for the root window
     and **focus** for the currently focused window.
-    When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
-    is invoked to select the desired window.
 
 - **-c**, **-class** _WM\_CLASS_
 
     Specifies the window manager class, _WM\_CLASS_, for which the action
-    applies.
-    If _WM\_CLASS_ contains a period, only windows with exactly
+    applies.  If _WM\_CLASS_ contains a period, only windows with exactly
     the same _WM\_CLASS_ property are matched.  If there is no period,
     windows of the same class and windows of the same instance (aka. _-name_)
     are selected.
-    When no _WINDOW\_ID_ or _WM\_CLASS_ is specified, a selection crossbar
-    is invoked to select the desired window.
 
 - **-r**, **-root**
 
@@ -58,8 +53,7 @@ argument parsing and processing is performed.
 
 - **-d**, **-display** _DISPLAY_
 
-    Specifies the X11 _DISPLAY_ to use.  When unspecified, defaults to the
-    $DISPLAY environment variable.
+    Specifies the X11 DISPLAY.  If unspecified, defaults to **$DISPLAY**.
 
 - **-h**, **--help**
 
@@ -85,19 +79,31 @@ argument parsing and processing is performed.
 
         Set the icon title for the specified window to _TITLE_.
 
+    - **getIconTitle**
+
+        Prints the icon title for the specified window.
+
     - **setWindowTitle** _TITLE_
 
         Set the window title for the specified window to _TITLE_
+
+    - **getWindowTitle**
+
+        Prints the window title for the specified window.
 
     - **setGeometry** _GEOMETRY_
 
         Set the window geometry for the specified window to _GEOMETRY_.
 
+    - **getGeometry**
+
+        Prints the window geometry for the specified window.
+
     - **setState** _MASK_ _STATE_
 
         Set the GNOME window state for the specified window to _STATE_.  Only
         the bits selected by _MASK_ are affected.  _STATE_ and _MASK_ are
-        expressions of the domain _GNOME window state_.  See ["GNOME window
+        expressions of the domain GNOME window state.  See ["GNOME window
         state"](#gnome-window-state), below, for _STATE_ and _MASK_ symbols.
 
     - **toggleState** _STATE_
@@ -106,21 +112,37 @@ argument parsing and processing is performed.
         for the specified window.  See ["GNOME window state"](#gnome-window-state), below, for
         _STATE_ symbols.
 
+    - **getState**
+
+        Prints the GNOME window state for the specified window.
+
     - **setHints** _HINTS_
 
-        Set the _GNOME window hints_ for the specified window to _HINTS_.  See
+        Set the GNOME window hints for the specified window to _HINTS_.  See
         ["GNOME window hints"](#gnome-window-hints), below, for _HINTS_ symbols.
+
+    - **getHints**
+
+        Prints the GNOME window hints for the specified window.
 
     - **setLayer** _LAYER_
 
-        Moves the specified window to another _GNOME window layer_.  See
+        Moves the specified window to another GNOME window layer.  See
         ["GNOME window layer"](#gnome-window-layer), below, for _LAYER_ symbols.
+
+    - **getLayer**
+
+        Prints the GNOME window layer for the specified window.
 
     - **setWorkspace** _WORKSPACE_
 
         Moves the specified window to another workspace.  Select the root
         window to change the current workspace. If _WORKSPACE_ is `All`
         then the specified window becomes visible on all workspaces.
+
+    - **getWorkspace**
+
+        Prints the workspace for the specified window.
 
     - **listWorkspaces**
 
@@ -132,7 +154,11 @@ argument parsing and processing is performed.
         _TRAYOPTION_.  See ["IceWM tray options"](#icewm-tray-options), below, for _TRAYOPTION_
         symbols.
 
-    The following actions do not require a window or class option:
+    - **getTrayOption**
+
+        Prints the IceWM tray option for the specified window.
+
+    The following actions do not require a window or class command option:
 
     - **check**
 
@@ -294,11 +320,11 @@ Example output:
 
 # ENVIRONMENT
 
-The following environment variables are set or examined by **icesh**:
+The following environment variables are examined by **icesh**:
 
 - **DISPLAY**
 
-    Which display to use, in case the **-display** option is not specified.
+    The display to use if the **-display** option is unspecified.
 
 # COMPLIANCE
 
