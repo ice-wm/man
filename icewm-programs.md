@@ -196,7 +196,7 @@ Following is the example `programs` file that ships with [icewm(1)](icewm.md):
 
 # FILES
 
-Locations for the programs file are as follows:
+Locations for the `programs` file are as follows:
 
 - `$ICEWM_PRIVCFG/programs`
 - `$XDG_CONFIG_HOME/icewm/programs`

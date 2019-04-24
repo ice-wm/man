@@ -27,7 +27,7 @@ terminates.
 
 # FILES
 
-Locations for the toolbar options file are as follows:
+Locations for the `shutdown` file are as follows:
 
 - `$ICEWM_PRIVCFG/shutdown`
 - `$XDG_CONFIG_HOME/icewm/shutdown`

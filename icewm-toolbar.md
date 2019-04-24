@@ -83,7 +83,7 @@ Following is an example that places a number of toolbar buttons on the
 
 # FILES
 
-Locations for the toolbar options file are as follows:
+Locations for the `toolbar` file are as follows:
 
 - `$ICEWM_PRIVCFG/toolbar`
 - `$XDG_CONFIG_HOME/icewm/toolbar`

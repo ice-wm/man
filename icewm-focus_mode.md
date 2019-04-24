@@ -32,7 +32,7 @@ The following is my `focus_mode` file:
 
 # FILES
 
-Locations for the toolbar options file are as follows:
+Locations for the `focus_mode` file are as follows:
 
 - `$ICEWM_PRIVCFG/focus_mode`
 - `$XDG_CONFIG_HOME/icewm/focus_mode`

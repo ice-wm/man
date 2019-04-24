@@ -16,7 +16,8 @@ title: "icewm-env(5)"
 # DESCRIPTION
 
 [icewm-session(1)](icewm-session.md) loads additional environment variables from the file
-`env`.
+`env` before it does anything else. These variables are then propagated
+to all other processes, including [icewm(1)](icewm.md), via their environment.
 
 # FORMAT
 
@@ -33,9 +34,12 @@ followed by an equals sign, followed by the value (which may be empty).
     XDG_CURRENT_DESKTOP="ICEWM"
     XDG_MENU_PREFIX="unexicon-"
 
+    START_DATE=`date`
+    START_FROM=`pwd`
+
 # FILES
 
-Locations for the toolbar options file are as follows:
+[icewm-session(1)](icewm-session.md) looks for the `env` file in the following locations:
 
 - `$ICEWM_PRIVCFG/env`
 - `$XDG_CONFIG_HOME/icewm/env`

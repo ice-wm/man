@@ -26,7 +26,7 @@ It is run by [icewm-session(1)](icewm-session.md) when **icewm** starts.
 
 # FILES
 
-Locations for the toolbar options file are as follows:
+Locations for the `startup` file are as follows:
 
 - `$ICEWM_PRIVCFG/startup`
 - `$XDG_CONFIG_HOME/icewm/startup`

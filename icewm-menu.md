@@ -146,7 +146,7 @@ Following is the example `menu` file that ships with [icewm(1)](icewm.md):
 
 # FILES
 
-Locations for the menu file are as follows:
+Locations for the `menu` file are as follows:
 
 - `$ICEWM_PRIVCFG/menu`
 - `$XDG_CONFIG_HOME/icewm/menu`

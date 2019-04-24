@@ -54,7 +54,7 @@ that [icewm(1)](icewm.md) keeps a history of the previous ten theme settings.
 
 # FILES
 
-Locations for the toolbar options file are as follows:
+Locations for the `theme` file are as follows:
 
 - `$ICEWM_PRIVCFG/theme`
 - `$XDG_CONFIG_HOME/icewm/theme`

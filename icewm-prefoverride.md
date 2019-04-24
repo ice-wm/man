@@ -28,7 +28,7 @@ to leave this file empty initially.
 
 # FILES
 
-Locations for the toolbar options file are as follows:
+Locations for the `prefoverride` file are as follows:
 
 - `$ICEWM_PRIVCFG/prefoverride`
 - `$XDG_CONFIG_HOME/icewm/prefoverride`

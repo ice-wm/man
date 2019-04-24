@@ -234,7 +234,7 @@ and typically installs to `/usr/share/icewm/winoptions`.
 
 # FILES
 
-Locations for the window options file are as follows:
+Locations for the `winoptions` file are as follows:
 
 - `$ICEWM_PRIVCFG/winoptions`
 - `$XDG_CONFIG_HOME/icewm/winoptions`
