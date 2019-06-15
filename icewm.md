@@ -32,18 +32,18 @@ Generally, it tries to make all functions available by both keyboard and
 mouse.  Configuration is very good through various preferences files.
 However, configuring is not required: it works fine out of the box.
 
+## PROGRAMS
+
 The **icewm** package includes several programs:
 
 - [icewm(1)](icewm.md)
 
     The actual window manager. It positions application windows on screen
     and decorates them with borders. It gives input focus to the current
-    active application. **icewm** supports three different focus modes: click
-    to focus, sloppy mouse focus and a custom user-definable focus mode.
-    **icewm** also draws a small task bar at the bottom of the screen, which
-    gives easy
-    access to programs, to active applications, and to a small set of
-    monitoring applets.
+    active application. **icewm** supports different focus modes, which are
+    explained below. It draws a small task bar at the bottom of the screen,
+    which gives easy access to programs, to virtual desktops, to active
+    applications, and to a small set of monitoring applets.
 
 - [icewmbg(1)](icewmbg.md)
 
@@ -53,48 +53,48 @@ The **icewm** package includes several programs:
     background image and colour can be configured. When the background image
     has changed then [icewmbg(1)](icewmbg.md) can be notified to update the background.
     Multi-head monitor setups are fully supported.  This program should be
-    started before **icewm**.  See the [icewmbg(1)](icewmbg.md) manual page for details.
-
-- [icewmtray(1)](icewmtray.md)
-
-    Catches the system tray objects which are installed by various
-    applications.
+    started before **icewm**.  See the [icewmbg(1)](icewmbg.md) man page for details.
 
 - [icewm-session(1)](icewm-session.md)
 
-    Runs all of the above when needed.  It first loads additional
-    environment variables from the optional `env` file. Then it starts
-    [icewmbg(1)](icewmbg.md), [icewmtray(1)](icewmtray.md) and **icewm**.  It also runs the
-    `startup` script.  It implements basic session management.
     [icewm-session(1)](icewm-session.md) is the preferred program to start the IceWM system.
+    It first loads additional environment variables from the optional
+    `env` file. Then it starts [icewmbg(1)](icewmbg.md) and **icewm**. It also runs
+    the `startup` script and implements basic session management.
     On termination the `shutdown` script will be run first, then
-    [icewm-session(1)](icewm-session.md) will terminate [icewmtray(1)](icewmtray.md), **icewm** and
-    [icewmbg(1)](icewmbg.md).  If instead of [icewmtray(1)](icewmtray.md) you wish to run your own
-    tray application then give [icewm-session(1)](icewm-session.md) the **--notray** option.
-    [icewm-session(1)](icewm-session.md) will also start [icesound(1)](icesound.md) if you give it the
-    **--sound** option.  See the [icewm-session(1)](icewm-session.md) manual page for details.
+    [icewm-session(1)](icewm-session.md) will terminate **icewm** and [icewmbg(1)](icewmbg.md).
+    [icewm-session(1)](icewm-session.md) will also start the optional [icesound(1)](icesound.md)
+    if you give it the **--sound** option.  See [icewm-session(1)](icewm-session.md).
 
 - [icesh(1)](icesh.md)
 
-    Could be used to manage **icewm** internals from command line.
+    A powerful tool to control window properties and to interact with the
+    window manager. It is typically used in shell scripts. See [icesh(1)](icesh.md).
 
 - [icehelp(1)](icehelp.md)
 
-    Is used by **icewm** to display the 'IceWM manual' and the manual pages.
+    A small document browser, which is used by **icewm** to display the
+    'IceWM manual' and some man pages.
 
 - [icewmhint(1)](icewmhint.md)
 
-    Is used internally.
+    A utility for passing IceWM-specific window options to **icewm**.
+    The options are used to configure the first application which is started
+    subsequently.  See [icewmhint(1)](icewmhint.md).
 
 - [icesound(1)](icesound.md)
 
-    Plays audio files on GUI events raised by **icewm**.  It supports ALSA,
-    AO, EsounD and OSS.  See the [icesound(1)](icesound.md) manual page.
+    Plays audio files on GUI events which are raised by **icewm**.
+    It supports ALSA, AO and OSS.  See the [icesound(1)](icesound.md) man page.
 
 - [icewm-menu-fdo(1)](icewm-menu-fdo.md)
 
     Generate an **icewm** menu with executable desktop applications
-    according to XDG specifications.
+    according to XDG specifications. See the [icewm-menu-fdo(1)](icewm-menu-fdo.md) man page.
+
+- [icewm-set-gnomewm(1)](icewm-set-gnomewm.md)
+
+    Configures GNOME to start IceWM instead of its own WM.
 
 # OPTIONS
 
@@ -901,7 +901,7 @@ the given order, until it finds one:
     this key combination is pressed.  For example, the following line
     creates a hotkey to reload the **icewm** configuration:
 
-        key "Ctrl+Shift+r"      pkill -x -HUP icewm
+        key "Ctrl+Shift+r"      icesh restart
 
     See [icewm-keys(5)](icewm-keys.md).
 
@@ -940,6 +940,7 @@ the given order, until it finds one:
     An automatically generated menu of applications.  This could be used by
     [wmconfig(1)](https://manned.org/wmconfig.1), menu or similar programs to give easy access to all the
     desktop applications which are installed on the system.
+
     See [icewm-programs(5)](icewm-programs.md).
 
 - `theme`
@@ -983,8 +984,7 @@ the given order, until it finds one:
     specific to applications or groups of applications.  Options can control
     the border, whether it appears on the task bar, the window list, the
     system tray and the work spaces.  Also its layer, geometry, whether it
-    can be moved, resized and closed.  Full details for this file are
-    explained in the [IceWM Manual](https://ice-wm.org/manual).
+    can be moved, resized and closed.
 
     See [icewm-winoptions(5)](icewm-winoptions.md).
 
@@ -1061,6 +1061,22 @@ the given order, until it finds one:
     How to create a theme is explained in the
     [IceWM Theme Creation Howto](https://ice-wm.org/themes).
 
+## OPACITY
+
+> IceWM supports window opacity and transparency in connection with an
+> external compositor like [compton(1)](https://manned.org/compton.1). If a client window sets the
+> `_NET_WM_WINDOW_OPACITY` property on its window then **icewm** will copy
+> this to the outer frame window where **compton** will read it to adjust
+> the opacity of the client window. The opacity can also be controlled by
+> **icewm** when this is configured in the [icewm-winoptions(5)](icewm-winoptions.md) file.
+> Another way is to use [icewmhint(1)](icewmhint.md) to preset the opacity level
+> immediately before starting the application.  The opacity level of
+> running applications can always be queried or modified by [icesh(1)](icesh.md).
+>
+> The \_NET\_WM\_WINDOW\_TYPE properties which **icewm** sets on its windows
+> are _DIALOG_, _NOTIFICATION_, _POPUP\_MENU_ and _TOOLTIP_. The output
+> of `icesh windows` shows their WM\_CLASS values.
+
 # EXAMPLES
 
 Examples of the above configuration files can be found in the default
@@ -1095,7 +1111,6 @@ See the file `COMPLIANCE` in the distribution for full details.
 [icewm-winoptions(5)](icewm-winoptions.md),
 [icewmbg(1)](icewmbg.md),
 [icewmhint(1)](icewmhint.md),
-[icewmtray(1)](icewmtray.md),
 [Xorg(1)](https://manned.org/Xorg.1),
 [Xserver(1)](https://manned.org/Xserver.1),
 [xinit(1)](https://manned.org/xinit.1),

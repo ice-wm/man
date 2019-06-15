@@ -3,29 +3,38 @@ title: "icesh(1)"
 ---
 # NAME
 
-    icesh - control properties of windows
+icesh - control window properties and the IceWM window manager
 
 # SYNOPSIS
 
-- **icesh** \[_OPTIONS_\] _ACTIONS_
+- **icesh** _OPTIONS\|ACTIONS_+
 
 # DESCRIPTION
 
-**icesh** provides commands for use by shell scripts that affect a
-window's state, similar to [wmctrl(1)](https://manned.org/wmctrl.1) or [xdotool(1)](https://manned.org/xdotool.1), except
-mostly limited to GNOME WinWM/WMH properties
-and **icewm(1)** specific commands.
+**icesh** provides 69 commands to change or query a window's state,
+and to interact with the [icewm(1)](icewm.md) window manager. Command arguments
+are called actions. Window actions operate on a selection of windows.
+**icesh** has several options to select and filter windows.  Options and
+actions can be interspersed. They are processed and evaluated one after
+another from left to right. Therefore, an option can only affect a
+subsequent action, but not a previous one. Because of this, an action
+can operate on a different selection of windows than a previous action,
+if it is preceded by a new select option. In combination with filter
+options, this gives **icesh** its expressive power.
 
 # OPTIONS
 
 **icesh** recognizes the following options:
 
-## COMMAND OPTIONS
+## SELECT OPTIONS
 
-A command option specifies the window or windows to which subsequent
-arguments apply. If no command option is given, but an argument
-does require a window then a selection crossbar is invoked to select
-the desired window interactively. Some arguments do not require this.
+Select options specify the window or windows to which subsequent
+actions apply. If none is given, but an action does require a window,
+then a selection crossbar is invoked to select the desired window
+interactively. The manager actions do not require window options.
+
+The following five options _select_ one or more client windows.
+If needed, they can be repeated for successive actions.
 
 - **-w**, **-window** _WINDOW\_ID_
 
@@ -33,23 +42,87 @@ the desired window interactively. Some arguments do not require this.
     action applies.  Special identifiers are **root** for the root window
     and **focus** for the currently focused window.
 
-- **-c**, **-class** _WM\_CLASS_
-
-    Specifies the window manager class, _WM\_CLASS_, for which the action
-    applies.  If _WM\_CLASS_ contains a period, only windows with exactly
-    the same _WM\_CLASS_ property are matched.  If there is no period,
-    windows of the same class and windows of the same instance (aka. _-name_)
-    are selected.
-
 - **-r**, **-root**
 
-    Is equivalent to **-window** **root**.
+    Is equivalent to **-window** **root** and selects the root window.
 
 - **-f**, **-focus**
 
-    Is equivalent to **-window** **focus**.
+    Is equivalent to **-window** **focus** and selects the focused window.
+
+- **-a**, **-all**
+
+    Selects all clients of the window manager.
+
+- **-s**, **-shown**
+
+    Selects all currently visible clients of the window manager.
+
+- **-t**, **-top**
+
+    Selects all toplevel windows from the display unconditionally.
+
+## FILTER OPTIONS
+
+The following options _filter_ the currently selected set of windows.
+If no previous _select_ option was given then a **-all** option is
+implicitly assumed to filter all client windows.
+
+- **-c**, **-class** _WM\_CLASS_
+
+    Filters the set of windows on window manager class, _WM\_CLASS_.  If
+    _WM\_CLASS_ contains a period, only windows with exactly the same
+    _WM\_CLASS_ property are matched.  If there is no period, windows of the
+    same class and windows of the same instance (aka. _-name_) are selected.
+
+- **-l**, **-last**
+
+    Filter clients and keep only the most recent client.
+
+- **-p**, **-pid** _PID_
+
+    Filters clients by process ID. Clients with a \_NET\_WM\_PID property equal
+    to _PID_ are selected.
+
+- **-m**, **-machine** _HOST_
+
+    Filters clients by host name. Clients with a WM\_CLIENT\_MACHINE property
+    equal to _HOST_ are selected.
+
+- **-n**, **-name** _NAME_
+
+    Filters clients by \_NET\_WM\_NAME or WM\_NAME.
+    _NAME_ matches any part of the property value.
+    To match at the beginning use a `^` prefix.
+    To match at the end use a `$` suffix.
+
+- **-L**, **-Layer** _LAYER_
+
+    Filters clients by _GNOME window layer_, which can either be a layer
+    name (see below) or a layer number.
+
+- **-S**, **-State** _STATE_
+
+    Filters clients by _GNOME window state_. Clients which have at least
+    a state of _STATE_ are selected.  The window state refers to details
+    like **minized** or **maximized** and is explained below.
+
+- **-W**, **-Workspace** _WORKSPACE_
+
+    Filter clients by workspace. Workspace _WORKSPACE_ is either a
+    workspace name or a workspace number counting from zero.
+
+- **-X**, **-Xinerama** _MONITOR_
+
+    Limit clients by _RandR_/_Xinerama_ monitor. Only operate on
+    clients which are displayed on _MONITOR_, where _MONITOR_ can
+    be `All` for all monitors, `this` for the monitor where the
+    active window is displayed, or a monitor number starting from zero.
+    See the output of `randr` or `xinerama` below.
 
 ## GENERAL OPTIONS
+
+The following options are identical for every IceWM command.
 
 - **-d**, **-display** _DISPLAY_
 
@@ -67,243 +140,389 @@ the desired window interactively. Some arguments do not require this.
 
     Print copying permissions to `stdout` for the program and exit.
 
-# ARGUMENTS
+# ACTIONS
 
-**icesh** accepts the following arguments:
+**icesh** expects one or more action arguments.  There are two kinds of
+actions: _window actions_ and _manager actions_. The first operates on
+the selected windows. The second directly interacts with the **icewm**
+window manager.
 
-- **ACTIONS** ::= _ACTION_ \[_ACTION_\]\*
+## WINDOW ACTIONS
 
-    Actions can be one of:
+The following actions affect the selected window or windows.
 
-    - **setIconTitle** _TITLE_
+- **activate**
 
-        Set the icon title for the specified window to _TITLE_.
+    Activate the window, aka. _to focus_.
 
-    - **getIconTitle**
+- **close**
 
-        Prints the icon title for the specified window.
+    Close the window.
 
-    - **setWindowTitle** _TITLE_
+- **kill**
 
-        Set the window title for the specified window to _TITLE_
+    Terminate the window.
 
-    - **getWindowTitle**
+- **id**
 
-        Prints the window title for the specified window.
+    Print window identifiers for the selected windows.
 
-    - **setGeometry** _GEOMETRY_
+- **list**
 
-        Set the window geometry for the specified window to _GEOMETRY_.
+    Show window details, like geometry and names.
 
-    - **getGeometry**
+- **lower**
 
-        Prints the window geometry for the specified window.
+    Lower the window.
 
-    - **setState** _MASK_ _STATE_
+- **raise**
 
-        Set the GNOME window state for the specified window to _STATE_.  Only
-        the bits selected by _MASK_ are affected.  _STATE_ and _MASK_ are
-        expressions of the domain GNOME window state.  See ["GNOME window
-        state"](#gnome-window-state), below, for _STATE_ and _MASK_ symbols.
+    Raise the window.
 
-    - **toggleState** _STATE_
+- **above**
 
-        Toggle the GNOME window state bits specified by the _STATE_ expression
-        for the specified window.  See ["GNOME window state"](#gnome-window-state), below, for
-        _STATE_ symbols.
+    Stack the window above others.
 
-    - **getState**
+- **below**
 
-        Prints the GNOME window state for the specified window.
+    Stack the window below others.
 
-    - **setHints** _HINTS_
+- **rollup**
 
-        Set the GNOME window hints for the specified window to _HINTS_.  See
-        ["GNOME window hints"](#gnome-window-hints), below, for _HINTS_ symbols.
+    Rollup the specified window.
 
-    - **getHints**
+- **fullscreen**
 
-        Prints the GNOME window hints for the specified window.
+    Set the window to fullscreen.
 
-    - **setLayer** _LAYER_
+- **maximize**
 
-        Moves the specified window to another GNOME window layer.  See
-        ["GNOME window layer"](#gnome-window-layer), below, for _LAYER_ symbols.
+    Maximize the window.
 
-    - **getLayer**
+- **horizontal**
 
-        Prints the GNOME window layer for the specified window.
+    Maximize the window only horizontally.
 
-    - **setWorkspace** _WORKSPACE_
+- **vertical**
 
-        Moves the specified window to another workspace.  Select the root
-        window to change the current workspace. If _WORKSPACE_ is `All`
-        then the specified window becomes visible on all workspaces.
+    Maximize the window only vertically.
 
-    - **getWorkspace**
+- **minimize**
 
-        Prints the workspace for the specified window.
+    Minimize the window.
 
-    - **listWorkspaces**
+- **restore**
 
-        Lists the names of all workspaces.
+    Restore the window to normal.
 
-    - **setTrayOption** _TRAYOPTION_
+- **hide**
 
-        Set the _IceWM tray option_ hint for the specified window to
-        _TRAYOPTION_.  See ["IceWM tray options"](#icewm-tray-options), below, for _TRAYOPTION_
-        symbols.
+    Make window hidden.
 
-    - **getTrayOption**
+- **unhide**
 
-        Prints the IceWM tray option for the specified window.
+    Undo window hidden.
 
-    The following actions do not require a window or class command option:
+- **skip**
 
-    - **check**
+    Don't show window on taskbar.
 
-        Prints information about the current window manager, like name,
-        version, class, locale, command, host name and pid.
+- **unskip**
 
-    - **clients**
+    Do show window on taskbar.
 
-        Lists all managed client windows, their titles and geometries.
+- **resize** _WIDTH_ _HEIGHT_
 
-    - **shown**
+    Resize window to _WIDTH_ by _HEIGHT_ window units.
 
-        Lists all managed client windows for the current desktop,
-        their titles and geometries.
+- **move** _X_ _Y_
 
-    - **windows**
+    Move the selected window or windows to the screen position _X_ _Y_.
+    To specify _X_ or _Y_ values relative to the right side or bottom side
+    precede the value with an extra minus sign, like in `move -+10 --20`.
 
-        Lists all toplevel windows, their titles and geometries.
+- **moveby** _X_ _Y_
 
-    - **logout**
+    Displace window by _X_ _Y_ pixels.
 
-        Ask IceWM to execute the `LogoutCommand`.
+- **center**
 
-    - **reboot**
+    Position window in the center of the screen.
 
-        Ask IceWM to execute the `RebootCommand`.
+- **left**
 
-    - **shutdown**
+    Position window against the left side of the screen.
 
-        Ask IceWM to execute the `ShutdownCommand`.
+- **right**
 
-    - **cancel**
+    Position window against the right side of the screen.
 
-        Ask IceWM to cancel the logout/reboot/shutdown.
+- **top**
 
-    - **about**
+    Position window against the top side of the screen.
 
-        Ask IceWM to show the about window.
+- **bottom**
 
-    - **windowlist**
+    Position window against the bottom side of the screen.
 
-        Ask IceWM to show the window list window.
+- **setIconTitle** _TITLE_
 
-    - **restart**
+    Set the icon title to _TITLE_.
 
-        Ask IceWM to restart.
+- **getIconTitle**
 
-    - **suspend**
+    Print the icon title.
 
-        Ask IceWM to execute the `SuspendCommand`.
+- **setWindowTitle** _TITLE_
 
-    - **guievents**
+    Set the window title to _TITLE_.
 
-        Monitor the **ICEWM\_GUI\_EVENT** property and report all changes.
+- **getWindowTitle**
 
-    - **colormaps**
+    Print the window title.
 
-        Monitor which colormap is installed.
+- **setGeometry** _GEOMETRY_
 
-    - **runonce** _program_ \[_arguments..._\]
+    Set the window geometry to _GEOMETRY_.
 
-        This action is meant to be used together with the **-class** option.
-        Only if no window is matched by _WM\_CLASS_ then
-        _program_ \[_arguments..._\] is executed.
+- **getGeometry**
 
-    Some actions require one or two _EXPRESSION_ arguments.
+    Print the window geometry.
+
+- **setState** _MASK_ _STATE_
+
+    Set the _GNOME window state_ to _STATE_.  Only bits selected by
+    _MASK_ are affected.  See below for _STATE_ and _MASK_ symbols.
+
+- **toggleState** _STATE_
+
+    Toggle the _GNOME window state_ bits specified by the _STATE_
+    expression.  See below for _STATE_ symbols.
+
+- **getState**
+
+    Print the _GNOME window state_ for the specified window.
+
+- **setHints** _HINTS_
+
+    Set the _GNOME window hints_ to _HINTS_. See below for symbols.
+
+- **getHints**
+
+    Print the _GNOME window hints_ for the specified window.
+
+- **setLayer** _LAYER_
+
+    Move the specified window to another _GNOME window layer_.
+    See below for _LAYER_ symbols.
+
+- **getLayer**
+
+    Print the _GNOME window layer_ for the specified window.
+
+- **setWorkspace** _WORKSPACE_
+
+    Move the specified window to another workspace.  Select the root
+    window to change the current workspace. If _WORKSPACE_ is `All`
+    then the specified window becomes visible on all workspaces.
+    Specify `this` for the current workspace.
+
+- **getWorkspace**
+
+    Print the workspace for the specified window.
+
+- **opacity** \[_OPACITY_\]
+
+    Print the window opacity if _OPACITY_ is not given,
+    otherwise set the window opacity to _OPACITY_.
+
+- **setTrayOption** _TRAYOPTION_
+
+    Set the _IceWM tray option_ for the specified window to _TRAYOPTION_.
+    See _IceWM tray options_, below, for _TRAYOPTION_ symbols.
+
+- **getTrayOption**
+
+    Print the _IceWM tray option_ for the specified window.
+
+## MANAGER ACTIONS
+
+The following actions control the IceWM window manager and therefore
+do not require a window _select_ or _filter_ option:
+
+- **listWorkspaces**
+
+    List the names of all workspaces.
+
+- **goto** _WORKSPACE_
+
+    Change the current workspace to _WORKSPACE_.
+
+- **workspaces** \[_COUNT_\]
+
+    Print the number of workspaces if _COUNT_ is not given,
+    otherwise set the number of workspaces to _COUNT_.
+
+- **setWorkspaceName** _INDEX_ _NAME_
+
+    Change the name of the workspace _INDEX_ to _NAME_, where _INDEX_ is
+    a workspace number starting from zero.
+
+- **setWorkspaceNames** _NAME_ \[_NAME_\]\*
+
+    Change the workspace names to the list of _NAME_s.
+
+- **desktop** \[_SHOWING_\]
+
+    If _SHOWING_ is `1` then set `showing the desktop` mode.
+    If _SHOWING_ is `0` then turn off `showing the desktop`.
+    Print the current mode if _SHOWING_ is not given.
+
+- **randr**
+
+    Summarize the _RandR_ configuration.
+
+- **xinerama**
+
+    Summarize the _Xinerama_ configuration.
+
+- **check**
+
+    Print information about the current window manager, like name,
+    version, class, locale, command, host name and pid.
+
+- **clients**
+
+    List all managed client windows, their titles and geometries.
+
+- **shown**
+
+    List all mapped client windows for the current desktop,
+    their titles and geometries.
+
+- **windows**
+
+    List all toplevel windows, their titles and geometries.
+
+- **logout**
+
+    Let icewm execute the `LogoutCommand`.
+
+- **reboot**
+
+    Let icewm execute the `RebootCommand`.
+
+- **shutdown**
+
+    Let icewm execute the `ShutdownCommand`.
+
+- **cancel**
+
+    Let icewm cancel the logout/reboot/shutdown.
+
+- **about**
+
+    Let icewm show the about window.
+
+- **windowlist**
+
+    Let icewm show the window list window.
+
+- **restart**
+
+    Let icewm restart itself.
+
+- **suspend**
+
+    Let icewm execute the `SuspendCommand`.
+
+- **guievents**
+
+    Monitor the **ICEWM\_GUI\_EVENT** property and report all changes.
+
+- **colormaps**
+
+    Monitor which colormap is installed.
+
+- **runonce** _program_ \[_arguments..._\]
+
+    This action is meant to be used together with the **-class** option.
+    Only if no window is matched by _WM\_CLASS_ then
+    _program_ \[_arguments..._\] is executed.
+
+## EXPRESSIONS
+
+Some of the window actions require one or two _EXPRESSION_ arguments.
 
 - **EXPRESSION** ::= _SYMBOL_ \| _EXPRESSION_ { `+` \| `\|` }
 _SYMBOL_
 
-    Each _SYMBOL_ may be from one of the following applicable domains:
+Each _SYMBOL_ may be from one of the following applicable domains:
 
-    - _GNOME window state_
+- _GNOME window state_
 
-        Named symbols of the domain _GNOME window state_ (numeric range:
-        0-1023):
+    Named symbols of the domain _GNOME window state_ (numeric range:
+    0-1023):
 
-            AllWorkspaces          (1)
-            Sticky                 (1)
-            Minimized              (2)
-            Maximized             (12)
-            MaximizedVert          (4)
-            MaximizedVertical      (4)
-            MaximizedHoriz         (8)
-            MaximizedHorizontal    (8)
-            Hidden                (16)
-            All                 (1023)
+        AllWorkspaces          (1)
+        Sticky                 (1)
+        Minimized              (2)
+        Maximized             (12)
+        MaximizedVert          (4)
+        MaximizedVertical      (4)
+        MaximizedHoriz         (8)
+        MaximizedHorizontal    (8)
+        Hidden                (16)
+        Rollup                (32)
+        All                 (1023)
 
-        These symbols are used with the _MASK_ and _STATE_ arguments to the
-        `setState` and `toggleState` actions.
+    These symbols are used with the _MASK_ and _STATE_ arguments to the
+    `setState` and `toggleState` actions. Some additional states include:
+    Above, Below, Urgent and Fullscreen.
 
-    - _GNOME window hint_
+- _GNOME window hint_
 
-        Named symbols of the domain _GNOME window hint_ (numeric range: 0-63):
+    Named symbols of the domain _GNOME window hint_ (numeric range: 0-63):
 
-            SkipFocus              (1)
-            SkipWindowMenu         (2)
-            SkipTaskBar            (4)
-            FocusOnClick          (16)
-            DoNotCover            (32)
-            All                   (63)
+        SkipFocus              (1)
+        SkipWindowMenu         (2)
+        SkipTaskBar            (4)
+        FocusOnClick          (16)
+        DoNotCover            (32)
+        All                   (63)
 
-        These symbols are used with the _HINTS_ argument to the `setHints`
-        action.
+    These symbols are used with the _HINTS_ argument to the `setHints`
+    action.
 
-    - _GNOME window layer_
+- _GNOME window layer_
 
-        Named symbols of the domain _GNOME window layer_ (numeric range: 0-15):
+    Named symbols of the domain _GNOME window layer_ (numeric range: 0-15):
 
-            Desktop                (0)
-            Below                  (2)
-            Normal                 (4)
-            OnTop                  (6)
-            Dock                   (8)
-            AboveDock             (10)
-            Menu                  (12)
+        Desktop                (0)
+        Below                  (2)
+        Normal                 (4)
+        OnTop                  (6)
+        Dock                   (8)
+        AboveDock             (10)
+        Menu                  (12)
 
-        These symbols are used with the _LAYER_ argument to the `setLayer`
-        action.
+    These symbols are used with the _LAYER_ argument to the `setLayer`
+    action.
 
-    - _IceWM tray option_
+- _IceWM tray option_
 
-        Named symbols of the domain _IceWM tray option_ (numeric range: 0-2):
+    Named symbols of the domain _IceWM tray option_ (numeric range: 0-2):
 
-            Ignore                 (0)
-            Minimized              (1)
-            Exclusive              (2)
+        Ignore                 (0)
+        Minimized              (1)
+        Exclusive              (2)
 
-        These symbols are used with the _TRAYOPTION_ argument to the
-        `setTrayOption` action.
-
-# USAGE
-
-The purpose of **icesh** is to provide commands that can be used from a
-shell script (see [sh(1)](https://manned.org/sh.1)) to affect the state, geometry and hints
-associated with a window, or to list and parse information about
-existing windows.
-
-It should be noted that **icesh** works on any window manager that is
-compliant with the GNOME WinWM/WMH specification.  Some commands, like
-`setTrayOption` and the actions, however, are IceWM specific.
+    These symbols are used with the _TRAYOPTION_ argument to the
+    `setTrayOption` action.
 
 # EXAMPLES
 
-The following command lists all workspace names:
+List all workspace names:
 
     icesh listWorkspaces
 
@@ -313,10 +532,31 @@ Example output:
     workspace #1: `web'
     workspace #2: `doc'
     workspace #3: `dev'
-    workspace #4: `scr'
-    workspace #5: `gfx'
-    workspace #6: `misc'
-    workspace #7: `'
+
+Close terminal work.
+
+    icesh -c work.XTerm close
+
+Activate terminal fun.
+
+    icesh -c fun.XTerm activate
+
+Print opacity for all xterms.
+
+    icesh -c XTerm opacity
+
+Change opacity for all xterms.
+
+    icesh -c XTerm opacity 84
+
+Move all windows on workspace "Top" to the current workspace.
+
+    icesh -W "Top" setWorkspace "this"
+
+Restore all hidden clients, minimize all clients on the current
+workspace and activate Firefox.
+
+    icesh -S hidden restore -a -W "this" minimize -a -c Firefox activate
 
 # ENVIRONMENT
 
@@ -329,21 +569,19 @@ The following environment variables are examined by **icesh**:
 # COMPLIANCE
 
 While **icesh** is largely compliant with the GNOME WinWM/WMH
-specification, it does not support NetWM/EWMH.
+specification, it only minimally supports NetWM/EWMH.
+Some commands, like tray options and manager actions, are specific
+to IceWM.
+
+# SEE ALSO
+
+[icewm(1)](icewm.md), [wmctrl(1)](https://manned.org/wmctrl.1), [xdotool(1)](https://manned.org/xdotool.1), [xprop(1)](https://manned.org/xprop.1), [xwininfo(1)](https://manned.org/xwininfo.1).
 
 # BUGS
 
 **icesh** had no known bugs at the time of release.  Please report bugs
 for current versions to the source code repository at
 [Github](https://github.com/bbidulock/icewm/issues).
-
-# HISTORY
-
-**icesh** is historical and deprecated.  The command only supports
-the GNOME WinWM/WMH specification and IceWM specific commands.  Unlike
-[wmctrl(1)](https://manned.org/wmctrl.1) and [xdotool(1)](https://manned.org/xdotool.1), support for NetWM/EWMH was never included.
-For most of the supported commands, [wmctrl(1)](https://manned.org/wmctrl.1) and [xdotool(1)](https://manned.org/xdotool.1)
-are quite capable of performing the necessary functions and more.
 
 # AUTHOR
 

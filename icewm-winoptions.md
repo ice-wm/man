@@ -122,6 +122,11 @@ The following option control general characteristics of windows:
     negative values go farther left. The order option applies to the task
     pane, the tray pane and the system tray.
 
+- **opacity**: _NUMBER_ (default: 0)
+
+    Set the \_NET\_WM\_WINDOW\_OPACITY property if _NUMBER_ is a value between
+    1 and 100. _NUMBER_ is interpreted as percentage of maximum opaqueness.
+
 ## FUNCTION OPTIONS
 
 Function options enable/disable (1/0) the ability to take an action on

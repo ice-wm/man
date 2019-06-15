@@ -24,7 +24,7 @@ These sound files are `.wav` files located in a `sounds` sub-directory
 in one of the [icewm(1)](icewm.md) configuration directories.
 
 **icesound** supports several common audio interfaces.  These are: ALSA,
-ESounD, OSS and libAO.  These must be enabled during configuration.
+OSS and libAO.  These must be enabled during configuration.
 ALSA, OSS and libAO all require support for [libsndfile](https://en.wikipedia.org/wiki/Libsndfile), which is a
 very common library to read audio files.
 
@@ -32,14 +32,6 @@ very common library to read audio files.
 
     **ALSA** is rather involved to program and it works, but this could use
     more testing.  It plays at most one sound at a time.
-
-- **ESounD**
-
-    The **ESounD** interface is much simpler to implement and this works very
-    well, because the difficult details are handled by the **ESounD** Sound
-    Daemon.  It supports mixing of sounds when multiple GUI events occur
-    within a second.  This may be the best option currently.  It requires
-    that [esd(1)](https://manned.org/esd.1) is running and that **icesound** can connect to it.
 
 - **LibAO**
 
@@ -55,8 +47,7 @@ very common library to read audio files.
 
 When multiple audio interfaces are available **icesound** will examine
 them all until it finds one which it can connect to and then use that
-one.  By default it prefers them in the order of: **AO**, **ESD**,
-**ALSA**, **OSS**.
+one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
 # OPTIONS
 
@@ -72,9 +63,9 @@ one.  By default it prefers them in the order of: **AO**, **ESD**,
     `$HOME/.config/icewm/sounds`, `$HOME/.icewm/sounds`, `CFGDIR/sounds`
     and `LIBDIR/sounds`.  See the output of `icewm --directories`.
 
-- **-i**, **--interface**={**AO**\|**ESD**\|**ALSA**\|**OSS**}\[,{**AO**\|**ESD**\|**ALSA**\|**OSS**}\]\*
+- **-i**, **--interface**={**AO**\|**ALSA**\|**OSS**}\[,{**AO**\|**ALSA**\|**OSS**}\]\*
 
-    Specifies the audio output interfaces. One or more of: **AO**, **ESD**,
+    Specifies the audio output interfaces. One or more of: **AO**,
     **ALSA**, **OSS** separated by commas (`,`).
 
 - **-D**, **--device**=_DEVICE_
@@ -89,11 +80,6 @@ one.  By default it prefers them in the order of: **AO**, **ESD**,
 - **-A**, **--alsa**=_DEVICE_
 
     Specifies the ALSA device (default: `/dev/dsp`).
-
-- **-S**, **--server**=_ADDR_\[**:**_PORT_\]
-
-    Specifies the ESD server address and port number.
-    For ESD the default is `localhost:16001`.
 
 - **-z**, **--snooze**=_MILLISECONDS_
 
@@ -156,7 +142,6 @@ one.  By default it prefers them in the order of: **AO**, **ESD**,
 
 [icewm(1)](icewm.md),
 [libao.conf(5)](https://manned.org/libao.conf.5),
-[esd(1)](https://manned.org/esd.1),
 [padsp(1)](https://manned.org/padsp.1),
 [aplay(1)](https://manned.org/aplay.1),
 [alsamixer(1)](https://manned.org/alsamixer.1).

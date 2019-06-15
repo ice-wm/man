@@ -97,6 +97,18 @@ hints (except for the tray option argument).
     parsed by [XParseGeometry(3)](https://manned.org/XParseGeometry.3).  The default is the geometry provided by
     window manager hints.
 
+- **order** _NUMBER_
+
+    The sorting order of task buttons and tray icons. The default value is
+    zero. Increasing positive values go farther right, while decreasing
+    negative values go farther left. The order option applies to the task
+    pane, the tray pane and the system tray.
+
+- **opacity** _NUMBER_
+
+    Set the \_NET\_WM\_WINDOW\_OPACITY property if _NUMBER_ is a value between
+    1 and 100. _NUMBER_ is interpreted as percentage of maximum opaqueness.
+
 - **layer** {**Desktop**\|**Below**\|**Normal**\|**OnTop**\|**Dock**\|**AboveDock**\|**Menu**\|_NUMBER_}
 
     The layer is a similar concept to the layer specified by _GNOME/WMH_ and
@@ -201,7 +213,9 @@ advanced features are as follows:
               Chromium-browser ignorePagerPreview 1 \
               Chromium-browser ignorePositionHint 1 \
               Chromium-browser ignoreTaskBar 1 \
-              Chromium-browser ignoreQuickSwitch 1
+              Chromium-browser ignoreQuickSwitch 1 \
+              Chromium-browser ignoreUrgentHint 1 \
+              Chromium-browser noFocusOnAppRaise 1
     chromium
 
 # BUGS
