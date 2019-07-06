@@ -3,17 +3,17 @@ title: "IceWM Man Pages"
 ---
 | Commands                                  | Configuration                               |
 | :-------                                  | :------------                               |
-| [icehelp](icehelp.md)                     | [icewm-env](icewm-env.md)                   |
-| [icesh](icesh.md)                         | [icewm-focus_mode](icewm-focus_mode.md)     |
-| [icesound](icesound.md)                   | [icewm-keys](icewm-keys.md)                 |
-| [icewm](icewm.md)                         | [icewm-menu](icewm-menu.md)                 |
-| [icewm-menu-fdo](icewm-menu-fdo.md)       | [icewm-preferences](icewm-preferences.md)   |
-| [icewm-menu-xrandr](icewm-menu-xrandr.md) | [icewm-prefoverride](icewm-prefoverride.md) |
-| [icewm-session](icewm-session.md)         | [icewm-programs](icewm-programs.md)         |
-| [icewm-set-gnomewm](icewm-set-gnomewm.md) | [icewm-shutdown](icewm-shutdown.md)         |
-| [icewmbg](icewmbg.md)                     | [icewm-startup](icewm-startup.md)           |
-| [icewmhint](icewmhint.md)                 | [icewm-theme](icewm-theme.md)               |
-| [icewmtray](icewmtray.md)                 | [icewm-toolbar](icewm-toolbar.md)           |
-|                                           | [icewm-winoptions](icewm-winoptions.md)     |
+| [icehelp](icehelp)                        | [icewm-env](icewm-env)                      |
+| [icesh](icesh)                            | [icewm-focus_mode](icewm-focus_mode)        |
+| [icesound](icesound)                      | [icewm-keys](icewm-keys)                    |
+| [icewm](icewm)                            | [icewm-menu](icewm-menu)                    |
+| [icewm-menu-fdo](icewm-menu-fdo)          | [icewm-preferences](icewm-preferences)      |
+| [icewm-menu-xrandr](icewm-menu-xrandr)    | [icewm-prefoverride](icewm-prefoverride)    |
+| [icewm-session](icewm-session)            | [icewm-programs](icewm-programs)            |
+| [icewm-set-gnomewm](icewm-set-gnomewm)    | [icewm-shutdown](icewm-shutdown)            |
+| [icewmbg](icewmbg)                        | [icewm-startup](icewm-startup)              |
+| [icewmhint](icewmhint)                    | [icewm-theme](icewm-theme)                  |
+| [icewmtray](icewmtray)                    | [icewm-toolbar](icewm-toolbar)              |
+|                                           | [icewm-winoptions](icewm-winoptions)        |
 
 [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org")
