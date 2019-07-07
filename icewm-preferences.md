@@ -26,7 +26,7 @@ configuration directory and modified.
 ## FOCUS AND BEHAVIOR
 
 The following preferences affect focus and general behavior of
-[icewm(1)](icewm.md):
+[icewm(1)](icewm):
 
 - **ClickToFocus**=1
 
@@ -346,7 +346,7 @@ The following preferences affect focus and general behavior of
 
 ## TASK BAR
 
-The following preferences affect the [icewm(1)](icewm.md) task bar:
+The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **ShowTaskBar**=1
 
@@ -960,7 +960,7 @@ The following preferences affect the [icewm(1)](icewm.md) task bar:
 This section shows settings that can be set in theme files.  They can
 also be set in the `preferences` file, but themes will override the
 values set there.  To override the theme values, the settings should be
-set in `prefoverrides` file: see [icewm-prefoverrides(5)](icewm-prefoverrides.md).  Default
+set in `prefoverrides` file: see [icewm-prefoverrides(5)](icewm-prefoverrides).  Default
 values are shown following the equal sign.
 
 ### Description
@@ -1547,7 +1547,7 @@ values are shown following the equal sign.
 
 ### Desktop Background
 
-The following preferences are read by [icewmbg(1)](icewmbg.md):
+The following preferences are read by [icewmbg(1)](icewmbg):
 
 - **DesktopBackgroundCenter**=0  0/1
 
@@ -1595,8 +1595,8 @@ Locations for the `preferences` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-prefoverride(5)](icewm-prefoverride.md).
+[icewm(1)](icewm),
+[icewm-prefoverride(5)](icewm-prefoverride).
 
 # AUTHOR
 
@@ -1606,18 +1606,6 @@ Locations for the `preferences` file are as follows:
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
-
-# POD ERRORS
-
-Hey! **The above document had some coding errors, which are explained below:**
-
-- Around line 989:
-
-    '=item' outside of any '=over'
-
-- Around line 1001:
-
-    You forgot a '=back' before '=head2'
 
 | ------------: | :--------- |
 | [Index](/man) | [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org") |

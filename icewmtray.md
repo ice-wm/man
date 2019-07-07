@@ -46,7 +46,7 @@ parsing and processing is performed.
 - **-n**, **--notify**
 
     Specifies that **icewmtray** is to notify its parent process by sending
-    the **SIGUSR1** signal.  This option is used by [icewm-session(1)](icewm-session.md) when
+    the **SIGUSR1** signal.  This option is used by [icewm-session(1)](icewm-session) when
     starting up components so that it can wait for component startup to
     complete.
 
@@ -72,7 +72,7 @@ parsing and processing is performed.
 # USAGE
 
 **icewmtray(1)** is typically launched and terminated by
-[icewm-session(1)](icewm-session.md) with the appropriate options: it is usually
+[icewm-session(1)](icewm-session) with the appropriate options: it is usually
 unnecessary to launch it directly.
 
 # CONFORMING TO

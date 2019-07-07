@@ -62,7 +62,7 @@ Where,
 
 # EXAMPLES
 
-Following is the example `keys` file that ships with [icewm(1)](icewm.md):
+Following is the example `keys` file that ships with [icewm(1)](icewm):
 
     # This is an example for IceWM's hotkey definition file.
     #
@@ -110,7 +110,7 @@ Locations for the `keys` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md).
+[icewm(1)](icewm).
 
 # AUTHOR
 

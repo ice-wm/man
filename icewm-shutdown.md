@@ -18,7 +18,7 @@ title: "icewm-shutdown(5)"
 Contains commands to be executed on **icewm** shutdown.  This is an
 executable script with commands to be executed in the last stage of
 **icewm** termination.  Typically they may undo some of the effects of
-the `startup` script.  It is run by [icewm-session(1)](icewm-session.md) when **icewm**
+the `startup` script.  It is run by [icewm-session(1)](icewm-session) when **icewm**
 terminates.
 
 # FORMAT
@@ -37,10 +37,10 @@ Locations for the `shutdown` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-env(5)](icewm-env.md),
-[icewm-session(1)](icewm-session.md),
-[icewm-startup(5)](icewm-startup.md).
+[icewm(1)](icewm),
+[icewm-env(5)](icewm-env),
+[icewm-session(1)](icewm-session),
+[icewm-startup(5)](icewm-startup).
 
 # AUTHOR
 

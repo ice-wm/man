@@ -36,7 +36,7 @@ executable in a **menuprog** entry in a menu.
 
 # EXAMPLES
 
-The following line in a [icewm-menu(5)](icewm-menu.md) file will dynamically generate
+The following line in a [icewm-menu(5)](icewm-menu) file will dynamically generate
 a comprehensive set of menus for easy access to `.desktop` files.
 
     menuprog "Desktop Apps" folder icewm-menu-fdo
@@ -55,7 +55,7 @@ March 2011.
 
 # CAVEATS
 
-The **icewm-menu-fdo** program is only built when the [icewm(1)](icewm.md) package
+The **icewm-menu-fdo** program is only built when the [icewm(1)](icewm) package
 is configured with the **--enable-menus-fdo** option, which requires the
 **glib2-dev** package dependency.
 
@@ -63,10 +63,10 @@ is configured with the **--enable-menus-fdo** option, which requires the
 
 ["Desktop Entry Specification"](https://standards.freedesktop.org/desktop-entry-spec/latest/),
 ["Desktop Menu Specification"](https://specifications.freedesktop.org/menu-spec/latest/),
-[icewm(1)](icewm.md),
-[icewm-menu(5)](icewm-menu.md),
-[icewm-preferences(5)](icewm-preferences.md),
-[icewm-programs(5)](icewm-programs.md).
+[icewm(1)](icewm),
+[icewm-menu(5)](icewm-menu),
+[icewm-preferences(5)](icewm-preferences),
+[icewm-programs(5)](icewm-programs).
 
 # BUGS
 

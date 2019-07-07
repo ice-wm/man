@@ -36,7 +36,7 @@ However, configuring is not required: it works fine out of the box.
 
 The **icewm** package includes several programs:
 
-- [icewm(1)](icewm.md)
+- [icewm(1)](icewm)
 
     The actual window manager. It positions application windows on screen
     and decorates them with borders. It gives input focus to the current
@@ -45,54 +45,54 @@ The **icewm** package includes several programs:
     which gives easy access to programs, to virtual desktops, to active
     applications, and to a small set of monitoring applets.
 
-- [icewmbg(1)](icewmbg.md)
+- [icewmbg(1)](icewmbg)
 
     The background setting application. It can assign plain background color
     or images in different formats to the X background.  Each work space can
     have its own background.  It supports semi-transparency. Semitransparent
     background image and colour can be configured. When the background image
-    has changed then [icewmbg(1)](icewmbg.md) can be notified to update the background.
+    has changed then [icewmbg(1)](icewmbg) can be notified to update the background.
     Multi-head monitor setups are fully supported.  This program should be
-    started before **icewm**.  See the [icewmbg(1)](icewmbg.md) man page for details.
+    started before **icewm**.  See the [icewmbg(1)](icewmbg) man page for details.
 
-- [icewm-session(1)](icewm-session.md)
+- [icewm-session(1)](icewm-session)
 
-    [icewm-session(1)](icewm-session.md) is the preferred program to start the IceWM system.
+    [icewm-session(1)](icewm-session) is the preferred program to start the IceWM system.
     It first loads additional environment variables from the optional
-    `env` file. Then it starts [icewmbg(1)](icewmbg.md) and **icewm**. It also runs
+    `env` file. Then it starts [icewmbg(1)](icewmbg) and **icewm**. It also runs
     the `startup` script and implements basic session management.
     On termination the `shutdown` script will be run first, then
-    [icewm-session(1)](icewm-session.md) will terminate **icewm** and [icewmbg(1)](icewmbg.md).
-    [icewm-session(1)](icewm-session.md) will also start the optional [icesound(1)](icesound.md)
-    if you give it the **--sound** option.  See [icewm-session(1)](icewm-session.md).
+    [icewm-session(1)](icewm-session) will terminate **icewm** and [icewmbg(1)](icewmbg).
+    [icewm-session(1)](icewm-session) will also start the optional [icesound(1)](icesound)
+    if you give it the **--sound** option.  See [icewm-session(1)](icewm-session).
 
-- [icesh(1)](icesh.md)
+- [icesh(1)](icesh)
 
     A powerful tool to control window properties and to interact with the
-    window manager. It is typically used in shell scripts. See [icesh(1)](icesh.md).
+    window manager. It is typically used in shell scripts. See [icesh(1)](icesh).
 
-- [icehelp(1)](icehelp.md)
+- [icehelp(1)](icehelp)
 
     A small document browser, which is used by **icewm** to display the
     'IceWM manual' and some man pages.
 
-- [icewmhint(1)](icewmhint.md)
+- [icewmhint(1)](icewmhint)
 
     A utility for passing IceWM-specific window options to **icewm**.
     The options are used to configure the first application which is started
-    subsequently.  See [icewmhint(1)](icewmhint.md).
+    subsequently.  See [icewmhint(1)](icewmhint).
 
-- [icesound(1)](icesound.md)
+- [icesound(1)](icesound)
 
     Plays audio files on GUI events which are raised by **icewm**.
-    It supports ALSA, AO and OSS.  See the [icesound(1)](icesound.md) man page.
+    It supports ALSA, AO and OSS.  See the [icesound(1)](icesound) man page.
 
-- [icewm-menu-fdo(1)](icewm-menu-fdo.md)
+- [icewm-menu-fdo(1)](icewm-menu-fdo)
 
     Generate an **icewm** menu with executable desktop applications
-    according to XDG specifications. See the [icewm-menu-fdo(1)](icewm-menu-fdo.md) man page.
+    according to XDG specifications. See the [icewm-menu-fdo(1)](icewm-menu-fdo) man page.
 
-- [icewm-set-gnomewm(1)](icewm-set-gnomewm.md)
+- [icewm-set-gnomewm(1)](icewm-set-gnomewm)
 
     Configures GNOME to start IceWM instead of its own WM.
 
@@ -114,7 +114,7 @@ Each of the IceWM executables supports the following options:
     about the purpose of each option, the range of useful values and the
     current or default value. A `preferences` file is a readable text file
     which can be modified with the help of a text editor.  If this option is
-    given to [icewm-session(1)](icewm-session.md) then it is passed on to **icewm**. If
+    given to [icewm-session(1)](icewm-session) then it is passed on to **icewm**. If
     **icewm** is started independently then this option can be given to
     **icewm** directly.  However, usually one will want to use a
     `preferences` file from a default location.
@@ -875,13 +875,13 @@ the given order, until it finds one:
 
 - `env`
 
-    [icewm-session(1)](icewm-session.md) loads additional environment variables from the file
+    [icewm-session(1)](icewm-session) loads additional environment variables from the file
     `env`.  Each line is subjected to POSIX shell expansion by
     [wordexp(3)](https://manned.org/wordexp.3).  Comment lines starting by a hash-sign (`#`) are ignored.
-    [icewm-session(1)](icewm-session.md) will load those expanded lines which contain a name,
+    [icewm-session(1)](icewm-session) will load those expanded lines which contain a name,
     followed by an equals sign, followed by the value (which may be empty).
 
-    See [icewm-env(5)](icewm-env.md).
+    See [icewm-env(5)](icewm-env).
 
 - `focus_mode`
 
@@ -889,7 +889,7 @@ the given order, until it finds one:
     `FocusMode=1` (Click-to-focus).  This can be changed via the menu.
     **icewm** will save the Focus menu choice in this file.
 
-    See [icewm-focus\_mode(5)](icewm-focus.md_mode).
+    See [icewm-focus\_mode(5)](icewm-focus_mode).
 
 - `keys`
 
@@ -903,16 +903,16 @@ the given order, until it finds one:
 
         key "Ctrl+Shift+r"      icesh restart
 
-    See [icewm-keys(5)](icewm-keys.md).
+    See [icewm-keys(5)](icewm-keys).
 
 - `menu`
 
     A menu of applications; usually customized by the user.  **icewm**
-    provides the [icewm-menu-fdo(1)](icewm-menu-fdo.md) program to generate a default menu.
+    provides the [icewm-menu-fdo(1)](icewm-menu-fdo) program to generate a default menu.
     Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1) (MenuMaker),
     [xde-menu(1)](https://manned.org/xde-menu.1), [xdgmenumaker(1)](https://manned.org/xdgmenumaker.1).
 
-    See [icewm-menu(5)](icewm-menu.md).
+    See [icewm-menu(5)](icewm-menu).
 
 - `preferences`
 
@@ -922,7 +922,7 @@ the given order, until it finds one:
     default `preferences` file, which can be copied to the **icewm** user
     configuration directory and modified.
 
-    See [icewm-preferences(5)](icewm-preferences.md).
+    See [icewm-preferences(5)](icewm-preferences).
 
 - `prefoverride`
 
@@ -933,7 +933,7 @@ the given order, until it finds one:
     override this for a few specific options of your choosing.  It is safe
     to leave this file empty initially.
 
-    See [icewm-prefoverride(5)](icewm-prefoverride.md).
+    See [icewm-prefoverride(5)](icewm-prefoverride).
 
 - `programs`
 
@@ -941,7 +941,7 @@ the given order, until it finds one:
     [wmconfig(1)](https://manned.org/wmconfig.1), menu or similar programs to give easy access to all the
     desktop applications which are installed on the system.
 
-    See [icewm-programs(5)](icewm-programs.md).
+    See [icewm-programs(5)](icewm-programs).
 
 - `theme`
 
@@ -959,7 +959,7 @@ the given order, until it finds one:
     **icewm** will use the default setting of
     `Theme="default/default.theme"`.
 
-    See [icewm-theme(5)](icewm-theme.md).
+    See [icewm-theme(5)](icewm-theme).
 
 - `toolbar`
 
@@ -976,7 +976,7 @@ the given order, until it finds one:
 
         prog  "Mozilla Firefox"  firefox  /usr/bin/firefox --private-window
 
-    See [icewm-toolbar(5)](icewm-toolbar.md).
+    See [icewm-toolbar(5)](icewm-toolbar).
 
 - `winoptions`
 
@@ -986,26 +986,26 @@ the given order, until it finds one:
     system tray and the work spaces.  Also its layer, geometry, whether it
     can be moved, resized and closed.
 
-    See [icewm-winoptions(5)](icewm-winoptions.md).
+    See [icewm-winoptions(5)](icewm-winoptions).
 
 - `startup`
 
     Contains commands to be executed on **icewm** startup.  This is an
     executable script with commands to tweak X11 settings and launch some
     applications which need to be active whenever **icewm** is started.
-    It is run by [icewm-session(1)](icewm-session.md) when **icewm** starts.
+    It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
 
-    See [icewm-startup(5)](icewm-startup.md).
+    See [icewm-startup(5)](icewm-startup).
 
 - `shutdown`
 
     Contains commands to be executed on **icewm** shutdown.  This is an
     executable script with commands to be executed in the last stage of
     **icewm** termination.  Typically they may undo some of the effects of
-    the `startup` script.  It is run by [icewm-session(1)](icewm-session.md) when **icewm**
+    the `startup` script.  It is run by [icewm-session(1)](icewm-session) when **icewm**
     terminates.
 
-    See [icewm-shutdown(5)](icewm-shutdown.md).
+    See [icewm-shutdown(5)](icewm-shutdown).
 
 ## CONFIGURATION SUBDIRECTORIES
 
@@ -1036,7 +1036,7 @@ the given order, until it finds one:
 
 - `sounds`
 
-    Audio files which are played by [icesound(1)](icesound.md) on GUI events.  These
+    Audio files which are played by [icesound(1)](icesound) on GUI events.  These
     are: `startup.wav`, `shutdown.wav`, `restart.wav`, `launchApp.wav`,
     `workspaceChange.wav`, `windowOpen.wav`, `windowClose.wav`,
     `dialogOpen.wav`, `dialogClose.wav`, `windowMax.wav`,
@@ -1068,10 +1068,10 @@ the given order, until it finds one:
 > `_NET_WM_WINDOW_OPACITY` property on its window then **icewm** will copy
 > this to the outer frame window where **compton** will read it to adjust
 > the opacity of the client window. The opacity can also be controlled by
-> **icewm** when this is configured in the [icewm-winoptions(5)](icewm-winoptions.md) file.
-> Another way is to use [icewmhint(1)](icewmhint.md) to preset the opacity level
+> **icewm** when this is configured in the [icewm-winoptions(5)](icewm-winoptions) file.
+> Another way is to use [icewmhint(1)](icewmhint) to preset the opacity level
 > immediately before starting the application.  The opacity level of
-> running applications can always be queried or modified by [icesh(1)](icesh.md).
+> running applications can always be queried or modified by [icesh(1)](icesh).
 >
 > The \_NET\_WM\_WINDOW\_TYPE properties which **icewm** sets on its windows
 > are _DIALOG_, _NOTIFICATION_, _POPUP\_MENU_ and _TOOLTIP_. The output
@@ -1090,27 +1090,27 @@ See the file `COMPLIANCE` in the distribution for full details.
 
 # SEE ALSO
 
-[icehelp(1)](icehelp.md),
-[icesh(1)](icesh.md),
-[icesound(1)](icesound.md),
-[icewm-env(5)](icewm-env.md),
-[icewm-focus\_mode(5)](icewm-focus.md_mode),
-[icewm-keys(5)](icewm-keys.md),
-[icewm-menu(5)](icewm-menu.md),
-[icewm-menu-fdo(1)](icewm-menu-fdo.md),
-[icewm-menu-xrandr(1)](icewm-menu-xrandr.md),
-[icewm-preferences(5)](icewm-preferences.md),
-[icewm-prefoverride(5)](icewm-prefoverride.md),
-[icewm-programs(5)](icewm-programs.md),
-[icewm-session(1)](icewm-session.md),
-[icewm-set-gnomewm(1)](icewm-set-gnomewm.md),
-[icewm-shutdown(5)](icewm-shutdown.md),
-[icewm-startup(5)](icewm-startup.md),
-[icewm-theme(5)](icewm-theme.md),
-[icewm-toolbar(5)](icewm-toolbar.md),
-[icewm-winoptions(5)](icewm-winoptions.md),
-[icewmbg(1)](icewmbg.md),
-[icewmhint(1)](icewmhint.md),
+[icehelp(1)](icehelp),
+[icesh(1)](icesh),
+[icesound(1)](icesound),
+[icewm-env(5)](icewm-env),
+[icewm-focus\_mode(5)](icewm-focus_mode),
+[icewm-keys(5)](icewm-keys),
+[icewm-menu(5)](icewm-menu),
+[icewm-menu-fdo(1)](icewm-menu-fdo),
+[icewm-menu-xrandr(1)](icewm-menu-xrandr),
+[icewm-preferences(5)](icewm-preferences),
+[icewm-prefoverride(5)](icewm-prefoverride),
+[icewm-programs(5)](icewm-programs),
+[icewm-session(1)](icewm-session),
+[icewm-set-gnomewm(1)](icewm-set-gnomewm),
+[icewm-shutdown(5)](icewm-shutdown),
+[icewm-startup(5)](icewm-startup),
+[icewm-theme(5)](icewm-theme),
+[icewm-toolbar(5)](icewm-toolbar),
+[icewm-winoptions(5)](icewm-winoptions),
+[icewmbg(1)](icewmbg),
+[icewmhint(1)](icewmhint),
 [Xorg(1)](https://manned.org/Xorg.1),
 [Xserver(1)](https://manned.org/Xserver.1),
 [xinit(1)](https://manned.org/xinit.1),

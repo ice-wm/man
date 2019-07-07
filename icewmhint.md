@@ -11,10 +11,10 @@ icewmhint - set IceWM hints by window class and instance
 
 # DESCRIPTION
 
-**icewmhint** is a utility for passing IceWM hints to [icewm(1)](icewm.md).
+**icewmhint** is a utility for passing IceWM hints to [icewm(1)](icewm).
 **icewm** uses these hints for the first _X11 client_ which is
 subsequently started. They take precedence over hints from
-the [icewm-winoptions(1)](icewm-winoptions.md) file.
+the [icewm-winoptions(1)](icewm-winoptions) file.
 
 A hint is a triplet consisting of a _class.instance_, an
 _IceWM winoption_ and its value. Multiple hints can be given per
@@ -80,7 +80,7 @@ hints (except for the tray option argument).
 - **icon** _NAME_
 
     Specifies the icon name for windows of _CLASS_**.**_INSTANCE_.
-    _NAME_ should be the name of the icon.  [icewm(1)](icewm.md) will use its
+    _NAME_ should be the name of the icon.  [icewm(1)](icewm) will use its
     usual method to locate the icon.  The default is the name provided
     by window manager hints.
 
@@ -113,7 +113,7 @@ hints (except for the tray option argument).
 
     The layer is a similar concept to the layer specified by _GNOME/WMH_ and
     implied by _NetWM/EWMH_.  It is in this case however specific to
-    [icewm(1)](icewm.md).
+    [icewm(1)](icewm).
 
     This command option specifies the layer to be associated with a
     _CLASS_**.**_INSTANCE_.  The default is the `Normal` layer.  _VALUE_
@@ -131,7 +131,7 @@ hints (except for the tray option argument).
 - **tray** {**Ignore**\|**Minimized**\|**Exclusive**\|_NUMBER_}
 
     Specifies the tray handling to be applied to windows with
-    _CLASS_**.**_INSTANCE_.  This option is specific to [icewm(1)](icewm.md) and
+    _CLASS_**.**_INSTANCE_.  This option is specific to [icewm(1)](icewm) and
     sets the `_ICEWM_TRAY` property associated with the window.
     The default is `Ignore`.  _VALUE_ can be an option number
     or a symbolic name as follows:

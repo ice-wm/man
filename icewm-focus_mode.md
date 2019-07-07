@@ -42,8 +42,8 @@ Locations for the `focus_mode` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-preferences(5)](icewm-preferences.md).
+[icewm(1)](icewm),
+[icewm-preferences(5)](icewm-preferences).
 
 # AUTHOR
 

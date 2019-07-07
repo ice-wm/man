@@ -12,7 +12,7 @@ icesh - control window properties and the IceWM window manager
 # DESCRIPTION
 
 **icesh** provides 69 commands to change or query a window's state,
-and to interact with the [icewm(1)](icewm.md) window manager. Command arguments
+and to interact with the [icewm(1)](icewm) window manager. Command arguments
 are called actions. Window actions operate on a selection of windows.
 **icesh** has several options to select and filter windows.  Options and
 actions can be interspersed. They are processed and evaluated one after
@@ -575,7 +575,7 @@ to IceWM.
 
 # SEE ALSO
 
-[icewm(1)](icewm.md), [wmctrl(1)](https://manned.org/wmctrl.1), [xdotool(1)](https://manned.org/xdotool.1), [xprop(1)](https://manned.org/xprop.1), [xwininfo(1)](https://manned.org/xwininfo.1).
+[icewm(1)](icewm), [wmctrl(1)](https://manned.org/wmctrl.1), [xdotool(1)](https://manned.org/xdotool.1), [xprop(1)](https://manned.org/xprop.1), [xwininfo(1)](https://manned.org/xwininfo.1).
 
 # BUGS
 

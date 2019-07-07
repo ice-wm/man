@@ -15,15 +15,15 @@ title: "icewm-env(5)"
 
 # DESCRIPTION
 
-[icewm-session(1)](icewm-session.md) loads additional environment variables from the file
+[icewm-session(1)](icewm-session) loads additional environment variables from the file
 `env` before it does anything else. These variables are then propagated
-to all other processes, including [icewm(1)](icewm.md), via their environment.
+to all other processes, including [icewm(1)](icewm), via their environment.
 
 # FORMAT
 
 Each line is subjected to POSIX shell expansion by [wordexp(3)](https://manned.org/wordexp.3).
 Comment lines starting by a hash-sign (`#`) are ignored.
-[icewm-session(1)](icewm-session.md) will load those expanded lines which contain a name,
+[icewm-session(1)](icewm-session) will load those expanded lines which contain a name,
 followed by an equals sign, followed by the value (which may be empty).
 
 # EXAMPLES
@@ -39,7 +39,7 @@ followed by an equals sign, followed by the value (which may be empty).
 
 # FILES
 
-[icewm-session(1)](icewm-session.md) looks for the `env` file in the following locations:
+[icewm-session(1)](icewm-session) looks for the `env` file in the following locations:
 
 - `$ICEWM_PRIVCFG/env`
 - `$XDG_CONFIG_HOME/icewm/env`
@@ -49,9 +49,9 @@ followed by an equals sign, followed by the value (which may be empty).
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-session(1)](icewm-session.md),
-[icewm-startup(5)](icewm-startup.md).
+[icewm(1)](icewm),
+[icewm-session(1)](icewm-session),
+[icewm-startup(5)](icewm-startup).
 
 # AUTHOR
 

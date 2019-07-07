@@ -16,8 +16,8 @@ title: "icewm-toolbar(5)"
 # DESCRIPTION
 
 The `toolbar` file is responsible for configuring quick launch
-application icons that are placed on the [icewm(1)](icewm.md) panel.  The file is
-used to place programs as buttons on the [icewm(1)](icewm.md) pane
+application icons that are placed on the [icewm(1)](icewm) panel.  The file is
+used to place programs as buttons on the [icewm(1)](icewm) pane
 
 Contains names of quick to launch applications with icons for the task
 bar.  Each non-empty non-comment line starts with the keyword **prog**.
@@ -70,7 +70,7 @@ blank lines are ignored.
 # EXAMPLES
 
 Following is an example that places a number of toolbar buttons on the
-[icewm(1)](icewm.md) panel:
+[icewm(1)](icewm) panel:
 
     prog "File Manager" file-manager.png pcmanfm
     prog "Web Browser" web-browser.png /usr/lib/firefox/firefox
@@ -93,10 +93,10 @@ Locations for the `toolbar` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-programs(5)](icewm-programs.md),
-[icewm-menu(5)](icewm-menu.md),
-[icewm-menu-fdo(1)](icewm-menu-fdo.md).
+[icewm(1)](icewm),
+[icewm-programs(5)](icewm-programs),
+[icewm-menu(5)](icewm-menu),
+[icewm-menu-fdo(1)](icewm-menu-fdo).
 
 # AUTHOR
 

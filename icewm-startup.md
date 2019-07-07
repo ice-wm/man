@@ -18,7 +18,7 @@ title: "icewm-startup(5)"
 Contains commands to be executed on **icewm** startup.  This is an
 executable script with commands to tweak X11 settings and launch some
 applications which need to be active whenever **icewm** is started.
-It is run by [icewm-session(1)](icewm-session.md) when **icewm** starts.
+It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
 
 # FORMAT
 
@@ -36,10 +36,10 @@ Locations for the `startup` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-env(5)](icewm-env.md),
-[icewm-session(1)](icewm-session.md),
-[icewm-shutdown(5)](icewm-shutdown.md).
+[icewm(1)](icewm),
+[icewm-env(5)](icewm-env),
+[icewm-session(1)](icewm-session),
+[icewm-shutdown(5)](icewm-shutdown).
 
 # AUTHOR
 

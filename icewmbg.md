@@ -12,7 +12,7 @@ title: "icewmbg(1)"
 # DESCRIPTION
 
 **icewmbg** can assign a colour or image to the _X11_ desktop background.
-Many image formats are supported.  Each [icewm(1)](icewm.md) work space can have
+Many image formats are supported.  Each [icewm(1)](icewm) work space can have
 its own background.
 
 When the background image has changed then **icewmbg** can be notified to
@@ -32,8 +32,8 @@ over all monitors.
 It will update the `_ICEWMBG_IMAGE` property of the root window to the
 path of the background image whenever it changes the desktop background.
 
-It should be started before [icewm(1)](icewm.md), preferably by the
-[icewm-session(1)](icewm-session.md) program.
+It should be started before [icewm(1)](icewm), preferably by the
+[icewm-session(1)](icewm-session) program.
 
 # OPTIONS
 
@@ -58,7 +58,7 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 - **-q**, **--quit**
 
     Tell the running **icewmbg** to quit. This option is used by
-    [icewm-session(1)](icewm-session.md) when [icewm(1)](icewm.md) exits.
+    [icewm-session(1)](icewm-session) when [icewm(1)](icewm) exits.
 
 - **-r**, **--restart**
 
@@ -149,7 +149,7 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 ## PREFERENCES
 
 By default **icewmbg** will load the background settings from the
-[icewm(1)](icewm.md) preferences files (see [icewm-preferences(5)](icewm-preferences.md)).  The
+[icewm(1)](icewm) preferences files (see [icewm-preferences(5)](icewm-preferences)).  The
 settings read are:
 
     DesktopBackgroundCenter    - Display desktop background centered
@@ -168,7 +168,7 @@ theme file from the current theme is read, which may overrule the
 `preferences` settings.  Lastly the `prefoverride` file is read, which
 overrides again.  Therefore, if you want to allow the theme to set the
 background use `preferences` for your settings, otherwise use
-`prefoverride`.  See [icewm-prefoverride(5)](icewm-prefoverride.md).
+`prefoverride`.  See [icewm-prefoverride(5)](icewm-prefoverride).
 
 ## SCALING
 
@@ -202,9 +202,9 @@ is given by the following table:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-preferences(5)](icewm-preferences.md),
-[icewm-prefoverride(5)](icewm-prefoverride.md),
+[icewm(1)](icewm),
+[icewm-preferences(5)](icewm-preferences),
+[icewm-prefoverride(5)](icewm-prefoverride),
 [wmsetbg(1)](https://manned.org/wmsetbg.1),
 [xsetbg(1)](https://manned.org/xsetbg.1),
 [xv(1)](https://manned.org/xv.1).

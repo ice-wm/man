@@ -12,7 +12,7 @@ title: "icehelp(1)"
 # DESCRIPTION
 
 **icehelp** is a very simple HTML browser that displays the document
-specified on the command line.  It is used by [icewm(1)](icewm.md) internal to
+specified on the command line.  It is used by [icewm(1)](icewm) internal to
 display the [IceWM Manual](https://ice-wm.org/manual) and the manual pages.
 
 # ARGUMENTS

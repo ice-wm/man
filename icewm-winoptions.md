@@ -17,8 +17,8 @@ title: "icewm-winoptions(5)"
 
 The IceWM window options configuration file is used to configure
 settings for individual application windows.  The window options that
-are established by this file when [icewm(1)](icewm.md) starts can be overridden
-while running using the [icesh(1)](icesh.md) or [icewmhint(1)](icewmhint.md) utilities.
+are established by this file when [icewm(1)](icewm) starts can be overridden
+while running using the [icesh(1)](icesh) or [icewmhint(1)](icewmhint) utilities.
 
 Contains settings to control window appearance and behaviour which are
 specific to applications or groups of applications.  Options can control
@@ -189,7 +189,7 @@ the application.  The following options are defined:
 
 # EXAMPLES
 
-Following is the example window options file that ships with [icewm(1)](icewm.md)
+Following is the example window options file that ships with [icewm(1)](icewm)
 and typically installs to `/usr/share/icewm/winoptions`.
 
     # This is an example for IceWM's window options file.
@@ -249,9 +249,9 @@ Locations for the `winoptions` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icesh(1)](icesh.md),
-[icewmhint(1)](icewmhint.md),
+[icewm(1)](icewm),
+[icesh(1)](icesh),
+[icewmhint(1)](icewmhint),
 [XParseGeometry(3)](https://manned.org/XParseGeometry.3).
 
 # AUTHOR

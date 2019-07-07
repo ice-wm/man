@@ -38,7 +38,7 @@ If no theme file exists then **icewm** will use the default setting of
 # EXAMPLES
 
 Following is my current `theme` file.  You can see from the comments
-that [icewm(1)](icewm.md) keeps a history of the previous ten theme settings.
+that [icewm(1)](icewm) keeps a history of the previous ten theme settings.
 
     Theme="Unexicon-towers/default.theme"
     #Theme="Unexicon-pedestals/default.theme"
@@ -64,9 +64,9 @@ Locations for the `theme` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-preferences(5)](icewm-preferences.md),
-[icewm-prefoverride(5)](icewm-prefoverride.md).
+[icewm(1)](icewm),
+[icewm-preferences(5)](icewm-preferences),
+[icewm-prefoverride(5)](icewm-prefoverride).
 
 # AUTHOR
 

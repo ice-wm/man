@@ -11,17 +11,17 @@ title: "icesound(1)"
 
 # DESCRIPTION
 
-The [icewm(1)](icewm.md) window manager generates so-called GUI events in
+The [icewm(1)](icewm) window manager generates so-called GUI events in
 response to interesting actions, like opening or closing of application
 windows, switching of work space, etc.  GUI events are a property of the
-X root window.  [icewm(1)](icewm.md) changes this property whenever a new GUI
+X root window.  [icewm(1)](icewm) changes this property whenever a new GUI
 event occurs.  Interested applications can listen for changes to this
 property.  There are nearly twenty GUI events defined.
 
-**icesound** is an application, which is one of the [icewm(1)](icewm.md)
+**icesound** is an application, which is one of the [icewm(1)](icewm)
 applications, which responds to these GUI events by playing audio files.
 These sound files are `.wav` files located in a `sounds` sub-directory
-in one of the [icewm(1)](icewm.md) configuration directories.
+in one of the [icewm(1)](icewm) configuration directories.
 
 **icesound** supports several common audio interfaces.  These are: ALSA,
 OSS and libAO.  These must be enabled during configuration.
@@ -55,7 +55,7 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
 - **-d**, **--display**=_DISPLAY_
 
-    X11 display used by [icewm(1)](icewm.md) (default: $DISPLAY).
+    X11 display used by [icewm(1)](icewm) (default: $DISPLAY).
 
 - **-s**, **--sample-dir**=_DIRECTORY_
 
@@ -140,7 +140,7 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
+[icewm(1)](icewm),
 [libao.conf(5)](https://manned.org/libao.conf.5),
 [padsp(1)](https://manned.org/padsp.1),
 [aplay(1)](https://manned.org/aplay.1),

@@ -31,11 +31,11 @@ binding of **icewm**.
 
 The quick-switch menu is only accessible when **icewm-menu-xrandr** program
 is registered as special binding of type **switchkey** in
-[icewm-keys(5)](icewm-keys.md) configuration.
+[icewm-keys(5)](icewm-keys) configuration.
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
+[icewm(1)](icewm),
 [xrandr(1)](https://manned.org/xrandr.1).
 
 # BUGS

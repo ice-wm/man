@@ -15,11 +15,11 @@ title: "icewm-menu(5)"
 
 # DESCRIPTION
 
-The `menu` file is responsible for configuring most of the [icewm(1)](icewm.md)
+The `menu` file is responsible for configuring most of the [icewm(1)](icewm)
 root menu and start menu.
 
 A menu of applications; usually customized by the user.  **icewm**
-provides the [icewm-menu-fdo(1)](icewm-menu-fdo.md) program to generate a default menu.
+provides the [icewm-menu-fdo(1)](icewm-menu-fdo) program to generate a default menu.
 Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1) (MenuMaker),
 [xde-menu(1)](https://manned.org/xde-menu.1), [xdgmenumaker(1)](https://manned.org/xdgmenumaker.1).
 
@@ -35,7 +35,7 @@ The format of the file contains one of the following line syntax:
 
     Specifies a program to replace the window manager when the menu item is
     selected.  This is for launching other window managers from within
-    [icewm(1)](icewm.md).
+    [icewm(1)](icewm).
 
 - **runonce** \[**"**\]_title_\[**"**\] _icon_ **"**\[_res\_name_\]\[**.**_res\_class_\]**"** _program_ _options_
 
@@ -117,14 +117,14 @@ where,
 
 - _filename_
 
-    _filename_ is the name of the file relative to one of the [icewm(1)](icewm.md)
+    _filename_ is the name of the file relative to one of the [icewm(1)](icewm)
     configuration directories, or the full path to a file.  The file is used
     with the **menufile** keyword and specifies the file from which to read
     further menu items.
 
 # EXAMPLES
 
-Following is the example `menu` file that ships with [icewm(1)](icewm.md):
+Following is the example `menu` file that ships with [icewm(1)](icewm):
 
     # This is an example for IceWM's menu definition file.
     #
@@ -156,8 +156,8 @@ Locations for the `menu` file are as follows:
 
 # SEE ALSO
 
-[icewm(1)](icewm.md),
-[icewm-menu-fdo(1)](icewm-menu-fdo.md).
+[icewm(1)](icewm),
+[icewm-menu-fdo(1)](icewm-menu-fdo).
 
 # AUTHOR
 
