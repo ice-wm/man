@@ -13,7 +13,7 @@ title: "icewm-session(1)"
 
 icewm-session is an implementation of X.Org session manager and can be
 run from X11 session setup. It runs **icewm** as default window manager
-and handles the startup and lifecycle control of the WM and all related
+and handles the startup and life cycle control of the WM and all related
 support applications.
 
 # OPTIONS
@@ -31,6 +31,14 @@ support applications.
 - **-i**, **--icewm=FILE**
 
     Use _FILE_ as the IceWM window manager.
+
+- **-a**, **--alpha**
+
+    Use a 32-bit visual for translucency.
+
+- **-b**, **--nobg**
+
+    Do not start icewmbg.
 
 - **-n**, **--notray**
 

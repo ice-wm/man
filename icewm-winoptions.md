@@ -31,7 +31,6 @@ explained in the [IceWM Manual](https://ice-wm.org/manual).
 
 Each line in the file must be in one of the following formats:
 
-> - _NAME_**.**_CLASS_**.**_ROLE_**.**_OPTION_**:** _VALUE_
 > - _NAME_**.**_CLASS_**.**_OPTION_**:** _VALUE_
 > - _CLASS_**.**_ROLE_**.**_OPTION_**:** _VALUE_
 > - _NAME_**.**_ROLE_**.**_OPTION_**:** _VALUE_
@@ -48,13 +47,12 @@ Where the fields are defined as follows:
 
 - _NAME_
 
-    The resource name portion of the ICCCM **WM\_CLASS** property for the
+    The resource instance portion of the ICCCM **WM\_CLASS** property for the
     window.
 
 - _ROLE_
 
-    The resource name portion of the ICCCM **WM\_WINDOW\_ROLE** property for
-    the window.
+    The ICCCM **WM\_WINDOW\_ROLE** property for the window.
 
 - _OPTION_: _VALUE_
 
@@ -181,6 +179,7 @@ the application.  The following options are defined:
     noFocusOnMap:             {1\|0}  do not focus when mapped.
     noIgnoreTaskBar:          {1\|0}  on task bar.
     nonICCCMconfigureRequest: {1\|0}  more configure requests.
+    startClose:               {1\|0}  close the window immediately.
     startFullscreen:          {1\|0}  start full screen.
     startMaximized:           {1\|0}  start maximized.
     startMaximizedHorz:       {1\|0}  start maximized horizontal.
@@ -188,6 +187,19 @@ the application.  The following options are defined:
     startMinimized:           {1\|0}  start minimized.
 
 # EXAMPLES
+
+This example uses the WM\_WINDOW\_ROLE property value `pop-up` to deny
+input focus to _Chrome_ pop-ups and asks to close them immediately.
+
+    google-chrome.pop-up.doNotFocus: 1
+    google-chrome.pop-up.forcedClose: 1
+    google-chrome.pop-up.ignorePagerPreview: 1
+    google-chrome.pop-up.ignoreUrgentHint: 1
+    google-chrome.pop-up.layer: Below
+    google-chrome.pop-up.noFocusOnAppRaise: 1
+    google-chrome.pop-up.noFocusOnMap: 1
+    google-chrome.pop-up.startClose: 1
+    google-chrome.pop-up.startMinimized: 1
 
 Following is the example window options file that ships with [icewm(1)](icewm)
 and typically installs to `/usr/share/icewm/winoptions`.

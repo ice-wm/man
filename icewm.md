@@ -162,6 +162,11 @@ Each of the IceWM executables supports the following options:
 
 The **icewm** program supports some additional options:
 
+- **-a**, **--alpha**
+
+    Use a 32-bit visual for translucency. This can also be set in
+    the preferences file as `Alpha=1`.
+
 - **--replace**
 
     Instructs **icewm** to replace an existing window manager.  Provided that
@@ -173,6 +178,11 @@ The **icewm** program supports some additional options:
 - **-r**, **--restart**
 
     Tell **icewm** to restart itself. This reloads the configuration from file.
+
+- **--splash**=_IMAGE_
+
+    Briefly show _IMAGE_ on startup in the center of the screen.
+    This can also be set in the preferences file as Splash=`image.jpg`.
 
 - **--configured**
 
@@ -197,6 +207,10 @@ The **icewm** program supports some additional options:
     actual values after **icewm** has processed all of the configuration and
     theme files. In some advanced scenarios this can be helpful to inspect
     which configuration was chosen or whether option formatting was correct.
+
+- **--extensions**
+
+    Give a list of the current X extensions, their versions and status.
 
 # USAGE
 
@@ -1063,19 +1077,20 @@ the given order, until it finds one:
 
 ## OPACITY
 
-> IceWM supports window opacity and transparency in connection with an
-> external compositor like [compton(1)](https://manned.org/compton.1). If a client window sets the
-> `_NET_WM_WINDOW_OPACITY` property on its window then **icewm** will copy
-> this to the outer frame window where **compton** will read it to adjust
-> the opacity of the client window. The opacity can also be controlled by
-> **icewm** when this is configured in the [icewm-winoptions(5)](icewm-winoptions) file.
-> Another way is to use [icewmhint(1)](icewmhint) to preset the opacity level
-> immediately before starting the application.  The opacity level of
-> running applications can always be queried or modified by [icesh(1)](icesh).
->
-> The \_NET\_WM\_WINDOW\_TYPE properties which **icewm** sets on its windows
-> are _DIALOG_, _NOTIFICATION_, _POPUP\_MENU_ and _TOOLTIP_. The output
-> of `icesh windows` shows their WM\_CLASS values.
+IceWM supports window opacity and transparency in connection with an
+external compositor like [compton(1)](https://manned.org/compton.1). If a client window sets the
+`_NET_WM_WINDOW_OPACITY` property on its window then **icewm** will copy
+this to the outer frame window where **compton** will read it to adjust
+the opacity of the client window. The opacity can also be controlled by
+**icewm** when this is configured in the [icewm-winoptions(5)](icewm-winoptions) file.
+Another way is to use [icewmhint(1)](icewmhint) to preset the opacity level
+immediately before starting the application.  The opacity level of
+running applications can always be queried or modified by [icesh(1)](icesh).
+
+The \_NET\_WM\_WINDOW\_TYPE properties which **icewm** sets on its windows
+are _DIALOG_, _NOTIFICATION_, _POPUP\_MENU_ and _TOOLTIP_. The output
+of `icesh windows` shows their WM\_CLASS values. These can be helpful
+to configure compton.
 
 # EXAMPLES
 

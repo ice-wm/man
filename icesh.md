@@ -3,7 +3,7 @@ title: "icesh(1)"
 ---
 # NAME
 
-icesh - control window properties and the IceWM window manager
+    icesh - control window properties and the IceWM window manager
 
 # SYNOPSIS
 
@@ -11,7 +11,7 @@ icesh - control window properties and the IceWM window manager
 
 # DESCRIPTION
 
-**icesh** provides 69 commands to change or query a window's state,
+**icesh** provides 83 commands to change or query a window's state,
 and to interact with the [icewm(1)](icewm) window manager. Command arguments
 are called actions. Window actions operate on a selection of windows.
 **icesh** has several options to select and filter windows.  Options and
@@ -20,7 +20,8 @@ another from left to right. Therefore, an option can only affect a
 subsequent action, but not a previous one. Because of this, an action
 can operate on a different selection of windows than a previous action,
 if it is preceded by a new select option. In combination with filter
-options, this gives **icesh** its expressive power.
+options, this gives **icesh** its expressive power. Use it in
+[icewm-keys(5)](icewm-keys) to define your own window management hotkeys.
 
 # OPTIONS
 
@@ -79,11 +80,6 @@ implicitly assumed to filter all client windows.
 
     Filter clients and keep only the most recent client.
 
-- **-p**, **-pid** _PID_
-
-    Filters clients by process ID. Clients with a \_NET\_WM\_PID property equal
-    to _PID_ are selected.
-
 - **-m**, **-machine** _HOST_
 
     Filters clients by host name. Clients with a WM\_CLIENT\_MACHINE property
@@ -96,21 +92,38 @@ implicitly assumed to filter all client windows.
     To match at the beginning use a `^` prefix.
     To match at the end use a `$` suffix.
 
+- **-p**, **-pid** _PID_
+
+    Filters clients by process ID. Clients with a \_NET\_WM\_PID property equal
+    to _PID_ are selected.
+
+- **-G**, **-Gravity** _GRAVITY_
+
+    Filters clients by the window gravity field of the WM\_NORMAL\_HINTS
+    property.  Clients with a gravity equal to _GRAVITY_ are selected.
+    If _GRAVITY_ starts with an exclamation mark then the filtering is
+    inverted.
+
 - **-L**, **-Layer** _LAYER_
 
     Filters clients by _GNOME window layer_, which can either be a layer
-    name (see below) or a layer number.
+    name (see below) or a layer number.  If _LAYER_ starts with an
+    exclamation mark then the filtering is inverted.
 
 - **-S**, **-State** _STATE_
 
     Filters clients by _GNOME window state_. Clients which have at least
     a state of _STATE_ are selected.  The window state refers to details
-    like **minized** or **maximized** and is explained below.
+    like **minized** or **maximized** and is explained below.  If _STATE_
+    starts with an exclamation mark then the filtering is inverted.
+    A question mark `?` filters clients with any bit set in _STATE_.
 
 - **-W**, **-Workspace** _WORKSPACE_
 
     Filter clients by workspace. Workspace _WORKSPACE_ is either a
     workspace name or a workspace number counting from zero.
+    If _WORKSPACE_ starts with an exclamation mark then the filtering is
+    inverted.
 
 - **-X**, **-Xinerama** _MONITOR_
 
@@ -166,6 +179,10 @@ The following actions affect the selected window or windows.
 - **id**
 
     Print window identifiers for the selected windows.
+
+- **pid**
+
+    Print process identifiers for the selected windows.
 
 - **list**
 
@@ -235,6 +252,14 @@ The following actions affect the selected window or windows.
 
     Resize window to _WIDTH_ by _HEIGHT_ window units.
 
+- **sizeto** _WIDTH_ _HEIGHT_
+
+    Resize window to _WIDTH_ by _HEIGHT_ pixels. If _WIDTH_ or _HEIGHT_
+    ends with a percent sign `%`, then they refer to a percentage of the
+    desktop work area. For instance, `sizeto 50% 100%`a resizes to half
+    the desktop width and whatever height is available above or below the
+    taskbar.
+
 - **move** _X_ _Y_
 
     Move the selected window or windows to the screen position _X_ _Y_.
@@ -247,23 +272,23 @@ The following actions affect the selected window or windows.
 
 - **center**
 
-    Position window in the center of the screen.
+    Position window in the center of the desktop work area.
 
 - **left**
 
-    Position window against the left side of the screen.
+    Position window against the left side of the desktop work area.
 
 - **right**
 
-    Position window against the right side of the screen.
+    Position window against the right side of the desktop work area.
 
 - **top**
 
-    Position window against the top side of the screen.
+    Position window against the top side of the desktop work area.
 
 - **bottom**
 
-    Position window against the bottom side of the screen.
+    Position window against the bottom side of the desktop work area.
 
 - **setIconTitle** _TITLE_
 
@@ -345,6 +370,46 @@ The following actions affect the selected window or windows.
 
     Print the _IceWM tray option_ for the specified window.
 
+- **setNormalGravity** _GRAVITY_
+
+    Set the window gravity field in the WM\_NORMAL\_HINTS property for the
+    specified window to _GRAVITY_.  See below for _GRAVITY_ symbols.
+
+- **getNormalGravity**
+
+    Print the window gravity from the WM\_NORMAL\_HINTS property for the
+    specified window.
+
+- **setWindowGravity** _GRAVITY_
+
+    Set the window gravity for the specified window to _GRAVITY_.
+    See below for _GRAVITY_ symbols.
+
+- **getWindowGravity**
+
+    Print the window gravity for the specified window.
+
+- **setBitGravity** _GRAVITY_
+
+    Set the bit gravity> for the specified window to _GRAVITY_.
+    See below for _GRAVITY_ symbols.
+
+- **getBitGravity**
+
+    Print the bit gravity for the specified window.
+
+- **motif** \[**funcs** _FUNCTIONS_ \| **decor** _DECORATIONS_ \| **remove**\]
+
+    Query, set or modify the `_MOTIF_WM_HINTS` property for the specified
+    window.  Without arguments **motif** will show the current value, but
+    only if the window has such a property. The property can be removed or
+    reset with the **remove** argument. With **funcs** and **decor** individual
+    fields of this property can be enabled or disabled. If _FUNCTIONS_ or
+    _DECORATIONS_ starts with a minus or plus sign then the existing value
+    is modified, otherwise it is set to the new value. Note that if `All`
+    is set, then other set fields will be disabled and cleared fields will
+    be enabled.
+
 ## MANAGER ACTIONS
 
 The following actions control the IceWM window manager and therefore
@@ -404,6 +469,15 @@ do not require a window _select_ or _filter_ option:
 
     List all toplevel windows, their titles and geometries.
 
+- **systray**
+
+    List applications which are managed by the IceWM system tray.
+
+- **xembed**
+
+    List application windows which are embedded using the _XEMBED_ protocol.
+    This is another way to discover system tray applications.
+
 - **logout**
 
     Let icewm execute the `LogoutCommand`.
@@ -436,6 +510,10 @@ do not require a window _select_ or _filter_ option:
 
     Let icewm execute the `SuspendCommand`.
 
+- **winoptions**
+
+    Let icewm reload the `winoptions`.
+
 - **guievents**
 
     Monitor the **ICEWM\_GUI\_EVENT** property and report all changes.
@@ -449,6 +527,15 @@ do not require a window _select_ or _filter_ option:
     This action is meant to be used together with the **-class** option.
     Only if no window is matched by _WM\_CLASS_ then
     _program_ \[_arguments..._\] is executed.
+
+- **sync**
+
+    Synchronize with the IceWM window manager. That is, wait for icewm to
+    process all previous actions.
+
+- **symbols**
+
+    List all named symbols.
 
 ## EXPRESSIONS
 
@@ -520,6 +607,41 @@ Each _SYMBOL_ may be from one of the following applicable domains:
     These symbols are used with the _TRAYOPTION_ argument to the
     `setTrayOption` action.
 
+- _Gravity symbols_
+
+    Named symbols for window and bit gravity (numeric range: 0-10):
+
+        ForgetGravity         (0)
+        NorthWestGravity      (1)
+        NorthGravity          (2)
+        NorthEastGravity      (3)
+        WestGravity           (4)
+        CenterGravity         (5)
+        EastGravity           (6)
+        SouthWestGravity      (7)
+        SouthGravity          (8)
+        SouthEastGravity      (9)
+        StaticGravity         (10)
+
+- _Motif functions_
+
+        All                  (1)
+        Resize               (2)
+        Move                 (4)
+        Minimize             (8)
+        Maximize             (16)
+        Close                (32)
+
+- _Motif decorations_
+
+        All                  (1)
+        Border               (2)
+        Resize               (4)
+        Title                (8)
+        Menu                 (16)
+        Minimize             (32)
+        Maximize             (64)
+
 # EXAMPLES
 
 List all workspace names:
@@ -533,13 +655,9 @@ Example output:
     workspace #2: `doc'
     workspace #3: `dev'
 
-Close terminal work.
+Close terminal work and activate terminal fun.
 
-    icesh -c work.XTerm close
-
-Activate terminal fun.
-
-    icesh -c fun.XTerm activate
+    icesh -c work.XTerm close -a -c fun.XTerm activate
 
 Print opacity for all xterms.
 
@@ -557,6 +675,10 @@ Restore all hidden clients, minimize all clients on the current
 workspace and activate Firefox.
 
     icesh -S hidden restore -a -W "this" minimize -a -c Firefox activate
+
+Resize the focused window to occupy the right half of the desktop area.
+
+    icesh -f sizeto 49% 100% sync top sync right sync raise activate
 
 # ENVIRONMENT
 

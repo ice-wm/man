@@ -496,6 +496,13 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Place workspace pager on top row when using dual-height taskbar.
 
+- **TaskBarWorkspacesLimit**=""
+
+    Limit the number of taskbar workspaces buttons which are shown on the
+    workspaces pane of the taskbar. If the numeric value has a `p` suffix
+    then the limitation is in pixels. A `%` suffix limits by percentage of
+    desktop width. By default a `B` suffix is assumed for number of buttons.
+
 - **TaskBarUseMouseWheel**=1
 
     Enable mouse wheel cycling over workspaces and task buttons in taskbar.
@@ -848,6 +855,10 @@ The following preferences affect the [icewm(1)](icewm) task bar:
     TitleBar mouse-button double click to rollup the window.
 
 ## WORKSPACES
+
+- **WorkspaceNames**=" 1 ", " 2 ", " 3 ", " 4 "
+
+    Create four workspaces with names ` 1 `, ` 2 `, ` 3 ` and ` 4 `.
 
 ## PATHS
 
@@ -1582,6 +1593,29 @@ The following preferences are read by [icewmbg(1)](icewmbg):
     Paint the background image over all multihead monitors combined.
 
 # EXAMPLES
+
+    Alpha=1
+    Splash="IceWM.jpg"
+    LimitSize=0
+    LimitPosition=0
+    LimitByDockLayer=1
+    QuickSwitchToAllWorkspaces=1
+    QuickSwitchHugeIcon=1
+    QuickSwitchFillSelection=1
+    TaskBarMailboxStatusBeepOnNewMail=1
+    TaskBarMailboxStatusCountMessages=1
+    TaskBarShowMEMStatus=0
+    TaskBarShowCollapseButton=1
+    TaskBarWorkspacesLimit="8"
+    ShowProgramsMenu=1
+    ShowAddressBar=0
+    ToolTipDelay=200
+    ToolTipTime=5000
+    AutoHideDelay=900
+    AutoShowDelay=100
+    EdgeResistance=3
+    KeySysMenu="Multi_key"
+    KeySysWinListMenu="Shift+Ctrl+Esc"
 
 # FILES
 
