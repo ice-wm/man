@@ -824,7 +824,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Delay between power status updates (seconds).
 
-## BUITTONS AND KEYS
+## BUTTONS AND KEYS
 
 - **UseRootButtons**=255  \[0-255\]
 

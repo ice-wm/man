@@ -26,7 +26,7 @@ support applications.
 
 - **-t**, **--theme=FILE**
 
-    Let IceWM load the theme from _FILE_.
+    Let IceWM load the theme _FILE_.
 
 - **-i**, **--icewm=FILE**
 
@@ -73,6 +73,39 @@ support applications.
 - **-C**, **--copying**
 
     Print copying permissions to `stdout` for the program and exit.
+
+# USAGE
+
+On startup icewm-session executes the following steps.
+From the file `env` in the configuration directory
+it loads additional environment variables, if that file exists.
+Then it will start `icewmbg` to manage root background colors and images.
+It may also start `icesound`, if this was enabled at configuration time.
+Then `icewm` is started.
+
+If there exists an executable script `startup` in the configuration
+directory, it will be executed. It may contain commands to initialize X11
+settings with `xset`, load keyboard configuration, start a compositing
+manager like `compton` and load system tray applications.
+
+When icewm exits or is told to exit, icewm-session will execute
+a `shutdown` script, if it exists in the configuration directory.
+When this finishes, icewm-session will terminate icewm, icewmbg
+and icesound. Finally icewm-session will exit.
+
+If the icewm process crashes then icewm-session will attempt to restart
+it. If two such crashes occur in a short period, then icewm-session will
+attempt to popup a dialog using either `xmessage`, `kdialog` or
+`zenity`.  This dialog asks if the user wishes to continue restarting
+icewm or abort execution of icewm-session.
+
+# SEE ALSO
+
+[icewm(1)](icewm),
+[icewm-env(5)](icewm-env),
+[icewm-shutdown(5)](icewm-shutdown),
+[icewm-startup(5)](icewm-startup),
+[icewmbg(1)](icewmbg).
 
 # BUGS
 
