@@ -7,11 +7,11 @@ title: "icewm-preferences(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/preferences`
-- `$XDG_CONFIG_HOME/icewm/preferences`
-- `$HOME/.icewm/preferences`
-- `/etc/icewm/preferences`
-- `/usr/share/icewm/preferences`
+    $ICEWM_PRIVCFG/preferences
+    $XDG_CONFIG_HOME/icewm/preferences
+    $HOME/.icewm/preferences
+    /etc/icewm/preferences
+    /usr/share/icewm/preferences
 
 # DESCRIPTION
 
@@ -1621,11 +1621,11 @@ The following preferences are read by [icewmbg(1)](icewmbg):
 
 Locations for the `preferences` file are as follows:
 
-- `$ICEWM_PRIVCFG/preferences`
-- `$XDG_CONFIG_HOME/icewm/preferences`
-- `$HOME/.icewm/preferences`
-- `/etc/icewm/preferences`
-- `/usr/share/icewm/preferences`
+    $ICEWM_PRIVCFG/preferences
+    $XDG_CONFIG_HOME/icewm/preferences
+    $HOME/.icewm/preferences
+    /etc/icewm/preferences
+    /usr/share/icewm/preferences
 
 # SEE ALSO
 

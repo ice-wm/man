@@ -11,7 +11,7 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides 83 commands to change or query a window's state,
+**icesh** provides 85 commands to change or query a window's state,
 and to interact with the [icewm(1)](icewm) window manager. Command arguments
 are called actions. Window actions operate on a selection of windows.
 **icesh** has several options to select and filter windows.  Options and
@@ -109,6 +109,18 @@ implicitly assumed to filter all client windows.
     Filters clients by _GNOME window layer_, which can either be a layer
     name (see below) or a layer number.  If _LAYER_ starts with an
     exclamation mark then the filtering is inverted.
+
+- **-P**, **-Property** _PROP_
+
+    Filters clients by property. Clients which have a property _PROP_ are
+    selected.  The filtering is inverted if _PROP_ starts with an
+    exclamation mark.
+
+- **-R**, **-Role** _ROLE_
+
+    Filters clients by WM\_WINDOW\_ROLE. Clients which have a WM\_WINDOW\_ROLE
+    property value equal to _ROLE_ are selected.  The filtering is inverted
+    if _ROLE_ starts with an exclamation mark.
 
 - **-S**, **-State** _STATE_
 
@@ -410,6 +422,11 @@ The following actions affect the selected window or windows.
     is set, then other set fields will be disabled and cleared fields will
     be enabled.
 
+- **prop** _PROPERTY_
+
+    Print the value of property _PROPERTY_ if it is present.  _PROPERTY_
+    can be a string, a window, or a list of one or more atoms or cardinals.
+
 ## MANAGER ACTIONS
 
 The following actions control the IceWM window manager and therefore
@@ -436,6 +453,10 @@ do not require a window _select_ or _filter_ option:
 - **setWorkspaceNames** _NAME_ \[_NAME_\]\*
 
     Change the workspace names to the list of _NAME_s.
+
+- **addWorkspace** _NAME_
+
+    Create a new workspace with name _NAME_.
 
 - **desktop** \[_SHOWING_\]
 

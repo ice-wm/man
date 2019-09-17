@@ -7,11 +7,11 @@ title: "icewm-prefoverride(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/prefoverride`
-- `$XDG_CONFIG_HOME/icewm/prefoverride`
-- `$HOME/.icewm/prefoverride`
-- `/etc/icewm/prefoverride`
-- `/usr/share/icewm/prefoverride`
+    $ICEWM_PRIVCFG/prefoverride
+    $XDG_CONFIG_HOME/icewm/prefoverride
+    $HOME/.icewm/prefoverride
+    /etc/icewm/prefoverride
+    /usr/share/icewm/prefoverride
 
 # DESCRIPTION
 
@@ -22,19 +22,15 @@ thinks this is desirable.  However, this `prefoverride` file will again
 override this for a few specific options of your choosing.  It is safe
 to leave this file empty initially.
 
-# FORMAT
-
-# EXAMPLES
-
 # FILES
 
 Locations for the `prefoverride` file are as follows:
 
-- `$ICEWM_PRIVCFG/prefoverride`
-- `$XDG_CONFIG_HOME/icewm/prefoverride`
-- `$HOME/.icewm/prefoverride`
-- `/etc/icewm/prefoverride`
-- `/usr/share/icewm/prefoverride`
+    $ICEWM_PRIVCFG/prefoverride
+    $XDG_CONFIG_HOME/icewm/prefoverride
+    $HOME/.icewm/prefoverride
+    /etc/icewm/prefoverride
+    /usr/share/icewm/prefoverride
 
 # SEE ALSO
 

@@ -7,11 +7,11 @@ title: "icewm-shutdown(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/shutdown`
-- `$XDG_CONFIG_HOME/icewm/shutdown`
-- `$HOME/.icewm/shutdown`
-- `/etc/icewm/shutdown`
-- `/usr/share/icewm/shutdown`
+    $ICEWM_PRIVCFG/shutdown
+    $XDG_CONFIG_HOME/icewm/shutdown
+    $HOME/.icewm/shutdown
+    /etc/icewm/shutdown
+    /usr/share/icewm/shutdown
 
 # DESCRIPTION
 
@@ -21,24 +21,18 @@ executable script with commands to be executed in the last stage of
 the `startup` script.  It is run by [icewm-session(1)](icewm-session) when **icewm**
 terminates.
 
-# FORMAT
-
-# EXAMPLES
-
 # FILES
 
 Locations for the `shutdown` file are as follows:
 
-- `$ICEWM_PRIVCFG/shutdown`
-- `$XDG_CONFIG_HOME/icewm/shutdown`
-- `$HOME/.icewm/shutdown`
-- `/etc/icewm/shutdown`
-- `/usr/share/icewm/shutdown`
+    $ICEWM_PRIVCFG/shutdown
+    $XDG_CONFIG_HOME/icewm/shutdown
+    $HOME/.icewm/shutdown
+    /etc/icewm/shutdown
+    /usr/share/icewm/shutdown
 
 # SEE ALSO
 
-[icewm(1)](icewm),
-[icewm-env(5)](icewm-env),
 [icewm-session(1)](icewm-session),
 [icewm-startup(5)](icewm-startup).
 

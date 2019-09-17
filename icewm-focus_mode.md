@@ -7,11 +7,11 @@ title: "icewm-focus_mode(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/focus_mode`
-- `$XDG_CONFIG_HOME/icewm/focus_mode`
-- `$HOME/.icewm/focus_mode`
-- `/etc/icewm/focus_mode`
-- `/usr/share/icewm/focus_mode`
+    $ICEWM_PRIVCFG/focus_mode
+    $XDG_CONFIG_HOME/icewm/focus_mode
+    $HOME/.icewm/focus_mode
+    /etc/icewm/focus_mode
+    /usr/share/icewm/focus_mode
 
 # DESCRIPTION
 
@@ -34,11 +34,11 @@ The following is my `focus_mode` file:
 
 Locations for the `focus_mode` file are as follows:
 
-- `$ICEWM_PRIVCFG/focus_mode`
-- `$XDG_CONFIG_HOME/icewm/focus_mode`
-- `$HOME/.icewm/focus_mode`
-- `/usr/share/icewm/focus_mode`
-- `/usr/local/share/icewm/focus_mode`
+    $ICEWM_PRIVCFG/focus_mode
+    $XDG_CONFIG_HOME/icewm/focus_mode
+    $HOME/.icewm/focus_mode
+    /usr/share/icewm/focus_mode
+    /usr/local/share/icewm/focus_mode
 
 # SEE ALSO
 

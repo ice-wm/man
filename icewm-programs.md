@@ -7,11 +7,11 @@ title: "icewm-programs(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/programs`
-- `$XDG_CONFIG_HOME/icewm/programs`
-- `$HOME/.icewm/programs`
-- `/etc/icewm/programs`
-- `/usr/share/icewm/programs`
+    $ICEWM_PRIVCFG/programs
+    $XDG_CONFIG_HOME/icewm/programs
+    $HOME/.icewm/programs
+    /etc/icewm/programs
+    /usr/share/icewm/programs
 
 # DESCRIPTION
 
@@ -75,7 +75,7 @@ _program_ _options_
 
     A separator for menu items.
 
-where,
+Where
 
 - **prog**, **restart**, **runonce**, **menu**, **menufile**,
 **menuprog**, **menuprogreload**, **include**, **includeprog**, **separator**
@@ -198,11 +198,11 @@ Following is the example `programs` file that ships with [icewm(1)](icewm):
 
 Locations for the `programs` file are as follows:
 
-- `$ICEWM_PRIVCFG/programs`
-- `$XDG_CONFIG_HOME/icewm/programs`
-- `$HOME/.icewm/programs`
-- `/etc/icewm/programs`
-- `/usr/share/icewm/programs`
+    $ICEWM_PRIVCFG/programs
+    $XDG_CONFIG_HOME/icewm/programs
+    $HOME/.icewm/programs
+    /etc/icewm/programs
+    /usr/share/icewm/programs
 
 # SEE ALSO
 

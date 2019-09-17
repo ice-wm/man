@@ -7,11 +7,11 @@ title: "icewm-theme(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/theme`
-- `$XDG_CONFIG_HOME/icewm/theme`
-- `$HOME/.icewm/theme`
-- `/etc/icewm/theme`
-- `/usr/share/icewm/theme`
+    $ICEWM_PRIVCFG/theme
+    $XDG_CONFIG_HOME/icewm/theme
+    $HOME/.icewm/theme
+    /etc/icewm/theme
+    /usr/share/icewm/theme
 
 # DESCRIPTION
 
@@ -56,11 +56,11 @@ that [icewm(1)](icewm) keeps a history of the previous ten theme settings.
 
 Locations for the `theme` file are as follows:
 
-- `$ICEWM_PRIVCFG/theme`
-- `$XDG_CONFIG_HOME/icewm/theme`
-- `$HOME/.icewm/theme`
-- `/etc/icewm/theme`
-- `/usr/share/icewm/theme`
+    $ICEWM_PRIVCFG/theme
+    $XDG_CONFIG_HOME/icewm/theme
+    $HOME/.icewm/theme
+    /etc/icewm/theme
+    /usr/share/icewm/theme
 
 # SEE ALSO
 

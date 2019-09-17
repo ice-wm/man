@@ -7,11 +7,11 @@ title: "icewm-keys(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/keys`
-- `$XDG_CONFIG_HOME/icewm/keys`
-- `$HOME/.icewm/keys`
-- `/etc/icewm/keys`
-- `/usr/share/icewm/keys`
+    $ICEWM_PRIVCFG/keys
+    $XDG_CONFIG_HOME/icewm/keys
+    $HOME/.icewm/keys
+    /etc/icewm/keys
+    /usr/share/icewm/keys
 
 # DESCRIPTION
 
@@ -48,7 +48,7 @@ Where,
 
 - _key\_combination_
 
-    Any combination of keys, separated by plus-sign (`+`).
+    A combination of modifiers and a key, separated by plus-sign (`+`).
 
 - _program_ _options_
 
@@ -102,11 +102,11 @@ Following is the example `keys` file that ships with [icewm(1)](icewm):
 
 Locations for the `keys` file are as follows:
 
-- `$ICEWM_PRIVCFG/keys`
-- `$XDG_CONFIG_HOME/icewm/keys`
-- `$HOME/.icewm/keys`
-- `/etc/icewm/keys`
-- `/usr/share/icewm/keys`
+    $ICEWM_PRIVCFG/keys
+    $XDG_CONFIG_HOME/icewm/keys
+    $HOME/.icewm/keys
+    /etc/icewm/keys
+    /usr/share/icewm/keys
 
 # SEE ALSO
 

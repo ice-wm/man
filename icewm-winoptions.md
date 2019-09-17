@@ -7,11 +7,11 @@ title: "icewm-winoptions(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/winoptions`
-- `$XDG_CONFIG_HOME/icewm/winoptions`
-- `$HOME/.icewm/winoptions`
-- `/etc/icewm/winoptions`
-- `/usr/share/icewm/winoptions`
+    $ICEWM_PRIVCFG/winoptions
+    $XDG_CONFIG_HOME/icewm/winoptions
+    $HOME/.icewm/winoptions
+    /etc/icewm/winoptions
+    /usr/share/icewm/winoptions
 
 # DESCRIPTION
 
@@ -253,11 +253,11 @@ and typically installs to `/usr/share/icewm/winoptions`.
 
 Locations for the `winoptions` file are as follows:
 
-- `$ICEWM_PRIVCFG/winoptions`
-- `$XDG_CONFIG_HOME/icewm/winoptions`
-- `$HOME/.icewm/winoptions`
-- `/etc/icewm/winoptions`
-- `/usr/share/icewm/winoptions`
+    $ICEWM_PRIVCFG/winoptions
+    $XDG_CONFIG_HOME/icewm/winoptions
+    $HOME/.icewm/winoptions
+    /etc/icewm/winoptions
+    /usr/share/icewm/winoptions
 
 # SEE ALSO
 

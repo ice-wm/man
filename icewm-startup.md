@@ -7,11 +7,11 @@ title: "icewm-startup(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/startup`
-- `$XDG_CONFIG_HOME/icewm/startup`
-- `$HOME/.icewm/startup`
-- `/etc/icewm/startup`
-- `/usr/share/icewm/startup`
+    $ICEWM_PRIVCFG/startup
+    $XDG_CONFIG_HOME/icewm/startup
+    $HOME/.icewm/startup
+    /etc/icewm/startup
+    /usr/share/icewm/startup
 
 # DESCRIPTION
 
@@ -20,24 +20,18 @@ executable script with commands to tweak X11 settings and launch some
 applications which need to be active whenever **icewm** is started.
 It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
 
-# FORMAT
-
-# EXAMPLES
-
 # FILES
 
 Locations for the `startup` file are as follows:
 
-- `$ICEWM_PRIVCFG/startup`
-- `$XDG_CONFIG_HOME/icewm/startup`
-- `$HOME/.icewm/startup`
-- `/etc/icewm/startup`
-- `/usr/share/icewm/startup`
+    $ICEWM_PRIVCFG/startup
+    $XDG_CONFIG_HOME/icewm/startup
+    $HOME/.icewm/startup
+    /etc/icewm/startup
+    /usr/share/icewm/startup
 
 # SEE ALSO
 
-[icewm(1)](icewm),
-[icewm-env(5)](icewm-env),
 [icewm-session(1)](icewm-session),
 [icewm-shutdown(5)](icewm-shutdown).
 

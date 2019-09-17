@@ -7,11 +7,11 @@ title: "icewm-env(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/env`
-- `$XDG_CONFIG_HOME/icewm/env`
-- `$HOME/.icewm/env`
-- `/etc/icewm/env`
-- `/usr/share/icewm/env`
+    $ICEWM_PRIVCFG/env
+    $XDG_CONFIG_HOME/icewm/env
+    $HOME/.icewm/env
+    /etc/icewm/env
+    /usr/share/icewm/env
 
 # DESCRIPTION
 
@@ -41,11 +41,11 @@ followed by an equals sign, followed by the value (which may be empty).
 
 [icewm-session(1)](icewm-session) looks for the `env` file in the following locations:
 
-- `$ICEWM_PRIVCFG/env`
-- `$XDG_CONFIG_HOME/icewm/env`
-- `$HOME/.icewm/env`
-- `/etc/icewm/env`
-- `/usr/share/icewm/env`
+    $ICEWM_PRIVCFG/env
+    $XDG_CONFIG_HOME/icewm/env
+    $HOME/.icewm/env
+    /etc/icewm/env
+    /usr/share/icewm/env
 
 # SEE ALSO
 

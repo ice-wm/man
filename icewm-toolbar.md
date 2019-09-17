@@ -7,19 +7,17 @@ title: "icewm-toolbar(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/toolbar`
-- `$XDG_CONFIG_HOME/icewm/toolbar`
-- `$HOME/.icewm/toolbar`
-- `/etc/icewm/toolbar`
-- `/usr/share/icewm/toolbar`
+    $ICEWM_PRIVCFG/toolbar
+    $XDG_CONFIG_HOME/icewm/toolbar
+    $HOME/.icewm/toolbar
+    /etc/icewm/toolbar
+    /usr/share/icewm/toolbar
 
 # DESCRIPTION
 
 The `toolbar` file is responsible for configuring quick launch
-application icons that are placed on the [icewm(1)](icewm) panel.  The file is
-used to place programs as buttons on the [icewm(1)](icewm) pane
-
-Contains names of quick to launch applications with icons for the task
+application icons that are placed on the [icewm(1)](icewm) panel.  It
+contains names of quick to launch applications with icons for the task
 bar.  Each non-empty non-comment line starts with the keyword **prog**.
 After one or more spaces follows a name, which is displayed in a tool
 tip whenever the mouse cursor hovers over the toolbar icon.  This name
@@ -85,11 +83,11 @@ Following is an example that places a number of toolbar buttons on the
 
 Locations for the `toolbar` file are as follows:
 
-- `$ICEWM_PRIVCFG/toolbar`
-- `$XDG_CONFIG_HOME/icewm/toolbar`
-- `$HOME/.icewm/toolbar`
-- `/etc/icewm/toolbar`
-- `/usr/share/icewm/toolbar`
+    $ICEWM_PRIVCFG/toolbar
+    $XDG_CONFIG_HOME/icewm/toolbar
+    $HOME/.icewm/toolbar
+    /etc/icewm/toolbar
+    /usr/share/icewm/toolbar
 
 # SEE ALSO
 

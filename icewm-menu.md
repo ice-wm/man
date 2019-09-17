@@ -7,11 +7,11 @@ title: "icewm-menu(5)"
 
 # SYNOPSIS
 
-- `$ICEWM_PRIVCFG/menu`
-- `$XDG_CONFIG_HOME/icewm/menu`
-- `$HOME/.icewm/menu`
-- `/etc/icewm/menu`
-- `/usr/share/icewm/menu`
+    $ICEWM_PRIVCFG/menu
+    $XDG_CONFIG_HOME/icewm/menu
+    $HOME/.icewm/menu
+    /etc/icewm/menu
+    /usr/share/icewm/menu
 
 # DESCRIPTION
 
@@ -78,7 +78,7 @@ _program_ _options_
 
     A separator for menu items.
 
-where,
+Where
 
 - **prog**, **restart**, **runonce**, **menu**, **menufile**,
 **menuprog**, **menuprogreload**, **include**, **includeprog**, **separator**
@@ -107,10 +107,10 @@ where,
 
 - _program_ _options_
 
-    _program_ is the name of the executable or full path to the executable file that will
-    be run in response to selecting the menu item.  When used with the
-    **menuprog** keyword, the _program_ must print on standard output the
-    contents of the menu and is used for dynamic menus.
+    _program_ is the name of the executable or full path to the executable
+    file that will be run in response to selecting the menu item.
+    When used with the **menuprog** keyword, the _program_ must print on
+    standard output the contents of the menu and is used for dynamic menus.
 
     _options_ is the options and arguments passed to the _program_
     verbatim.
@@ -148,11 +148,11 @@ Following is the example `menu` file that ships with [icewm(1)](icewm):
 
 Locations for the `menu` file are as follows:
 
-- `$ICEWM_PRIVCFG/menu`
-- `$XDG_CONFIG_HOME/icewm/menu`
-- `$HOME/.icewm/menu`
-- `/etc/icewm/menu`
-- `/usr/share/icewm/menu`
+    $ICEWM_PRIVCFG/menu
+    $XDG_CONFIG_HOME/icewm/menu
+    $HOME/.icewm/menu
+    /etc/icewm/menu
+    /usr/share/icewm/menu
 
 # SEE ALSO
 
