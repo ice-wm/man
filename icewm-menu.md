@@ -154,6 +154,9 @@ Locations for the `menu` file are as follows:
     /etc/icewm/menu
     /usr/share/icewm/menu
 
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
+
 # SEE ALSO
 
 [icewm(1)](icewm),

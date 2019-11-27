@@ -1614,8 +1614,11 @@ The following preferences are read by [icewmbg(1)](icewmbg):
     AutoHideDelay=900
     AutoShowDelay=100
     EdgeResistance=3
-    KeySysMenu="Multi_key"
+    KeySysWinMenu=""
     KeySysWinListMenu="Shift+Ctrl+Esc"
+
+The above example shows how to tell **icewm** to not bind a specific key:
+_KeySysWinMenu_ in this case.
 
 # FILES
 
@@ -1626,6 +1629,9 @@ Locations for the `preferences` file are as follows:
     $HOME/.icewm/preferences
     /etc/icewm/preferences
     /usr/share/icewm/preferences
+
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
 
 # SEE ALSO
 

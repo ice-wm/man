@@ -40,6 +40,9 @@ Locations for the `focus_mode` file are as follows:
     /usr/share/icewm/focus_mode
     /usr/local/share/icewm/focus_mode
 
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
+
 # SEE ALSO
 
 [icewm(1)](icewm),

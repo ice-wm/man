@@ -47,6 +47,9 @@ followed by an equals sign, followed by the value (which may be empty).
     /etc/icewm/env
     /usr/share/icewm/env
 
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
+
 # SEE ALSO
 
 [icewm(1)](icewm),

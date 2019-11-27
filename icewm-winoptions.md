@@ -15,17 +15,15 @@ title: "icewm-winoptions(5)"
 
 # DESCRIPTION
 
-The IceWM window options configuration file is used to configure
-settings for individual application windows.  The window options that
-are established by this file when [icewm(1)](icewm) starts can be overridden
-while running using the [icesh(1)](icesh) or [icewmhint(1)](icewmhint) utilities.
+Contains settings to control window appearance and behaviour. These are
+specific to applications, or to groups of applications.  Options can
+control the window border, whether the application appears on the task
+bar, the window list, the system tray and the work spaces.
+Also its layer, geometry, whether it can be moved, resized and closed.
 
-Contains settings to control window appearance and behaviour which are
-specific to applications or groups of applications.  Options can control
-the border, whether it appears on the task bar, the window list, the
-system tray and the work spaces.  Also its layer, geometry, whether it
-can be moved, resized and closed.  Full details for this file are
-explained in the [IceWM Manual](https://ice-wm.org/manual).
+Options are established when [icewm(1)](icewm) starts.  However, they can be
+overridden later using [icesh(1)](icesh) or [icewmhint(1)](icewmhint). The command
+`icesh winoptions` instructs icewm to reload the winoptions file.
 
 # FORMAT
 
@@ -76,7 +74,8 @@ The following option control general characteristics of windows:
 - **icon**: _NAME_ (default: none)
 
     Specifies the icon name for the window.  _NAME_ is the name of the
-    icon.
+    icon, like `utilities-terminal`. It can also be a file, like
+    `xterm.png`, a full path, or a prefix of a path without sizes or suffix.
 
 - **workspace**: _WORKSPACE_ (default: current)
 
@@ -258,6 +257,9 @@ Locations for the `winoptions` file are as follows:
     $HOME/.icewm/winoptions
     /etc/icewm/winoptions
     /usr/share/icewm/winoptions
+
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
 
 # SEE ALSO
 

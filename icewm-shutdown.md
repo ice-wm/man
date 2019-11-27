@@ -31,6 +31,9 @@ Locations for the `shutdown` file are as follows:
     /etc/icewm/shutdown
     /usr/share/icewm/shutdown
 
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
+
 # SEE ALSO
 
 [icewm-session(1)](icewm-session),

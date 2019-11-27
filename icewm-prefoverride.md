@@ -32,6 +32,9 @@ Locations for the `prefoverride` file are as follows:
     /etc/icewm/prefoverride
     /usr/share/icewm/prefoverride
 
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
+
 # SEE ALSO
 
 [icewm(1)](icewm),

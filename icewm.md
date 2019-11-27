@@ -212,6 +212,11 @@ The **icewm** program supports some additional options:
 
     Give a list of the current X extensions, their versions and status.
 
+- **--trace**=_conf_,_icon_
+
+    Enable tracing of the paths which are used to load configuration
+    and/or icons.
+
 # USAGE
 
 ## TASKBAR

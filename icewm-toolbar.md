@@ -89,6 +89,9 @@ Locations for the `toolbar` file are as follows:
     /etc/icewm/toolbar
     /usr/share/icewm/toolbar
 
+The locations are searched in the order listed; the first file found is
+read and the remainder ignored.
+
 # SEE ALSO
 
 [icewm(1)](icewm),
