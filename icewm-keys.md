@@ -16,7 +16,11 @@ title: "icewm-keys(5)"
 # DESCRIPTION
 
 Global keybindings to launch applications, which need not be window
-manager related.  Each non-empty line starts with the word `key`.
+manager related. If you are looking for ways to disable icewm's grabbing
+of default key combinations, please read [icewm-preferences(5)](icewm-preferences)
+instead.
+
+Each non-empty line starts with the word `key`.
 After one or more spaces follows a double-quoted string of the bound X11
 key combination like `Alt+Ctrl+Shift+X`.  Then after at least one space
 follows a shell command line which will be executed by **icewm** whenever
@@ -24,6 +28,10 @@ this key combination is pressed.  For example, the following line
 creates a hotkey to reload the **icewm** configuration:
 
     key "Ctrl+Shift+r"      icesh restart
+
+See the output of `xmodmap -pk` for a list of keystroke names.
+To bind the mouse use `Pointer_Button1` for button 1, and so on.
+The command `icesh keys` instructs icewm to reload this file.
 
 # FORMAT
 

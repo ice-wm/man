@@ -179,7 +179,7 @@ The **icewm** program supports some additional options:
 
     Tell **icewm** to restart itself. This reloads the configuration from file.
 
-- **--splash**=_IMAGE_
+- **-s**, **--splash**=_IMAGE_
 
     Briefly show _IMAGE_ on startup in the center of the screen.
     This can also be set in the preferences file as Splash=`image.jpg`.
@@ -201,7 +201,7 @@ The **icewm** program supports some additional options:
     **icewm** will search all the configuration directories for theme files
     and print a list of all found themes.
 
-- **--postpreferences**
+- **-p**, **--postpreferences**
 
     This gives a long list of all the internal **icewm** options with their
     actual values after **icewm** has processed all of the configuration and

@@ -11,7 +11,7 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides 85 commands to change or query a window's state,
+**icesh** provides 86 commands to change or query a window's state,
 and to interact with the [icewm(1)](icewm) window manager. Command arguments
 are called actions. Window actions operate on a selection of windows.
 **icesh** has several options to select and filter windows.  Options and
@@ -534,6 +534,10 @@ do not require a window _select_ or _filter_ option:
 - **winoptions**
 
     Let icewm reload the `winoptions`.
+
+- **keys**
+
+    Let icewm reload the `keys` file.
 
 - **guievents**
 
