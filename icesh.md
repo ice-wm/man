@@ -11,7 +11,7 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides 86 commands to change or query a window's state,
+**icesh** provides 90 commands to change or query a window's state,
 and to interact with the [icewm(1)](icewm) window manager. Command arguments
 are called actions. Window actions operate on a selection of windows.
 **icesh** has several options to select and filter windows.  Options and
@@ -37,19 +37,27 @@ interactively. The manager actions do not require window options.
 The following five options _select_ one or more client windows.
 If needed, they can be repeated for successive actions.
 
-- **-w**, **-window** _WINDOW\_ID_
+- **-w**, **-window**, **+w**, **+window** _WINDOW\_ID_
 
     Specifies the identifier of the window, _WINDOW\_ID_, for which the
     action applies.  Special identifiers are **root** for the root window
     and **focus** for the currently focused window.
+    The option with minus sign replaces the existing selection.
+    With a plus sign the window is added to an existing selection.
 
-- **-r**, **-root**
+- **-r**, **-root**, **+r**, **+root**
 
     Is equivalent to **-window** **root** and selects the root window.
+    The option with minus sign replaces the existing selection with
+    the root window. With a plus sign the root window is added to
+    an existing selection.
 
-- **-f**, **-focus**
+- **-f**, **-focus**, **+f**, **+focus**
 
     Is equivalent to **-window** **focus** and selects the focused window.
+    The option with minus sign replaces the existing selection with
+    the focused window. With a plus sign the focused window is added to
+    an existing selection.
 
 - **-a**, **-all**
 
@@ -107,14 +115,25 @@ implicitly assumed to filter all client windows.
 - **-L**, **-Layer** _LAYER_
 
     Filters clients by _GNOME window layer_, which can either be a layer
-    name (see below) or a layer number.  If _LAYER_ starts with an
-    exclamation mark then the filtering is inverted.
+    name or a layer number. See EXPRESSIONS below. If _LAYER_ starts with
+    an exclamation mark then the filtering is inverted.
 
-- **-P**, **-Property** _PROP_
+- **-N**, **-Netstate** _STATE_
 
-    Filters clients by property. Clients which have a property _PROP_ are
-    selected.  The filtering is inverted if _PROP_ starts with an
-    exclamation mark.
+    Filters clients by _EWMH window state_. Clients which have at
+    least an EWMH window state of _STATE_ are selected.  This state
+    refers to details like **minized** or **maximized**. See EXPRESSIONS
+    below. If _STATE_ starts with an exclamation mark then the filtering
+    is inverted.  A question mark `?` filters clients with any bit set
+    in _STATE_.
+
+- **-P**, **-Property** _PROP\[=value\]_
+
+    Filters clients by property. Clients which have a property _PROP_
+    are selected. If the optional _value_ is given, the match succeeds
+    only if _PROP_ is a string, window, cardinal, or atom, with a value
+    equal to _value_.  The filtering is inverted if _PROP_ starts with
+    an exclamation mark.
 
 - **-R**, **-Role** _ROLE_
 
@@ -126,7 +145,7 @@ implicitly assumed to filter all client windows.
 
     Filters clients by _GNOME window state_. Clients which have at least
     a state of _STATE_ are selected.  The window state refers to details
-    like **minized** or **maximized** and is explained below.  If _STATE_
+    like **minized** or **maximized**. See EXPRESSIONS below.  If _STATE_
     starts with an exclamation mark then the filtering is inverted.
     A question mark `?` filters clients with any bit set in _STATE_.
 
@@ -268,9 +287,16 @@ The following actions affect the selected window or windows.
 
     Resize window to _WIDTH_ by _HEIGHT_ pixels. If _WIDTH_ or _HEIGHT_
     ends with a percent sign `%`, then they refer to a percentage of the
-    desktop work area. For instance, `sizeto 50% 100%`a resizes to half
+    desktop work area. For instance, `sizeto 50% 100%` resizes to half
     the desktop width and whatever height is available above or below the
     taskbar.
+
+- **sizeby** _WIDTH_ _HEIGHT_
+
+    Resize window by _WIDTH_ by _HEIGHT_ pixels. If _WIDTH_ or _HEIGHT_
+    ends with a percent sign `%`, then they refer to a percentage of the
+    current window size. For instance, `sizeto 50% 200` increases the width
+    by 50% and increases the height by 200 pixels.
 
 - **move** _X_ _Y_
 
@@ -325,6 +351,16 @@ The following actions affect the selected window or windows.
 - **getGeometry**
 
     Print the window geometry.
+
+- **netState** _\[STATE\]_
+
+    If _STATE_ is omitted then it shows the _EWMH window state_.
+    If _STATE_ starts with a `+` then flags in _STATE_ are appended to
+    the existing _EWMH window state_.  If _STATE_ starts with a `-`
+    then flags in _STATE_ are removed from the existing _EWMH window
+    state_.  If _STATE_ starts with a `=` then the _EWMH window state_
+    is set to _STATE_. See EXPRESSIONS below. A list of _EWMH flags_
+    can be found in the output of `icesh symbols`.
 
 - **setState** _MASK_ _STATE_
 
@@ -424,8 +460,19 @@ The following actions affect the selected window or windows.
 
 - **prop** _PROPERTY_
 
-    Print the value of property _PROPERTY_ if it is present.  _PROPERTY_
-    can be a string, a window, or a list of one or more atoms or cardinals.
+    Print the value of property _PROPERTY_ if it is present.
+
+- **click** _window-x_ _window-y_ _button_
+
+    Send a button press and release event at position (_window-x_,
+    _window-y_). A negative position is relative to the bottom right
+    corner. The mouse pointer is warped to the position before sending
+    the events. The button number should be between 1 and 5 inclusive.
+
+- **spy**
+
+    Observe the selected windows and report any changes. This includes
+    focus, visibility, position, size and all window properties.
 
 ## MANAGER ACTIONS
 
@@ -543,9 +590,9 @@ do not require a window _select_ or _filter_ option:
 
     Monitor the **ICEWM\_GUI\_EVENT** property and report all changes.
 
-- **colormaps**
+- **delay** \[_time_\]
 
-    Monitor which colormap is installed.
+    Stop execution for _time_ or 0.1 seconds.
 
 - **runonce** _program_ \[_arguments..._\]
 
@@ -666,6 +713,25 @@ Each _SYMBOL_ may be from one of the following applicable domains:
         Menu                 (16)
         Minimize             (32)
         Maximize             (64)
+
+- _EWMH window state symbols_
+
+    Named symbols of the domain _EWMH state_ (numeric range:
+    0-8191):
+
+        ABOVE                 (1)
+        BELOW                 (2)
+        DEMANDS_ATTENTION     (4)
+        FOCUSED               (8)
+        FULLSCREEN            (16)
+        HIDDEN                (32)
+        MAXIMIZED_HORZ        (64)
+        MAXIMIZED_VERT        (128)
+        MODAL                 (256)
+        SHADED                (512)
+        SKIP_PAGER            (1024)
+        SKIP_TASKBAR          (2048)
+        STICKY                (4096)
 
 # EXAMPLES
 

@@ -18,20 +18,20 @@ creates menu entries that call the xrandr command to setup this
 configuration.
 
 Optionally, the contents of the generated configurations can be accessed
-on-the-fly as a "quick-switch" menu which is accessible by Super-P key
-binding of **icewm**.
+on-the-fly through a "quick-switch" style menu which pops up upon
+pressing Super-P key binding (or a manually configured key, see
+[icewm-keys(5)](icewm-keys) for the configuration of **switchkey** directive).
 
 # OPTIONS
 
-**icewm-menu-xrandr** does not support any options.
+- **--max**
 
-# ENVIRONMENT
-
-# CAVEATS
-
-The quick-switch menu is only accessible when **icewm-menu-xrandr** program
-is registered as special binding of type **switchkey** in
-[icewm-keys(5)](icewm-keys) configuration.
+    Instead of using the preferred mode and refresh rate of each monitor
+    (xrandr's `--auto` option), identify and use the modes with the highest
+    bandwidth usage (i.e. usually the ones with the highest resolution and
+    refresh rate). This behaviour is also enabled by creating the file
+    `$HOME/.cache/xrandrmenu.max` which would also effect the monitor
+    quick-switch menu.
 
 # SEE ALSO
 

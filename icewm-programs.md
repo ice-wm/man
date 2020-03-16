@@ -17,7 +17,7 @@ title: "icewm-programs(5)"
 
 The `programs` file is an automatically generated menu configuration
 file of installed programs. This file should be automatically generated
-by wmconfig (Redhat), menu (Debian), or icewm-menu-fdo,
+by xdg\_menu, wmconfig (Redhat), menu (Debian), or icewm-menu-fdo,
 perhaps as part of the login or X startup sequence.
 
 # FORMAT

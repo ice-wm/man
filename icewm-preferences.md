@@ -203,7 +203,9 @@ The following preferences affect focus and general behavior of
 
 - **AutoRaise**=0
 
-    Auto raise windows after delay.
+    Raise windows when the mouse pointer enters, after a delay of
+    _AutoRaiseDelay_ milliseconds.  Note that `RaiseOnFocus=1`
+    may interfere.
 
 - **DelayPointerFocus**=1
 
@@ -219,7 +221,8 @@ The following preferences affect focus and general behavior of
 
 - **UseMouseWheel**=0
 
-    Support mouse wheel.
+    Support mouse wheel. When pressing Ctrl+Alt rotating the mouse wheel
+    on the root window will cycle the focus over the windows.
 
 - **ShowPopupsAbovePointer**=0
 
@@ -766,7 +769,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **AutoRaiseDelay**=400  \[0-5000\]
 
-    Delay before windows are auto raised.
+    Delay before windows are auto raised if `AutoRaise=1`.
 
 - **PointerFocusDelay**=200  \[0-1000\]
 
@@ -848,11 +851,15 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TitleBarMaximizeButton**=1  \[0-5\]
 
-    TitleBar mouse-button double click to maximize the window.
+    Title bar mouse-button double click to maximize the window to full
+    screen with the frame border visible.
+    Press Shift to maximize only in the vertical direction.
+    Press Alt+Shift to maximize only in the horizontal direction.
 
 - **TitleBarRollupButton**=2  \[0-5\]
 
-    TitleBar mouse-button double click to rollup the window.
+    Title bar mouse-button double click to rollup the window.
+    Press Shift to maximize in the horizontal direction.
 
 ## WORKSPACES
 
@@ -1221,7 +1228,7 @@ values are shown following the equal sign.
 
 - **ColorNormalButtonText** = "rgb:00/00/00"
 
-    Textcolor of regular buttons.
+    Text color of regular buttons.
 
 - **ColorActiveButton** = "rgb:E0/E0/E0"
 
@@ -1229,7 +1236,7 @@ values are shown following the equal sign.
 
 - **ColorActiveButtonText** = "rgb:00/00/00"
 
-    Textcolor of pressed buttons.
+    Text color of pressed buttons.
 
 - **ColorNormalTitleButton** = "rgb:C0/C0/C0"
 
@@ -1237,7 +1244,7 @@ values are shown following the equal sign.
 
 - **ColorNormalTitleButtonText** = "rgb:00/00/00"
 
-    Textcolor of titlebar buttons.
+    Text color of titlebar buttons.
 
 - **ColorToolButton** = ""
 
@@ -1245,7 +1252,7 @@ values are shown following the equal sign.
 
 - **ColorToolButtonText** = ""
 
-    Textcolor of toolbar buttons, ColorNormalButtonText is used if empty.
+    Text color of toolbar buttons, ColorNormalButtonText is used if empty.
 
 - **ColorNormalWorkspaceButton** = ""
 
@@ -1253,7 +1260,7 @@ values are shown following the equal sign.
 
 - **ColorNormalWorkspaceButtonText** = ""
 
-    Textcolor of workspace buttons, ColorNormalButtonText is used if empty.
+    Text color of workspace buttons, ColorNormalButtonText is used if empty.
 
 - **ColorActiveWorkspaceButton** = ""
 
@@ -1261,7 +1268,7 @@ values are shown following the equal sign.
 
 - **ColorActiveWorkspaceButtonText** = ""
 
-    Textcolor of the active workspace button, ColorActiveButtonText is used if empty.
+    Text color of the active workspace button, ColorActiveButtonText is used if empty.
 
 - **ColorNormalTitleBar** = "rgb:80/80/80"
 
@@ -1269,11 +1276,11 @@ values are shown following the equal sign.
 
 - **ColorNormalTitleBarText** = "rgb:00/00/00"
 
-    Textcolor of the titlebar of regular windows.
+    Text color of the titlebar of regular windows.
 
 - **ColorNormalTitleBarShadow** = ""
 
-    Textshadow of the titlebar of regular windows.
+    Text shadow of the titlebar of regular windows.
 
 - **ColorActiveTitleBar** = "rgb:00/00/A0"
 
@@ -1281,11 +1288,11 @@ values are shown following the equal sign.
 
 - **ColorActiveTitleBarText** = "rgb:FF/FF/FF"
 
-    Textcolor of the titlebar of active windows.
+    Text color of the titlebar of active windows.
 
 - **ColorActiveTitleBarShadow** = ""
 
-    Textshadow of the titlebar of active windows.
+    Text shadow of the titlebar of active windows.
 
 - **ColorNormalMinimizedWindow** = "rgb:C0/C0/C0"
 
@@ -1293,7 +1300,7 @@ values are shown following the equal sign.
 
 - **ColorNormalMinimizedWindowText** = "rgb:00/00/00"
 
-    Textcolor for mini icons of regular windows.
+    Text color for mini icons of regular windows.
 
 - **ColorActiveMinimizedWindow** = "rgb:E0/E0/E0"
 
@@ -1301,7 +1308,7 @@ values are shown following the equal sign.
 
 - **ColorActiveMinimizedWindowText** = "rgb:00/00/00"
 
-    Textcolor for mini icons of active windows.
+    Text color for mini icons of active windows.
 
 - **ColorNormalMenu** = "rgb:C0/C0/C0"
 
@@ -1309,7 +1316,7 @@ values are shown following the equal sign.
 
 - **ColorNormalMenuItemText** = "rgb:00/00/00"
 
-    Textcolor of regular menu items.
+    Text color of regular menu items.
 
 - **ColorActiveMenuItem** = "rgb:A0/A0/A0"
 
@@ -1317,11 +1324,11 @@ values are shown following the equal sign.
 
 - **ColorActiveMenuItemText** = "rgb:00/00/00"
 
-    Textcolor of selected menu items.
+    Text color of selected menu items.
 
 - **ColorDisabledMenuItemText** = "rgb:80/80/80"
 
-    Textcolor of disabled menu items.
+    Text color of disabled menu items.
 
 - **ColorDisabledMenuItemShadow** = ""
 
@@ -1333,7 +1340,7 @@ values are shown following the equal sign.
 
 - **ColorMoveSizeStatusText** = "rgb:00/00/00"
 
-    Textcolor of move/resize status window.
+    Text color of move/resize status window.
 
 - **ColorQuickSwitch** = "rgb:C0/C0/C0"
 
@@ -1341,7 +1348,7 @@ values are shown following the equal sign.
 
 - **ColorQuickSwitchText** = "rgb:00/00/00"
 
-    Textcolor in the quick switch window.
+    Text color in the quick switch window.
 
 - **ColorQuickSwitchActive** = ""
 
@@ -1357,7 +1364,7 @@ values are shown following the equal sign.
 
 - **ColorNormalTaskBarAppText** = "rgb:00/00/00"
 
-    Textcolor for task buttons of regular windows.
+    Text color for task buttons of regular windows.
 
 - **ColorActiveTaskBarApp** = "rgb:E0/E0/E0"
 
@@ -1365,7 +1372,7 @@ values are shown following the equal sign.
 
 - **ColorActiveTaskBarAppText** = "rgb:00/00/00"
 
-    Textcolor for task buttons of the active window.
+    Text color for task buttons of the active window.
 
 - **ColorMinimizedTaskBarApp** = "rgb:A0/A0/A0"
 
@@ -1373,7 +1380,7 @@ values are shown following the equal sign.
 
 - **ColorMinimizedTaskBarAppText** = "rgb:00/00/00"
 
-    Textcolor for task buttons of minimized windows.
+    Text color for task buttons of minimized windows.
 
 - **ColorInvisibleTaskBarApp** = "rgb:80/80/80"
 
@@ -1381,7 +1388,7 @@ values are shown following the equal sign.
 
 - **ColorInvisibleTaskBarAppText** = "rgb:00/00/00"
 
-    Textcolor for task buttons of windows on other workspaces.
+    Text color for task buttons of windows on other workspaces.
 
 - **ColorScrollBar** = "rgb:A0/A0/A0"
 
@@ -1413,7 +1420,7 @@ values are shown following the equal sign.
 
 - **ColorListBoxText** = "rgb:00/00/00"
 
-    Textcolor in listboxes.
+    Text color in listboxes.
 
 - **ColorListBoxSelection** = "rgb:80/80/80"
 
@@ -1421,7 +1428,7 @@ values are shown following the equal sign.
 
 - **ColorListBoxSelectionText** = "rgb:00/00/00"
 
-    Textcolor of selected listbox items.
+    Text color of selected listbox items.
 
 - **ColorToolTip** = "rgb:E0/E0/00"
 
@@ -1429,7 +1436,7 @@ values are shown following the equal sign.
 
 - **ColorToolTipText** = "rgb:00/00/00"
 
-    Textcolor of tooltips.
+    Text color of tooltips.
 
 - **ColorLabel** = "rgb:C0/C0/C0"
 
@@ -1437,7 +1444,7 @@ values are shown following the equal sign.
 
 - **ColorLabelText** = "rgb:00/00/00"
 
-    Textcolor of labels.
+    Text color of labels.
 
 - **ColorInput** = "rgb:FF/FF/FF"
 
@@ -1445,7 +1452,7 @@ values are shown following the equal sign.
 
 - **ColorInputText** = "rgb:00/00/00"
 
-    Textcolor of text entry fields (e.g. the addressbar).
+    Text color of text entry fields (e.g. the addressbar).
 
 - **ColorInputSelection** = "rgb:80/80/80"
 
@@ -1469,11 +1476,11 @@ values are shown following the equal sign.
 
 - **ColorApmText** = "rgb:00/FF/00"
 
-    Textcolor of APM monitor.
+    Text color of APM monitor.
 
 - **ColorApmBattery** = "rgb:FF/FF/00"
 
-    Color of APM monitor in battary mode.
+    Color of APM monitor in battery mode.
 
 - **ColorApmLine** = "rgb:00/FF/00"
 

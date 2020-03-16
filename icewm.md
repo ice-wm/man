@@ -212,10 +212,10 @@ The **icewm** program supports some additional options:
 
     Give a list of the current X extensions, their versions and status.
 
-- **--trace**=_conf_,_icon_
+- **--trace**=_conf_,_icon_,_prog_
 
-    Enable tracing of the paths which are used to load configuration
-    and/or icons.
+    Enable tracing of the paths which are used to load configuration,
+    and/or icons, and/or executed programs.
 
 # USAGE
 
@@ -245,14 +245,17 @@ button switches to that work space.  The work spaces are defined in the
 graphical summary for each workspace is shown.
 
 The _Task Pane_ consists of a list of wide buttons for each application
-which is running on the current work space.  Each task button shows the
+which is running on the current work space, or all workspaces if
+`TaskBarShowAllWindows=1`.  Each task button shows the
 application icon and the application title.  The active application is
 indicated by a pressed button.  This is the application which has input
 focus.  Pressing another button activates that application: it is
 brought to the foreground and receives input focus.  Other mouse
-controlled activities on the window buttons are dragging window buttons to
-(temporarily) rearrange the order (with left mouse button) or closing
-the application window (with middle button while pressing and holding `Alt`).
+controlled activities on the window buttons are: dragging window buttons
+with the left mouse button to rearrange the order, closing the application
+window with `Alt` + middle button, lowering the application window with
+`Ctrl` + middle button, or bringing the application window to the current
+workspace with `Shift` + middle button if `TaskBarShowAllWindows=1`.
 
 If there are not many application buttons then a stretch of plain task
 bar is visible.  Clicking on it with the right mouse button gives the
@@ -444,6 +447,41 @@ and _Down_ keys.
 It supports file completion using `Tab` or `Ctrl+I`.
 A rich set of editing operations is supported,
 including cut-/copy-/paste-operations.
+
+## WINDOW LIST
+
+The window list window shows a list of all workspaces. For each
+workspace it shows the window titles of the windows which are mapped
+on it. The bottom entry reads `All Workspaces`. It holds the sticky
+windows. These windows are mapped in all workspaces.
+
+The window list window is normally hidden. Choose one of the following
+four methods to make it visible:
+
+- Select the bottom window list menu entry.
+- Press the `KeySysWindowList=Ctrl+Alt+Esc` key.
+- Press the right Windows key if `Win95Keys=1`
+- Press the `DesktopWinListButton=2` mouse button in the root window.
+
+A single-click on a window entry selects it. A group of windows can
+be selected by `Shift+Pointer_Button1` or by dragging with the left
+mouse button. Use `Ctrl+Pointer_Button1` to individually select
+windows in a multi-selection. A right mouse click over a selection
+will popup the system menu for this selection.  To close the selected
+windows, press `Delete`. Press `Shift+Delete` to forcefully kill them.
+Right mouse click below the sticky windows for a menu with window
+arranging actions.
+
+Double-click on a workspace to switch to it.  Double-click on a window
+to activate it.  Or navigate by arrow keys and press Enter.
+The space bar toggles a selection of a window. `Ctrl+a` and `Ctrl+/`
+will select the entire list of windows. `Ctrl+\\` deselects everything.
+Press the first letter of a window title to navigate to it and select
+it. If titles of multiple windows start with the same letter then
+repeatedly pressing the first letter cycles over those windows.
+`Home` selects the first entry and `End` the last. `PageUp` and
+`PageDown` move up or down by ten entries. Combine this with the
+`Shift` key to extend a selection over the range of motion.
 
 ## KEYBOARD SHORTCUTS
 
