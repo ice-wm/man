@@ -32,6 +32,10 @@ support applications.
 
     Use _FILE_ as the IceWM window manager.
 
+- **-o**, **--output=FILE**
+
+    Redirect all output to _FILE_.
+
 - **-a**, **--alpha**
 
     Use a 32-bit visual for translucency.
@@ -60,19 +64,19 @@ support applications.
 
 - **--sync**
 
-    Use a slower synchronous mode communication with _X11_ server.
+    Use a slower synchronous mode communication with the _X11_ server.
 
 - **-h**, **--help**
 
-    Print a brief usage statement to `stdout` and exit.
+    Give a list of all supported options and exit.
 
 - **-V**, **--version**
 
-    Print the program version to `stdout` and exit.
+    Print the program version and exit.
 
 - **-C**, **--copying**
 
-    Print copying permissions to `stdout` for the program and exit.
+    Print copying permissions and exit.
 
 # USAGE
 
@@ -98,6 +102,13 @@ it. If two such crashes occur in a short period, then icewm-session will
 attempt to popup a dialog using either `xmessage`, `kdialog` or
 `zenity`.  This dialog asks if the user wishes to continue restarting
 icewm or abort execution of icewm-session.
+
+# ENVIRONMENT
+
+- **ICEWM\_OPTIONS**
+
+    A space separated list of options which will be added to the command
+    line invocation of `icewm`. This can be set in the `env` file.
 
 # SEE ALSO
 

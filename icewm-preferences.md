@@ -28,6 +28,26 @@ configuration directory and modified.
 The following preferences affect focus and general behavior of
 [icewm(1)](icewm):
 
+- **Alpha**=0
+
+    Use a 32-bit visual for alpha blending
+
+- **Synchronize**=0
+
+    Synchronize X11 for debugging (slow)
+
+- **LogEvents**=0
+
+    Enable event logging for debugging
+
+- **Splash**=""
+
+    Splash image on startup (IceWM.jpg)
+
+- **Trace**=""
+
+    Enable tracing for the given modules
+
 - **ClickToFocus**=1
 
     Focus windows by clicking in them.
@@ -286,7 +306,7 @@ The following preferences affect focus and general behavior of
 
 - **QuickSwitchToUrgent**=1
 
-    Priorize Alt+Tab to urgent windows.
+    Prioritize Alt+Tab to urgent windows.
 
 - **QuickSwitchToAllWorkspaces**=0
 
@@ -512,10 +532,10 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarClockLeds**=0 # 0/1
 
-    Task bar clock/APM uses nice pixmapped LCD display (but then it
-    doesn't display correctly in many languages anymore, e.g. for
+    Task bar clock/APM uses nice pixmap LCD display (but then it
+    doesn't display correctly in many languages anymore, e.g., for
     Japanese and Korean it works only when a real font is used and not
-    the LEDs.
+    the LCD pixmaps.
 
 - **PagerShowPreview**=1
 
@@ -533,13 +553,17 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Draw border around workspace buttons (if PagerShowPreview=1).
 
+- **PagerShowLabels**=1
+
+    Show workspace name label on workspace button (if PagerShowPreview=1)
+
 - **PagerShowNumbers**=1
 
     Show number of workspace on workspace button (if PagerShowPreview=1).
 
 - **TaskBarLaunchOnSingleClick**=1
 
-    Execute taskbar applet commands (like MailCommand,     ClockCommand,   ...) on single click.
+    Execute taskbar applet commands (like MailCommand, ClockCommand, ...) on single click.
 
 - **EnableAddressBar**=1
 
@@ -571,7 +595,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **PreferFreetypeFonts**=1
 
-    Favor Xft fonts over core X11 fonts where possible.
+    Favour Xft fonts over core X11 fonts where possible.
 
 - **MailBoxPath**=""
 
@@ -603,7 +627,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TimeFormatAlt**=""
 
-    Alternate Clock Time format (e.g. for blinking effects).
+    Alternate Clock Time format (e.g., for blinking effects).
 
 - **DateFormat**="%c"
 
@@ -1448,11 +1472,11 @@ values are shown following the equal sign.
 
 - **ColorInput** = "rgb:FF/FF/FF"
 
-    Background of text entry fields (e.g. the addressbar).
+    Background of text entry fields (e.g., the addressbar).
 
 - **ColorInputText** = "rgb:00/00/00"
 
-    Text color of text entry fields (e.g. the addressbar).
+    Text color of text entry fields (e.g., the addressbar).
 
 - **ColorInputSelection** = "rgb:80/80/80"
 

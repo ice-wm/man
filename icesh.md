@@ -11,7 +11,7 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides 90 commands to change or query a window's state,
+**icesh** provides 91 commands to change or query a window's state,
 and to interact with the [icewm(1)](icewm) window manager. Command arguments
 are called actions. Window actions operate on a selection of windows.
 **icesh** has several options to select and filter windows.  Options and
@@ -61,15 +61,21 @@ If needed, they can be repeated for successive actions.
 
 - **-a**, **-all**
 
-    Selects all clients of the window manager.
+    Selects all client windows of the window manager.
 
 - **-s**, **-shown**
 
-    Selects all currently visible clients of the window manager.
+    Selects all clients which are on the current workspace.
 
 - **-t**, **-top**
 
     Selects all toplevel windows from the display unconditionally.
+    This includes windows which have never been mapped and windows
+    with the override redirect bit set to evade management.
+
+- **-x**, **-xembed**
+
+    Selects all windows which are embedded using the _XEMBED_ protocol.
 
 ## FILTER OPTIONS
 
