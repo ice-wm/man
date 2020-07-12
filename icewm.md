@@ -151,7 +151,7 @@ Each of the IceWM executables supports the following options:
 
 - **-h**, **--help**
 
-    Gives a complete list of all the available command line options with
+    Gives a complete list of all the available command-line options with
     some very brief explanation.
 
 - **-V**, **--version**
@@ -212,10 +212,10 @@ The **icewm** program supports some additional options:
 
     Give a list of the current X extensions, their versions and status.
 
-- **--trace**=_conf_,_icon_,_prog_
+- **--trace**=_conf_,_icon_,_prog_,_systray_
 
     Enable tracing of the paths which are used to load configuration,
-    and/or icons, and/or executed programs.
+    and/or icons, and/or executed programs, and/or system tray applets.
 
 # USAGE
 
@@ -273,13 +273,8 @@ The _Memory Applet_ monitors memory usage.
 
 The _CPU Applet_ monitors processor utilization.
 
-The _Mailbox Applet_ monitors mailbox status changes.  The location of
-the mailbox is given by the `MailBoxPath` preferences option or else by
-the `MAILPATH` or `MAIL` environment variables.  It can be the path of
-a local mail spool file or the specification of a remote POP3 or IMAP
-location.  For example:
-
-    MailBoxPath="pop3://myname:password@host.com/"
+The _Mailbox Applet_ monitors mailbox status changes.
+See the section MAILBOX MONITORING below.
 
 The _Clock Applet_ shows the current time and date.  It is configured
 by the `TimeFormat` option.
@@ -414,7 +409,7 @@ with the names 1, 2, 3 and 4 thus:
     WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
 
 This syntax is typical for **icewm** options which receive multiple
-values.  It is a list of comma separated values each of which can be
+values.  It is a list of comma-separated values each of which can be
 quoted.
 
 The work spaces are visible on the toolbar.  One can switch to a
@@ -436,7 +431,7 @@ in the window menu of the window frame.
 
 If **EnableAddressBar**=1 then **KeySysAddressBar**=`Alt+Ctrl+Space`
 activates the address bar in the task bar.
-If **ShowAddressBar**=1 it is always shown. This is a command line in
+If **ShowAddressBar**=1 it is always shown. This is a command-line in
 the task bar where a shell command can be typed.
 Pressing `Enter` will execute the command.
 **AddressBarCommand**=`/bin/sh` will be used to execute the command.
@@ -483,380 +478,479 @@ repeatedly pressing the first letter cycles over those windows.
 `PageDown` move up or down by ten entries. Combine this with the
 `Shift` key to extend a selection over the range of motion.
 
+## MAILBOX MONITORING
+
+The task bar can show one or more icons to reflect the status of a
+mailbox. The mailbox can be a local file or a remote POP or IMAP
+account. For this a couple of options must be set. First,
+`TaskBarShowMailboxStatus` must be enabled, which it is by default.
+Then the location of the mailbox must be set.  Icewm first looks for
+`MailBoxPath` in preferences. If this is unset, it looks at the
+environment variables `MAILPATH` and `MAIL`.  `MailBoxPath` may
+contain a space-separated list of mailboxes, while `MAILPATH` may
+contain a colon-separated list of mailboxes.  If a mailbox starts
+with a slash `/`, then it is a local file, otherwise a URL.
+These are six examples of possible mailboxes:
+
+    file:///var/spool/mail/captnmark
+    file:///home/captnmark/Maildir/
+    pop3://markus:%2f%40%3a@maol.ch/
+    pop3s://markus:password@pop.gmail.com/
+    imap://mathias@localhost/INBOX.Maillisten.icewm-user
+    imaps://mathias:password@imap.gmail.com/INBOX
+
+The POP3S and IMAPS schemes use `openssl` for TLS/SSL encryption.
+Note that for IceWM to access Gmail you must first configure
+your Gmail account to enable POP3 or IMAP access.
+Make sure you have secure file permissions on your IceWM
+preferences file and the directory which contains it.
+
+Reserved characters in the password, like _slash_, _at_ and _colon_
+can be specified using escape sequences with a hexadecimal encoding
+like `%2f` for the slash or `%40` for the at sign.
+For example, to hex-encode `!p@a%s&s~` use this Perl snippet:
+
+    perl -e 'foreach(split("", $ARGV[0])) { printf "%%%02x", ord($_); };
+    print "\n";' '!p@a%s&s~'
+
+Which will print:
+
+    %21%40%23%24%25%5e%26%2a%7e
+
+This is the hex-encoded password. However, it is unwise to store a
+password in your preferences. Consider a wallet extension for IceWM.
+
+IceWM will check a mailbox periodically. The period in seconds can
+be set by the `MailCheckDelay` option, which is 30 seconds by default.
+
+Whenever new mail arrives, the mailbox icon will be highlighted.
+The color will indicate if the mail has been read or not. Hovering
+the mouse over the mailbox icon will show a tooltip with more details.
+A command can be also be run on new mail. Set the `NewMailCommand`
+option. Its environment will have these variables set by IceWM:
+
+- ICEWM\_MAILBOX
+
+    The mailbox index number of `MailBoxPath` starting from 1.
+
+- ICEWM\_COUNT
+
+    The total number of messages in this mailbox.
+
+- ICEWM\_UNREAD
+
+    The number of unread messages in this mailbox.
+
+## KEYBOARD LAYOUT SWITCHING
+
+To control keyboard layouts on the task bar, define in `preferences`
+the option **KeyboardLayouts** to a comma-separated list of your
+preferred keyboard layouts. For example:
+
+    KeyboardLayouts="de","fr","jp"
+
+A keyboard layout can simply be a name. Usually this is a two-letter
+country code. See the directory `/usr/share/X11/xkb/symbols` for
+a list of available keyboard layouts for your system.  If it is
+enclosed in double quotes, it can also be a space-separated list of
+command-line arguments to an invocation of the `setxkbmap` program.
+
+The first layout is the default. It will be installed when icewm starts.
+The task bar will show the current keyboard layout. If an icon can
+be found for the first two letters of the layout, then that icon
+will be shown. Otherwise the first two letters of the name of the
+layout will be shown.
+
+Click on the current keyboard layout to cycle through all the
+available keyboard layouts. Click with the right mouse button
+to open a menu of all available keyboard layouts.
+
+It is also possible to configure a default keyboard layout for
+each program individually in the [icewm-winoptions(5)](icewm-winoptions) file.
+Whenever such a program receives input focus, icewm will install
+this configured keyboard layout automatically. The keyboard status
+on the task bar will be updated to reflect this.
+
+Please note that for keyboard layout switching to work, the
+`setxkbmap` program must be installed. To see your current
+keyboard layout settings, do `setxkbmap -query`.
+
 ## KEYBOARD SHORTCUTS
 
 **icewm** supports a large number of hotkeys to activate some behaviour
 with a single key combination.  These are all configurable in the
-`preferences` file.  Here we give their default values, followed by
-their preferences names and short descriptions of their effect:
+`preferences` file.  Here we give their preferences name, followed by
+their default value in double quotes, and a short descriptions of their
+effect:
 
-- `Alt+F1`
+- **KeyWinRaise**=`Alt+F1`
 
-    `KeyWinRaise` raises the window which currently has input focus.
+    Raises the window which currently has input focus.
 
-- `Alt+F2`
+- **KeyWinOccupyAll**=`Alt+F2`
 
-    `KeyWinOccupyAll` makes the active window occupy all work spaces.
+    Makes the active window occupy all work spaces.
 
-- `Alt+F3`
+- **KeyWinLower**=`Alt+F3`
 
-    `KeyWinLower` lowers the window which currently has input focus.
+    Lowers the window which currently has input focus.
 
-- `Alt+F4`
+- **KeyWinClose**=`Alt+F4`
 
-    `KeyWinClose` closes the active window.
+    Closes the active window.
 
-- `Alt+F5`
+- **KeyWinRestore**=`Alt+F5`
 
-    `KeyWinRestore` restores the active window to its visible state.
+    Restores the active window to its visible state.
 
-- `Alt+F6`
+- **KeyWinNext**=`Alt+F6`
 
-    `KeyWinNext` switches focus to the next window.
+    Switches focus to the next window.
 
-- `Alt+Shift+F6`
+- **KeyWinPrev**=`Alt+Shift+F6`
 
-    `KeyWinPrev` switches focus to the previous window.
+    Switches focus to the previous window.
 
-- `Alt+F7`
+- **KeyWinMove**=`Alt+F7`
 
-    `KeyWinMove` starts movement of the active window.
+    Starts movement of the active window.
 
-- `Alt+F8`
+- **KeyWinSize**=`Alt+F8`
 
-    `KeyWinSize` starts resizing of the active window.
+    Starts resizing of the active window.
 
-- `Alt+F9`
+- **KeyWinMinimize**=`Alt+F9`
 
-    `KeyWinMinimize` iconifies the active window.
+    Iconifies the active window.
 
-- `Alt+F10`
+- **KeyWinMaximize**=`Alt+F10`
 
-    `KeyWinMaximize` maximizes the active window with borders.
+    Maximizes the active window with borders.
 
-- `Alt+Shift+F10`
+- **KeyWinMaximizeVert**=`Alt+Shift+F10`
 
-    `KeyWinMaximizeVert` maximizes the active window vertically.
+    Maximizes the active window vertically.
 
-- `undefined`
+- **KeyWinMaximizeHoriz**=`undefined`
 
-    `KeyWinMaximizeHoriz` maximizes the active window horizontally.
+    Maximizes the active window horizontally.
 
-- `Alt+F11`
+- **KeyWinFullscreen**=`Alt+F11`
 
-    `KeyWinFullscreen` maximizes the active window without borders.
+    Maximizes the active window without borders.
 
-- `Alt+F12`
+- **KeyWinRollup**=`Alt+F12`
 
-    `KeyWinRollup` rolls up the active window.
+    Rolls up the active window.
 
-- `Alt+Shift+F12`
+- **KeyWinHide**=`Alt+Shift+F12`
 
-    `KeyWinHide` hides the active window.
+    Hides the active window.
 
-- `Alt+Space`
+- **KeyWinMenu**=`Alt+Space`
 
-    `KeyWinMenu` posts the window menu.
+    Posts the window menu.
 
-- `Ctrl+Alt+KP_7`
+- **KeyWinArrangeNW**=`Ctrl+Alt+KP_7`
 
-    `KeyWinArrangeNW` moves the active window to the top left corner of the screen.
+    Moves the active window to the top left corner of the screen.
 
-- `Ctrl+Alt+KP_8`
+- **KeyWinArrangeN**=`Ctrl+Alt+KP_8`
 
-    `KeyWinArrangeN` moves the active window to the top middle of the screen.
+    Moves the active window to the top middle of the screen.
 
-- `Ctrl+Alt+KP_9`
+- **KeyWinArrangeNE**=`Ctrl+Alt+KP_9`
 
-    `KeyWinArrangeNE` moves the active window to the top right of the screen.
+    Moves the active window to the top right of the screen.
 
-- `Ctrl+Alt+KP_6`
+- **KeyWinArrangeE**=`Ctrl+Alt+KP_6`
 
-    `KeyWinArrangeE` moves the active window to the middle right of the screen.
+    Moves the active window to the middle right of the screen.
 
-- `Ctrl+Alt+KP_3`
+- **KeyWinArrangeSE**=`Ctrl+Alt+KP_3`
 
-    `KeyWinArrangeSE` moves the active window to the bottom right of the screen.
+    Moves the active window to the bottom right of the screen.
 
-- `Ctrl+Alt+KP_2`
+- **KeyWinArrangeS**=`Ctrl+Alt+KP_2`
 
-    `KeyWinArrangeS` moves the active window to the bottom middle of the screen.
+    Moves the active window to the bottom middle of the screen.
 
-- `Ctrl+Alt+KP_1`
+- **KeyWinArrangeSW**=`Ctrl+Alt+KP_1`
 
-    `KeyWinArrangeSW` moves the active window to the bottom left of the screen.
+    Moves the active window to the bottom left of the screen.
 
-- `Ctrl+Alt+KP_4`
+- **KeyWinArrangeW**=`Ctrl+Alt+KP_4`
 
-    `KeyWinArrangeW` moves the active window to the middle left of the screen.
+    Moves the active window to the middle left of the screen.
 
-- `Ctrl+Alt+KP_5`
+- **KeyWinArrangeC**=`Ctrl+Alt+KP_5`
 
-    `KeyWinArrangeC` moves the active window to the center of the screen.
+    Moves the active window to the center of the screen.
 
-- `Shift+Esc`
+- **KeySysWinMenu**=`Shift+Esc`
 
-    `KeySysWinMenu` posts the system window menu.
+    Posts the system window menu.
 
-- `Alt+Esc`
+- **KeySysWinNext**=`Alt+Esc`
 
-    `KeySysWinNext` give focus to the next window and raise it.
+    Give focus to the next window and raise it.
 
-- `Alt+Shift+Esc`
+- **KeySysWinPrev**=`Alt+Shift+Esc`
 
-    `KeySysWinPrev` give focus to the previous window and raise it.
+    Give focus to the previous window and raise it.
 
-- `Alt+Ctrl+Del`
+- **KeySysDialog**=`Alt+Ctrl+Del`
 
-    `KeySysDialog` opens the IceWM system dialog in the center of the screen.
+    Opens the IceWM system dialog in the center of the screen.
 
-- `Ctrl+Esc`
+- **KeySysMenu**=`Ctrl+Esc`
 
-    `KeySysMenu` activates the IceWM root menu in the lower left corner.
+    Activates the IceWM root menu in the lower left corner.
 
-- `Alt+Ctrl+Esc`
+- **KeySysWindowList**=`Alt+Ctrl+Esc`
 
-    `KeySysWindowList` opens the IceWM system window list in the center of the screen.
+    Opens the IceWM system window list in the center of the screen.
 
-- `Alt+Ctrl+Space`
+- **KeySysAddressBar**=`Alt+Ctrl+Space`
 
-    `KeySysAddressBar` opens the address bar in the task bar where a command can be typed.
+    Opens the address bar in the task bar where a command can be typed.
 
-- `Alt+Ctrl+Left`
+- **KeySysWorkspacePrev**=`Alt+Ctrl+Left`
 
-    `KeySysWorkspacePrev` goes one workspace to the left.
+    Goes one workspace to the left.
 
-- `Alt+Ctrl+Right`
+- **KeySysWorkspaceNext**=`Alt+Ctrl+Right`
 
-    `KeySysWorkspaceNext` goes one workspace to the right.
+    Goes one workspace to the right.
 
-- `Alt+Ctrl+Down`
+- **KeySysWorkspaceLast**=`Alt+Ctrl+Down`
 
-    `KeySysWorkspaceLast` goes to the previous workspace.
+    Goes to the previous workspace.
 
-- `Alt+Ctrl+Shift+Left`
+- **KeySysWorkspacePrevTakeWin**=`Alt+Ctrl+Shift+Left`
 
-    `KeySysWorkspacePrevTakeWin` takes the active window one workspace to the left.
+    Takes the active window one workspace to the left.
 
-- `Alt+Ctrl+Shift+Right`
+- **KeySysWorkspaceNextTakeWin**=`Alt+Ctrl+Shift+Right`
 
-    `KeySysWorkspaceNextTakeWin` takes the active window one workspace to the right.
+    Takes the active window one workspace to the right.
 
-- `Alt+Ctrl+Shift+Down`
+- **KeySysWorkspaceLastTakeWin**=`Alt+Ctrl+Shift+Down`
 
-    `KeySysWorkspaceLastTakeWin` takes the active window to the previous workspace.
+    Takes the active window to the previous workspace.
 
-- `Alt+Ctrl+1`
+- **KeySysWorkspace1**=`Alt+Ctrl+1`
 
-    `KeySysWorkspace1` goes to workspace 1.
+    Goes to workspace 1.
 
-- `Alt+Ctrl+2`
+- **KeySysWorkspace2**=`Alt+Ctrl+2`
 
-    `KeySysWorkspace2` goes to workspace 2.
+    Goes to workspace 2.
 
-- `Alt+Ctrl+3`
+- **KeySysWorkspace3**=`Alt+Ctrl+3`
 
-    `KeySysWorkspace3` goes to workspace 3.
+    Goes to workspace 3.
 
-- `Alt+Ctrl+4`
+- **KeySysWorkspace4**=`Alt+Ctrl+4`
 
-    `KeySysWorkspace4` goes to workspace 4.
+    Goes to workspace 4.
 
-- `Alt+Ctrl+5`
+- **KeySysWorkspace5**=`Alt+Ctrl+5`
 
-    `KeySysWorkspace5` goes to workspace 5.
+    Goes to workspace 5.
 
-- `Alt+Ctrl+6`
+- **KeySysWorkspace6**=`Alt+Ctrl+6`
 
-    `KeySysWorkspace6` goes to workspace 6.
+    Goes to workspace 6.
 
-- `Alt+Ctrl+7`
+- **KeySysWorkspace7**=`Alt+Ctrl+7`
 
-    `KeySysWorkspace7` goes to workspace 7.
+    Goes to workspace 7.
 
-- `Alt+Ctrl+8`
+- **KeySysWorkspace8**=`Alt+Ctrl+8`
 
-    `KeySysWorkspace8` goes to workspace 8.
+    Goes to workspace 8.
 
-- `Alt+Ctrl+9`
+- **KeySysWorkspace9**=`Alt+Ctrl+9`
 
-    `KeySysWorkspace9` goes to workspace 9.
+    Goes to workspace 9.
 
-- `Alt+Ctrl+0`
+- **KeySysWorkspace10**=`Alt+Ctrl+0`
 
-    `KeySysWorkspace10` goes to workspace 10.
+    Goes to workspace 10.
 
-- `Alt+Ctrl+bracketleft`
+- **KeySysWorkspace11**=`Alt+Ctrl+bracketleft`
 
-    `KeySysWorkspace11` goes to workspace 11.
+    Goes to workspace 11.
 
-- `Alt+Ctrl+bracketright`
+- **KeySysWorkspace12**=`Alt+Ctrl+bracketright`
 
-    `KeySysWorkspace12` goes to workspace 12.
+    Goes to workspace 12.
 
-- `Alt+Ctrl+Shift+1`
+- **KeySysWorkspace1TakeWin**=`Alt+Ctrl+Shift+1`
 
-    `KeySysWorkspace1TakeWin` takes the active window to workspace 1.
+    Takes the active window to workspace 1.
 
-- `Alt+Ctrl+Shift+2`
+- **KeySysWorkspace2TakeWin**=`Alt+Ctrl+Shift+2`
 
-    `KeySysWorkspace2TakeWin` takes the active window to workspace 2.
+    Takes the active window to workspace 2.
 
-- `Alt+Ctrl+Shift+3`
+- **KeySysWorkspace3TakeWin**=`Alt+Ctrl+Shift+3`
 
-    `KeySysWorkspace3TakeWin` takes the active window to workspace 3.
+    Takes the active window to workspace 3.
 
-- `Alt+Ctrl+Shift+4`
+- **KeySysWorkspace4TakeWin**=`Alt+Ctrl+Shift+4`
 
-    `KeySysWorkspace4TakeWin` takes the active window to workspace 4.
+    Takes the active window to workspace 4.
 
-- `Alt+Ctrl+Shift+5`
+- **KeySysWorkspace5TakeWin**=`Alt+Ctrl+Shift+5`
 
-    `KeySysWorkspace5TakeWin` takes the active window to workspace 5.
+    Takes the active window to workspace 5.
 
-- `Alt+Ctrl+Shift+6`
+- **KeySysWorkspace6TakeWin**=`Alt+Ctrl+Shift+6`
 
-    `KeySysWorkspace6TakeWin` takes the active window to workspace 6.
+    Takes the active window to workspace 6.
 
-- `Alt+Ctrl+Shift+7`
+- **KeySysWorkspace7TakeWin**=`Alt+Ctrl+Shift+7`
 
-    `KeySysWorkspace7TakeWin` takes the active window to workspace 7.
+    Takes the active window to workspace 7.
 
-- `Alt+Ctrl+Shift+8`
+- **KeySysWorkspace8TakeWin**=`Alt+Ctrl+Shift+8`
 
-    `KeySysWorkspace8TakeWin` takes the active window to workspace 8.
+    Takes the active window to workspace 8.
 
-- `Alt+Ctrl+Shift+9`
+- **KeySysWorkspace9TakeWin**=`Alt+Ctrl+Shift+9`
 
-    `KeySysWorkspace9TakeWin` takes the active window to workspace 9.
+    Takes the active window to workspace 9.
 
-- `Alt+Ctrl+Shift+0`
+- **KeySysWorkspace10TakeWin**=`Alt+Ctrl+Shift+0`
 
-    `KeySysWorkspace10TakeWin` takes the active window to workspace 10.
+    Takes the active window to workspace 10.
 
-- `Alt+Ctrl+Shift+bracketleft`
+- **KeySysWorkspace11TakeWin**=`Alt+Ctrl+Shift+bracketleft`
 
-    `KeySysWorkspace11TakeWin` takes the active window to workspace 11.
+    Takes the active window to workspace 11.
 
-- `Alt+Ctrl+Shift+bracketright`
+- **KeySysWorkspace12TakeWin**=`Alt+Ctrl+Shift+bracketright`
 
-    `KeySysWorkspace12TakeWin` takes the active window to workspace 12.
+    Takes the active window to workspace 12.
 
-- `Alt+Shift+F2`
+- **KeySysTileVertical**=`Alt+Shift+F2`
 
-    `KeySysTileVertical` tiles all windows from left to right maximized vertically.
+    Tiles all windows from left to right maximized vertically.
 
-- `Alt+Shift+F3`
+- **KeySysTileHorizontal**=`Alt+Shift+F3`
 
-    `KeySysTileHorizontal` tiles all windows from top to bottom maximized horizontally.
+    Tiles all windows from top to bottom maximized horizontally.
 
-- `Alt+Shift+F4`
+- **KeySysCascade**=`Alt+Shift+F4`
 
-    `KeySysCascade` makes a horizontal cascade of all windows which are maximized vertically.
+    Makes a horizontal cascade of all windows which are maximized vertically.
 
-- `Alt+Shift+F5`
+- **KeySysArrange**=`Alt+Shift+F5`
 
-    `KeySysArrange` rearranges the windows.
+    Rearranges the windows.
 
-- `Alt+Shift+F7`
+- **KeySysUndoArrange**=`Alt+Shift+F7`
 
-    `KeySysUndoArrange` undoes arrangement.
+    Undoes arrangement.
 
-- `Alt+Shift+F8`
+- **KeySysArrangeIcons**=`Alt+Shift+F8`
 
-    `KeySysArrangeIcons` rearranges icons.
+    Rearranges icons.
 
-- `Alt+Shift+F9`
+- **KeySysMinimizeAll**=`Alt+Shift+F9`
 
-    `KeySysMinimizeAll` minimizes all windows.
+    Minimizes all windows.
 
-- `Alt+Shift+F11`
+- **KeySysHideAll**=`Alt+Shift+F11`
 
-    `KeySysHideAll` hides all windows.
+    Hides all windows.
 
-- `Alt+Ctrl+d`
+- **KeySysShowDesktop**=`Alt+Ctrl+d`
 
-    `KeySysShowDesktop` unmaps all windows to show the desktop.
+    Unmaps all windows to show the desktop.
 
-- `Alt+Ctrl+h`
+- **KeySysCollapseTaskBar**=`Alt+Ctrl+h`
 
-    `KeySysCollapseTaskBar` hides the task bar.
+    Hides the task bar.
 
-- `undefined`
+- **KeyTaskBarSwitchNext**=`undefined`
 
-    `KeyTaskBarSwitchNext` switches to the next window in the task bar.
+    Switches to the next window in the task bar.
 
-- `undefined`
+- **KeyTaskBarSwitchPrev**=`undefined`
 
-    `KeyTaskBarSwitchPrev` switches to the previous window in the task bar.
+    Switches to the previous window in the task bar.
 
-- `undefined`
+- **KeyTaskBarMoveNext**=`undefined`
 
-    `KeyTaskBarMoveNext` moves the task bar button of the current window
+    Moves the task bar button of the current window
     right.
 
-- `undefined`
+- **KeyTaskBarMovePrev**=`undefined`
 
-    `KeyTaskBarMovePrev` moves the task bar button of the current window
+    Moves the task bar button of the current window
     left.
 
-- `undefined`
+- **KeySysWinListMenu**=`undefined`
 
-    `KeySysWinListMenu` shows the window list menu.
+    Shows the window list menu.
 
-- `Alt+Tab`
+- **KeySysSwitchNext**=`Alt+Tab`
 
-    `KeySysSwitchNext` opens the `QuickSwitch` popup (see ["INPUT FOCUS"](#input-focus))
+    Opens the `QuickSwitch` popup (see ["INPUT FOCUS"](#input-focus))
     and/or moves the selector in the `QuickSwitch` popup.
 
-- `Alt+Shift+Tab`
+- **KeySysSwitchLast**=`Alt+Shift+Tab`
 
-    `KeySysSwitchLast` works like `KeySysSwitchNext` but moving in the
+    Works like `KeySysSwitchNext` but moving in the
     opposite direction.
 
-- `Alt+grave`
+- **KeySysSwitchClass**=`Alt+grave`
 
-    `KeySysSwitchClass` is like `KeySysSwitchNext` but only for windows
+    Is like `KeySysSwitchNext` but only for windows
     with the same WM\_CLASS property as the currently focused window.
 
 ## MOUSE BINDINGS
 
 You can control windows by a modified mouse button press:
 
-- `Alt+Pointer_Button1`
+- **MouseWinMove**=`Alt+Pointer_Button1`
 
-    `MouseWinMove` moves the window under the mouse over the screen.
+    Moves the window under the mouse over the screen.
 
-- `Alt+Pointer_Button3`
+- **MouseWinSize**=`Alt+Pointer_Button3`
 
-    `MouseWinSize` resizes the window.  Keep the key and button pressed.
+    Resizes the window.  Keep the key and button pressed.
     To enlarge the window move the mouse button away from the center.  To
     shrink it move towards the centre.
 
-- `Ctrl+Alt+Pointer_Button1`
+- **MouseWinRaise**=`Ctrl+Alt+Pointer_Button1`
 
-    `MouseWinRaise` raises the window under the mouse.
+    Raises the window under the mouse.
 
-- `Ctrl+Alt+Pointer_Button1`
+- **MouseWinLower**=`Ctrl+Alt+Pointer_Button1`
 
-    `MouseWinLower` lowers the window under the mouse.
+    Lowers the window under the mouse.
     If this is equal to `MouseWinRaise` and the window can be raised
     then `MouseWinRaise` takes preference over `MouseWinLower`.
-
-Clicking on the desktop activates a menu.  The middle button shows the
-window list (`DesktopWinListButton=2`).  The right button shows the
-root menu (`DesktopMenuButton=3`).
 
 The title frame of a window also listens for mouse clicks.  Left double
 clicking maximizes the window (`TitleBarMaximizeButton=1`).  Middle
 double clicking rolls up the window (`TitleBarRollupButton=2`).
-Pressing a mouse button and moving it will move the window.  `Alt+left`
-button lowers the window.
+Pressing a mouse button and moving it will move the window.
+`Alt+Pointer_Button1` lowers the window.
 
 When the mouse is on the window frame then a left click raises the
 window.  Dragging with the left button down resizes the window.
 Clicking the right button pops up the context menu.  Dragging with the
 right button moves the window.
+
+Clicking on the desktop activates a menu.  The middle button shows the
+window list (`DesktopWinListButton=2`).  The right button shows the
+root menu (`DesktopMenuButton=3`). If you press `Ctrl+Alt` then
+the mouse wheel will focus all applications in turn.
 
 # SIGNALS
 
@@ -954,7 +1048,7 @@ the given order, until it finds one:
     manager related.  Each non-empty line starts with the word `key`.
     After one or more spaces follows a double-quoted string of the bound X11
     key combination like `Alt+Ctrl+Shift+X`.  Then after at least one space
-    follows a shell command line which will be executed by **icewm** whenever
+    follows a shell command-line which will be executed by **icewm** whenever
     this key combination is pressed.  For example, the following line
     creates a hotkey to reload the **icewm** configuration:
 
@@ -1026,7 +1120,7 @@ the given order, until it finds one:
     tip whenever the mouse cursor hovers over the toolbar icon.  This name
     may be a double quoted string.  Then follows the bare name of the icon
     to use without extensions.  This icon will be shown in the toolbar.  The
-    last component is a shell command line which will be executed whenever
+    last component is a shell command-line which will be executed whenever
     the user presses the icon in the toolbar.  For example, the following
     line in toolbar will create a button with tool tip `Mozilla Firefox`
     with the `firefox` icon which launches [firefox(1)](https://manned.org/firefox.1) when clicked:
@@ -1169,6 +1263,7 @@ See the file `COMPLIANCE` in the distribution for full details.
 [icewm-winoptions(5)](icewm-winoptions),
 [icewmbg(1)](icewmbg),
 [icewmhint(1)](icewmhint),
+[setxkbmap(1)](https://manned.org/setxkbmap.1),
 [Xorg(1)](https://manned.org/Xorg.1),
 [Xserver(1)](https://manned.org/Xserver.1),
 [xinit(1)](https://manned.org/xinit.1),

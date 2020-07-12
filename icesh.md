@@ -11,17 +11,47 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides 91 commands to change or query a window's state,
-and to interact with the [icewm(1)](icewm) window manager. Command arguments
-are called actions. Window actions operate on a selection of windows.
-**icesh** has several options to select and filter windows.  Options and
-actions can be interspersed. They are processed and evaluated one after
-another from left to right. Therefore, an option can only affect a
-subsequent action, but not a previous one. Because of this, an action
-can operate on a different selection of windows than a previous action,
-if it is preceded by a new select option. In combination with filter
-options, this gives **icesh** its expressive power. Use it in
-[icewm-keys(5)](icewm-keys) to define your own window management hotkeys.
+**icesh** provides 92 commands to interact with the [icewm(1)](icewm) window manager.
+There are two types of commands:
+
+- 1. Commands to directly interact with icewm:
+
+    These are listed in the section "MANAGER ACTIONS" below.
+    They are easy to use, because they don't require to select one
+    or more windows. For example, `icesh restart` will restart
+    icewm and `icesh clients` lists the applications which
+    are managed by icewm.
+
+- 2. Commands which operate on a selection of windows:
+
+    See the section `WINDOW ACTIONS` below. For example, `icesh close`
+    is a request to close a window, but which window? Now icesh
+    will turn the mouse pointer into a crosshair. Click on a window
+    and a close request will be sent to that application.
+
+    The power of icesh lies in its ability to programmatically
+    select one or more windows and operate on that selection.
+    This can be used in scripts and in [icewm-keys(5)](icewm-keys)
+    to define your own window management hotkeys.  For example, to
+    immediately close all xterm windows do `icesh -c xterm close`.
+
+    There are about ten `SELECT OPTIONS` to select windows.
+    They start with a minus sign '-' or with a plus sign '+'.
+    The first starts a new selection. The second adds more
+    windows to an existing selection.
+
+    This selection of windows can be reduced by `FILTER OPTIONS`.
+    These remove unwanted windows from the current selection.
+    Multiple filter options can be given. For example,
+    `icesh -c xterm -W this close` will close only those xterms
+    which are shown on the current workspace. The xterms on other
+    workspaces are filtered out by the `-W this` filter option.
+
+    There is no limit to the number of selections, filters and
+    actions which you can give to a single icesh command.
+    They are processed and evaluated one by one from left to right.
+    This makes icesh a small declarative programming language.
+    Have a look at some examples near the end of this document.
 
 # OPTIONS
 
@@ -158,7 +188,8 @@ implicitly assumed to filter all client windows.
 - **-W**, **-Workspace** _WORKSPACE_
 
     Filter clients by workspace. Workspace _WORKSPACE_ is either a
-    workspace name or a workspace number counting from zero.
+    workspace name, or a workspace number counting from zero, or the word
+    `this` for the current workspace, or the word `All` for all workspaces.
     If _WORKSPACE_ starts with an exclamation mark then the filtering is
     inverted.
 
@@ -489,6 +520,10 @@ do not require a window _select_ or _filter_ option:
 
     List the names of all workspaces.
 
+- **current**
+
+    Show the number and name of the current workspace.
+
 - **goto** _WORKSPACE_
 
     Change the current workspace to _WORKSPACE_.
@@ -777,13 +812,16 @@ Resize the focused window to occupy the right half of the desktop area.
 
     icesh -f sizeto 49% 100% sync top sync right sync raise activate
 
-# ENVIRONMENT
+Toggle the frame border of the focused window.
 
-The following environment variables are examined by **icesh**:
+    if icesh -f motif | grep -q 'decor:$'; then \
+        icesh -f motif decor All; else icesh -f motif decor ""; fi
+
+# ENVIRONMENT
 
 - **DISPLAY**
 
-    The display to use if the **-display** option is unspecified.
+    The default display.
 
 # COMPLIANCE
 

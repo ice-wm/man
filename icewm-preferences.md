@@ -46,7 +46,8 @@ The following preferences affect focus and general behavior of
 
 - **Trace**=""
 
-    Enable tracing for the given modules
+    Enable tracing for the given list of modules.
+    Modules which are traceable include **conf, icon, prog, systray**.
 
 - **ClickToFocus**=1
 
@@ -147,6 +148,7 @@ The following preferences affect focus and general behavior of
 - **ConsiderSizeHintsMaximized**=1
 
     Consider XSizeHints if frame is maximized.
+    Turning this off allows the titlebar to cover the width of the screen.
 
 - **CenterMaximizedWindows**=0
 
@@ -693,6 +695,20 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 - **TrayDrawBevel**=0 # 0/1
 
     Surround the tray with plastic border.
+
+- **KeyboardLayouts**=""
+
+    A comma-separated list of keyboard layouts.
+    A layout may be enclosed in double quotes.
+    Each layout is a name with optional arguments,
+    which is to be parsed by the `setxkbmap` program.
+    To support changing keyboard layouts, the
+    `setxkbmap` program must be installed.
+    The first in the list is the default layout.
+    Programs may have their own keyboard layout
+    defined in the `winoptions` file.
+    The first two letters of a layout are used
+    to locate an icon image file.
 
 ## MENUS
 

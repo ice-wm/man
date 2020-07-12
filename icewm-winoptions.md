@@ -124,6 +124,15 @@ The following option control general characteristics of windows:
     Set the \_NET\_WM\_WINDOW\_OPACITY property if _NUMBER_ is a value between
     1 and 100. _NUMBER_ is interpreted as percentage of maximum opaqueness.
 
+- **keyboard**: _layout_ (default: none)
+
+    Specifies the keyboard layout to use for this window. 
+    The _layout_ is the name of a keyboard layout.
+    It can be a space-separated list of arguments to the
+    **setxkbmap** program. Please note that **setxkbmap**
+    must be installed for this to work. Also define
+    a default keyboard layout in `preferences`.
+
 ## FUNCTION OPTIONS
 
 Function options enable/disable (1/0) the ability to take an action on
@@ -174,6 +183,7 @@ the application.  The following options are defined:
     ignoreTaskBar:            {1|0}  not on task bar.
     ignoreUrgentHint:         {1|0}  ignore urgent hints.
     ignoreWinList:            {1|0}  not on window list.
+    ignoreActivationMessages: {1|0}  only user can focus window.
     noFocusOnAppRaise:        {1|0}  no focus on raise.
     noFocusOnMap:             {1|0}  do not focus when mapped.
     noIgnoreTaskBar:          {1|0}  on task bar.
@@ -199,6 +209,19 @@ input focus to _Chrome_ pop-ups and asks to close them immediately.
     google-chrome.pop-up.noFocusOnMap: 1
     google-chrome.pop-up.startClose: 1
     google-chrome.pop-up.startMinimized: 1
+
+IceWM doesn't support dockapps, but this can be emulated.
+A dockapp should appear on all workspaces, have no decorations,
+and be always visible in a fixed location.
+
+    wmtime.wmtime.allWorkspaces: 1
+    wmtime.wmtime.ignoreTaskBar: 1
+    wmtime.wmtime.ignoreQuickSwitch: 1
+    wmtime.wmtime.ignoreWinList: 1
+    wmtime.wmtime.layer: Below
+    wmtime.wmtime.dTitleBar: 0
+    wmtime.wmtime.dBorder: 1
+    wmtime.wmtime.geometry: 64x64-74-100
 
 Following is the example window options file that ships with [icewm(1)](icewm)
 and typically installs to `/usr/share/icewm/winoptions`.
@@ -266,6 +289,7 @@ read and the remainder ignored.
 [icewm(1)](icewm),
 [icesh(1)](icesh),
 [icewmhint(1)](icewmhint),
+[setxkbmap(1)](https://manned.org/setxkbmap.1),
 [XParseGeometry(3)](https://manned.org/XParseGeometry.3).
 
 # AUTHOR
