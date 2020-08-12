@@ -14,7 +14,7 @@ title: "icesh(1)"
 **icesh** provides 92 commands to interact with the [icewm(1)](icewm) window manager.
 There are two types of commands:
 
-- 1. Commands to directly interact with icewm:
+1. Commands to directly interact with icewm:
 
     These are listed in the section "MANAGER ACTIONS" below.
     They are easy to use, because they don't require to select one
@@ -22,7 +22,7 @@ There are two types of commands:
     icewm and `icesh clients` lists the applications which
     are managed by icewm.
 
-- 2. Commands which operate on a selection of windows:
+2. Commands which operate on a selection of windows:
 
     See the section `WINDOW ACTIONS` below. For example, `icesh close`
     is a request to close a window, but which window? Now icesh

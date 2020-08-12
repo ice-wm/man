@@ -399,7 +399,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarShowAPMStatus**=0
 
-    Show APM/ACPI/Battery/Power status monitor on task bar.
+    Show battery status monitor on task bar.
 
 - **TaskBarShowAPMAuto**=1
 
@@ -407,11 +407,11 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarShowAPMTime**=1
 
-    Show APM status on task bar in time-format.
+    Show battery status on task bar in time-format
 
 - **TaskBarShowAPMGraph**=1
 
-    Show APM status in graph mode.
+    Show battery status in graph mode.
 
 - **TaskBarShowMailboxStatus**=1
 
@@ -534,7 +534,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarClockLeds**=0 # 0/1
 
-    Task bar clock/APM uses nice pixmap LCD display (but then it
+    Task bar clock/battery monitor uses nice pixmap LCD display (but then it
     doesn't display correctly in many languages anymore, e.g., for
     Japanese and Korean it works only when a real font is used and not
     the LCD pixmaps.
@@ -670,7 +670,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarApmGraphWidth**=10  \[1-1000\]
 
-    Width of APM Monitor.
+    Width of battery Monitor.
 
 - **TaskBarGraphHeight**=20  \[16-1000\]
 
@@ -909,9 +909,17 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 ## PATHS
 
-- **IconPath**="/usr/share/icons/hicolor:/usr/share/icons:/usr/share/pixmaps"
+- **IconPath**="/usr/local/share/icons:/usr/local/share/pixmaps:/usr/share/icons:/usr/share/pixmaps"
 
-    Icon search path (colon separated).
+    Icon search path (colon separated). Also, the icons/ subdirectory in
+    IceWM resource folders are searched first.
+
+- **IconThemes**="\*:-HighContrast"
+
+    List of icon themes (colon separated), acting as additional filter of
+    icon subdirectories in any of the **IconPath** folders. Expressions can be
+    wildcards, also special wildcards (starting with **-**) can exclude matched
+    themes from selection.
 
 - **MailBoxPath**=""
 
@@ -1035,7 +1043,7 @@ values are shown following the equal sign.
 
     Choose a theme look from one of:
     "win95", "motif", "warp3", "warp4",
-    "nice", "pixmap", "metal", "gtk", "flat".
+    "nice", "metal2", "gtk2", and some others.
 
 - **Gradients**=""
 
@@ -1512,19 +1520,19 @@ values are shown following the equal sign.
 
 - **ColorApm** = "rgb:00/00/00"
 
-    Background of APM monitor, leave empty to force transparency.
+    Background of battery monitor, leave empty to force transparency.
 
 - **ColorApmText** = "rgb:00/FF/00"
 
-    Text color of APM monitor.
+    Text color of battery monitor.
 
 - **ColorApmBattery** = "rgb:FF/FF/00"
 
-    Color of APM monitor in battery mode.
+    Color of battery monitor when discharging.
 
 - **ColorApmLine** = "rgb:00/FF/00"
 
-    Color of APM monitor in line mode.
+    Color of battery monitor when charging.
 
 - **ColorApmGraphBg** = "rgb:00/00/00"
 
