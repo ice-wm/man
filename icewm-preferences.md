@@ -646,15 +646,15 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarCPUSamples**=20  \[2-1000\]
 
-    Width of CPU Monitor.
+    The width of the CPU Monitor applet in pixels.
 
 - **TaskBarMEMSamples**=20  \[2-1000\]
 
-    Width of Memory Monitor.
+    The width of the Memory Monitor applet in pixels.
 
 - **TaskBarNetSamples**=20  \[2-1000\]
 
-    Width of Net Monitor.
+    The width of the Net Monitor applet in pixels.
 
 - **TaskbarButtonWidthDivisor**=3  \[1-25\]
 
@@ -1090,6 +1090,10 @@ values are shown following the equal sign.
 - **TitleBarVertOffset**=0  \[-128-128\]
 
     Vertical offset for the window title text.
+
+- **MenuButtonIconVertOffset**=0  \[-128-128\]
+
+    Vertical offset for the menu button icon.
 
 - **ScrollBarX**=16  \[0-64\]
 

@@ -238,11 +238,11 @@ The following actions affect the selected window or windows.
 
 - **close**
 
-    Close the window.
+    Send a close request to the client that created the window.
 
 - **kill**
 
-    Terminate the window.
+    Force an immediate close down of the client that created the window.
 
 - **id**
 

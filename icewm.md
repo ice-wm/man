@@ -687,6 +687,10 @@ effect:
 
     Moves the active window to the center of the screen.
 
+- **KeyWinSmartPlace**=`Ctrl+Alt+Shift+KP_5`
+
+    Smart place the active window.
+
 - **KeySysWinMenu**=`Shift+Esc`
 
     Posts the system window menu.
