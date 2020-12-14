@@ -94,7 +94,7 @@ hints (except for the tray option argument).
 
     Specifies the initial geometry for windows of the given
     _CLASS_**.**_INSTANCE_.  _GEOMETRY_ must be a geometry that can be
-    parsed by [XParseGeometry(3)](https://manned.org/XParseGeometry.3).  The default is the geometry provided by
+    parsed by [XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html).  The default is the geometry provided by
     window manager hints.
 
 - **order** _NUMBER_

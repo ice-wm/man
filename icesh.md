@@ -11,7 +11,7 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides 92 commands to interact with the [icewm(1)](icewm) window manager.
+**icesh** provides 95 commands to interact with the [icewm(1)](icewm) window manager.
 There are two types of commands:
 
 1. Commands to directly interact with icewm:
@@ -177,14 +177,6 @@ implicitly assumed to filter all client windows.
     property value equal to _ROLE_ are selected.  The filtering is inverted
     if _ROLE_ starts with an exclamation mark.
 
-- **-S**, **-State** _STATE_
-
-    Filters clients by _GNOME window state_. Clients which have at least
-    a state of _STATE_ are selected.  The window state refers to details
-    like **minized** or **maximized**. See EXPRESSIONS below.  If _STATE_
-    starts with an exclamation mark then the filtering is inverted.
-    A question mark `?` filters clients with any bit set in _STATE_.
-
 - **-W**, **-Workspace** _WORKSPACE_
 
     Filter clients by workspace. Workspace _WORKSPACE_ is either a
@@ -302,19 +294,27 @@ The following actions affect the selected window or windows.
 
 - **hide**
 
-    Make window hidden.
+    Hide the window.
 
 - **unhide**
 
-    Undo window hidden.
+    Reveal the window.
 
 - **skip**
 
-    Don't show window on taskbar.
+    Don't show the window on the taskbar.
 
 - **unskip**
 
-    Do show window on taskbar.
+    Do show the window on the taskbar.
+
+- **sticky**
+
+    Show the window on all workspaces.
+
+- **unsticky**
+
+    Show the window on only one workspace.
 
 - **resize** _WIDTH_ _HEIGHT_
 
@@ -347,23 +347,23 @@ The following actions affect the selected window or windows.
 
 - **center**
 
-    Position window in the center of the desktop work area.
+    Position the window in the center of the desktop work area.
 
 - **left**
 
-    Position window against the left side of the desktop work area.
+    Position the window against the left side of the desktop work area.
 
 - **right**
 
-    Position window against the right side of the desktop work area.
+    Position the window against the right side of the desktop work area.
 
 - **top**
 
-    Position window against the top side of the desktop work area.
+    Position the window against the top side of the desktop work area.
 
 - **bottom**
 
-    Position window against the bottom side of the desktop work area.
+    Position the window against the bottom side of the desktop work area.
 
 - **setIconTitle** _TITLE_
 
@@ -399,28 +399,6 @@ The following actions affect the selected window or windows.
     is set to _STATE_. See EXPRESSIONS below. A list of _EWMH flags_
     can be found in the output of `icesh symbols`.
 
-- **setState** _MASK_ _STATE_
-
-    Set the _GNOME window state_ to _STATE_.  Only bits selected by
-    _MASK_ are affected.  See below for _STATE_ and _MASK_ symbols.
-
-- **toggleState** _STATE_
-
-    Toggle the _GNOME window state_ bits specified by the _STATE_
-    expression.  See below for _STATE_ symbols.
-
-- **getState**
-
-    Print the _GNOME window state_ for the specified window.
-
-- **setHints** _HINTS_
-
-    Set the _GNOME window hints_ to _HINTS_. See below for symbols.
-
-- **getHints**
-
-    Print the _GNOME window hints_ for the specified window.
-
 - **setLayer** _LAYER_
 
     Move the specified window to another _GNOME window layer_.
@@ -445,15 +423,6 @@ The following actions affect the selected window or windows.
 
     Print the window opacity if _OPACITY_ is not given,
     otherwise set the window opacity to _OPACITY_.
-
-- **setTrayOption** _TRAYOPTION_
-
-    Set the _IceWM tray option_ for the specified window to _TRAYOPTION_.
-    See _IceWM tray options_, below, for _TRAYOPTION_ symbols.
-
-- **getTrayOption**
-
-    Print the _IceWM tray option_ for the specified window.
 
 - **setNormalGravity** _GRAVITY_
 
@@ -494,6 +463,14 @@ The following actions affect the selected window or windows.
     is modified, otherwise it is set to the new value. Note that if `All`
     is set, then other set fields will be disabled and cleared fields will
     be enabled.
+
+- **borderless**
+
+    Hide the frame borders and title.
+
+- **bordered**
+
+    Show the frame borders and title.
 
 - **prop** _PROPERTY_
 
@@ -659,44 +636,9 @@ _SYMBOL_
 
 Each _SYMBOL_ may be from one of the following applicable domains:
 
-- _GNOME window state_
+- _Window layer_
 
-    Named symbols of the domain _GNOME window state_ (numeric range:
-    0-1023):
-
-        AllWorkspaces          (1)
-        Sticky                 (1)
-        Minimized              (2)
-        Maximized             (12)
-        MaximizedVert          (4)
-        MaximizedVertical      (4)
-        MaximizedHoriz         (8)
-        MaximizedHorizontal    (8)
-        Hidden                (16)
-        Rollup                (32)
-        All                 (1023)
-
-    These symbols are used with the _MASK_ and _STATE_ arguments to the
-    `setState` and `toggleState` actions. Some additional states include:
-    Above, Below, Urgent and Fullscreen.
-
-- _GNOME window hint_
-
-    Named symbols of the domain _GNOME window hint_ (numeric range: 0-63):
-
-        SkipFocus              (1)
-        SkipWindowMenu         (2)
-        SkipTaskBar            (4)
-        FocusOnClick          (16)
-        DoNotCover            (32)
-        All                   (63)
-
-    These symbols are used with the _HINTS_ argument to the `setHints`
-    action.
-
-- _GNOME window layer_
-
-    Named symbols of the domain _GNOME window layer_ (numeric range: 0-15):
+    Named symbols of the domain _Window layer_ (numeric range: 0-15):
 
         Desktop                (0)
         Below                  (2)
@@ -708,17 +650,6 @@ Each _SYMBOL_ may be from one of the following applicable domains:
 
     These symbols are used with the _LAYER_ argument to the `setLayer`
     action.
-
-- _IceWM tray option_
-
-    Named symbols of the domain _IceWM tray option_ (numeric range: 0-2):
-
-        Ignore                 (0)
-        Minimized              (1)
-        Exclusive              (2)
-
-    These symbols are used with the _TRAYOPTION_ argument to the
-    `setTrayOption` action.
 
 - _Gravity symbols_
 
@@ -825,10 +756,8 @@ Toggle the frame border of the focused window.
 
 # COMPLIANCE
 
-While **icesh** is largely compliant with the GNOME WinWM/WMH
-specification, it only minimally supports NetWM/EWMH.
-Some commands, like tray options and manager actions, are specific
-to IceWM.
+**icesh** is largely compliant with the EWMH and ICCCM specifications.
+Some commands, like manager actions, are specific to IceWM.
 
 # SEE ALSO
 

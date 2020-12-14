@@ -15,10 +15,20 @@ title: "icewm-startup(5)"
 
 # DESCRIPTION
 
-Contains commands to be executed on **icewm** startup.  This is an
-executable script with commands to tweak X11 settings and launch some
-applications which need to be active whenever **icewm** is started.
+The `startup` file contains commands to be executed on **icewm** startup.
+This is an executable script. Typically the commands tweak X11 settings
+and launch some applications which always need to be active.
 It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
+
+# EXAMPLES
+
+    #!/bin/bash
+    xset r rate 250 32
+    flameshot &
+    volumeicon &
+    redshift-gtk &
+
+Remember to `chmod +x ~/.icewm/startup`.
 
 # FILES
 

@@ -11,10 +11,9 @@ title: "icewm-session(1)"
 
 # DESCRIPTION
 
-icewm-session is an implementation of X.Org session manager and can be
-run from X11 session setup. It runs **icewm** as default window manager
-and handles the startup and life cycle control of the WM and all related
-support applications.
+icewm-session is an implementation of a X.Org session manager and can be
+run from a X11 session setup. It runs **icewm** as default window manager
+and controls the life cycle of related support applications.
 
 # OPTIONS
 
@@ -92,16 +91,16 @@ directory, it will be executed. It may contain commands to initialize X11
 settings with `xset`, load keyboard configuration, start a compositing
 manager like `compton` and load system tray applications.
 
-When icewm exits or is told to exit, icewm-session will execute
-a `shutdown` script, if it exists in the configuration directory.
+When icewm exits, icewm-session will execute a `shutdown` script,
+if it exists in the configuration directory.
 When this finishes, icewm-session will terminate icewm, icewmbg
-and icesound. Finally icewm-session will exit.
+and icesound. Finally, icewm-session will exit.
 
 If the icewm process crashes then icewm-session will attempt to restart
 it. If two such crashes occur in a short period, then icewm-session will
-attempt to popup a dialog using either `xmessage`, `kdialog` or
-`zenity`.  This dialog asks if the user wishes to continue restarting
-icewm or abort execution of icewm-session.
+attempt to popup a dialog using either `yad`, `xmessage`, `kdialog`
+or `zenity`.  This dialog presents a choice between restarting icewm,
+starting a terminal, or abort execution of icewm-session.
 
 # ENVIRONMENT
 

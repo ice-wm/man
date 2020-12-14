@@ -98,7 +98,7 @@ The following option control general characteristics of windows:
 - **geometry** _geometry_ (default: WM\_SIZE\_HINTS)
 
     The default geometry for the window.  This geometry should be specified
-    in a format that can be parsed by [XParseGeometry(3)](https://manned.org/XParseGeometry.3):
+    in a format that can be parsed by [XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html):
 
         [=][<width>{xX}<height>][{+-}<xoffset>{+-}<yoffset>]
 
@@ -290,7 +290,7 @@ read and the remainder ignored.
 [icesh(1)](icesh),
 [icewmhint(1)](icewmhint),
 [setxkbmap(1)](https://manned.org/setxkbmap.1),
-[XParseGeometry(3)](https://manned.org/XParseGeometry.3).
+[XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html).
 
 # AUTHOR
 

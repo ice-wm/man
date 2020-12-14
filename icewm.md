@@ -11,26 +11,24 @@ title: "icewm(1)"
 
 # DESCRIPTION
 
-**icewm** is a lightweight window manager for the X11 window system.  It
-aims to be small, fast and familiar to new users.  **icewm** is called a
-re-parenting window manager, because it draws small frames around
-application windows.  Windows are manipulated via the mouse by dragging
-or resizing this frame.  It is also called a stacking window manager,
-because windows can overlap.  Many windows may exist, some hidden behind
-others, while interaction takes place with the currently visible ones.
-**icewm** supports a configurable number of virtual desktops.  It
-provides a task bar for monitoring applications and a pager to switch
-between desktops.  **icewm** is largely compliant with the ICCCM 2.0,
-WinWM/WMH and NetWM/EWMH window manager specifications.
+**icewm** is a window manager for the X11 window system.
+It aims to be small, fast and familiar to new users.
 
-**icewm** was originally designed to emulate the look of Motif, OS/2 Warp
-4, OS/2 Warp 3 and Windows 95.  Since it has a theme engine other styles
-are possible.  The installation comes with several configured themes.  A
-menu allows to choose between themes.
+**icewm** is called a re-parenting window manager,
+because it draws small frames around application windows.
+By dragging this frame with the mouse, windows are resized or moved.
 
-Generally, it tries to make all functions available by both keyboard and
-mouse.  Configuration is very good through various preferences files.
-However, configuring is not required: it works fine out of the box.
+Because windows may overlap, **icewm** is also a stacking window manager.
+Many windows may exist, some hidden behind others.
+
+**icewm** supports a configurable number of virtual desktops.  These are
+called workspaces. Related windows are grouped on a dedicated workspace.
+By switching between workspaces, the user can attend to different tasks,
+while keeping oversight.  This is supported by a task bar and a pager.
+
+The installation comes with several themes. Choose a theme via a menu.
+
+**icewm** is compliant with the ICCCM and EWMH window manager specifications.
 
 ## PROGRAMS
 
@@ -439,7 +437,7 @@ On `Control+Enter` the command is executed in a terminal
 as given by **TerminalCommand**.
 The address bar maintains a history which is navigable by the _Up_
 and _Down_ keys.
-It supports file completion using `Tab` or `Ctrl+I`.
+It supports command completion using `Tab` or `Ctrl+I`.
 A rich set of editing operations is supported,
 including cut-/copy-/paste-operations.
 
@@ -973,6 +971,10 @@ the mouse wheel will focus all applications in turn.
     **icewm** will initiate the logout procedure.  If a `LogoutCommand`
     preferences option was configured it will be executed.
 
+- **SIGUSR2**
+
+    Toggle the logging of X11 events, if `logevents` was configured.
+
 # ENVIRONMENT VARIABLES
 
 - **ICEWM\_PRIVCFG**
@@ -1219,14 +1221,13 @@ the given order, until it finds one:
 ## OPACITY
 
 IceWM supports window opacity and transparency in connection with an
-external compositor like [compton(1)](https://manned.org/compton.1). If a client window sets the
-`_NET_WM_WINDOW_OPACITY` property on its window then **icewm** will copy
-this to the outer frame window where **compton** will read it to adjust
-the opacity of the client window. The opacity can also be controlled by
-**icewm** when this is configured in the [icewm-winoptions(5)](icewm-winoptions) file.
-Another way is to use [icewmhint(1)](icewmhint) to preset the opacity level
-immediately before starting the application.  The opacity level of
-running applications can always be queried or modified by [icesh(1)](icesh).
+external compositor like [compton(1)](https://manned.org/compton.1) or [picom(1)](https://manned.org/picom.1).
+If a client window sets the `_NET_WM_WINDOW_OPACITY` property on
+its window, then **icewm** will copy this to the outer frame window,
+where the compositor will read it and adjust the opacity accordingly.
+
+The opacity can also be set in the [icewm-winoptions(5)](icewm-winoptions) file.
+[icesh(1)](icesh) can control the opacity level of running applications.
 
 The \_NET\_WM\_WINDOW\_TYPE properties which **icewm** sets on its windows
 are _DIALOG_, _NOTIFICATION_, _POPUP\_MENU_ and _TOOLTIP_. The output
