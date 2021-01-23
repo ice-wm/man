@@ -435,7 +435,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarShowShowDesktopButton**=1
 
-    Show 'show desktop' button on taskbar.
+    Show 'show desktop' button on taskbar. If set to 2, it will move the icon to the right side, after the clock.
 
 - **ShowEllipsis**=1
 

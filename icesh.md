@@ -11,8 +11,8 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides 95 commands to interact with the [icewm(1)](icewm) window manager.
-There are two types of commands:
+**icesh** provides commands to directly interact with the [icewm(1)](icewm) window
+manager.  There are two types of commands:
 
 1. Commands to directly interact with icewm:
 
@@ -35,7 +35,7 @@ There are two types of commands:
     to define your own window management hotkeys.  For example, to
     immediately close all xterm windows do `icesh -c xterm close`.
 
-    There are about ten `SELECT OPTIONS` to select windows.
+    There are about seven `SELECT OPTIONS` to select windows.
     They start with a minus sign '-' or with a plus sign '+'.
     The first starts a new selection. The second adds more
     windows to an existing selection.
@@ -47,11 +47,11 @@ There are two types of commands:
     which are shown on the current workspace. The xterms on other
     workspaces are filtered out by the `-W this` filter option.
 
-    There is no limit to the number of selections, filters and
-    actions which you can give to a single icesh command.
-    They are processed and evaluated one by one from left to right.
-    This makes icesh a small declarative programming language.
-    Have a look at some examples near the end of this document.
+There is no limit to the number of commands, selections, filters
+and actions which you can give to a single icesh command.
+They are processed and evaluated one by one from left to right.
+This makes icesh a small declarative programming language.
+Have a look at some examples near the end of this document.
 
 # OPTIONS
 
@@ -424,6 +424,15 @@ The following actions affect the selected window or windows.
     Print the window opacity if _OPACITY_ is not given,
     otherwise set the window opacity to _OPACITY_.
 
+- **setTrayOption** _TRAYOPTION_
+
+    Set the _IceWM tray option_ for the specified window to _TRAYOPTION_.
+    See _IceWM tray options_, below, for _TRAYOPTION_ symbols.
+
+- **getTrayOption**
+
+    Print the _IceWM tray option_ for the specified window.
+
 - **setNormalGravity** _GRAVITY_
 
     Set the window gravity field in the WM\_NORMAL\_HINTS property for the
@@ -476,12 +485,25 @@ The following actions affect the selected window or windows.
 
     Print the value of property _PROPERTY_ if it is present.
 
+- **properties**
+
+    Print all properties.
+
+- **frame**
+
+    Print the identifier of the window frame.
+
 - **click** _window-x_ _window-y_ _button_
 
     Send a button press and release event at position (_window-x_,
     _window-y_). A negative position is relative to the bottom right
     corner. The mouse pointer is warped to the position before sending
     the events. The button number should be between 1 and 5 inclusive.
+
+- **monitors** _top_ _bottom_ _left_ _right_
+
+    This sets the monitors to use for fullscreen.
+    Top, bottom, left, and right are indices of the _icesh xinerama_ command.
 
 - **spy**
 
@@ -650,6 +672,17 @@ Each _SYMBOL_ may be from one of the following applicable domains:
 
     These symbols are used with the _LAYER_ argument to the `setLayer`
     action.
+
+- _IceWM tray option_
+
+    Named symbols of the domain _IceWM tray option_ (numeric range: 0-2):
+
+        Ignore                 (0)
+        Minimized              (1)
+        Exclusive              (2)
+
+    These symbols are used with the _TRAYOPTION_ argument to the
+    `setTrayOption` action.
 
 - _Gravity symbols_
 
