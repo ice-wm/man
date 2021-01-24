@@ -455,6 +455,7 @@ four methods to make it visible:
 - Press the `KeySysWindowList=Ctrl+Alt+Esc` key.
 - Press the right Windows key if `Win95Keys=1`
 - Press the `DesktopWinListButton=2` mouse button in the root window.
+- Press the middle mouse button in a workspace button on the task bar.
 
 A single-click on a window entry selects it. A group of windows can
 be selected by `Shift+Pointer_Button1` or by dragging with the left
