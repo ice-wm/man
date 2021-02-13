@@ -27,6 +27,7 @@ It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
     flameshot &
     volumeicon &
     redshift-gtk &
+    picom -b
 
 Remember to `chmod +x ~/.icewm/startup`.
 
@@ -41,7 +42,7 @@ Locations for the `startup` file are as follows:
     /usr/share/icewm/startup
 
 The locations are searched in the order listed; the first file found is
-read and the remainder ignored.
+executed and the remainder ignored.
 
 # SEE ALSO
 

@@ -316,6 +316,10 @@ The following actions affect the selected window or windows.
 
     Show the window on only one workspace.
 
+- **urgent**
+
+    Set the urgent flag.
+
 - **resize** _WIDTH_ _HEIGHT_
 
     Resize window to _WIDTH_ by _HEIGHT_ window units.
