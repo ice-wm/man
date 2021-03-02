@@ -50,8 +50,7 @@ The **icewm** package includes several programs:
     have its own background.  It supports semi-transparency. Semitransparent
     background image and colour can be configured. When the background image
     has changed then [icewmbg(1)](icewmbg) can be notified to update the background.
-    Multi-head monitor setups are fully supported.  This program should be
-    started before **icewm**.  See the [icewmbg(1)](icewmbg) man page for details.
+    Multi-head monitor setups are fully supported.  See the [icewmbg(1)](icewmbg).
 
 - [icewm-session(1)](icewm-session)
 
@@ -103,49 +102,23 @@ Each of the IceWM executables supports the following options:
 - **-c**, **--config**=_FILE_
 
     Use _FILE_ as the source of configuration options.  By default **icewm**
-    looks for a file named `preferences`.  Typically this file is stored as
-    one of `$ICEWM_PRIVCFG/preferences`,
-    `$XDG_CONFIG_HOME/icewm/preferences`, or `$HOME/.icewm/preferences`,
-    or in one of the configuration directories explained below. It contains
-    a long list of options which allow the user to tweak the behaviour of
-    **icewm** to ones taste.  A default `preferences` file contains comments
-    about the purpose of each option, the range of useful values and the
-    current or default value. A `preferences` file is a readable text file
-    which can be modified with the help of a text editor.  If this option is
-    given to [icewm-session(1)](icewm-session) then it is passed on to **icewm**. If
-    **icewm** is started independently then this option can be given to
-    **icewm** directly.  However, usually one will want to use a
-    `preferences` file from a default location.
+    looks for a file named `preferences`.  This is a readable text file
+    which can be modified with the help of a text editor.
 
 - **-t**, **--theme**=_NAME_
 
     Use _NAME_ as the name of the **icewm** theme to use.  A theme defines
-    the look and feel of **icewm**, like colours, fonts, buttons and button
-    behaviour.  Originally a theme defined options to emulate the appearance
-    of other desktop environments, like Motif, OS/2 Warp, or Windows.  Over
-    the years many new original themes have been designed with beautiful
-    icons and backgrounds, which advance the state of the art in desktop
-    look and feel.  Many of them can be downloaded from the website
-    [https://www.box-look.org/](https://www.box-look.org/browse/cat/142/ord/latest/) and stored in one of the directories
-    `$ICEWM_PRIVCFG/icewm/themes/`, `$XDG_CONFIG_HOME/icewm/themes/` or in
-    `$HOME/.icewm/themes/`.  You can then activate such a theme via the
-    menu in the lower left corner of the display.  A default theme is
-    specified in one of `$ICEWM_PRIVCFG/icewm/theme`,
-    `$XDG_CONFIG_HOME/icewm/theme`, or in `$HOME/.icewm/theme`.  When a
-    new theme is selected then this value is overwritten, so that the next
-    time **icewm** is started this choice is reused.
+    the look and feel of **icewm**, like colors, fonts and buttons.
 
 - **--display**=_DISPLAY_
 
-    _DISPLAY_ specifies the connection to the X11 server.  If this option
-    is missing, as is usually the case, then _DISPLAY_ is read from the
-    environment variable `DISPLAY`.
+    _DISPLAY_ specifies the connection to the X11 server.  By default
+    the environment variable `DISPLAY` is used.
 
 - **--sync**
 
-    This option is sometimes used in software development of **icewm**.  It
-    specifies to use a slower synchronous communication mode with the X11
-    server.  This is irrelevant for normal use of **icewm**.
+    This option specifies to use a slower synchronous communication mode
+    with the X11 server.  This is irrelevant for normal use.
 
 - **-h**, **--help**
 
@@ -999,6 +972,8 @@ the mouse wheel will focus all applications in turn.
     precedence.
 
 # FILES
+
+## CONFIGURATION DIRECTORIES
 
 **icewm** looks for configuration files in the following directories, in
 the given order, until it finds one:
