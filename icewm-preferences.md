@@ -246,6 +246,10 @@ The following preferences affect focus and general behavior of
     Support mouse wheel. When pressing Ctrl+Alt rotating the mouse wheel
     on the root window will cycle the focus over the windows.
 
+- **TaskBarTaskGrouping**=0
+
+    Group applications with the same class name under a single task button.
+
 - **ShowPopupsAbovePointer**=0
 
     Show popup menus above mouse pointer.
@@ -292,19 +296,19 @@ The following preferences affect focus and general behavior of
     like metacity), 1 (always full desktop), 2 (single monitor with STRUT,
     multi-monitor without STRUT).
 
-### Quick Switch List
+## QUICK SWITCH
 
 - **QuickSwitch**=1
 
-    Alt+Tab window switching.
+    Enable Alt+Tab window switching.
 
 - **QuickSwitchToMinimized**=1
 
-    Alt+Tab to minimized windows.
+    Enable Alt+Tab to minimized windows.
 
 - **QuickSwitchToHidden**=1
 
-    Alt+Tab to hidden windows.
+    Enable Alt+Tab to hidden windows.
 
 - **QuickSwitchToUrgent**=1
 
@@ -312,11 +316,15 @@ The following preferences affect focus and general behavior of
 
 - **QuickSwitchToAllWorkspaces**=0
 
-    Alt+Tab to windows on other workspaces.
+    Include windows from all workspaces in Alt+Tab.
 
 - **QuickSwitchGroupWorkspaces**=1
 
-    Alt+Tab: group windows on current workspace.
+    Group windows by workspace together in Alt+Tab.
+
+- **QuickSwitchRaiseCandidate**=0
+
+    Raise a selected window while Alt+Tabbing in the QuickSwitch.
 
 - **QuickSwitchAllIcons**=1
 
@@ -328,11 +336,11 @@ The following preferences affect focus and general behavior of
 
 - **QuickSwitchSmallWindow**=0
 
-    Attempt to create a small QuickSwitch window (1/3 instead of 3/5 of
+    Create a smaller QuickSwitch window of 1/3 screen width.
 
 - **QuickSwitchMaxWidth**=0
 
-    Go through all window titles and choose width of the longest one.
+    Go trough all window titles and choose width of the longest one.
 
 - **QuickSwitchVertical**=1
 
@@ -346,7 +354,7 @@ The following preferences affect focus and general behavior of
 
     Fill the rectangle highlighting the current icon.
 
-### Edge Workspace Switching
+## EDGE SWITCHING
 
 - **EdgeSwitch**=0
 
@@ -496,6 +504,12 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 - **CPUStatusShowCpuFreq**=1
 
     Show CPU frequency in CPU status tool tip.
+
+- **NetStatusShowOnlyRunning**=0
+
+    Show network status only for connected devices, such as an active ethernet link
+    or associated wireless interface. If false, any network interface that has been
+    brought up will be displayed.
 
 - **TaskBarShowMEMStatus**=1
 
@@ -1023,13 +1037,13 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 ## THEME SETTINGS
 
-This section shows settings that can be set in theme files.  They can
-also be set in the `preferences` file, but themes will override the
-values set there.  To override the theme values, the settings should be
-set in `prefoverrides` file: see [icewm-prefoverrides(5)](icewm-prefoverrides).  Default
+The following sections show settings that can be set in theme files.
+They can also be set in the `preferences` file, but themes will override
+the values set there.  To override the theme values, the settings should
+be set in `prefoverrides` file: see [icewm-prefoverrides(5)](icewm-prefoverrides).  Default
 values are shown following the equal sign.
 
-### Description
+### THEME DESCRIPTION
 
 - **ThemeAuthor**=""
 
@@ -1049,7 +1063,7 @@ values are shown following the equal sign.
 
     List of gradient pixmaps in the current theme.
 
-### Borders, Icons, Margins and Buttons
+### THEME BORDERS, ICONS, MARGINS AND BUTTONS
 
 - **BorderSizeX**=6  \[0-128\]
 
@@ -1163,7 +1177,7 @@ values are shown following the equal sign.
 
     Join title\*T and title\*B.
 
-### Fonts
+### THEME FONTS
 
 - **TitleFontName**="-\*-sans-medium-r-\*-\*-\*-120-\*-\*-\*-\*-\*-\*"
 - **TitleFontNameXft**="sans-serif:size=12"
@@ -1260,7 +1274,7 @@ values are shown following the equal sign.
 
     Name of the label font.
 
-### Colors
+### THEME COLORS
 
 - **ColorDialog** = "rgb:C0/C0/C0"
 
@@ -1615,7 +1629,7 @@ values are shown following the equal sign.
 
     Color(s) to announce for semitransparent windows.
 
-### Desktop Background
+### DESKTOP BACKGROUND
 
 The following preferences are read by [icewmbg(1)](icewmbg):
 

@@ -485,6 +485,12 @@ The following actions affect the selected window or windows.
 
     Show the frame borders and title.
 
+- **denormal**
+
+    Remove the WM\_NORMAL\_HINTS property, if it exists.
+    This lifts font-size restrictions on resizing,
+    especially for terminals.
+
 - **prop** _PROPERTY_
 
     Print the value of property _PROPERTY_ if it is present.

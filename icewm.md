@@ -328,21 +328,32 @@ six focus models:
     All non-Custom focus modes override these ten options.
 
 Apart from the mouse, **icewm** supports changing input focus in two
-other ways. Both involve the keyboard.  The first uses the
-`QuickSwitch` window.  It is activated by pressing `Alt+Tab` or
+ways by keyboard.  By pressing `Alt+Esc` or `Alt+Shift+Esc`,
+input focus is immediately changed to the next or previous window,
+which will be raised to make it fully visible. The other method
+involves the quick switch.
+
+## QUICK SWITCH
+
+The **QuickSwitch** is activated by pressing `Alt+Tab` or
 `Alt+Shift+Tab`.  A window pops up in the centre of the screen with a
-narrow band over the next or previous window which will receive input
-focus when the `Alt` key is released.  By repeatedly pressing
-`Alt+Tab` or `Alt+Shift+Tab` one can cycle through all windows.
+list of windows to choose from. A narrow band shows the next or previous
+window that will receive input focus when the Alt key is released.
+By repeatedly pressing the Tab key, one can cycle over all windows.
+If a Shift key is down, then the direction of traversal is reversed.
 
-The second keyboard method involves pressing `Alt+Esc` or
-`Alt+Shift+Esc`.  Input focus is immediately changed to the next or
-previous window, which will be raised to make it fully visible.
+Arrow keys are also supported, as well as the Home and End key.
+Pressing a digit key selects the corresponding window from the list.
+One can also use the mouse wheel and click with the left mouse button.
 
-And finally, there is another way which is a hybrid of keyboard and
-mouse control. It involves the `QuickSwitch` popup explained before,
-after pressing `Alt+Tab` and while still holding `Alt` a left click
-on one of the list items causes the activation of the related window.
+A selected window can be closed by Delete, or `Alt+F4`, or the
+middle mouse button.  While the QuickSwitch window is up, one can
+still change workspace with the usual workspace hotkeys.  To cancel
+the QuickSwitch, press Escape or click outside of the QuickSwitch.
+
+The QuickSwitch has two distinct modes: vertical and horizontal.
+The window list can include all windows or be limited to the current
+workspace. See the many preferences available for the QuickSwitch.
 
 ## WINDOW PLACEMENT
 
