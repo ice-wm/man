@@ -249,6 +249,8 @@ The following preferences affect focus and general behavior of
 - **TaskBarTaskGrouping**=0
 
     Group applications with the same class name under a single task button.
+    0 disables it, 1 shows the number of windows, 2 shows bread crumbs,
+    3 shows a number + bread crumbs.
 
 - **ShowPopupsAbovePointer**=0
 
