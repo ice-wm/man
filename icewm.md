@@ -179,6 +179,11 @@ The **icewm** program supports some additional options:
     theme files. In some advanced scenarios this can be helpful to inspect
     which configuration was chosen or whether option formatting was correct.
 
+- **--rewrite-preferences**
+
+    Overwrite an existing preferences file with an icewm default preferences,
+    but preserve all modifications insofar they deviate from the defaults.
+
 - **--extensions**
 
     Give a list of the current X extensions, their versions and status.
@@ -576,7 +581,12 @@ keyboard layout settings, do `setxkbmap -query`.
 with a single key combination.  These are all configurable in the
 `preferences` file.  Here we give their preferences name, followed by
 their default value in double quotes, and a short descriptions of their
-effect:
+effect.
+
+Note that all use one or more key modifiers. Icewm supports the
+following modifiers: Alt, AltGr, Ctrl, Hyper, Meta, Shift, Super.
+Setting **ModSuperIsCtrlAlt=1** makes the Super modifier an alias
+for Ctrl+Alt.
 
 - **KeyWinRaise**=`Alt+F1`
 
@@ -936,8 +946,11 @@ You can control windows by a modified mouse button press:
     then `MouseWinRaise` takes preference over `MouseWinLower`.
 
 The title frame of a window also listens for mouse clicks.  Left double
-clicking maximizes the window (`TitleBarMaximizeButton=1`).  Middle
-double clicking rolls up the window (`TitleBarRollupButton=2`).
+clicking maximizes the window (`TitleBarMaximizeButton=1`). Press
+Shift to only maximize vertically. Press Alt+Shift for horizontally.
+Middle double clicking rolls up the window (`TitleBarRollupButton=2`).
+Also press Shift to maximize horizontally. If **TitleBarRollupButton**
+is either 4 or 5 then the scroll wheel controls rolling up or down.
 Pressing a mouse button and moving it will move the window.
 `Alt+Pointer_Button1` lowers the window.
 

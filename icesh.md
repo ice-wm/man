@@ -213,6 +213,10 @@ The following options are identical for every IceWM command.
 
     Print copying permissions to `stdout` for the program and exit.
 
+- **-q**, **--quiet**
+
+    Don't complain if no matching windows could be found.
+
 # ACTIONS
 
 **icesh** expects one or more action arguments.  There are two kinds of
@@ -399,7 +403,9 @@ The following actions affect the selected window or windows.
     If _STATE_ starts with a `+` then flags in _STATE_ are appended to
     the existing _EWMH window state_.  If _STATE_ starts with a `-`
     then flags in _STATE_ are removed from the existing _EWMH window
-    state_.  If _STATE_ starts with a `=` then the _EWMH window state_
+    state_.  If _STATE_ starts with a `^` then flags in _STATE_ are
+    toggled with respect to the existing _EWMH window state_.
+    If _STATE_ starts with a `=` then the _EWMH window state_
     is set to _STATE_. See EXPRESSIONS below. A list of _EWMH flags_
     can be found in the output of `icesh symbols`.
 
@@ -659,6 +665,29 @@ do not require a window _select_ or _filter_ option:
 
     List all named symbols.
 
+## CONDITIONALS
+
+Icesh supports `if-then-else` expressions. The full syntax is:
+
+    if selection
+    then
+        actions
+    elif selection
+    then
+        actions
+    else
+        actions
+    end
+
+Where `selection` is a sequence of selection and filtering options,
+which evaluates to true when it is non-empty. That is, if one or more
+windows fulfilled the condition. If it is empty, then its `actions`
+clause is ignored and the subsequent `elif` or `else` clause is tried
+or taken. Each clause is optional. Even the `then` clause may be omitted.
+Whenever a selection condition evaluates to false, the window selection
+that existed before the `if` clause is immediately restored.  Note that
+the use of conditionals is seldom needed.
+
 ## EXPRESSIONS
 
 Some of the window actions require one or two _EXPRESSION_ arguments.
@@ -791,11 +820,37 @@ Toggle the frame border of the focused window.
     if icesh -f motif | grep -q 'decor:$'; then \
         icesh -f motif decor All; else icesh -f motif decor ""; fi
 
+Here is a different solution using conditionals.
+
+    icesh -f if -P _NET_FRAME_EXTENTS=0 then bordered else borderless
+
 # ENVIRONMENT
 
 - **DISPLAY**
 
     The default display.
+
+# EXIT STATUS
+
+- **0**
+
+    The last action completed successfully.
+
+- **1**
+
+    The last action completed unsuccessfully, or no window met the condition.
+
+- **2**
+
+    A conditional has invalid syntax.
+
+- **3**
+
+    The display could not be opened.
+
+- **4**
+
+    The X server reports an error while processing a request.
 
 # COMPLIANCE
 

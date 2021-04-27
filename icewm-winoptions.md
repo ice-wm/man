@@ -35,6 +35,7 @@ Each line in the file must be in one of the following formats:
 > - _CLASS_**.**_OPTION_**:** _VALUE_
 > - _NAME_**.**_OPTION_**:** _VALUE_
 > - _ROLE_**.**_OPTION_**:** _VALUE_
+> - **.**_OPTION_**:** _VALUE_
 
 Where the fields are defined as follows:
 

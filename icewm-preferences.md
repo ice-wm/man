@@ -235,11 +235,16 @@ The following preferences affect focus and general behavior of
 
 - **Win95Keys**=1
 
-    Support win95 keyboard keys (Penguin/Meta/Win\_L,R shows menu).
+    Support the Windows/Super key modifier to activate special functions.
+    The left Super key toggles the Start menu, while the right Super key
+    toggles the Window list window.
 
-- **ModSuperIsCtrlAlt**=1
+- **ModSuperIsCtrlAlt**=0
 
-    Treat Super/Win modifier as Ctrl+Alt.
+    Treat the Super/Win key modifier as a synonym for the Ctrl+Alt modifier
+    combination. The default key bindings have many occurrences of Ctrl+Alt.
+    If you enable this, then the Super modifier is an alternative way to
+    activate them.
 
 - **UseMouseWheel**=0
 
