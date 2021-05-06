@@ -888,6 +888,10 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Delay between power status updates (seconds).
 
+- **PingTimeout**=3  \[0-86400\]
+
+    Timeout in seconds for applications to respond to the \_NET\_WM\_PING protocol.
+
 ## BUTTONS AND KEYS
 
 - **UseRootButtons**=255  \[0-255\]
