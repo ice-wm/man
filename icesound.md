@@ -148,9 +148,7 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
 # BUGS
 
-**icesound** had no known bugs at the time of release.  Please report bugs
-for current versions to the source code repository at
-[Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
 # AUTHOR
 

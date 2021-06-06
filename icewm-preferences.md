@@ -656,6 +656,11 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Clock Date format for tooltip (strftime format string).
 
+- **DockApps**="right high desktop"
+
+    Support DockApps (right, left, center, down, high, above, below,
+    desktop, or empty to disable). Control with Ctrl+Mouse.
+
 - **XRRPrimaryScreenName**=""
 
     Screen/output name of the primary screen.

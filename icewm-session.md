@@ -77,6 +77,18 @@ and controls the life cycle of related support applications.
 
     Print copying permissions and exit.
 
+## DEBUGGING OPTIONS
+
+- **-v**, **---valgrind**
+
+    Let `/usr/bin/valgrind` run icewm.
+    Thoroughly examines the execution of icewm.
+
+- **-g**, **---catchsegv**
+
+    Let `/usr/bin/catchsegv` run icewm.
+    Gives a backtrace if icewm segfaults.
+
 # USAGE
 
 On startup icewm-session executes the following steps.
@@ -119,9 +131,7 @@ starting a terminal, or abort execution of icewm-session.
 
 # BUGS
 
-**icewm-session** had no known bugs at the time of release.  Please report bugs
-for current versions to the source code repository at
-[Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
 # AUTHOR
 

@@ -107,6 +107,10 @@ If needed, they can be repeated for successive actions.
 
     Selects all windows which are embedded using the _XEMBED_ protocol.
 
+- **-D**, **-Dockapps**
+
+    Selects all Dockapp applications which are managed by icewm.
+
 ## FILTER OPTIONS
 
 The following options _filter_ the currently selected set of windows.
@@ -863,9 +867,7 @@ Some commands, like manager actions, are specific to IceWM.
 
 # BUGS
 
-**icesh** had no known bugs at the time of release.  Please report bugs
-for current versions to the source code repository at
-[Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
 # AUTHOR
 

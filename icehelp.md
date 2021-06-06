@@ -11,17 +11,21 @@ title: "icehelp(1)"
 
 # DESCRIPTION
 
-**icehelp** is a very simple HTML browser that displays the document
-specified on the command line.  It is used by [icewm(1)](icewm) internal to
-display the [IceWM Manual](https://ice-wm.org/manual) and the manual pages.
+**icehelp** is a very simple HTML browser, which is used by [icewm(1)](icewm)
+to display the [IceWM Manual](https://ice-wm.org/manual) and the manpages.
+
+The document can be navigated by cursor keys, navigation keys and
+a scrollbar. To find text, hit `Ctrl+F` for a search window.
+Hit the `F3` function key to repeat a search.
+
+The top right corner shows a button, which opens a menu. This menu
+can also be opened by a right mouse button click.
 
 # ARGUMENTS
 
 - _FILENAME_
 
-    Specifies the absolute or relative path (relative to the current working
-    directory), that specifies the HTML file to browse.
-    _FILENAME_ may also be the URL of a website.
+    Specifies the file to browse.  It can also be the URL of a website.
 
 # OPTIONS
 
@@ -89,9 +93,7 @@ display the [IceWM Manual](https://ice-wm.org/manual) and the manual pages.
 
 # BUGS
 
-**icehelp** had no known bugs at the time of release.  Please report bugs
-for current versions to the source code repository at
-[Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
 # AUTHOR
 
