@@ -145,6 +145,16 @@ implicitly assumed to filter all client windows.
     Filters clients by process ID. Clients with a \_NET\_WM\_PID property equal
     to _PID_ are selected.
 
+- **-u**, **-unmapped**
+
+    Filter clients and keep those which are currently not viewable.
+    These are hidden, minimized, rolled-up, or on another workspace.
+
+- **-v**, **-viewable**
+
+    Filter clients and keep only those which are currently viewable.
+    These clients are mapped on the current workspace.
+
 - **-G**, **-Gravity** _GRAVITY_
 
     Filters clients by the window gravity field of the WM\_NORMAL\_HINTS
@@ -162,7 +172,7 @@ implicitly assumed to filter all client windows.
 
     Filters clients by _EWMH window state_. Clients which have at
     least an EWMH window state of _STATE_ are selected.  This state
-    refers to details like **minized** or **maximized**. See EXPRESSIONS
+    refers to details like **MINIZED** or **MAXIMIZED**. See EXPRESSIONS
     below. If _STATE_ starts with an exclamation mark then the filtering
     is inverted.  A question mark `?` filters clients with any bit set
     in _STATE_.
@@ -395,7 +405,10 @@ The following actions affect the selected window or windows.
 
 - **setGeometry** _GEOMETRY_
 
-    Set the window geometry to _GEOMETRY_.
+    Set the window geometry to _GEOMETRY_.  This geometry should be
+    specified in a format that can be parsed by [XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html).
+    Negative offsets are with respect to the bottom or right side of
+    the screen.  Use `+-` for a truly negative position.
 
 - **getGeometry**
 
@@ -684,13 +697,14 @@ Icesh supports `if-then-else` expressions. The full syntax is:
     end
 
 Where `selection` is a sequence of selection and filtering options,
-which evaluates to true when it is non-empty. That is, if one or more
+which evaluates to **true** when it is non-empty. That is, if one or more
 windows fulfilled the condition. If it is empty, then its `actions`
 clause is ignored and the subsequent `elif` or `else` clause is tried
-or taken. Each clause is optional. Even the `then` clause may be omitted.
-Whenever a selection condition evaluates to false, the window selection
-that existed before the `if` clause is immediately restored.  Note that
-the use of conditionals is seldom needed.
+or taken. Each clause is optional.
+
+Whenever a selection condition evaluates to **false**, the window selection
+that existed before the `if` clause is immediately restored.  This also
+happens after an `end` clause.
 
 ## EXPRESSIONS
 
@@ -828,6 +842,14 @@ Here is a different solution using conditionals.
 
     icesh -f if -P _NET_FRAME_EXTENTS=0 then bordered else borderless
 
+Here is a conditional to either toggle the visibility of a roxterm,
+which has a WM\_ROLE value of `special`, or start it with **runonce**.
+
+    icesh sync if -c roxterm.Roxterm -R special then \
+        if -v then hide \
+        elif -u then setWorkspace this sync activate end \
+        else runonce roxterm --role=special
+
 # ENVIRONMENT
 
 - **DISPLAY**
@@ -863,7 +885,8 @@ Some commands, like manager actions, are specific to IceWM.
 
 # SEE ALSO
 
-[icewm(1)](icewm), [wmctrl(1)](https://manned.org/wmctrl.1), [xdotool(1)](https://manned.org/xdotool.1), [xprop(1)](https://manned.org/xprop.1), [xwininfo(1)](https://manned.org/xwininfo.1).
+[icewm(1)](icewm), [wmctrl(1)](https://manned.org/wmctrl.1), [xdotool(1)](https://manned.org/xdotool.1), [xprop(1)](https://manned.org/xprop.1),
+[xwininfo(1)](https://manned.org/xwininfo.1), [XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html).
 
 # BUGS
 
