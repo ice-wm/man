@@ -15,32 +15,31 @@ title: "icewmbg(1)"
 Many image formats are supported.  Each [icewm(1)](icewm) work space can have
 its own background.
 
-When the background image has changed then **icewmbg** can be notified to
-update the background.  When switching work spaces it checks the image
-file modification time.  If the file has changed then it reloads the
+When the background image has changed, then **icewmbg** can be notified to
+update the background.  When switching work spaces, it checks the image
+file modification time.  If the file has changed, then it reloads the
 background image from file.
 
 **icewmbg** supports semi-transparency.  Semitransparent background
 images and colours can be configured.  If these are not specified then
 the default background is used.
 
-It uses XINERAMA and RANDR to support backgrounds on all connected
-monitors.  When monitors appear/disappear or change their resolution
+It uses RandR or Xinerama to support backgrounds on all connected
+monitors.  When monitors appear/disappear, or change their resolution,
 **icewmbg** will adjust.  It supports an option for one large background
 over all monitors.
 
 It will update the `_ICEWMBG_IMAGE` property of the root window to the
 path of the background image whenever it changes the desktop background.
 
-It should be started before [icewm(1)](icewm), preferably by the
-[icewm-session(1)](icewm-session) program.
+**icewmbg** is started automatically by [icewm-session(1)](icewm-session).
 
 # OPTIONS
 
 ## SPECIFIC OPTIONS
 
 Where multiple values can be given for images
-or colours they are separated by commas.
+or colours, they are separated by commas.
 Each such value may be enclosed in double quotes.
 When _FILE_ is a directory then all images
 from that directory are used in sorted order.
@@ -52,8 +51,8 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 
 - **-p**, **--replace**
 
-    Replace an existing **icewmbg**. If there is a running **icewmbg** it is
-    instructed to quit.  The new **icewmbg** will take over.
+    Replace an existing **icewmbg**. If there is a running **icewmbg**,
+    it is instructed to quit.  The new **icewmbg** will take over.
 
 - **-q**, **--quit**
 
@@ -62,9 +61,9 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 
 - **-r**, **--restart**
 
-    Tell the running **icewmbg** to restart itself.  This is useful when a
-    background file or directory has changed or when settings in preferences
-    files have changed.
+    Tell the running **icewmbg** to restart itself.  This is useful when
+    a background file or directory has changed, or when settings in
+    preferences files have changed.
 
 - **-u**, **--shuffle**
 
@@ -112,7 +111,7 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 
 - **-m**, **--multi**={_0_\|_1_}
 
-    Disable/Enable multi-head background.
+    Disable or enable a single background over all monitors.
     This overrules the `DesktopBackgroundMultihead` preference.
 
 - **-y**, **--cycle**=_SECONDS_
@@ -120,17 +119,13 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
     Cycle over the list of background images every _SECONDS_.
     This overrules the `CycleBackgroundsPeriod` preference.
 
+## GENERAL OPTIONS
+
 - **-d**, **--display**=_DISPLAY_
 
     Use _DISPLAY_ to connect to the X server.
     If this option is missing then _DISPLAY_
     is read from the environment variable `DISPLAY`.
-
-- **--sync**
-
-    Use a slower synchronous mode communication with _X11_ server.
-
-## GENERAL OPTIONS
 
 - **-h**, **--help**
 
@@ -143,6 +138,10 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 - **-C**, **--copying**
 
     Print copying permissions to `stdout` for the program and exit.
+
+- **--sync**
+
+    Use a slower synchronous mode communication with _X11_ server.
 
 # FILES
 
@@ -170,18 +169,17 @@ overrides again.  Therefore, if you want to allow the theme to set the
 background use `preferences` for your settings, otherwise use
 `prefoverride`.  See [icewm-prefoverride(5)](icewm-prefoverride).
 
-## SCALING
+## IMAGE SCALING
 
-Often a background image has a different width or height than the
-screen.  The settings can specify to centre (`DesktopBackgroundCenter`)
-or scale (`DesktopBackgroundScaled`) an image.  Either option is either
-**0** (disabled) or **1** (enabled).  What happens for their combination
-is given by the following table:
+Often a background image has a different width or height than the screen.
+The image can then be replicated (tiled), centered or scaled. This is
+controlled by `DesktopBackgroundCenter` and `DesktopBackgroundScaled`.
+What happens for their combination is given by the following table:
 
-    center:0 scaled:0 = the background is replicated in both directions
-    center:1 scaled:0 = the background is centered, but not scaled
-    center:1 scaled:1 = fill one dimension and preserve the aspect ratio
-    center:0 scaled:1 = fill both dimensions and preserve the aspect ratio
+    center:0 scaled:0 = The background is replicated in both directions.
+    center:1 scaled:0 = The background is centered, but not scaled.
+    center:1 scaled:1 = Fill one dimension and preserve the aspect ratio.
+    center:0 scaled:1 = Fill both dimensions and preserve the aspect ratio.
 
 # SIGNALS
 
@@ -207,7 +205,7 @@ is given by the following table:
 [icewm-prefoverride(5)](icewm-prefoverride),
 [wmsetbg(1)](https://manned.org/wmsetbg.1),
 [xsetbg(1)](https://manned.org/xsetbg.1),
-[xv(1)](https://manned.org/xv.1).
+[xwallpaper(1)](https://manned.org/xwallpaper.1).
 
 # BUGS
 
