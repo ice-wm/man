@@ -75,11 +75,11 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
 - **-O**, **--oss**=_DEVICE_
 
-    Specifies the OSS device (default: `default`).
+    Specifies the OSS device (default: `/dev/dsp`).
 
 - **-A**, **--alsa**=_DEVICE_
 
-    Specifies the ALSA device (default: `/dev/dsp`).
+    Specifies the ALSA device (default: `default`).
 
 - **-z**, **--snooze**=_MILLISECONDS_
 

@@ -622,7 +622,8 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **MailBoxPath**=""
 
-    Mailbox path (use \\$MAIL instead).
+    A colon separated list of paths of your mailboxes.
+    If this is empty, $MAILPATH or $MAIL is used instead.
 
     Path to a mbox file. Remote mail boxes are accessed by specifying an URL
     using the Common Internet Scheme Syntax (RFC 1738):
@@ -953,7 +954,8 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **MailBoxPath**=""
 
-    Mailbox path (use \\$MAIL instead).
+    A colon separated list of paths of your mailboxes.
+    If this is empty, $MAILPATH or $MAIL is used instead.
 
 ## PROGRAMS
 

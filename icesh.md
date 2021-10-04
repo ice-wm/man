@@ -11,8 +11,7 @@ title: "icesh(1)"
 
 # DESCRIPTION
 
-**icesh** provides commands to directly interact with the [icewm(1)](icewm) window
-manager.  There are two types of commands:
+**icesh** provides two types of commands:
 
 1. Commands to directly interact with icewm:
 
@@ -35,7 +34,7 @@ manager.  There are two types of commands:
     to define your own window management hotkeys.  For example, to
     immediately close all xterm windows do `icesh -c xterm close`.
 
-    There are about seven `SELECT OPTIONS` to select windows.
+    There are about ten `SELECT OPTIONS` to select windows.
     They start with a minus sign '-' or with a plus sign '+'.
     The first starts a new selection. The second adds more
     windows to an existing selection.
@@ -67,6 +66,39 @@ interactively. The manager actions do not require window options.
 The following five options _select_ one or more client windows.
 If needed, they can be repeated for successive actions.
 
+- **-a**, **-all**
+
+    Selects all client windows of the window manager.
+
+- **-f**, **-focus**, **+f**, **+focus**
+
+    Selects the application window which is currently focused.
+    The option with minus sign replaces the existing selection with
+    the focused window. With a plus sign the focused window is added to
+    an existing selection.
+
+- **+g**, **+group**
+
+    Extend the current selection with client windows which
+    belong to the same application window group.
+
+- **-r**, **-root**, **+r**, **+root**
+
+    Selects the root window.
+    The option with minus sign replaces the existing selection with
+    the root window. With a plus sign the root window is added to
+    an existing selection.
+
+- **-s**, **-shown**
+
+    Selects all client windows which are on the current workspace.
+
+- **-t**, **-top**
+
+    Selects all toplevel windows from the display unconditionally.
+    This includes windows which have never been mapped and windows
+    with the override redirect bit set to evade management.
+
 - **-w**, **-window**, **+w**, **+window** _WINDOW\_ID_
 
     Specifies the identifier of the window, _WINDOW\_ID_, for which the
@@ -75,37 +107,15 @@ If needed, they can be repeated for successive actions.
     The option with minus sign replaces the existing selection.
     With a plus sign the window is added to an existing selection.
 
-- **-r**, **-root**, **+r**, **+root**
-
-    Is equivalent to **-window** **root** and selects the root window.
-    The option with minus sign replaces the existing selection with
-    the root window. With a plus sign the root window is added to
-    an existing selection.
-
-- **-f**, **-focus**, **+f**, **+focus**
-
-    Is equivalent to **-window** **focus** and selects the focused window.
-    The option with minus sign replaces the existing selection with
-    the focused window. With a plus sign the focused window is added to
-    an existing selection.
-
-- **-a**, **-all**
-
-    Selects all client windows of the window manager.
-
-- **-s**, **-shown**
-
-    Selects all clients which are on the current workspace.
-
-- **-t**, **-top**
-
-    Selects all toplevel windows from the display unconditionally.
-    This includes windows which have never been mapped and windows
-    with the override redirect bit set to evade management.
-
 - **-x**, **-xembed**
 
     Selects all windows which are embedded using the _XEMBED_ protocol.
+
+- **+C**, **+Class**
+
+    Extend the current selection with client windows that
+    have a similar WM\_CLASS property, which specifies the
+    resource instance and the class name.
 
 - **-D**, **-Dockapps**
 
@@ -354,7 +364,7 @@ The following actions affect the selected window or windows.
 
     Resize window by _WIDTH_ by _HEIGHT_ pixels. If _WIDTH_ or _HEIGHT_
     ends with a percent sign `%`, then they refer to a percentage of the
-    current window size. For instance, `sizeto 50% 200` increases the width
+    current window size. For instance, `sizeby 50% 200` increases the width
     by 50% and increases the height by 200 pixels.
 
 - **move** _X_ _Y_
@@ -542,6 +552,8 @@ The following actions affect the selected window or windows.
 
     Observe the selected windows and report any changes. This includes
     focus, visibility, position, size and all window properties.
+    To monitor all of the protocol request messages that client applications
+    may send to icewm, also spy on the root window.
 
 ## MANAGER ACTIONS
 

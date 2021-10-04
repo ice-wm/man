@@ -210,9 +210,10 @@ input focus to _Chrome_ pop-ups and asks to close them immediately.
     google-chrome.pop-up.startClose: 1
     google-chrome.pop-up.startMinimized: 1
 
-IceWM doesn't support dockapps, but this can be emulated.
-A dockapp should appear on all workspaces, have no decorations,
-and be always visible in a fixed location.
+IceWM places dockapps in a container automatically, but for those
+which fail to comply with the protocol it can also be emulated.
+An emulated dockapp should appear on all workspaces, have
+no decorations, and always be visible in a fixed location.
 
     wmtime.wmtime.allWorkspaces: 1
     wmtime.wmtime.ignoreTaskBar: 1
