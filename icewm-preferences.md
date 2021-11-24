@@ -47,7 +47,7 @@ The following preferences affect focus and general behavior of
 - **Trace**=""
 
     Enable tracing for the given list of modules.
-    Modules which are traceable include **conf, icon, prog, systray**.
+    Modules which are traceable include **conf, font, icon, prog, systray**.
 
 - **ClickToFocus**=1
 

@@ -63,7 +63,7 @@ actions apply. If none is given, but an action does require a window,
 then a selection crossbar is invoked to select the desired window
 interactively. The manager actions do not require window options.
 
-The following five options _select_ one or more client windows.
+The following options _select_ one or more client windows.
 If needed, they can be repeated for successive actions.
 
 - **-a**, **-all**
@@ -120,6 +120,10 @@ If needed, they can be repeated for successive actions.
 - **-D**, **-Dockapps**
 
     Selects all Dockapp applications which are managed by icewm.
+
+- **-T**
+
+    Selects the IceWM taskbar.
 
 ## FILTER OPTIONS
 

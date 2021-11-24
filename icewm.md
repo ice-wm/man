@@ -188,10 +188,10 @@ The **icewm** program supports some additional options:
 
     Give a list of the current X extensions, their versions and status.
 
-- **--trace**=_conf_,_icon_,_prog_,_systray_
+- **--trace**=_conf_,_font_,_icon_,_prog_,_systray_
 
     Enable tracing of the paths which are used to load configuration,
-    and/or icons, and/or executed programs, and/or system tray applets.
+    fonts, icons, executed programs, and/or system tray applets.
 
 # USAGE
 
@@ -226,6 +226,7 @@ for only this session, double click, edit the name and hit Enter.
 When `PagerShowPreview` is turned on, a small graphical window summary
 for each workspace is shown. They support drag-and-drop: dragging a
 Firefox tab to a workspace button changes the current workspace.
+Then releasing it moves that tab to a new window in that workspace.
 
 The _Task Pane_ consists of a list of wide buttons for each application
 which is running on the current workspace, or all workspaces if
@@ -425,6 +426,16 @@ to wait before a change of workspace occurs.
 To move an application window to a different workspace one can use a
 keyboard shortcut.  Another option is to select the _Move To_ submenu
 in the window menu of the window frame.
+
+## DRAG AND DROP
+
+The task bar supports drag and drop operations. When a drag
+is in progress, the destination window can be activated by
+hovering the drag icon over the task button for that window.
+Alternatively, the current workspace can be changed by
+hovering the drag icon over the desired workspace button.
+When edge switching is enabled, the current workspace can
+also be changed by bringing the drag icon to the screen edge.
 
 ## ADDRESS BAR
 
