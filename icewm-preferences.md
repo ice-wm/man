@@ -647,11 +647,16 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TimeFormat**="%X"
 
-    Clock Time format (strftime format string).
+    The clock time format. See the strftime manpage for the meaning of all
+    the percent options. It is possible to define multiple clocks for
+    different time zones in a single _TimeFormat_.  A new clock is defined
+    by the beginning of the string, and by each time zone specification
+    which starts with `TZ=...`, followed by a space. For example,
+    **TimeFormat**=`%X TZ=Asia/Aden %T TZ=Asia/Baku %T` defines 3 clocks.
 
 - **TimeFormatAlt**=""
 
-    Alternate Clock Time format (e.g., for blinking effects).
+    Alternate Clock Time format shown every other second.
 
 - **DateFormat**="%c"
 
