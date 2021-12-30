@@ -34,10 +34,9 @@ title: "icesh(1)"
     to define your own window management hotkeys.  For example, to
     immediately close all xterm windows do `icesh -c xterm close`.
 
-    There are about ten `SELECT OPTIONS` to select windows.
-    They start with a minus sign '-' or with a plus sign '+'.
-    The first starts a new selection. The second adds more
-    windows to an existing selection.
+    There are a dozen `SELECT OPTIONS` to select windows.  They start
+    with a '-' or a '+'.  The '-' starts a new selection, while the '+'
+    adds more windows to an existing selection.
 
     This selection of windows can be reduced by `FILTER OPTIONS`.
     These remove unwanted windows from the current selection.
@@ -60,7 +59,7 @@ Have a look at some examples near the end of this document.
 
 Select options specify the window or windows to which subsequent
 actions apply. If none is given, but an action does require a window,
-then a selection crossbar is invoked to select the desired window
+then a selection crosshair is shown to select the desired window
 interactively. The manager actions do not require window options.
 
 The following options _select_ one or more client windows.
@@ -111,15 +110,29 @@ If needed, they can be repeated for successive actions.
 
     Selects all windows which are embedded using the _XEMBED_ protocol.
 
+- **+c**, **+class** _CLASS_
+
+    Extend the current selection with client windows that have a
+    _WM\_CLASS_ property equal to _CLASS_. This is the resource
+    instance and class name.  If _CLASS_ contains a period, only
+    windows with exactly the same _WM\_CLASS_ property are matched.
+    If there is no period, windows of the same class and windows
+    of the same instance are selected.
+
 - **+C**, **+Class**
 
     Extend the current selection with client windows that
-    have a similar WM\_CLASS property, which specifies the
-    resource instance and the class name.
+    have a _WM\_CLASS_ property _similar_ to the already
+    selected set of windows.
 
 - **-D**, **-Dockapps**
 
     Selects all Dockapp applications which are managed by icewm.
+
+- **+P**, **+Pid**
+
+    Extend the current selection with client windows that have
+    the same process identifier as one of the selected windows.
 
 - **-T**
 
@@ -131,12 +144,13 @@ The following options _filter_ the currently selected set of windows.
 If no previous _select_ option was given then a **-all** option is
 implicitly assumed to filter all client windows.
 
-- **-c**, **-class** _WM\_CLASS_
+- **-c**, **-class** _CLASS_
 
-    Filters the set of windows on window manager class, _WM\_CLASS_.  If
-    _WM\_CLASS_ contains a period, only windows with exactly the same
-    _WM\_CLASS_ property are matched.  If there is no period, windows of the
-    same class and windows of the same instance (aka. _-name_) are selected.
+    Filters the set of windows on their _WM\_CLASS_ property.  This is
+    the resource instance and class name. If _CLASS_ contains a period,
+    only windows with exactly the same _WM\_CLASS_ property are matched.
+    If there is no period, windows of the same class and windows of the
+    same instance (aka. _-name_) are selected.
 
 - **-l**, **-last**
 
@@ -346,15 +360,17 @@ The following actions affect the selected window or windows.
 
 - **unsticky**
 
-    Show the window on only one workspace.
+    Show the window on just one workspace.
 
 - **urgent**
 
-    Set the urgent flag.
+    Set the urgent flag to flash the task button.
 
 - **resize** _WIDTH_ _HEIGHT_
 
-    Resize window to _WIDTH_ by _HEIGHT_ window units.
+    Resize window to _WIDTH_ by _HEIGHT_ window units.  For text based
+    applications like terminals, a window unit is the size of a single
+    character cell.
 
 - **sizeto** _WIDTH_ _HEIGHT_
 
@@ -442,12 +458,12 @@ The following actions affect the selected window or windows.
 
 - **setLayer** _LAYER_
 
-    Move the specified window to another _GNOME window layer_.
-    See below for _LAYER_ symbols.
+    Move the specified window to another _window layer_.
+    See EXPRESSIONS below for a list of _LAYER_ symbols.
 
 - **getLayer**
 
-    Print the _GNOME window layer_ for the specified window.
+    Print the _window layer_ for the specified window.
 
 - **setWorkspace** _WORKSPACE_
 
@@ -511,8 +527,7 @@ The following actions affect the selected window or windows.
     fields of this property can be enabled or disabled. If _FUNCTIONS_ or
     _DECORATIONS_ starts with a minus or plus sign then the existing value
     is modified, otherwise it is set to the new value. Note that if `All`
-    is set, then other set fields will be disabled and cleared fields will
-    be enabled.
+    is set, other set fields are disabled and cleared fields are enabled.
 
 - **borderless**
 
@@ -524,17 +539,16 @@ The following actions affect the selected window or windows.
 
 - **denormal**
 
-    Remove the WM\_NORMAL\_HINTS property, if it exists.
-    This lifts font-size restrictions on resizing,
-    especially for terminals.
+    Remove the WM\_NORMAL\_HINTS property, if it exists.  This lifts
+    font-size restrictions on resizing, especially for terminals.
 
 - **prop** _PROPERTY_
 
-    Print the value of property _PROPERTY_ if it is present.
+    Print the value of property _PROPERTY_, if it is present.
 
 - **properties**
 
-    Print all properties.
+    Print all properties and their values.
 
 - **frame**
 
@@ -843,7 +857,7 @@ Move all windows on workspace "Top" to the current workspace.
 Restore all hidden clients, minimize all clients on the current
 workspace and activate Firefox.
 
-    icesh -S hidden restore -a -W "this" minimize -a -c Firefox activate
+    icesh -N HIDDEN restore -a -W "this" minimize -a -c Firefox activate
 
 Resize the focused window to occupy the right half of the desktop area.
 
