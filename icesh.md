@@ -470,7 +470,8 @@ The following actions affect the selected window or windows.
     Move the specified window to another workspace.  Select the root
     window to change the current workspace. If _WORKSPACE_ is `All`
     then the specified window becomes visible on all workspaces.
-    Specify `this` for the current workspace.
+    Specify `this` for the current workspace, `next` for the subsequent
+    workspace or `prev` for the preceding workspace.
 
 - **getWorkspace**
 
@@ -588,7 +589,8 @@ do not require a window _select_ or _filter_ option:
 
 - **goto** _WORKSPACE_
 
-    Change the current workspace to _WORKSPACE_.
+    Change the current workspace to _WORKSPACE_. Specify `next` for the
+    subsequent workspace or `prev` for the preceding workspace.
 
 - **workspaces** \[_COUNT_\]
 

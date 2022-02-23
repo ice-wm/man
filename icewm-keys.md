@@ -47,12 +47,14 @@ Where,
 
 - **switchkey**
 
-    The literal string keyword, used as alternative to `key` to build
-    menu-like quickswitch popups.
+    The literal string keyword, instead of `key`, to build popup menus.
+    The output of _program_ should conform to [icewm-menu(1)](icewm-menu).
 
 - _key\_combination_
 
-    A combination of modifiers and a key, separated by plus-sign (`+`).
+    A combination of modifiers and a key separated by a plus-sign (`+`),
+    like `Ctrl+Alt+Delete`. Mouse pointer buttons can be specified by
+    `Pointer_Button1` and up.
 
 - _program_ _options_
 
@@ -61,18 +63,13 @@ Where,
     with the **switchkey** keyword, the _program_ must print on standard
     output the contents of the popup like it would be used for dynamic menus.
 
-    _options_ is the options and arguments passed to the _program_
-    verbatim.
+    _options_ are the options and arguments passed to the _program_.
 
 # EXAMPLES
 
 Following is the example `keys` file that ships with [icewm(1)](icewm):
 
     # This is an example for IceWM's hotkey definition file.
-    #
-    # Place your variants in @CFGDIR@ or in $HOME/.icewm
-    # since modifications to this file will be discarded when
-    # you (re)install icewm.
     #
     # A list of all valid keyboard symbols can be found in
     # /usr/include/X11/keysym.h, keysymdefs.h, XF86keysym.h,
@@ -89,7 +86,7 @@ Following is the example `keys` file that ships with [icewm(1)](icewm):
 
     # "Multimedia key" bindings for XFree86. Gather the
     # keycodes of your advanced function keys by watching the
-    # output of the xev command whilest pressing those keys
+    # output of the xev command whilst pressing those keys
     # and map those symbols by using xmodmap.
 
     key "XF86AudioLowerVolume" amixer sset PCM 5%-
@@ -101,6 +98,25 @@ Following is the example `keys` file that ships with [icewm(1)](icewm):
 
     # display and select monitor setup configurations
     switchkey "Super+p" icewm-menu-xrandr
+
+Following shows how to add mouse button bindings on the root window to
+change the current workspace rolling the mouse wheel on the desktop:
+
+    key "Pointer_Button4"   icesh goto prev
+    key "Pointer_Button5"   icesh goto next
+
+These are key bindings for single window tile operations to replace the
+_KeyWinArrange_ key bindings from the `preferences` file:
+
+    key "Ctrl+Alt+KP_7" icesh -f sizeto 49% 49% top left
+    key "Ctrl+Alt+KP_8" icesh -f sizeto 100% 49% top left
+    key "Ctrl+Alt+KP_9" icesh -f sizeto 49% 49% top right
+    key "Ctrl+Alt+KP_6" icesh -f sizeto 49% 100% top right
+    key "Ctrl+Alt+KP_3" icesh -f sizeto 49% 49% bottom right
+    key "Ctrl+Alt+KP_2" icesh -f sizeto 100% 49% bottom left
+    key "Ctrl+Alt+KP_1" icesh -f sizeto 49% 49% bottom right
+    key "Ctrl+Alt+KP_4" icesh -f sizeto 49% 100% top left
+    key "Ctrl+Alt+KP_5" icesh -f sizeto 49% 49% center
 
 # FILES
 
