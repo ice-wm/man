@@ -1,15 +1,15 @@
 ---
 title: "icesh(1)"
 ---
-# NAME
+## NAME
 
     icesh - control window properties and the IceWM window manager
 
-# SYNOPSIS
+## SYNOPSIS
 
 - **icesh** _OPTIONS\|ACTIONS_+
 
-# DESCRIPTION
+## DESCRIPTION
 
 **icesh** provides two types of commands:
 
@@ -51,7 +51,7 @@ They are processed and evaluated one by one from left to right.
 This makes icesh a small declarative programming language.
 Have a look at some examples near the end of this document.
 
-# OPTIONS
+## OPTIONS
 
 **icesh** recognizes the following options:
 
@@ -259,7 +259,7 @@ The following options are identical for every IceWM command.
 
     Don't complain if no matching windows could be found.
 
-# ACTIONS
+## ACTIONS
 
 **icesh** expects one or more action arguments.  There are two kinds of
 actions: _window actions_ and _manager actions_. The first operates on
@@ -827,7 +827,7 @@ Each _SYMBOL_ may be from one of the following applicable domains:
         SKIP_TASKBAR          (2048)
         STICKY                (4096)
 
-# EXAMPLES
+## EXAMPLES
 
 List all workspace names:
 
@@ -882,13 +882,13 @@ which has a WM\_ROLE value of `special`, or start it with **runonce**.
         elif -u then setWorkspace this sync activate end \
         else runonce roxterm --role=special
 
-# ENVIRONMENT
+## ENVIRONMENT
 
 - **DISPLAY**
 
     The default display.
 
-# EXIT STATUS
+## EXIT STATUS
 
 - **0**
 
@@ -910,27 +910,27 @@ which has a WM\_ROLE value of `special`, or start it with **runonce**.
 
     The X server reports an error while processing a request.
 
-# COMPLIANCE
+## COMPLIANCE
 
 **icesh** is largely compliant with the EWMH and ICCCM specifications.
 Some commands, like manager actions, are specific to IceWM.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm), [wmctrl(1)](https://manned.org/wmctrl.1), [xdotool(1)](https://manned.org/xdotool.1), [xprop(1)](https://manned.org/xprop.1),
 [xwininfo(1)](https://manned.org/xwininfo.1), [XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html).
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

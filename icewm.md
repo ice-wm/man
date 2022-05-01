@@ -1,15 +1,15 @@
 ---
 title: "icewm(1)"
 ---
-# NAME
+## NAME
 
     icewm - lightweight X11 window manager
 
-# SYNOPSIS
+## SYNOPSIS
 
 **icewm** \[_OPTIONS_\]
 
-# DESCRIPTION
+## DESCRIPTION
 
 **icewm** is a window manager for the X11 window system.
 It aims to be small, fast and familiar to new users.
@@ -93,7 +93,7 @@ The **icewm** package includes several programs:
 
     Configures GNOME to start IceWM instead of its own WM.
 
-# OPTIONS
+## OPTIONS
 
 ## COMMON OPTIONS
 
@@ -110,9 +110,9 @@ Each of the IceWM executables supports the following options:
     Use _NAME_ as the name of the **icewm** theme to use.  A theme defines
     the look and feel of **icewm**, like colors, fonts and buttons.
 
-- **--display**=_DISPLAY_
+- **-d**, **--display**=_DISPLAY_
 
-    _DISPLAY_ specifies the connection to the X11 server.  By default
+    Connect to the X11 server on _DISPLAY_.  By default
     the environment variable `DISPLAY` is used.
 
 - **--sync**
@@ -193,7 +193,7 @@ The **icewm** program supports some additional options:
     Enable tracing of the paths which are used to load configuration,
     fonts, icons, executed programs, and/or system tray applets.
 
-# USAGE
+## USAGE
 
 ## TASKBAR
 
@@ -573,8 +573,9 @@ will be shown. Otherwise the first two letters of the name of the
 layout will be shown.
 
 Click on the current keyboard layout to cycle through all the
-available keyboard layouts. Click with the right mouse button
-to open a menu of all available keyboard layouts.
+available keyboard layouts, or use the **KeySysKeyboardNext** key.
+Click with the right mouse button to open a menu of all available
+keyboard layouts.
 
 It is also possible to configure a default keyboard layout for
 each program individually in the [icewm-winoptions(5)](icewm-winoptions) file.
@@ -917,6 +918,10 @@ for Ctrl+Alt.
 
     Shows the window list menu.
 
+- **KeySysKeyboardNext**=`undefined`
+
+    Switch to the next keyboard layout in the KeyboardLayouts list.
+
 - **KeySysSwitchNext**=`Alt+Tab`
 
     Opens the `QuickSwitch` popup (see ["INPUT FOCUS"](#input-focus))
@@ -975,7 +980,7 @@ window list (`DesktopWinListButton=2`).  The right button shows the
 root menu (`DesktopMenuButton=3`). If you press `Ctrl+Alt` then
 the mouse wheel will focus all applications in turn.
 
-# SIGNALS
+## SIGNALS
 
 **icewm** supports the following signals:
 
@@ -996,7 +1001,7 @@ the mouse wheel will focus all applications in turn.
 
     Toggle the logging of X11 events, if `logevents` was configured.
 
-# ENVIRONMENT VARIABLES
+## ENVIRONMENT VARIABLES
 
 - **ICEWM\_PRIVCFG**
 
@@ -1018,7 +1023,7 @@ the mouse wheel will focus all applications in turn.
     option in the `preferences` file is set, then that one takes
     precedence.
 
-# FILES
+## FILES
 
 ## CONFIGURATION DIRECTORIES
 
@@ -1257,18 +1262,18 @@ are _DIALOG_, _NOTIFICATION_, _POPUP\_MENU_ and _TOOLTIP_. The output
 of `icesh windows` shows their WM\_CLASS values. These can be helpful
 to configure compton.
 
-# EXAMPLES
+## EXAMPLES
 
 Examples of the above configuration files can be found in the default
 installation path or in the system-wide defaults.  See the output of
 `icewm --directories` for their locations.
 
-# CONFORMING TO
+## CONFORMING TO
 
 ICCCM 2.0: partial.  NetWM/EWMH: extensive.
 See the file `COMPLIANCE` in the distribution for full details.
 
-# SEE ALSO
+## SEE ALSO
 
 [icehelp(1)](icehelp),
 [icesh(1)](icesh),
@@ -1299,17 +1304,17 @@ See the file `COMPLIANCE` in the distribution for full details.
 [xwininfo(1)](https://manned.org/xwininfo.1),
 [wmctrl(1)](https://manned.org/wmctrl.1).
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

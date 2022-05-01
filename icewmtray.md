@@ -1,23 +1,23 @@
 ---
 title: "icewmtray(1)"
 ---
-# NAME
+## NAME
 
     icewmtray - a system tray for the IceWM panel
 
-# SYNOPSIS
+## SYNOPSIS
 
 - **icewmtray** \[_OPTIONS_\]
 - **icewmtray** {**-h**\|**--help**} \[_OPTIONS_\]
 - **icewmtray** {**-V**\|**--version**}
 - **icewmtray** {**-C**\|**--copying**}
 
-# DESCRIPTION
+## DESCRIPTION
 
 **icewmtray** provides a system tray for the IceWM panel.  It catches the
 system tray objects which are installed by various applications.
 
-# OPTIONS
+## OPTIONS
 
 **icewmtray** recognizes the following options:
 
@@ -69,27 +69,27 @@ parsing and processing is performed.
     Specifies that debugging is to be turned on.  **icewmtray** must have
     been compiled with debugging for this option to have an effect.
 
-# USAGE
+## USAGE
 
 **icewmtray(1)** is typically launched and terminated by
 [icewm-session(1)](icewm-session) with the appropriate options: it is usually
 unnecessary to launch it directly.
 
-# CONFORMING TO
+## CONFORMING TO
 
 **icewmtray** is compliant to the XDG system tray specification.
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

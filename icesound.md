@@ -1,15 +1,15 @@
 ---
 title: "icesound(1)"
 ---
-# NAME
+## NAME
 
     icesound - play audio files when interesting GUI events happen
 
-# SYNOPSIS
+## SYNOPSIS
 
 **icesound** \[_OPTIONS_\]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The [icewm(1)](icewm) window manager generates so-called GUI events in
 response to interesting actions, like opening or closing of application
@@ -49,7 +49,7 @@ When multiple audio interfaces are available **icesound** will examine
 them all until it finds one which it can connect to and then use that
 one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
-# OPTIONS
+## OPTIONS
 
 ## SPECIFIC OPTIONS
 
@@ -120,7 +120,7 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
     Print copying permissions to `stdout` for the program and exit.
 
-# EXIT STATUS
+## EXIT STATUS
 
 - **0**
 
@@ -138,7 +138,7 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 
     Subsystems error (i.e cannot connect to server).
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [libao.conf(5)](https://manned.org/libao.conf.5),
@@ -146,17 +146,17 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 [aplay(1)](https://manned.org/aplay.1),
 [alsamixer(1)](https://manned.org/alsamixer.1).
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

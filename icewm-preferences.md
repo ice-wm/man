@@ -1,11 +1,11 @@
 ---
 title: "icewm-preferences(5)"
 ---
-# NAME
+## NAME
 
     icewm-preferences - icewm preferences configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/preferences
     $XDG_CONFIG_HOME/icewm/preferences
@@ -13,7 +13,7 @@ title: "icewm-preferences(5)"
     /etc/icewm/preferences
     /usr/share/icewm/preferences
 
-# DESCRIPTION
+## DESCRIPTION
 
 Contains general settings like paths, colors and fonts, but also options
 to control the **icewm** focus behaviour and the applets which are
@@ -21,7 +21,7 @@ started in the task bar.  The **icewm** installation will provide a
 default `preferences` file, which can be copied to the **icewm** user
 configuration directory and modified.
 
-# FORMAT
+## FORMAT
 
 ## FOCUS AND BEHAVIOR
 
@@ -1557,7 +1557,11 @@ values are shown following the equal sign.
 
 - **ColorClockText** = "rgb:00/FF/00"
 
-    Background of non-LCD monitor.
+    Text color of non-LCD clock.
+
+- **ColorKeyboardLayoutText** = ""
+
+    Color of keyboard layout indicator.
 
 - **ColorApm** = "rgb:00/00/00"
 
@@ -1688,7 +1692,7 @@ The following preferences are read by [icewmbg(1)](icewmbg):
 
     Paint the background image over all multihead monitors combined.
 
-# EXAMPLES
+## EXAMPLES
 
     Alpha=1
     Splash="IceWM.jpg"
@@ -1716,7 +1720,7 @@ The following preferences are read by [icewmbg(1)](icewmbg):
 The above example shows how to tell **icewm** to not bind a specific key:
 _KeySysWinMenu_ in this case.
 
-# FILES
+## FILES
 
 Locations for the `preferences` file are as follows:
 
@@ -1729,16 +1733,16 @@ Locations for the `preferences` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-prefoverride(5)](icewm-prefoverride).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

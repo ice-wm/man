@@ -1,11 +1,11 @@
 ---
 title: "icewm-startup(5)"
 ---
-# NAME
+## NAME
 
     icewm-startup - icewm startup configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/startup
     $XDG_CONFIG_HOME/icewm/startup
@@ -13,14 +13,14 @@ title: "icewm-startup(5)"
     /etc/icewm/startup
     /usr/share/icewm/startup
 
-# DESCRIPTION
+## DESCRIPTION
 
 The `startup` file contains commands to be executed on **icewm** startup.
 This is an executable script. Typically the commands tweak X11 settings
 and launch some applications which always need to be active.
 It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
 
-# EXAMPLES
+## EXAMPLES
 
     #!/bin/bash
     xset r rate 250 32
@@ -31,7 +31,7 @@ It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
 
 Remember to `chmod +x ~/.icewm/startup`.
 
-# FILES
+## FILES
 
 Locations for the `startup` file are as follows:
 
@@ -44,16 +44,16 @@ Locations for the `startup` file are as follows:
 The locations are searched in the order listed; the first file found is
 executed and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm-session(1)](icewm-session),
 [icewm-shutdown(5)](icewm-shutdown).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

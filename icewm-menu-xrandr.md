@@ -1,15 +1,15 @@
 ---
 title: "icewm-menu-xrandr(1)"
 ---
-# NAME
+## NAME
 
     icewm-menu-xrandr - IceWM menu provider for multi-monitor setup shortcuts
 
-# SYNOPSIS
+## SYNOPSIS
 
 **icewm-menu-xrandr**
 
-# DESCRIPTION
+## DESCRIPTION
 
 **icewm-menu-xrandr** is a helper to manage multi-screen configurations
 in a semi-automated way. It is a regular icewm menu generator which dynamically
@@ -22,7 +22,7 @@ on-the-fly through a "quick-switch" style menu which pops up upon
 pressing Super-P key binding (or a manually configured key, see
 [icewm-keys(5)](icewm-keys) for the configuration of **switchkey** directive).
 
-# OPTIONS
+## OPTIONS
 
 - **--max**
 
@@ -33,20 +33,20 @@ pressing Super-P key binding (or a manually configured key, see
     `$HOME/.cache/xrandrmenu.max` which would also effect the monitor
     quick-switch menu.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [xrandr(1)](https://manned.org/xrandr.1).
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Eduard Bloch](mailto:edi@gmx.de).
 
-# LICENSE
+## LICENSE
 
 **icewm-menu-xrandr** is licensed under the Simplified BSD License.
 **IceWM** is licensed under the GNU Library General Public License.

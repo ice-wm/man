@@ -1,11 +1,11 @@
 ---
 title: "icewm-shutdown(5)"
 ---
-# NAME
+## NAME
 
     icewm-shutdown - icewm shutdown configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/shutdown
     $XDG_CONFIG_HOME/icewm/shutdown
@@ -13,7 +13,7 @@ title: "icewm-shutdown(5)"
     /etc/icewm/shutdown
     /usr/share/icewm/shutdown
 
-# DESCRIPTION
+## DESCRIPTION
 
 Contains commands to be executed on **icewm** shutdown.  This is an
 executable script with commands to be executed in the last stage of
@@ -21,7 +21,7 @@ executable script with commands to be executed in the last stage of
 the `startup` script.  It is run by [icewm-session(1)](icewm-session) when **icewm**
 terminates.
 
-# FILES
+## FILES
 
 Locations for the `shutdown` file are as follows:
 
@@ -34,16 +34,16 @@ Locations for the `shutdown` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm-session(1)](icewm-session),
 [icewm-startup(5)](icewm-startup).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

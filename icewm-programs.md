@@ -1,11 +1,11 @@
 ---
 title: "icewm-programs(5)"
 ---
-# NAME
+## NAME
 
     icewm-programs - icewm programs configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/programs
     $XDG_CONFIG_HOME/icewm/programs
@@ -13,14 +13,14 @@ title: "icewm-programs(5)"
     /etc/icewm/programs
     /usr/share/icewm/programs
 
-# DESCRIPTION
+## DESCRIPTION
 
 The `programs` file is an automatically generated menu configuration
 file of installed programs. This file should be automatically generated
 by xdg\_menu, wmconfig (Redhat), menu (Debian), or icewm-menu-fdo,
 perhaps as part of the login or X startup sequence.
 
-# FORMAT
+## FORMAT
 
 The format of the file contains one of the following line syntax:
 
@@ -119,7 +119,7 @@ Where
     with the **menufile** keyword and specifies the file from which to read
     further menu items.
 
-# EXAMPLES
+## EXAMPLES
 
 Following is the example `programs` file that ships with [icewm(1)](icewm):
 
@@ -194,7 +194,7 @@ Following is the example `programs` file that ships with [icewm(1)](icewm):
         restart sawfish2 - sawfish2
     }
 
-# FILES
+## FILES
 
 Locations for the `programs` file are as follows:
 
@@ -207,17 +207,17 @@ Locations for the `programs` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-menu(5)](icewm-menu),
 [icewm-menu-fdo(1)](icewm-menu-fdo).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

@@ -1,11 +1,11 @@
 ---
 title: "icewm-menu(5)"
 ---
-# NAME
+## NAME
 
     icewm-menu - icewm menu configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/menu
     $XDG_CONFIG_HOME/icewm/menu
@@ -13,7 +13,7 @@ title: "icewm-menu(5)"
     /etc/icewm/menu
     /usr/share/icewm/menu
 
-# DESCRIPTION
+## DESCRIPTION
 
 The `menu` file is responsible for configuring most of the [icewm(1)](icewm)
 root menu and start menu.
@@ -23,7 +23,7 @@ provides the [icewm-menu-fdo(1)](icewm-menu-fdo) program to generate a default m
 Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1) (MenuMaker),
 [xde-menu(1)](https://manned.org/xde-menu.1), [xdgmenumaker(1)](https://manned.org/xdgmenumaker.1).
 
-# FORMAT
+## FORMAT
 
 The format of the file contains one of the following line syntax:
 
@@ -89,8 +89,7 @@ Where
 
     This is the _title_ string associated with the menu item which is
     displayed in the menu.  When the _title_ contains spaces, the title
-    must be surrounded by double quotes (`"`), although the _title_ may
-    always be surrounded by double quotes if preferred.
+    must be surrounded by double quotes (``).
 
 - _icon_
 
@@ -122,7 +121,7 @@ Where
     with the **menufile** keyword and specifies the file from which to read
     further menu items.
 
-# EXAMPLES
+## EXAMPLES
 
 Following is the example `menu` file that ships with [icewm(1)](icewm):
 
@@ -144,7 +143,7 @@ Following is the example `menu` file that ships with [icewm(1)](icewm):
     menufile Programs folder programs
     menufile Tool_bar folder toolbar
 
-# FILES
+## FILES
 
 Locations for the `menu` file are as follows:
 
@@ -157,16 +156,16 @@ Locations for the `menu` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-menu-fdo(1)](icewm-menu-fdo).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

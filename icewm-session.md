@@ -1,21 +1,21 @@
 ---
 title: "icewm-session(1)"
 ---
-# NAME
+## NAME
 
     icewm-session - X.Org session manager provider with IceWM
 
-# SYNOPSIS
+## SYNOPSIS
 
 **icewm-session** \[_OPTIONS_\]
 
-# DESCRIPTION
+## DESCRIPTION
 
 icewm-session is an implementation of a X.Org session manager and can be
 run from a X11 session setup. It runs **icewm** as default window manager
 and controls the life cycle of related support applications.
 
-# OPTIONS
+## OPTIONS
 
 ## SPECIFIC OPTIONS
 
@@ -89,7 +89,7 @@ and controls the life cycle of related support applications.
     Let `/usr/bin/catchsegv` run icewm.
     Gives a backtrace if icewm segfaults.
 
-# USAGE
+## USAGE
 
 On startup icewm-session executes the following steps.
 From the file `env` in the configuration directory
@@ -114,14 +114,14 @@ attempt to popup a dialog using either `yad`, `xmessage`, `kdialog`
 or `zenity`.  This dialog presents a choice between restarting icewm,
 starting a terminal, or abort execution of icewm-session.
 
-# ENVIRONMENT
+## ENVIRONMENT
 
 - **ICEWM\_OPTIONS**
 
     A space separated list of options which will be added to the command
     line invocation of `icewm`. This can be set in the `env` file.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-env(5)](icewm-env),
@@ -129,17 +129,17 @@ starting a terminal, or abort execution of icewm-session.
 [icewm-startup(5)](icewm-startup),
 [icewmbg(1)](icewmbg).
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

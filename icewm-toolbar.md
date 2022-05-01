@@ -1,11 +1,11 @@
 ---
 title: "icewm-toolbar(5)"
 ---
-# NAME
+## NAME
 
     icewm-toolbar - icewm toolbar configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/toolbar
     $XDG_CONFIG_HOME/icewm/toolbar
@@ -13,7 +13,7 @@ title: "icewm-toolbar(5)"
     /etc/icewm/toolbar
     /usr/share/icewm/toolbar
 
-# DESCRIPTION
+## DESCRIPTION
 
 The `toolbar` file is responsible for configuring quick launch
 application icons that are placed on the [icewm(1)](icewm) panel.  It
@@ -30,7 +30,7 @@ with the `firefox` icon which launches [firefox(1)](https://manned.org/firefox.1
 
     prog  "Mozilla Firefox"  firefox  /usr/bin/firefox --private-window
 
-# FORMAT
+## FORMAT
 
 The format of the file contains one of the following line syntax:
 
@@ -65,7 +65,7 @@ Where,
 Lines beginning with a hash (`#`) are comment lines.  Comment lines and
 blank lines are ignored.
 
-# EXAMPLES
+## EXAMPLES
 
 Following is an example that places a number of toolbar buttons on the
 [icewm(1)](icewm) panel:
@@ -79,7 +79,7 @@ Following is an example that places a number of toolbar buttons on the
     prog "Network" gtk-network.png pcmanfm ~/Network
     prog "Logout" system-log-out.png xde-logout
 
-# FILES
+## FILES
 
 Locations for the `toolbar` file are as follows:
 
@@ -92,18 +92,18 @@ Locations for the `toolbar` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-programs(5)](icewm-programs),
 [icewm-menu(5)](icewm-menu),
 [icewm-menu-fdo(1)](icewm-menu-fdo).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

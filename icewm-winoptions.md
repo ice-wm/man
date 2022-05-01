@@ -1,11 +1,11 @@
 ---
 title: "icewm-winoptions(5)"
 ---
-# NAME
+## NAME
 
     icewm-winoptions - IceWM window options configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/winoptions
     $XDG_CONFIG_HOME/icewm/winoptions
@@ -13,7 +13,7 @@ title: "icewm-winoptions(5)"
     /etc/icewm/winoptions
     /usr/share/icewm/winoptions
 
-# DESCRIPTION
+## DESCRIPTION
 
 Contains settings to control window appearance and behaviour. These are
 specific to applications, or to groups of applications.  Options can
@@ -25,7 +25,7 @@ Options are established when [icewm(1)](icewm) starts.  However, they can be
 overridden later using [icesh(1)](icesh) or [icewmhint(1)](icewmhint). The command
 `icesh winoptions` instructs icewm to reload the winoptions file.
 
-# FORMAT
+## FORMAT
 
 Each line in the file must be in one of the following formats:
 
@@ -61,7 +61,7 @@ Note that it is possible that the **WM\_WINDOW\_ROLE** may contain a period
 (`.`).  When it does, the period should be escaped by a single
 backslash when specifying the _ROLE_ in the file.
 
-# OPTIONS
+## OPTIONS
 
 The options and values described in the format, above, consist of an
 option name, _OPTION_ followed by a semicolon (`:`) a space (` `) and
@@ -195,7 +195,7 @@ the application.  The following options are defined:
     startMaximizedVert:       {1|0}  start maximized vertical.
     startMinimized:           {1|0}  start minimized.
 
-# EXAMPLES
+## EXAMPLES
 
 This example uses the WM\_WINDOW\_ROLE property value `pop-up` to deny
 input focus to _Chrome_ pop-ups and asks to close them immediately.
@@ -270,7 +270,7 @@ and typically installs to `/usr/share/icewm/winoptions`.
     MainWindow.licq.layer: Below
     #MainWindow.licq.doNotCover: 1
 
-# FILES
+## FILES
 
 Locations for the `winoptions` file are as follows:
 
@@ -283,7 +283,7 @@ Locations for the `winoptions` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icesh(1)](icesh),
@@ -291,11 +291,11 @@ read and the remainder ignored.
 [setxkbmap(1)](https://manned.org/setxkbmap.1),
 [XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

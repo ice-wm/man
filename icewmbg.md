@@ -1,15 +1,15 @@
 ---
 title: "icewmbg(1)"
 ---
-# NAME
+## NAME
 
     icewmbg - a background settings manager for the IceWM window manager
 
-# SYNOPSIS
+## SYNOPSIS
 
 **icewmbg** \[_OPTIONS_\]
 
-# DESCRIPTION
+## DESCRIPTION
 
 **icewmbg** can assign a colour or image to the _X11_ desktop background.
 Many image formats are supported.  Each [icewm(1)](icewm) work space can have
@@ -34,7 +34,7 @@ path of the background image whenever it changes the desktop background.
 
 **icewmbg** is started automatically by [icewm-session(1)](icewm-session).
 
-# OPTIONS
+## OPTIONS
 
 ## SPECIFIC OPTIONS
 
@@ -143,7 +143,7 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 
     Use a slower synchronous mode communication with _X11_ server.
 
-# FILES
+## FILES
 
 ## PREFERENCES
 
@@ -181,7 +181,7 @@ What happens for their combination is given by the following table:
     center:1 scaled:1 = Fill one dimension and preserve the aspect ratio.
     center:0 scaled:1 = Fill both dimensions and preserve the aspect ratio.
 
-# SIGNALS
+## SIGNALS
 
 **icewmbg** supports the following signals:
 
@@ -198,7 +198,7 @@ What happens for their combination is given by the following table:
     **icewmbg** will reshuffle the list of background images and
     update the backgrounds of all work spaces.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-preferences(5)](icewm-preferences),
@@ -207,17 +207,17 @@ What happens for their combination is given by the following table:
 [xsetbg(1)](https://manned.org/xsetbg.1),
 [xwallpaper(1)](https://manned.org/xwallpaper.1).
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

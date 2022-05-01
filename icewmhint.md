@@ -1,15 +1,15 @@
 ---
 title: "icewmhint(1)"
 ---
-# NAME
+## NAME
 
 icewmhint - set IceWM hints by window class and instance
 
-# SYNOPSIS
+## SYNOPSIS
 
 **icewmhint** _CLASS_**.**_INSTANCE_ _OPTION_ _VALUE_ ...
 
-# DESCRIPTION
+## DESCRIPTION
 
 **icewmhint** is a utility for passing IceWM hints to [icewm(1)](icewm).
 **icewm** uses these hints for the first _X11 client_ which is
@@ -24,7 +24,7 @@ The hints are communicated over the `_ICEWM_WINOPTHINT` property on
 the root window.  **icewmhint** appends hints to this property, while
 **icewm** removes the property after reading it.
 
-# OPTIONS
+## OPTIONS
 
 **icewmhint** recognizes the following options:
 
@@ -51,7 +51,7 @@ option is specified, argument parsing and processing is performed.
 
     Specifies the X11 DISPLAY. If unspecified, defaults to **$DISPLAY**.
 
-# ARGUMENTS
+## ARGUMENTS
 
 The following three arguments are required for each hint.
 
@@ -202,7 +202,7 @@ advanced features are as follows:
     startMaximizedVert        start maximized vertical.
     startMinimized            start minimized.
 
-# EXAMPLE
+## EXAMPLE
 
     # Here is how to preload an invisible background process of chromium
     # on the fourth workspace which is only visible on the Window List.
@@ -217,17 +217,17 @@ advanced features are as follows:
               Chromium-browser noFocusOnAppRaise 1
     chromium
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

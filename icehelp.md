@@ -1,15 +1,15 @@
 ---
 title: "icehelp(1)"
 ---
-# NAME
+## NAME
 
     icehelp - a very simple HTML browser
 
-# SYNOPSIS
+## SYNOPSIS
 
 **icehelp** \[_OPTIONS_\] _FILENAME_
 
-# DESCRIPTION
+## DESCRIPTION
 
 **icehelp** is a very simple HTML browser, which is used by [icewm(1)](icewm)
 to display the [IceWM Manual](https://ice-wm.org/manual) and the manpages.
@@ -21,13 +21,13 @@ Hit the `F3` function key to repeat a search.
 The top right corner shows a button, which opens a menu. This menu
 can also be opened by a right mouse button click.
 
-# ARGUMENTS
+## ARGUMENTS
 
 - _FILENAME_
 
     Specifies the file to browse.  It can also be the URL of a website.
 
-# OPTIONS
+## OPTIONS
 
 ## SPECIFIC OPTIONS
 
@@ -91,17 +91,17 @@ can also be opened by a right mouse button click.
 
     Print copying permissions to `stdout` for the program and exit.
 
-# BUGS
+## BUGS
 
 Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
 See **--copying** for full copyright notice and copying permissions.
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag

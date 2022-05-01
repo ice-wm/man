@@ -1,11 +1,11 @@
 ---
 title: "icewm-focus_mode(5)"
 ---
-# NAME
+## NAME
 
     icewm-focus_mode - icewm focus mode configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/focus_mode
     $XDG_CONFIG_HOME/icewm/focus_mode
@@ -13,24 +13,24 @@ title: "icewm-focus_mode(5)"
     /etc/icewm/focus_mode
     /usr/share/icewm/focus_mode
 
-# DESCRIPTION
+## DESCRIPTION
 
 Defines the initial value for `FocusMode`.  Its default value is
 `FocusMode=1` (Click-to-focus).  This can be changed via the menu.
 **icewm** will save the Focus menu choice in this file.
 
-# FORMAT
+## FORMAT
 
 The file contains a single line containing the preferences assignment
 for **FocusMode**.
 
-# EXAMPLES
+## EXAMPLES
 
 The following is my `focus_mode` file:
 
     FocusMode=2
 
-# FILES
+## FILES
 
 Locations for the `focus_mode` file are as follows:
 
@@ -43,16 +43,16 @@ Locations for the `focus_mode` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-preferences(5)](icewm-preferences).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

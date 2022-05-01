@@ -1,11 +1,11 @@
 ---
 title: "icewm-keys(5)"
 ---
-# NAME
+## NAME
 
     icewm-keys - icewm keys configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/keys
     $XDG_CONFIG_HOME/icewm/keys
@@ -13,7 +13,7 @@ title: "icewm-keys(5)"
     /etc/icewm/keys
     /usr/share/icewm/keys
 
-# DESCRIPTION
+## DESCRIPTION
 
 Global keybindings to launch applications, which need not be window
 manager related. If you are looking for ways to disable icewm's grabbing
@@ -33,7 +33,7 @@ See the output of `xmodmap -pk` for a list of keystroke names.
 To bind the mouse use `Pointer_Button1` for button 1, and so on.
 The command `icesh keys` instructs icewm to reload this file.
 
-# FORMAT
+## FORMAT
 
 The syntax of the `keys` file is as follows:
 
@@ -65,7 +65,7 @@ Where,
 
     _options_ are the options and arguments passed to the _program_.
 
-# EXAMPLES
+## EXAMPLES
 
 Following is the example `keys` file that ships with [icewm(1)](icewm):
 
@@ -118,7 +118,19 @@ _KeyWinArrange_ key bindings from the `preferences` file:
     key "Ctrl+Alt+KP_4" icesh -f sizeto 49% 100% top left
     key "Ctrl+Alt+KP_5" icesh -f sizeto 49% 49% center
 
-# FILES
+Some systems need this instead:
+
+    key "Ctrl+Alt+KP_Home"  icesh -f sizeto 49% 49% top left
+    key "Ctrl+Alt+KP_Up"    icesh -f sizeto 100% 49% top left
+    key "Ctrl+Alt+KP_Prior" icesh -f sizeto 49% 49% top right
+    key "Ctrl+Alt+KP_Right" icesh -f sizeto 49% 100% top right
+    key "Ctrl+Alt+KP_Next"  icesh -f sizeto 49% 49% bottom right
+    key "Ctrl+Alt+KP_Down"  icesh -f sizeto 100% 49% bottom left
+    key "Ctrl+Alt+KP_End"   icesh -f sizeto 49% 49% bottom left
+    key "Ctrl+Alt+KP_Left"  icesh -f sizeto 49% 100% top left
+    key "Ctrl+Alt+KP_Begin" icesh -f sizeto 49% 49% center
+
+## FILES
 
 Locations for the `keys` file are as follows:
 
@@ -131,15 +143,15 @@ Locations for the `keys` file are as follows:
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.

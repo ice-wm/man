@@ -1,11 +1,11 @@
 ---
 title: "icewm-env(5)"
 ---
-# NAME
+## NAME
 
     icewm-env - icewm environment configuration file
 
-# SYNOPSIS
+## SYNOPSIS
 
     $ICEWM_PRIVCFG/env
     $XDG_CONFIG_HOME/icewm/env
@@ -13,20 +13,20 @@ title: "icewm-env(5)"
     /etc/icewm/env
     /usr/share/icewm/env
 
-# DESCRIPTION
+## DESCRIPTION
 
 [icewm-session(1)](icewm-session) loads additional environment variables from the file
 `env` before it does anything else. These variables are then propagated
 to all other processes, including [icewm(1)](icewm), via their environment.
 
-# FORMAT
+## FORMAT
 
 Each line is subjected to POSIX shell expansion by [wordexp(3)](https://manned.org/wordexp.3).
 Comment lines starting by a hash-sign (`#`) are ignored.
 [icewm-session(1)](icewm-session) will load those expanded lines which contain a name,
 followed by an equals sign, followed by the value (which may be empty).
 
-# EXAMPLES
+## EXAMPLES
 
     # This is a comment.
     # And another.
@@ -37,7 +37,7 @@ followed by an equals sign, followed by the value (which may be empty).
     START_DATE=`date`
     START_FROM=`pwd`
 
-# FILES
+## FILES
 
 [icewm-session(1)](icewm-session) looks for the `env` file in the following locations:
 
@@ -50,17 +50,17 @@ followed by an equals sign, followed by the value (which may be empty).
 The locations are searched in the order listed; the first file found is
 read and the remainder ignored.
 
-# SEE ALSO
+## SEE ALSO
 
 [icewm(1)](icewm),
 [icewm-session(1)](icewm-session),
 [icewm-startup(5)](icewm-startup).
 
-# AUTHOR
+## AUTHOR
 
 [Brian Bidulock](mailto:bidulock@openss7.org).
 
-# LICENSE
+## LICENSE
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
