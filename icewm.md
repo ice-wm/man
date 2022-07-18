@@ -148,7 +148,8 @@ The **icewm** program supports some additional options:
 
 - **-r**, **--restart**
 
-    Tell **icewm** to restart itself. This reloads the configuration from file.
+    Tell **icewm** to restart itself. This reloads the configuration from
+    file. If no window manager is active, then it starts one.
 
 - **-s**, **--splash**=_IMAGE_
 

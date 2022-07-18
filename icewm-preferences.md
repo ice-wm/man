@@ -553,13 +553,6 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Enable mouse wheel cycling over workspaces and task buttons in taskbar.
 
-- **TaskBarClockLeds**=0 # 0/1
-
-    Task bar clock/battery monitor uses nice pixmap LCD display (but then it
-    doesn't display correctly in many languages anymore, e.g., for
-    Japanese and Korean it works only when a real font is used and not
-    the LCD pixmaps.
-
 - **PagerShowPreview**=1
 
     Show a mini desktop preview on each workspace button.
@@ -704,29 +697,9 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Width of battery Monitor.
 
-- **TaskBarGraphHeight**=20  \[16-1000\]
-
-    Height of taskbar monitoring applets.
-
 - **XineramaPrimaryScreen**=0  \[0-63\]
 
     Primary screen for xinerama (taskbar, ...).
-
-- **TaskbuttonIconOffset**=0 # \[0-16\]
-
-    Width of taskbutton side icons.
-
-- **TrayIconMaxWidth**=32 # \[16-128\]
-
-    Maximum scaled width of tray icons.
-
-- **TrayIconMaxHeight**=24 # \[16-128\]
-
-    Maximum scaled height of tray icons.
-
-- **TrayDrawBevel**=0 # 0/1
-
-    Surround the tray with plastic border.
 
 - **KeyboardLayouts**=""
 
@@ -1199,6 +1172,33 @@ values are shown following the equal sign.
 - **TitleBarJoinRight**=0 # 0/1
 
     Join title\*T and title\*B.
+
+- **TaskBarClockLeds**=0 # 0/1
+
+    Task bar clock/battery monitor uses nice pixmap LCD display (but then it
+    doesn't display correctly in many languages anymore, e.g., for
+    Japanese and Korean it works only when a real font is used and not
+    the LCD pixmaps.
+
+- **TaskBarGraphHeight**=20  \[16-1000\]
+
+    Height of taskbar monitoring applets.
+
+- **TaskbuttonIconOffset**=0 # \[0-16\]
+
+    Width of taskbutton side icons.
+
+- **TrayIconMaxWidth**=32 # \[16-128\]
+
+    Maximum scaled width of tray icons.
+
+- **TrayIconMaxHeight**=24 # \[16-128\]
+
+    Maximum scaled height of tray icons.
+
+- **TrayDrawBevel**=0 # 0/1
+
+    Surround the tray with plastic border.
 
 ### THEME FONTS
 

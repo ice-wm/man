@@ -63,7 +63,8 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 
     Tell the running **icewmbg** to restart itself.  This is useful when
     a background file or directory has changed, or when settings in
-    preferences files have changed.
+    preferences files have changed. If no icewmbg is active, then it starts
+    one.
 
 - **-u**, **--shuffle**
 
