@@ -705,6 +705,42 @@ for Ctrl+Alt.
 
     Moves the active window to the center of the screen.
 
+- **KeyWinTileLeft**=""
+
+    Let the active window occupy the left half of the screen.
+
+- **KeyWinTileRight**=""
+
+    Let the active window occupy the right half of the screen.
+
+- **KeyWinTileTop**=""
+
+    Let the active window occupy the top half of the screen.
+
+- **KeyWinTileBottom**=""
+
+    Let the active window occupy the bottom half of the screen.
+
+- **KeyWinTileTopLeft**=""
+
+    Let the active window occupy the top left quarter of the screen.
+
+- **KeyWinTileTopRight**=""
+
+    Let the active window occupy the top right quarter of the screen.
+
+- **KeyWinTileBottomLeft**=""
+
+    Let the active window occupy the bottom left quarter of the screen.
+
+- **KeyWinTileBottomRight**=""
+
+    Let the active window occupy the bottom right quarter of the screen.
+
+- **KeyWinTileCenter**=""
+
+    Let the active window occupy the center quarter of the screen.
+
 - **KeyWinSmartPlace**=`Ctrl+Alt+Shift+KP_5`
 
     Smart place the active window.
@@ -801,11 +837,11 @@ for Ctrl+Alt.
 
     Goes to workspace 10.
 
-- **KeySysWorkspace11**=`Alt+Ctrl+bracketleft`
+- **KeySysWorkspace11**=`Alt+Ctrl+minus`
 
     Goes to workspace 11.
 
-- **KeySysWorkspace12**=`Alt+Ctrl+bracketright`
+- **KeySysWorkspace12**=`Alt+Ctrl+equal`
 
     Goes to workspace 12.
 
@@ -849,11 +885,11 @@ for Ctrl+Alt.
 
     Takes the active window to workspace 10.
 
-- **KeySysWorkspace11TakeWin**=`Alt+Ctrl+Shift+bracketleft`
+- **KeySysWorkspace11TakeWin**=`Alt+Ctrl+Shift+minus`
 
     Takes the active window to workspace 11.
 
-- **KeySysWorkspace12TakeWin**=`Alt+Ctrl+Shift+bracketright`
+- **KeySysWorkspace12TakeWin**=`Alt+Ctrl+Shift+equal`
 
     Takes the active window to workspace 12.
 

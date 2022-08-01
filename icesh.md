@@ -555,6 +555,11 @@ The following actions affect the selected window or windows.
 
     Print the identifier of the window frame.
 
+- **extents**
+
+    Print the window identifier and the frame border sizes: left, right,
+    top and bottom.
+
 - **click** _window-x_ _window-y_ _button_
 
     Send a button press and release event at position (_window-x_,
@@ -615,6 +620,11 @@ do not require a window _select_ or _filter_ option:
     If _SHOWING_ is `1` then set `showing the desktop` mode.
     If _SHOWING_ is `0` then turn off `showing the desktop`.
     Print the current mode if _SHOWING_ is not given.
+
+- **workarea**
+
+    Print the dimensions of the work area for the current workspace.
+    This is the desktop, but minus space occupied by dock and panel windows.
 
 - **randr**
 
@@ -863,7 +873,7 @@ workspace and activate Firefox.
 
 Resize the focused window to occupy the right half of the desktop area.
 
-    icesh -f sizeto 49% 100% sync top sync right sync raise activate
+    icesh -f sizeto 49% 100% sync top sync right sync raise
 
 Toggle the frame border of the focused window.
 
