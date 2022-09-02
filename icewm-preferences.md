@@ -1676,6 +1676,10 @@ The following preferences are read by [icewmbg(1)](icewmbg):
 
     Desktop background image(s).
 
+- **ShuffleBackgroundImages**=0  0/1
+
+    Choose a random selection from the list of background images.
+
 - **SupportSemitransparency**=1  0/1
 
     Support for semitransparent terminals like Eterm or gnome-terminal.
@@ -1691,6 +1695,10 @@ The following preferences are read by [icewmbg(1)](icewmbg):
 - **DesktopBackgroundMultihead**=0  0/1
 
     Paint the background image over all multihead monitors combined.
+
+- **CycleBackgroundsPeriod**=0
+
+    Seconds between cycling over all background images, default zero is off.
 
 ## EXAMPLES
 
