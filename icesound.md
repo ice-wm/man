@@ -66,7 +66,7 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 - **-i**, **--interface**={**AO**\|**ALSA**\|**OSS**}\[,{**AO**\|**ALSA**\|**OSS**}\]\*
 
     Specifies the audio output interfaces. One or more of: **AO**,
-    **ALSA**, **OSS** separated by commas (`,`).
+    **ALSA**, **OSS** separated by comma's (`,`).
 
 - **-D**, **--device**=_DEVICE_
 

@@ -12,17 +12,16 @@ title: "icewmbg(1)"
 ## DESCRIPTION
 
 **icewmbg** can assign a colour or image to the _X11_ desktop background.
-Many image formats are supported.  Each [icewm(1)](icewm) work space can have
+Common image formats are supported.  Each [icewm(1)](icewm) work space can have
 its own background.
 
-When the background image has changed, then **icewmbg** can be notified to
+When the background image has changed, **icewmbg** can be notified to
 update the background.  When switching work spaces, it checks the image
-file modification time.  If the file has changed, then it reloads the
-background image from file.
+file modification time.  If the file has changed, it reloads the
+image from file.
 
 **icewmbg** supports semi-transparency.  Semitransparent background
-images and colours can be configured.  If these are not specified then
-the default background is used.
+images and colours can be configured.
 
 It uses RandR or Xinerama to support backgrounds on all connected
 monitors.  When monitors appear/disappear, or change their resolution,
@@ -39,15 +38,13 @@ path of the background image whenever it changes the desktop background.
 ## SPECIFIC OPTIONS
 
 Where multiple values can be given for images
-or colours, they are separated by commas.
+or colours, they are separated by comma's.
 Each such value may be enclosed in double quotes.
-When _FILE_ is a directory then all images
+If _FILE_ is a directory, all images
 from that directory are used in sorted order.
-If the value starts with an exclamation mark,
-as in _!FILE_, then the images from the
-directory _FILE_ are permuted randomly.
-Image file names or directory names may have wildcards,
-which will be expanded according to [glob(7)](https://manned.org/glob.7).
+If the value starts with an exclamation mark, as in _!FILE_,
+the images from the directory _FILE_ are permuted randomly.
+Image file names or directory names may have [glob(7)](https://manned.org/glob.7) wildcards,
 
 - **-p**, **--replace**
 
@@ -62,9 +59,7 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 - **-r**, **--restart**
 
     Tell the running **icewmbg** to restart itself.  This is useful when
-    a background file or directory has changed, or when settings in
-    preferences files have changed. If no icewmbg is active, then it starts
-    one.
+    settings in have changed. If no icewmbg is active, it starts one.
 
 - **-u**, **--shuffle**
 
@@ -78,7 +73,7 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 
 - **-t**, **--theme**=_THEME_
 
-    Load the theme named _THEME_.
+    Use the theme named _THEME_.
 
 - **-i**, **--image**=_FILE_\[,_FILE_\]\*
 
@@ -150,9 +145,9 @@ which will be expanded according to [glob(7)](https://manned.org/glob.7).
 
 ## PREFERENCES
 
-By default **icewmbg** will load the background settings from the
-[icewm(1)](icewm) preferences files (see [icewm-preferences(5)](icewm-preferences)).  The
-settings read are:
+By default **icewmbg** loads settings from the [icewm(1)](icewm)
+preferences file. See [icewm-preferences(5)](icewm-preferences) for details.
+The settings read are:
 
     DesktopBackgroundCenter    - Display desktop background centered
     DesktopBackgroundScaled    - Display desktop background scaled
@@ -165,13 +160,14 @@ settings read are:
     DesktopBackgroundMultihead - One background over all monitors
     CycleBackgroundsPeriod     - Seconds between cycling over backgrounds
 
-If these settings are set in the `preferences` file, then they can
-be overridden by the theme in the theme defaults file. Most themes
-don't mess with desktop background settings. To prevent this, set
-these preferences in the `prefoverride` file instead.
+If these settings are set in the `preferences` file, they can
+be overridden by the theme in the theme defaults file.
+To prevent this, set these preferences in `prefoverride` instead.
 See [icewm-prefoverride(5)](icewm-prefoverride).
 
-Each work space can have its own image. Specify multiple images to
+## WORK SPACES
+
+Each work space can have a unique image. Specify multiple images to
 **DesktopBackgroundImage** separated by comma's.  Or give at least one
 directory with images. The images are assigned to each work space in
 the order given. When icewm changes work space, the running icewmbg
