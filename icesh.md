@@ -560,6 +560,16 @@ The following actions affect the selected window or windows.
     Print the window identifier and the frame border sizes: left, right,
     top and bottom.
 
+- **focusmodel**
+
+    Print the ICCCM focus model as advertised by the client window.
+    This is either Locally, Passive, Globally or NoInput.
+
+- **override** \[_0\|1_\]
+
+    Print the override redirect status for the window, or if either 0 or 1
+    is given, then disable or enable the override redirect status.
+
 - **click** _window-x_ _window-y_ _button_
 
     Send a button press and release event at position (_window-x_,

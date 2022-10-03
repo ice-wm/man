@@ -111,7 +111,7 @@ Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
 
 ## AUTHOR
 
-[Brian Bidulock](mailto:bidulock@openss7.org).
+[Eduard Bloch](mailto:edi@gmx.de).
 
 See **--copying** for full copyright notice and copying permissions.
 
