@@ -404,9 +404,20 @@ drag the title bar with the middle mouse button, while holding down
 a shift key, onto the title bar of another frame. The two title bars
 will start to flash to indicate that they can merge. Release the
 mouse button to merge the client of the upper window to the lower frame.
-Now the lower frame will have multiple clients, called tabs. Use the
-`KeyWinNext=Alt+F6` and `KeyWinPrev=Alt+Shift+F6` keys to select
-a tab, or use the QuickSwitch or use a submenu in the window menu.
+Now the lower frame will have multiple clients, called tabs. The title
+bar will show a vertical bar with triple dots to indicate this.
+To change the current tab:
+
+- Click on the triple dots next to the vertical bar.
+- Use `KeyWinNext=Alt+F6` and `KeyWinPrev=Alt+Shift+F6` keys to select
+the next or previous tab.
+- Use the QuickSwitch.
+- Use a submenu in the window menu.
+- Use the window list window.
+
+To change the mouse binding for creating tabs, modify
+**MouseWinTabbing**=`Shift+Pointer_Button2`.  Another
+useful setting is **MouseWinTabbing**=`Pointer_Button1`.
 
 ## WORKSPACES
 
@@ -1008,6 +1019,12 @@ You can control windows by a modified mouse button press:
     Lowers the window under the mouse.
     If this is equal to `MouseWinRaise` and the window can be raised
     then `MouseWinRaise` takes preference over `MouseWinLower`.
+
+- **MouseWinTabbing**="Shift+Pointer\_Button2"
+
+    Mouse binding to create tabs.
+    Drag the title bar with this button over another title bar.
+    When they start to flash, release the button to merge the frame tabs.
 
 The title frame of a window also listens for mouse clicks.  Left double
 clicking maximizes the window (`TitleBarMaximizeButton=1`). Press

@@ -134,6 +134,10 @@ The following option control general characteristics of windows:
     must be installed for this to work. Also define
     a default keyboard layout in `preferences`.
 
+- **frame**: _label_ (default: none)
+
+    All windows with the same frame label become tabs in a single frame.
+
 ## FUNCTION OPTIONS
 
 Function options enable/disable (1/0) the ability to take an action on
