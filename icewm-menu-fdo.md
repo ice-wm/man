@@ -54,6 +54,34 @@ become available in the icewm start menu.
 
     Write the output to _FILE_.
 
+- **--flat**
+
+    Display apps from all categories in one level with the title containing
+    the category information as prefix.
+
+- **-F sep**, **--flat-sep=sep**
+
+    When used with `--flat`, the specified character sequence is used as
+    separator between the section titles.
+
+- **-m filter**, **--match=filter**
+
+    Specifies a filter to show only apps which contain this as substring
+    within their title.
+
+- **-M filter**, **--imatch=filter**
+
+    Like `--match` but applied with any letter case.
+
+- **--match-sec**
+
+    Apply the filter from `--match` or `--imatch` to both, apps and
+    section titles.
+
+- **--match-osec**
+
+    Apply the filter from `--match` or `--imatch` to only to section titles.
+
 - **-h**, **--help**
 
     Print a brief usage statement to `stdout` and exit.
@@ -120,6 +148,14 @@ See **--copying** for full copyright notice and copying permissions.
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 102:
+
+    You forgot a '=back' before '=head2'
 
 | ------------: | :--------- |
 | [Index](/man) | [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org") |

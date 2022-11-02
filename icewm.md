@@ -356,8 +356,8 @@ in the centre of the screen with a list of windows to choose from.
 A narrow band indicates a selection: the candidate window that will
 be activated to receive input focus when the Alt key is released.
 
-The selection can be changed.  By repeatedly pressing the Tab key, one
-can cycle over all windows.  If a Shift key is down, the direction of
+The selection can be changed by repeatedly pressing the Tab key, while
+keeping the Alt key down. If a Shift key is also down, the direction of
 traversal is reversed. Or use the scroll wheel of the mouse.  Or use
 one of the digit keys to select the corresponding window from the list.
 Arrow keys are also supported, as well as the Home and End key.
@@ -372,7 +372,8 @@ workspace with the usual workspace hotkeys.
 
 The QuickSwitch has two distinct modes: vertical and horizontal.
 The window list can include all windows or be limited to the current
-workspace. See the many preferences available for the QuickSwitch.
+workspace. There is an option to raise the selected candidate.
+See the many preferences available for the QuickSwitch.
 
 ## WINDOW PLACEMENT
 
@@ -1258,6 +1259,19 @@ the given order, until it finds one:
     See [icewm-shutdown(5)](icewm-shutdown).
 
 ## CONFIGURATION SUBDIRECTORIES
+
+- `cursors`
+
+    May contain cursor icons in the XPM image format. These overrule cursors
+    provided by a theme. There are 3 direction cursors: `left.xpm`,
+    `right.xpm`, `move.xpm`, 8 resize cursors: `sizeR.xpm`, `sizeTR.xpm`,
+    `sizeT.xpm`, `sizeTL.xpm`, `sizeL.xpm`, `sizeBL.xpm`, `sizeB.xpm`,
+    `sizeBR.xpm`, and 4 scroll cursors: `scrollL.xpm`, `scrollR.xpm`,
+    `scrollU.xpm`, and `scrollD.xpm`.
+    By default an XPM header defines four dimensions: width, height, colors
+    and chars-per-pixel. For cursors this must be extended to six. The last
+    two are the _x-hotspot_ and the _y-hotspot_. These define which point
+    in the XPM image is the sensitive point for the mouse pointer.
 
 - `icons`
 

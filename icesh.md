@@ -570,6 +570,15 @@ The following actions affect the selected window or windows.
     Print the override redirect status for the window, or if either 0 or 1
     is given, then disable or enable the override redirect status.
 
+- **tabto** _label_
+
+    Move the windows as tabs to a frame which has `frame` label _label_.
+    Such a frame is created if needed.
+
+- **untab**
+
+    Move each window to its own frame, if it is currently tabbed.
+
 - **click** _window-x_ _window-y_ _button_
 
     Send a button press and release event at position (_window-x_,
@@ -588,6 +597,14 @@ The following actions affect the selected window or windows.
     focus, visibility, position, size and all window properties.
     To monitor all of the protocol request messages that client applications
     may send to icewm, also spy on the root window.
+
+- **stacking**
+
+    Sort the list of windows from topmost to bottom-most.
+
+- **reverse**
+
+    Reverse the order of the list of windows.
 
 ## MANAGER ACTIONS
 
@@ -901,6 +918,11 @@ which has a WM\_ROLE value of `special`, or start it with **runonce**.
         if -v then hide \
         elif -u then setWorkspace this sync activate end \
         else runonce roxterm --role=special
+
+Collect all urxvt terminals from the fourth workspace in a single frame
+on the current workspace.
+
+    icesh -W 3 -c urxvt tabto myfunnyname
 
 ## ENVIRONMENT
 
