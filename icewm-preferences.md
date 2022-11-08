@@ -329,6 +329,10 @@ The following preferences affect focus and general behavior of
 
     Group windows by workspace together in Alt+Tab.
 
+- **QuickSwitchPersistence**=0
+
+    Time in seconds to remember the state of Alt+Tab.
+
 - **QuickSwitchRaiseCandidate**=0
 
     Raise a selected window while Alt+Tabbing in the QuickSwitch.
