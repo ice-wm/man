@@ -1023,9 +1023,9 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 ## WINDOW MENUS
 
-- **WinMenuItems**="rmsnxfhualyticw"
+- **WinMenuItems**="rmsnxfhualytiecw"
 
-    Items supported in menu window (rmsnxfhualytickw)
+    Items supported in menu window (rmsnxfhualytieckw)
 
 - **RolloverButtonsSupported**=0
 
