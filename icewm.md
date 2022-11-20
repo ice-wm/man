@@ -400,25 +400,35 @@ windows in lower layers.
 
 ## TABBED WINDOWS
 
-A window frame may contain multiple client windows. To realize this,
-drag the title bar with the middle mouse button, while holding down
-a shift key, onto the title bar of another frame. The two title bars
-will start to flash to indicate that they can merge. Release the
-mouse button to merge the client of the upper window to the lower frame.
-Now the lower frame will have multiple clients, called tabs. The title
-bar will show a vertical bar with triple dots to indicate this.
-To change the current tab:
+A window frame may contain multiple client windows. Only one client can
+be visible, while the others are hidden. This is called tabbing.  This
+can be helpful to reduce the number of visible windows. To create a tab,
+drag the title bar with the middle mouse button, while holding down a
+shift key, onto the title bar of another frame. The two title bars will
+start to flash to indicate that they can merge. Release the mouse button
+to merge the client of the upper window to the lower frame.  Now the
+lower frame will have multiple clients, called tabs. The title bar will
+show a vertical bar with triple dots to indicate this.
+To change the current tab either:
 
 - Click on the triple dots next to the vertical bar.
-- Use `KeyWinNext=Alt+F6` and `KeyWinPrev=Alt+Shift+F6` keys to select
-the next or previous tab.
+- Use `KeyWinNext=Alt+F6` to select the next tab.
+- Use `KeyWinPrev=Alt+Shift+F6` for the previous tab.
 - Use the QuickSwitch.
-- Use a submenu in the window menu.
 - Use the window list window.
+- Use a submenu in the window menu.
 
 To change the mouse binding for creating tabs, modify
 **MouseWinTabbing**=`Shift+Pointer_Button2`.  Another
 useful setting is **MouseWinTabbing**=`Pointer_Button1`.
+
+`Alt+F4` closes all tabs. To close just the active tab add to `keys`:
+
+    key "Ctrl+Shift+F4"     icesh -f close
+
+To move the active tab to its own window frame by key, add to `keys`:
+
+    key "Alt+u"             icesh -f untab
 
 ## WORKSPACES
 
