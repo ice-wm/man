@@ -579,6 +579,16 @@ The following actions affect the selected window or windows.
 
     Move each window to its own frame, if it is currently tabbed.
 
+- **loadicon** `image.pam`
+
+    Load an icon from file, which must be in the PAM image format,
+    with dimensions at most 256, a depth of 4, and type _RGB\_ALPHA_.
+
+- **saveicon** `file000.pam`
+
+    Save an icon to a new file in the PAM image format. Digits are
+    increased to generate a unique new filename for each window.
+
 - **click** _window-x_ _window-y_ _button_
 
     Send a button press and release event at position (_window-x_,

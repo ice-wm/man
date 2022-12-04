@@ -430,6 +430,10 @@ To move the active tab to its own window frame by key, add to `keys`:
 
     key "Alt+u"             icesh -f untab
 
+To open all chrome windows in the same frame add this to `winoptions`:
+
+    google-chrome.frame:    chrome
+
 ## WORKSPACES
 
 **icewm** supports multiple virtual desktops called workspaces.  A
@@ -1334,6 +1338,12 @@ the given order, until it finds one:
     contain tweaks of the `default.theme` file.
     How to create a theme is explained in the
     [IceWM Theme Creation Howto](https://ice-wm.org/themes).
+
+- `workspace`
+
+    If `PagerShowPreview` is disabled, icewm looks in the `workspace`
+    directory for images to draw on a workspace button. The image filename
+    should have the name of the workspace. The image extension is optional.
 
 ## OPACITY
 
