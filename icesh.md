@@ -444,6 +444,16 @@ The following actions affect the selected window or windows.
 
     Print the window geometry.
 
+- **setClass** _CLASS_
+
+    Set the resource name and class to _CLASS_, which should be a resource
+    name and a resource class connected by a dot. To preserve either the
+    existing name or class, use a percentage sign for that part.
+
+- **getClass**
+
+    Print the resource name and class.
+
 - **netState** _\[STATE\]_
 
     If _STATE_ is omitted then it shows the _EWMH window state_.

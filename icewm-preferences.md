@@ -800,6 +800,10 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Delay before activating menu submenus.
 
+- **ToolTipIcon**=1
+
+    Show an application icon in toolbar and tray tooltips.
+
 - **ToolTipDelay**=1000  \[0-5000\]
 
     Delay before tooltip window is displayed.
