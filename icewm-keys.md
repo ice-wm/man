@@ -23,7 +23,7 @@ instead.
 Each non-empty line starts with the word `key`.
 After one or more spaces follows a double-quoted string of the bound X11
 key combination like `Alt+Ctrl+Shift+X`.  Then after at least one space
-follows a shell command line which will be executed by **icewm** whenever
+follows a command line which will be executed by **icewm** whenever
 this key combination is pressed.  For example, the following line
 creates a hotkey to reload the **icewm** configuration:
 
