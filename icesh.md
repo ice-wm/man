@@ -762,6 +762,15 @@ do not require a window _select_ or _filter_ option:
     Only if no window is matched by _WM\_CLASS_ then
     _program_ \[_arguments..._\] is executed.
 
+- **loop** \[_count_\]
+
+    Loop back to the beginning of the command and repeat. The optional
+    _count_ limits the number of repetitions.
+
+- **pick**
+
+    Choose a window by a mouse button click.
+
 - **sync**
 
     Synchronize with the IceWM window manager. That is, wait for icewm to
@@ -815,6 +824,8 @@ Each _SYMBOL_ may be from one of the following applicable domains:
         Dock                   (8)
         AboveDock             (10)
         Menu                  (12)
+        Fullscreen            (14)
+        AboveAll              (15)
 
     These symbols are used with the _LAYER_ argument to the `setLayer`
     action.
@@ -943,6 +954,11 @@ Collect all urxvt terminals from the fourth workspace in a single frame
 on the current workspace.
 
     icesh -W 3 -c urxvt tabto myfunnyname
+
+Use the loop construct conditionally to wait for a certain window to
+appear.
+
+    icesh -t if -n Tooltip then list else delay 0.05 loop end
 
 ## ENVIRONMENT
 

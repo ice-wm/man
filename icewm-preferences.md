@@ -188,7 +188,7 @@ The following preferences affect focus and general behavior of
 
 - **StrongPointerFocus**=0
 
-    Always maintain focus under mouse window (makes some keyboard support
+    Always maintain focus under mouse window. Makes some keyboard support
     non-functional or unreliable.
 
 - **OpaqueMove**=1
@@ -267,7 +267,7 @@ The following preferences affect focus and general behavior of
 
 - **ClientWindowMouseActions**=1
 
-    Allow mouse actions on client windows (buggy with some programs).
+    Allow mouse actions on client windows. This is buggy with some programs.
 
 - **GrabRootWindow**=1
 
@@ -518,7 +518,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **NetStatusShowOnlyRunning**=0
 
-    Show network status only for connected devices, such as an active ethernet link
+    Show network status only for connected devices, such as an active Ethernet link
     or associated wireless interface. If false, any network interface that has been
     brought up will be displayed.
 
@@ -810,7 +810,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **ToolTipTime**=0  \[0-60000\]
 
-    Time before tooltip window is hidden (0 means never.
+    Time before tooltip window is hidden (0 means never).
 
 - **AutoHideDelay**=300  \[0-5000\]
 
@@ -1186,7 +1186,7 @@ values are shown following the equal sign.
     Task bar clock/battery monitor uses nice pixmap LCD display (but then it
     doesn't display correctly in many languages anymore, e.g., for
     Japanese and Korean it works only when a real font is used and not
-    the LCD pixmaps.
+    the LCD pixmaps.)
 
 - **TaskBarGraphHeight**=20  \[16-1000\]
 

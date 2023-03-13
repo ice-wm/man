@@ -15,15 +15,17 @@ title: "icewm-winoptions(5)"
 
 ## DESCRIPTION
 
-Contains settings to control window appearance and behaviour. These are
-specific to applications, or to groups of applications.  Options can
-control the window border, whether the application appears on the task
-bar, the window list, the system tray and the work spaces.
-Also its layer, geometry, whether it can be moved, resized and closed.
+The IceWM `winoptions` file contains settings to control
+_application specific_ window appearance and behavior.
+For instance, they control the window border, placement and size,
+the window layer, its workspace, its visibility on the task bar
+and its focus behavior.
 
-Options are established when [icewm(1)](icewm) starts.  However, they can be
-overridden later using [icesh(1)](icesh) or [icewmhint(1)](icewmhint). The command
-`icesh winoptions` instructs icewm to reload the winoptions file.
+The winoptions are established when [icewm(1)](icewm) starts.  However,
+they can be overridden later using [icesh(1)](icesh) or [icewmhint(1)](icewmhint).
+The command `icesh winoptions` instructs icewm to reload the
+`winoptions` file, while `icewmhint` tunes a specific application
+instance when it starts.
 
 ## FORMAT
 
@@ -37,56 +39,44 @@ Each line in the file must be in one of the following formats:
 > - _ROLE_**.**_OPTION_**:** _VALUE_
 > - **.**_OPTION_**:** _VALUE_
 
-Where the fields are defined as follows:
+Here _NAME_ and _CLASS_ are from the **WM\_CLASS** property of the
+window. This can be found in the output of `icesh -a getClass`.
 
-- _CLASS_
+While _ROLE_ refers to the **WM\_WINDOW\_ROLE** property of the window,
+which is the application instance specific name. Only a minority of
+windows have it. See the output of `icesh -a list prop WM_WINDOW_ROLE`.
 
-    The resource class portion of the ICCCM **WM\_CLASS** property for the
-    window.
+In rare cases, a name, class or role may contain a period. If it does,
+the period should be escaped by a single backslash.
 
-- _NAME_
-
-    The resource instance portion of the ICCCM **WM\_CLASS** property for the
-    window.
-
-- _ROLE_
-
-    The ICCCM **WM\_WINDOW\_ROLE** property for the window.
-
-- _OPTION_: _VALUE_
-
-    One of the options and values described below under ["OPTIONS"](#options).
-
-Note that it is possible that the **WM\_WINDOW\_ROLE** may contain a period
-(`.`).  When it does, the period should be escaped by a single
-backslash when specifying the _ROLE_ in the file.
+Lastly, the _OPTION: VALUE_ pair refer to the options and values
+described below. A line with just a dot, followed by an option/value
+pair, applies to all windows.
 
 ## OPTIONS
 
-The options and values described in the format, above, consist of an
-option name, _OPTION_ followed by a semicolon (`:`) a space (` `) and
-an allowable value for the option, _VALUE_.  The available options are
-as follows:
+There are four categories: _general_, _function_, _decor_ and
+_feature_.
 
 ## GENERAL OPTIONS
 
-The following option control general characteristics of windows:
+These control general characteristics of windows:
 
 - **icon**: _NAME_ (default: none)
 
-    Specifies the icon name for the window.  _NAME_ is the name of the
-    icon, like `utilities-terminal`. It can also be a file, like
-    `xterm.png`, a full path, or a prefix of a path without sizes or suffix.
+    Specifies the icon name for the window.  _NAME_ is the icon name, like
+    `utilities-terminal`. It can also be a file, like `xterm.png`, a full
+    path, or a prefix of a path without sizes or suffix.
 
 - **workspace**: _WORKSPACE_ (default: current)
 
     Specifies the default workspace for the window.  _WORKSPACE_ is the
     workspace number counting from zero (0).
 
-- **layer**: {**Desktop**\|**Below**\|**Normal**\|**OnTop**\|**Dock**\|**AboveDock**\|**Menu**\|_NUMBER_} (default: 4)
+- **layer**: {_LAYER_\|_NUMBER_} (default: Normal)
 
     Specifies the default layer for the window.  Layer can be one of the
-    following strings or a number from zero (0) to fifteen (15):
+    following names or a number from zero to fifteen:
 
         Desktop     (0)  Desktop window.
         Below       (2)  Below the default layer.
@@ -94,31 +84,36 @@ The following option control general characteristics of windows:
         OnTop       (6)  Above the default layer.
         Dock        (8)  Docked windows at edge of screen.
         AboveDock  (10)  Windows above the dock.
-        Menu       (12)  Windows above the dock.
+        Menu       (12)  The layer for menu's.
+        Fullscreen (14)  When fullscreen and focused.
+        AboveAll   (15)  Always above anything.
 
-- **geometry** _geometry_ (default: WM\_SIZE\_HINTS)
+- **geometry** _geometry_ (default: WM\_SIZE\_HINTS property)
 
     The default geometry for the window.  This geometry should be specified
     in a format that can be parsed by [XParseGeometry(3)](https://tronche.com/gui/x/xlib/utilities/XParseGeometry.html):
 
         [=][<width>{xX}<height>][{+-}<xoffset>{+-}<yoffset>]
 
+    The default geometry is taken from the WM\_SIZE\_HINTS property of the
+    window or else from the initial window geometry. This option overrides
+    the default.
+
 - **tray**: {**Ignore**\|**Minimized**\|**Exclusive**\|_NUMBER_} (default: 0)
 
     The default tray option for the window.  This affects both the tray and
-    the task pane.  Tray can be one of the following strings or a number
+    the task pane.  Tray can be one of the following three strings or a number
     from zero (0) to two (2):
 
-        Ignore     (0)  No icon added to tray.
+        Ignore     (0)  No icon is added to the tray.
         Minimized  (1)  Add to tray, no task when minimized.
         Exclusive  (2)  Add to tray, no task button.
 
 - **order**: _NUMBER_ (default: 0)
 
-    The sorting order of task buttons and tray icons. The default value is
-    zero. Increasing positive values go farther right, while decreasing
-    negative values go farther left. The order option applies to the task
-    pane, the tray pane and the system tray.
+    The sorting order for task buttons, tray icons, quick switch and window
+    list. The default value is zero. Increasing positive values go right,
+    while decreasing negative values go left.
 
 - **opacity**: _NUMBER_ (default: 0)
 
@@ -142,7 +137,7 @@ The following option control general characteristics of windows:
 
 Function options enable/disable (1/0) the ability to take an action on
 the window.  The normal default for all options is enabled (1) unless
-overridden by the application.  The following options are defined:
+overridden by the application:
 
     fClose:    {0|1}  can be closed.        (default: 1)
     fHide:     {0|1}  can be hidden.        (default: 1)
@@ -156,7 +151,7 @@ overridden by the application.  The following options are defined:
 
 Decor options enable/disable (1/0) decorations on the window.  The
 normal default for all options is enabled (1) unless overridden by the
-application.  The following options are defined:
+application or the theme:
 
     dBorder:   {0|1}  has border.           (default: 1)
     dClose:    {0|1}  has close button.     (default: 1)
@@ -173,26 +168,26 @@ application.  The following options are defined:
 
 Feature options enable/disable (1/0) additional features of the window.
 The normal default for all options is disabled (0) unless overridden by
-the application.  The following options are defined:
+the application:
 
     allWorkspaces:            {1|0}  on all workspaces.
     appTakesFocus:            {1|0}  let application take focus.
     doNotCover:               {1|0}  limits workspace if sticky.
     doNotFocus:               {1|0}  do not focus.
-    forcedClose:              {1|0}  no close dialog.
-    fullKeys:                 {1|0}  provided more keys.
-    ignoreNoFocusHint:        {1|0}  focus even no-input.
+    forcedClose:              {1|0}  no close confirmation dialog.
+    fullKeys:                 {1|0}  don't install icewm key bindings.
+    ignoreNoFocusHint:        {1|0}  focus even when no-input is set.
     ignorePagerPreview:       {1|0}  do not show in pager preview.
-    ignorePositionHint:       {1|0}  place automatically.
+    ignorePositionHint:       {1|0}  always let icewm place the window.
     ignoreQuickSwitch:        {1|0}  not on quick switch.
     ignoreTaskBar:            {1|0}  not on task bar.
     ignoreUrgentHint:         {1|0}  ignore urgent hints.
     ignoreWinList:            {1|0}  not on window list.
     ignoreActivationMessages: {1|0}  only user can focus window.
-    ignoreOverrideRedirect:   {1|0}  ignore override redirect.
-    noFocusOnAppRaise:        {1|0}  no focus on raise.
+    ignoreOverrideRedirect:   {1|0}  ignore the override redirect flag.
+    noFocusOnAppRaise:        {1|0}  no automatic focus on raise.
     noFocusOnMap:             {1|0}  do not focus when mapped.
-    noIgnoreTaskBar:          {1|0}  on task bar.
+    noIgnoreTaskBar:          {1|0}  always show on task bar.
     startClose:               {1|0}  close the window immediately.
     startFullscreen:          {1|0}  start full screen.
     startMaximized:           {1|0}  start maximized.
@@ -229,21 +224,10 @@ no decorations, and always be visible in a fixed location.
     wmtime.wmtime.dBorder: 1
     wmtime.wmtime.geometry: 64x64-74-100
 
-Following is the example window options file that ships with [icewm(1)](icewm)
-and typically installs to `/usr/share/icewm/winoptions`.
+Following shows how a shaped output-only application is shown
+without titlebar and minimal functionality.
 
-    # This is an example for IceWM's window options file.
-    #
-    # Place your variants in @CFGDIR@ or in $HOME/.icewm
-    # since modifications to this file will be discarded when you
-    # (re)install icewm.
-
-    xterm.icon: xterm
-    rxvt.icon: xterm
-    nxterm.icon: xterm
-    fte.icon: fte
-    emacs.Emacs.icon: emacs
-    AWTapp.icon: java
+    xeyes.tray: Exclusive
     xeyes.ignoreWinList: 0
     xeyes.ignoreTaskBar: 1
     xeyes.allWorkspaces: 1
@@ -254,26 +238,6 @@ and typically installs to `/usr/share/icewm/winoptions`.
     xeyes.dClose: 0
     xeyes.dMinimize: 0
     xeyes.dMaximize: 0
-    xeyes.ignoreNoFocusHint: 1
-
-    XClock.ignoreNoFocusHint: 1
-    Vim.icon: vim
-
-    applix.ignoreNoFocusHint: 1
-    XDdts.noFocusOnAppRaise: 1
-    Wingz.noFocusOnAppRaise: 1
-    WingzPro.noFocusOnAppRaise: 1
-
-    gkrellm.Gkrellm.allWorkspaces: 1
-    gkrellm.Gkrellm.ignoreTaskBar: 1
-    gkrellm.Gkrellm.layer: Below
-    #gkrellm.Gkrellm.doNotCover: 1
-
-    MainWindow.licq.allWorkspaces: 1
-    MainWindow.licq.ignoreQuickSwitch: 1
-    MainWindow.licq.ignoreWinList: 1
-    MainWindow.licq.layer: Below
-    #MainWindow.licq.doNotCover: 1
 
 ## FILES
 
@@ -304,6 +268,14 @@ read and the remainder ignored.
 
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 69:
+
+    &#x3d;back without =over
 
 | ------------: | :--------- |
 | [Index](/man) | [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org") |

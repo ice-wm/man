@@ -74,9 +74,6 @@ Multiple hints can be given.
 
 ## GENERAL OPTION ARGUMENTS
 
-General option arguments are normally associated with _GNOME WinWM/WMH_
-hints (except for the tray option argument).
-
 - **icon** _NAME_
 
     Specifies the icon name for windows of _CLASS_**.**_INSTANCE_.
@@ -109,24 +106,22 @@ hints (except for the tray option argument).
     Set the \_NET\_WM\_WINDOW\_OPACITY property if _NUMBER_ is a value between
     1 and 100. _NUMBER_ is interpreted as percentage of maximum opaqueness.
 
-- **layer** {**Desktop**\|**Below**\|**Normal**\|**OnTop**\|**Dock**\|**AboveDock**\|**Menu**\|_NUMBER_}
-
-    The layer is a similar concept to the layer specified by _GNOME/WMH_ and
-    implied by _NetWM/EWMH_.  It is in this case however specific to
-    [icewm(1)](icewm).
+- **layer** {_LAYER_\|_NUMBER_}
 
     This command option specifies the layer to be associated with a
     _CLASS_**.**_INSTANCE_.  The default is the `Normal` layer.  _VALUE_
     is either a layer number or a symbolic layer name.  Symbolic
     layer names are:
 
-        Desktop    (0)  desktop window layer.
-        Below      (2)  below normal windows.
-        Normal     (4)  default window layer.
-        OnTop      (6)  above normal windows.
-        Dock       (8)  docks (panels and edge displays).
-        AboveDock (10)  above docks.
-        Menu      (12)  above everything else.
+        Desktop     (0)  Desktop window.
+        Below       (2)  Below the default layer.
+        Normal      (4)  Default layer for windows.
+        OnTop       (6)  Above the default layer.
+        Dock        (8)  Docked windows at edge of screen.
+        AboveDock  (10)  Windows above the dock.
+        Menu       (12)  The layer for menu's.
+        Fullscreen (14)  When fullscreen and focused.
+        AboveAll   (15)  Always above anything.
 
 - **tray** {**Ignore**\|**Minimized**\|**Exclusive**\|_NUMBER_}
 
@@ -139,6 +134,10 @@ hints (except for the tray option argument).
         Ignore     (0)  only in task list.
         Minimized  (1)  icon in tray, task list unminimized.
         Exclusive  (2)  only in tray, not in task list.
+
+- **frame** _label_ (default: none)
+
+    All windows with the same frame label become tabs in a single frame.
 
 ## FUNCTION OPTION ARGUMENTS
 
@@ -193,9 +192,12 @@ advanced features are as follows:
     ignoreTaskBar             not on task bar.
     ignoreUrgentHint          ignore urgent hints.
     ignoreWinList             not on window list.
+    ignoreActivationMessages  only user can focus window.
+    ignoreOverrideRedirect    ignore the override redirect flag.
     noFocusOnAppRaise         no focus on raise.
     noFocusOnMap              do not focus when mapped.
     noIgnoreTaskBar           on task bar.
+    startClose                close the window immediately.
     startFullscreen           start full screen.
     startMaximized            start maximized.
     startMaximizedHorz        start maximized horizontal.

@@ -30,7 +30,7 @@ for each output using _xrandr_ options in a custom configuration file
 \--brightness and --gamma is possible there.
 
 The displayed name of the monitors is constructed using the output name
-and the monitor information from its EDID data (either from its "Display
+and the monitor information from its EDID data. Either from its "Display
 Name" field or from the "Unspecified ASCII text" fields (concatenated).
 
 ## OPTIONS
