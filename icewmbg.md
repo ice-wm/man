@@ -15,7 +15,7 @@ title: "icewmbg(1)"
 Common image formats are supported.  Each [icewm(1)](icewm) work space can have
 its own background.
 
-When the background image has changed, **icewmbg** can be notified to
+When the background image changes, **icewmbg** can be notified to
 update the background.  When switching work spaces, it checks the image
 file modification time.  If the file has changed, it reloads the
 image from file.
@@ -122,8 +122,7 @@ Image file names or directory names may have [glob(7)](https://manned.org/glob.7
 - **-d**, **--display**=_DISPLAY_
 
     Use _DISPLAY_ to connect to the X server.
-    If this option is missing then _DISPLAY_
-    is read from the environment variable `DISPLAY`.
+    Otherwise use DISPLAY from the environment.
 
 - **-h**, **--help**
 
@@ -139,7 +138,11 @@ Image file names or directory names may have [glob(7)](https://manned.org/glob.7
 
 - **--sync**
 
-    Use a slower synchronous mode communication with _X11_ server.
+    Use a slow synchronous mode to communicate with the _X11_ server.
+
+- **--verbose**
+
+    Report on some of the activities.
 
 ## FILES
 

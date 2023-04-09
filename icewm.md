@@ -527,6 +527,15 @@ repeatedly pressing the first letter cycles over those windows.
 `PageDown` move up or down by ten entries. Combine this with the
 `Shift` key to extend a selection over the range of motion.
 
+## SYSTEM DIALOG
+
+The system dialog offers quick access to a set of general controls.
+It can lock the screen, suspend the system, logout or cancel a pending
+logout, reboot the system, shutdown the system, show the window list,
+restart icewm, show the about dialog, reload the winoptions file or
+the keys file. It is activated by **KeySysDialog**=`Ctrl+Alt+Del`.
+To cancel it, hit the Escape key.
+
 ## MAILBOX MONITORING
 
 The task bar can show one or more icons to reflect the status of a
@@ -794,7 +803,7 @@ for Ctrl+Alt.
 
     Give focus to the previous window and raise it.
 
-- **KeySysDialog**=`Alt+Ctrl+Del`
+- **KeySysDialog**=`Ctrl+Alt+Del`
 
     Opens the IceWM system dialog in the center of the screen.
 
