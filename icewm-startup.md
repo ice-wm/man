@@ -30,6 +30,8 @@ It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
     picom -b
 
 Remember to `chmod +x ~/.icewm/startup`.
+The first line must be a hash-bang, followed by the path of your script
+interpreter or shell.
 
 ## FILES
 
