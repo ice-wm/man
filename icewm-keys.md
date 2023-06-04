@@ -15,21 +15,28 @@ title: "icewm-keys(5)"
 
 ## DESCRIPTION
 
-Global keybindings to launch applications, which need not be window
-manager related. If you are looking for ways to disable icewm's grabbing
-of default key combinations, please read [icewm-preferences(5)](icewm-preferences)
-instead.
+The `keys` file defines global keybindings to launch applications.
+A keybinding has three parts. The word **key**, a double-quoted string
+with an X11 key combination, and a program with its arguments.
+These are separated by one or more spaces. Empty lines are allowed.
+Comment lines start with a hash.
 
-Each non-empty line starts with the word `key`.
-After one or more spaces follows a double-quoted string of the bound X11
-key combination like `Alt+Ctrl+Shift+X`.  Then after at least one space
-follows a command line which will be executed by **icewm** whenever
-this key combination is pressed.  For example, the following line
-creates a hotkey to reload the **icewm** configuration:
+For example, the following defines a hotkey to restart **icewm**:
 
     key "Ctrl+Shift+r"      icesh restart
 
-See the output of `xmodmap -pk` for a list of keystroke names.
+See the output of `xmodmap -pk` for a list of the many keystroke names
+you can use in icewm key definitions. Since IceWM version 3.4.0,
+bindings can not only be defined by their keystroke name, but also by
+their key label. In addition, the shifted key is available as well.
+For example, the key with + and = can be bound in either of the
+following four ways, which here are identical:
+
+    key "Ctrl+Shift+equal"  xterm
+    key "Ctrl+Shift+="      xterm
+    key "Ctrl+plus"         xterm
+    key "Ctrl++"            xterm
+
 To bind the mouse use `Pointer_Button1` for button 1, and so on.
 The command `icesh keys` instructs icewm to reload this file.
 
@@ -43,27 +50,28 @@ Where,
 
 - **key**
 
-    The literal string keyword.
-
-- **switchkey**
-
-    The literal string keyword, instead of `key`, to build popup menus.
-    The output of _program_ should conform to [icewm-menu(1)](icewm-menu).
+    The word **key** begins the definition of a keybinding.
 
 - _key\_combination_
 
-    A combination of modifiers and a key separated by a plus-sign (`+`),
-    like `Ctrl+Alt+Delete`. Mouse pointer buttons can be specified by
-    `Pointer_Button1` and up.
+    A combination of modifiers and a key, like `Ctrl+Alt+Delete`.
+    Valid modifiers are Alt, AltGr, Ctrl, Hyper, Meta, Shift, Super.
+    Each modifier must be followed by a single plus-sign.
+    The key is either a keystroke name or a key label.
+    Instead of a key, mouse pointer buttons can be specified by
+    `Pointer_Button1` and up, like `Shift+Pointer_Button3`.
 
 - _program_ _options_
 
-    _program_ is the name of the executable or full path to the executable
-    file that will be run in response to selecting the menu item.  When used
-    with the **switchkey** keyword, the _program_ must print on standard
-    output the contents of the popup like it would be used for dynamic menus.
+    _program_ is the name of the executable or its full path.
+    The path may start with $HOME or a tilde, which will be expanded.
+    The _options_ are passed as arguments to the _program_.
 
-    _options_ are the options and arguments passed to the _program_.
+- **switchkey**
+
+    Is an alternative to **key**. In this case the _program_ must print on
+    standard output the definition of a dynamic [icewm-menu(1)](icewm-menu).
+    This menu will presented as a popup menu.
 
 ## EXAMPLES
 
@@ -72,10 +80,9 @@ Following is the example `keys` file that ships with [icewm(1)](icewm):
     # This is an example for IceWM's hotkey definition file.
     #
     # A list of all valid keyboard symbols can be found in
-    # /usr/include/X11/keysym.h, keysymdefs.h, XF86keysym.h,
-    # ...  You'll have to omit XK_ prefixs and to replace
-    # XF86XK_ prefixes by XF86. Valid modifiers are Alt,
-    # Ctrl, Shift, Meta, Super and Hyper.
+    # /usr/include/X11/keysymdef.h, XF86keysym.h, ...
+    # Omit the XK_ prefixs and replace XF86XK_ prefixes by XF86.
+    # Valid modifiers are Alt, AltGr, Ctrl, Shift, Meta, Super, Hyper.
     #
     key "Alt+Ctrl+t" xterm
     key "Alt+Ctrl+b" xdg-open about:blank
@@ -87,7 +94,7 @@ Following is the example `keys` file that ships with [icewm(1)](icewm):
     # "Multimedia key" bindings for XFree86. Gather the
     # keycodes of your advanced function keys by watching the
     # output of the xev command whilst pressing those keys
-    # and map those symbols by using xmodmap.
+    # and map those symbols using xmodmap.
 
     key "XF86AudioLowerVolume" amixer sset PCM 5%-
     key "XF86AudioRaiseVolume" amixer sset PCM 5%+
