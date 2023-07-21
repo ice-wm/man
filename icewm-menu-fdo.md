@@ -149,13 +149,5 @@ See **--copying** for full copyright notice and copying permissions.
 See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
 
-# POD ERRORS
-
-Hey! **The above document had some coding errors, which are explained below:**
-
-- Around line 102:
-
-    You forgot a '=back' before '=head2'
-
 | ------------: | :--------- |
 | [Index](/man) | [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org") |

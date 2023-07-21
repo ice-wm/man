@@ -13,7 +13,7 @@ title: "icesound(1)"
 
 The [icewm(1)](icewm) window manager generates so-called GUI events in
 response to interesting actions, like opening or closing of application
-windows, switching of work space, etc.  GUI events are a property of the
+windows, switching of workspace, etc.  GUI events are a property of the
 X root window.  [icewm(1)](icewm) changes this property whenever a new GUI
 event occurs.  Interested applications can listen for changes to this
 property.  There are nearly twenty GUI events defined.
@@ -101,6 +101,11 @@ one. By default it prefers them in the order of: **AO**, **ALSA**, **OSS**.
 - **--list-interfaces**
 
     Lists the supported audio interfaces and exits.
+
+- **-o**, **--output=FILE**
+
+    Redirect all output to _FILE_.
+    A leading tilde or environment variable is expanded.
 
 - **-v**, **--verbose**
 

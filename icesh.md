@@ -740,6 +740,10 @@ do not require a window _select_ or _filter_ option:
 
     Let icewm execute the `SuspendCommand`.
 
+- **hibernate**
+
+    Let icewm execute the `HibernateCommand`.
+
 - **winoptions**
 
     Let icewm reload the `winoptions`.
@@ -747,6 +751,10 @@ do not require a window _select_ or _filter_ option:
 - **keys**
 
     Let icewm reload the `keys` file.
+
+- **refresh**
+
+    Let icewm refresh the desktop background.
 
 - **guievents**
 

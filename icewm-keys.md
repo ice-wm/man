@@ -16,8 +16,8 @@ title: "icewm-keys(5)"
 ## DESCRIPTION
 
 The `keys` file defines global keybindings to launch applications.
-A keybinding has three parts. The word **key**, a double-quoted string
-with an X11 key combination, and a program with its arguments.
+A keybinding has three parts: the word **key**, a double-quoted string
+with an X11 key combination and a program with its arguments.
 These are separated by one or more spaces. Empty lines are allowed.
 Comment lines start with a hash.
 
@@ -28,9 +28,9 @@ For example, the following defines a hotkey to restart **icewm**:
 See the output of `xmodmap -pk` for a list of the many keystroke names
 you can use in icewm key definitions. Since IceWM version 3.4.0,
 bindings can not only be defined by their keystroke name, but also by
-their key label. In addition, the shifted key is available as well.
+their key label. In addition, the shifted key is now definable as well.
 For example, the key with + and = can be bound in either of the
-following four ways, which here are identical:
+following four ways, which are identical:
 
     key "Ctrl+Shift+equal"  xterm
     key "Ctrl+Shift+="      xterm
@@ -63,8 +63,9 @@ Where,
 
 - _program_ _options_
 
-    _program_ is the name of the executable or its full path.
-    The path may start with $HOME or a tilde, which will be expanded.
+    _program_ is the name of the executable or its path.
+    It may start with a tilde or an environment variable,
+    which will be expanded.
     The _options_ are passed as arguments to the _program_.
 
 - **switchkey**

@@ -269,13 +269,5 @@ read and the remainder ignored.
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution.
 
-# POD ERRORS
-
-Hey! **The above document had some coding errors, which are explained below:**
-
-- Around line 69:
-
-    &#x3d;back without =over
-
 | ------------: | :--------- |
 | [Index](/man) | [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org") |

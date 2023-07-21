@@ -12,15 +12,15 @@ title: "icewmbg(1)"
 ## DESCRIPTION
 
 **icewmbg** can assign a colour or image to the _X11_ desktop background.
-Common image formats are supported.  Each [icewm(1)](icewm) work space can have
+Common image formats are supported.  Each [icewm(1)](icewm) workspace can have
 its own background.
 
 When the background image changes, **icewmbg** can be notified to
-update the background.  When switching work spaces, it checks the image
+update the background.  When switching workspaces, it checks the image
 file modification time.  If the file has changed, it reloads the
 image from file.
 
-**icewmbg** supports semi-transparency.  Semitransparent background
+**icewmbg** supports semitransparency.  Semitransparent background
 images and colours can be configured.
 
 It uses RandR or Xinerama to support backgrounds on all connected
@@ -32,6 +32,10 @@ It will update the `_ICEWMBG_IMAGE` property of the root window to the
 path of the background image whenever it changes the desktop background.
 
 **icewmbg** is started automatically by [icewm-session(1)](icewm-session).
+If there is just a single background for all workspaces, icewmbg may
+conclude that it can safely exit after setting the desktop background,
+to free its system memory.  If the screen size changes, icewm will then
+attempt to restart icewmbg, preferably via icewm-session.
 
 ## OPTIONS
 
@@ -45,6 +49,7 @@ from that directory are used in sorted order.
 If the value starts with an exclamation mark, as in _!FILE_,
 the images from the directory _FILE_ are permuted randomly.
 Image file names or directory names may have [glob(7)](https://manned.org/glob.7) wildcards,
+or they may start with a tilde or environment variable.
 
 - **-p**, **--replace**
 
@@ -117,6 +122,11 @@ Image file names or directory names may have [glob(7)](https://manned.org/glob.7
     Cycle over the list of background images every _SECONDS_.
     This overrules the `CycleBackgroundsPeriod` preference.
 
+- **-o**, **--output=FILE**
+
+    Redirect all output to _FILE_.
+    A leading tilde or environment variable is expanded.
+
 ## GENERAL OPTIONS
 
 - **-d**, **--display**=_DISPLAY_
@@ -165,22 +175,22 @@ The settings read are:
 
 If these settings are set in the `preferences` file, they can
 be overridden by the theme in the theme defaults file.
-To prevent this, set these preferences in `prefoverride` instead.
+To enforce a certain setting, set it in the `prefoverride` file instead.
 See [icewm-prefoverride(5)](icewm-prefoverride).
 
-## WORK SPACES
+## WORKSPACES
 
-Each work space can have a unique image. Specify multiple images to
+Each workspace can have a unique image. Specify multiple images to
 **DesktopBackgroundImage** separated by comma's.  Or give at least one
-directory with images. The images are assigned to each work space in
-the order given. When icewm changes work space, the running icewmbg
+directory with images. The images are assigned to each workspace in
+the order given. When icewm changes workspace, the running icewmbg
 will adapt the desktop background to the assigned image.
 
-If you specify more images then there are work spaces, then
+If you specify more images then there are workspaces, then
 **CycleBackgroundsPeriod** can set a period. When the period expires,
 icewmbg will switch to the next set of images. If you give less images
-than there are work spaces, then icewmbg will reuse previous images
-for the remaining work spaces.
+than there are workspaces, then icewmbg will reuse previous images
+for the remaining workspaces.
 
 ## IMAGE SCALING
 
@@ -196,7 +206,7 @@ What happens for their combination is given by the following table:
 
 ## EXAMPLES
 
-    # For four unique desktop backgrounds for four work spaces do:
+    # For four unique desktop backgrounds for four workspaces do:
 
     icewmbg -p -i image0,image1,image2,image3 &
 
@@ -221,7 +231,7 @@ What happens for their combination is given by the following table:
 - **SIGUSR1**
 
     **icewmbg** will reshuffle the list of background images and
-    update the backgrounds of all work spaces.
+    update the backgrounds of all workspaces.
 
 ## SEE ALSO
 

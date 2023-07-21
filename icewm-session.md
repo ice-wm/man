@@ -34,6 +34,7 @@ and controls the life cycle of related support applications.
 - **-o**, **--output=FILE**
 
     Redirect all output to _FILE_.
+    A leading tilde or environment variable is expanded.
 
 - **-a**, **--alpha**
 

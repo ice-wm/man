@@ -47,7 +47,7 @@ The **icewm** package includes several programs:
 
     The background setting application. It can assign plain background color
     or images in different formats to the X background.  Each workspace can
-    have its own background.  It supports semi-transparency. Semitransparent
+    have its own background.  It supports semitransparency. Semitransparent
     background image and colour can be configured. When the background image
     has changed then [icewmbg(1)](icewmbg) can be notified to update the background.
     Multi-head monitor setups are fully supported.  See the [icewmbg(1)](icewmbg).
@@ -114,6 +114,11 @@ Each of the IceWM executables supports the following options:
 
     Connect to the X11 server on _DISPLAY_.  By default
     the environment variable `DISPLAY` is used.
+
+- **-o**, **--output=FILE**
+
+    Redirect all output to _FILE_.
+    A leading tilde or environment variable is expanded.
 
 - **--sync**
 

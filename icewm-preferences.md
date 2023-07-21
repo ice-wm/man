@@ -40,6 +40,12 @@ The following preferences affect focus and general behavior of
 
     Enable event logging for debugging
 
+- **OutputFile**=""
+
+    Redirect all output to _FILE_.
+    A leading tilde or environment variable is expanded.
+    This file is truncated on startup if it exceeds 5 KB.
+
 - **Splash**=""
 
     Splash image on startup (IceWM.jpg)
@@ -989,15 +995,19 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Command to cancel logout.
 
-- **ShutdownCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl poweroff; } \|\|:""
+- **ShutdownCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl poweroff \|\| loginctl poweroff; } \|\|:""
 
     Command to shutdown the system.
 
-- **RebootCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl reboot; } \|\|:""
+- **RebootCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl reboot \|\| loginctl reboot; } \|\|:""
 
     Command to reboot the system.
 
-- **SuspendCommand**="test -e /run/systemd/system && systemctl suspend"
+- **SuspendCommand**="test -e /run/systemd/system && systemctl suspend \|\| loginctl suspend"
+
+    Command to hibernate the system.
+
+- **SuspendCommand**="test -e /run/systemd/system && systemctl suspend \|\| loginctl suspend"
 
     Command to send the system to standby mode
 
@@ -1656,17 +1666,9 @@ values are shown following the equal sign.
 
     Idle (non) load on the network monitor, leave empty to force transparency.
 
-- **DesktopBackgroundColor**=""
-
-    Desktop background color(s).
-
-- **DesktopTransparencyColor**=""
-
-    Color(s) to announce for semitransparent windows.
-
 ### DESKTOP BACKGROUND
 
-The following preferences are read by [icewmbg(1)](icewmbg):
+The following themeable preferences are read by [icewmbg(1)](icewmbg):
 
 - **DesktopBackgroundCenter**=0  0/1
 
@@ -1678,11 +1680,13 @@ The following preferences are read by [icewmbg(1)](icewmbg):
 
 - **DesktopBackgroundColor**=""
 
-    Desktop background color(s).
+    A comma-separated list of zero or more desktop background colors.
 
 - **DesktopBackgroundImage**=""
 
-    Desktop background image(s).
+    A comma-separated list of zero or more desktop background images.
+    Each image may be a path with a [glob(7)](https://manned.org/glob.7) pattern, or start with a
+    tilde or environment variable.
 
 - **ShuffleBackgroundImages**=0  0/1
 
@@ -1699,6 +1703,7 @@ The following preferences are read by [icewmbg(1)](icewmbg):
 - **DesktopTransparencyImage**=""
 
     Image(s) to announce for semitransparent windows.
+    This is a list similar to **DesktopBackgroundImage**.
 
 - **DesktopBackgroundMultihead**=0  0/1
 
