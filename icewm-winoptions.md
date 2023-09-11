@@ -211,7 +211,7 @@ input focus to _Chrome_ pop-ups and asks to close them immediately.
     google-chrome.pop-up.startMinimized: 1
 
 IceWM places dockapps in a container automatically, but for those
-which fail to comply with the protocol it can also be emulated.
+that fail to comply with the protocol it can also be emulated.
 An emulated dockapp should appear on all workspaces, have
 no decorations, and always be visible in a fixed location.
 

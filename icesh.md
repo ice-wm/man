@@ -18,10 +18,10 @@ title: "icesh(1)"
     These are listed in the section "MANAGER ACTIONS" below.
     They are easy to use, because they don't require to select one
     or more windows. For example, `icesh restart` will restart
-    icewm and `icesh clients` lists the applications which
+    icewm and `icesh clients` lists the applications that
     are managed by icewm.
 
-2. Commands which operate on a selection of windows:
+2. Commands that operate on a selection of windows:
 
     See the section `WINDOW ACTIONS` below. For example, `icesh close`
     is a request to close a window, but which window? Now icesh
@@ -42,11 +42,11 @@ title: "icesh(1)"
     These remove unwanted windows from the current selection.
     Multiple filter options can be given. For example,
     `icesh -c xterm -W this close` will close only those xterms
-    which are shown on the current workspace. The xterms on other
+    that are shown on the current workspace. The xterms on other
     workspaces are filtered out by the `-W this` filter option.
 
 There is no limit to the number of commands, selections, filters
-and actions which you can give to a single icesh command.
+and actions that you can give to a single icesh command.
 They are processed and evaluated one by one from left to right.
 This makes icesh a small declarative programming language.
 Have a look at some examples near the end of this document.
@@ -71,14 +71,14 @@ If needed, they can be repeated for successive actions.
 
 - **-f**, **-focus**, **+f**, **+focus**
 
-    Selects the application window which is currently focused.
+    Selects the application window that is currently focused.
     The option with minus sign replaces the existing selection with
     the focused window. With a plus sign the focused window is added to
     an existing selection.
 
 - **+g**, **+group**
 
-    Extend the current selection with client windows which
+    Extend the current selection with client windows that
     belong to the same application window group.
 
 - **-r**, **-root**, **+r**, **+root**
@@ -90,12 +90,12 @@ If needed, they can be repeated for successive actions.
 
 - **-s**, **-shown**
 
-    Selects all client windows which are on the current workspace.
+    Selects all client windows that are on the current workspace.
 
 - **-t**, **-top**
 
     Selects all toplevel windows from the display unconditionally.
-    This includes windows which have never been mapped and windows
+    This includes windows that have never been mapped and windows
     with the override redirect bit set to evade management.
 
 - **-w**, **-window**, **+w**, **+window** _WINDOW\_ID_
@@ -108,7 +108,7 @@ If needed, they can be repeated for successive actions.
 
 - **-x**, **-xembed**
 
-    Selects all windows which are embedded using the _XEMBED_ protocol.
+    Selects all windows that are embedded using the _XEMBED_ protocol.
 
 - **+c**, **+class** _CLASS_
 
@@ -127,7 +127,7 @@ If needed, they can be repeated for successive actions.
 
 - **-D**, **-Dockapps**
 
-    Selects all Dockapp applications which are managed by icewm.
+    Selects all Dockapp applications that are managed by icewm.
 
 - **+P**, **+Pid**
 
@@ -175,12 +175,12 @@ implicitly assumed to filter all client windows.
 
 - **-u**, **-unmapped**
 
-    Filter clients and keep those which are currently not viewable.
+    Filter clients and keep those that are currently not viewable.
     These are hidden, minimized, rolled-up, or on another workspace.
 
 - **-v**, **-viewable**
 
-    Filter clients and keep only those which are currently viewable.
+    Filter clients and keep only those that are currently viewable.
     These clients are mapped on the current workspace.
 
 - **-G**, **-Gravity** _GRAVITY_
@@ -198,7 +198,7 @@ implicitly assumed to filter all client windows.
 
 - **-N**, **-Netstate** _STATE_
 
-    Filters clients by _EWMH window state_. Clients which have at
+    Filters clients by _EWMH window state_. Clients that have at
     least an EWMH window state of _STATE_ are selected.  This state
     refers to details like **MINIZED** or **MAXIMIZED**. See EXPRESSIONS
     below. If _STATE_ starts with an exclamation mark then the filtering
@@ -207,7 +207,7 @@ implicitly assumed to filter all client windows.
 
 - **-P**, **-Property** _PROP\[=value\]_
 
-    Filters clients by property. Clients which have a property _PROP_
+    Filters clients by property. Clients that have a property _PROP_
     are selected. If the optional _value_ is given, the match succeeds
     only if _PROP_ is a string, window, cardinal, or atom, with a value
     equal to _value_.  The filtering is inverted if _PROP_ starts with
@@ -215,7 +215,7 @@ implicitly assumed to filter all client windows.
 
 - **-R**, **-Role** _ROLE_
 
-    Filters clients by WM\_WINDOW\_ROLE. Clients which have a WM\_WINDOW\_ROLE
+    Filters clients by WM\_WINDOW\_ROLE. Clients that have a WM\_WINDOW\_ROLE
     property value equal to _ROLE_ are selected.  The filtering is inverted
     if _ROLE_ starts with an exclamation mark.
 
@@ -230,7 +230,7 @@ implicitly assumed to filter all client windows.
 - **-X**, **-Xinerama** _MONITOR_
 
     Limit clients by _RandR_/_Xinerama_ monitor. Only operate on
-    clients which are displayed on _MONITOR_, where _MONITOR_ can
+    clients that are displayed on _MONITOR_, where _MONITOR_ can
     be `All` for all monitors, `this` for the monitor where the
     active window is displayed, or a monitor number starting from zero.
     See the output of `randr` or `xinerama` below.
@@ -582,7 +582,7 @@ The following actions affect the selected window or windows.
 
 - **tabto** _label_
 
-    Move the windows as tabs to a frame which has `frame` label _label_.
+    Move the windows as tabs to a frame that has `frame` label _label_.
     Such a frame is created if needed.
 
 - **untab**
@@ -701,11 +701,11 @@ do not require a window _select_ or _filter_ option:
 
 - **systray**
 
-    List applications which are managed by the IceWM system tray.
+    List applications that are managed by the IceWM system tray.
 
 - **xembed**
 
-    List application windows which are embedded using the _XEMBED_ protocol.
+    List application windows that are embedded using the _XEMBED_ protocol.
     This is another way to discover system tray applications.
 
 - **logout**
@@ -950,8 +950,8 @@ Here is a different solution using conditionals.
 
     icesh -f if -P _NET_FRAME_EXTENTS=0 then bordered else borderless
 
-Here is a conditional to either toggle the visibility of a roxterm,
-which has a WM\_ROLE value of `special`, or start it with **runonce**.
+Here is a conditional to either toggle the visibility of a roxterm
+that has a WM\_ROLE value of `special` or start it with **runonce**.
 
     icesh if -c roxterm.Roxterm -R special then \
         if -v then hide \

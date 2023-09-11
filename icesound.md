@@ -14,12 +14,11 @@ title: "icesound(1)"
 The [icewm(1)](icewm) window manager generates so-called GUI events in
 response to interesting actions, like opening or closing of application
 windows, switching of workspace, etc.  GUI events are a property of the
-X root window.  [icewm(1)](icewm) changes this property whenever a new GUI
+X root window.  [icewm(1)](icewm) updates this property whenever a new GUI
 event occurs.  Interested applications can listen for changes to this
 property.  There are nearly twenty GUI events defined.
 
-**icesound** is an application, which is one of the [icewm(1)](icewm)
-applications, which responds to these GUI events by playing audio files.
+**icesound** responds to these GUI events by playing audio files.
 These sound files are `.wav` files located in a `sounds` sub-directory
 in one of the [icewm(1)](icewm) configuration directories.
 

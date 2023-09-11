@@ -16,9 +16,9 @@ title: "icewm-preferences(5)"
 ## DESCRIPTION
 
 Contains general settings like paths, colors and fonts, but also options
-to control the **icewm** focus behaviour and the applets which are
+to control the **icewm** focus behaviour and the applets that are
 started in the task bar.  The **icewm** installation will provide a
-default `preferences` file, which can be copied to the **icewm** user
+default `preferences` file, that can be copied to the **icewm** user
 configuration directory and modified.
 
 ## FORMAT
@@ -53,7 +53,7 @@ The following preferences affect focus and general behavior of
 - **Trace**=""
 
     Enable tracing for the given list of modules.
-    Modules which are traceable include **conf, font, icon, prog, systray**.
+    Modules that are traceable include **conf, font, icon, prog, systray**.
 
 - **ClickToFocus**=1
 
@@ -158,7 +158,7 @@ The following preferences affect focus and general behavior of
 
 - **CenterMaximizedWindows**=0
 
-    Center maximized windows which can't fit the screen (like terminals).
+    Center maximized windows that can't fit the screen (like terminals).
 
 - **HideBordersMaximized**=0
 
@@ -554,7 +554,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarWorkspacesLimit**=""
 
-    Limit the number of taskbar workspaces buttons which are shown on the
+    Limit the number of taskbar workspaces buttons that are shown on the
     workspaces pane of the taskbar. If the numeric value has a `p` suffix
     then the limitation is in pixels. A `%` suffix limits by percentage of
     desktop width. By default a `B` suffix is assumed for number of buttons.
@@ -646,7 +646,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **NetworkStatusDevice**="eth0 wlan0"
 
-    Network device for which to show status.
+    Network devices for which to show status.
 
 - **TimeFormat**="%X"
 
@@ -654,7 +654,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
     the percent options. It is possible to define multiple clocks for
     different time zones in a single _TimeFormat_.  A new clock is defined
     by the beginning of the string, and by each time zone specification
-    which starts with `TZ=...`, followed by a space. For example,
+    that starts with `TZ=...`, followed by a space. For example,
     **TimeFormat**=`%X TZ=Asia/Aden %T TZ=Asia/Baku %T` defines 3 clocks.
 
 - **TimeFormatAlt**=""
@@ -716,7 +716,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
     A comma-separated list of keyboard layouts.
     A layout may be enclosed in double quotes.
     Each layout is a name with optional arguments,
-    which is to be parsed by the `setxkbmap` program.
+    that is to be parsed by the `setxkbmap` program.
     To support changing keyboard layouts, the
     `setxkbmap` program must be installed.
     The first in the list is the default layout.

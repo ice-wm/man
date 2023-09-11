@@ -119,7 +119,7 @@ starting a terminal, or abort execution of icewm-session.
 
 - **ICEWM\_OPTIONS**
 
-    A space separated list of options which will be added to the command
+    A space separated list of options that will be added to the command
     line invocation of `icewm`. This can be set in the `env` file.
 
 ## SEE ALSO

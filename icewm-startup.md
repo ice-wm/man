@@ -17,7 +17,7 @@ title: "icewm-startup(5)"
 
 The `startup` file contains commands to be executed on **icewm** startup.
 This is an executable script. Typically the commands tweak X11 settings
-and launch some applications which always need to be active.
+and launch some applications that always need to be active.
 It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
 
 ## EXAMPLES

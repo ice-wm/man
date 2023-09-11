@@ -12,7 +12,7 @@ title: "icewm-menu-xrandr(1)"
 ## DESCRIPTION
 
 **icewm-menu-xrandr** is a helper to manage multi-screen configurations
-in a semi-automated way. It is a regular icewm menu generator which dynamically
+in a semi-automated way. It is a regular icewm menu generator that
 detects the available xrandr screens (i.e. connected monitors) and
 creates menu entries that call the xrandr command to setup this
 configuration.
@@ -50,7 +50,7 @@ Name" field or from the "Unspecified ASCII text" fields (concatenated).
 
 - **--xrandr command**
 
-    Replacement for _xrandr_ command which should deliver equivalent data
+    Replacement for _xrandr_ command that should deliver equivalent data
     and accept the same options as _xrandr_.
 
 - **--activate combo-name**

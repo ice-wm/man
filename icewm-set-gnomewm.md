@@ -11,7 +11,7 @@ title: "icewm-set-gnomewm(1)"
 
 ## DESCRIPTION
 
-**icewm-set-gnomewm** is a helper script which instruments GNOME to
+**icewm-set-gnomewm** is a helper script that instruments GNOME to
 replace its own WM with icewm.
 
 ## OPTIONS

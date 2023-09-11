@@ -15,8 +15,8 @@ title: "icewm-prefoverride(5)"
 
 ## DESCRIPTION
 
-Settings which override the settings from a theme.  Some of the **icewm**
-configuration options from the preferences file which control the
+Settings that override the settings from a theme.  Some of the **icewm**
+configuration options from the preferences file that control the
 look-and-feel may be overridden by the theme, if the theme designer
 thinks this is desirable.  However, this `prefoverride` file will again
 override this for a few specific options of your choosing.  It is safe

@@ -37,7 +37,7 @@ conclude that it can safely exit after setting the desktop background,
 to free its system memory.  If the screen size changes, icewm will then
 attempt to restart icewmbg, preferably via icewm-session.
 
-## OPTIONS
+## ARGUMENTS
 
 ## SPECIFIC OPTIONS
 
@@ -155,6 +155,9 @@ or they may start with a tilde or environment variable.
     Report on some of the activities.
 
 ## FILES
+
+Additional arguments, which either are a path or which have an image
+extension, are assumed to be background image files or directories.
 
 ## PREFERENCES
 

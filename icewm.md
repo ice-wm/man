@@ -40,7 +40,7 @@ The **icewm** package includes several programs:
     and decorates them with borders. It gives input focus to the current
     active application. **icewm** supports different focus modes, which are
     explained below. It draws a small task bar at the bottom of the screen,
-    which gives easy access to programs, to virtual desktops, to active
+    that gives easy access to programs, to virtual desktops, to active
     applications, and to a small set of monitoring applets.
 
 - [icewmbg(1)](icewmbg)
@@ -70,18 +70,18 @@ The **icewm** package includes several programs:
 
 - [icehelp(1)](icehelp)
 
-    A small document browser, which is used by **icewm** to display the
+    A small document browser that is used by **icewm** to display the
     'IceWM manual' and some man pages.
 
 - [icewmhint(1)](icewmhint)
 
     A utility for passing IceWM-specific window options to **icewm**.
-    The options are used to configure the first application which is started
+    The options are used to configure the first application that is started
     subsequently.  See [icewmhint(1)](icewmhint).
 
 - [icesound(1)](icesound)
 
-    Plays audio files on GUI events which are raised by **icewm**.
+    Plays audio files on GUI events that are raised by **icewm**.
     It supports ALSA, AO and OSS.  See the [icesound(1)](icesound) man page.
 
 - [icewm-menu-fdo(1)](icewm-menu-fdo)
@@ -103,7 +103,7 @@ Each of the IceWM executables supports the following options:
 
     Use _FILE_ as the source of configuration options.  By default **icewm**
     looks for a file named `preferences`.  This is a readable text file
-    which can be modified with the help of a text editor.
+    that can be modified with the help of a text editor.
 
 - **-t**, **--theme**=_NAME_
 
@@ -163,7 +163,7 @@ The **icewm** program supports some additional options:
 
 - **--configured**
 
-    Shows a list of configuration options which were enabled when **icewm**
+    Shows a list of configuration options that were enabled when **icewm**
     was compiled from source code.  This can be helpful if one suspects some
     functionality may be missing.
 
@@ -196,7 +196,7 @@ The **icewm** program supports some additional options:
 
 - **--trace**=_conf_,_font_,_icon_,_prog_,_systray_
 
-    Enable tracing of the paths which are used to load configuration,
+    Enable tracing of the paths that are used to load configuration,
     fonts, icons, executed programs, and/or system tray applets.
 
 ## USAGE
@@ -217,7 +217,7 @@ The _Window List Menu_ button gives access to a menu with a list of
 active windows for the current workspace and a list of workspaces
 with sub-menus for their active application windows.
 
-The _Toolbar_ is a list of icons for applications which are defined in
+The _Toolbar_ is a list of icons for applications that are defined in
 the toolbar configuration file.
 
 The _Workspace Pane_ shows one button for each workspace.  The current
@@ -235,10 +235,10 @@ Firefox tab to a workspace button changes the current workspace.
 Then releasing it moves that tab to a new window in that workspace.
 
 The _Task Pane_ consists of a list of wide buttons for each application
-which is running on the current workspace, or all workspaces if
+that is running on the current workspace, or all workspaces if
 `TaskBarShowAllWindows=1`.  Each task button shows the
 application icon and the application title.  The active application is
-indicated by a pressed button.  This is the application which has input
+indicated by a pressed button.  This is the application that has input
 focus.  Pressing another button activates that application: it is
 brought to the foreground and receives input focus.  Other mouse
 controlled activities on the window buttons are: dragging window buttons
@@ -278,8 +278,8 @@ appearance is also controlled by options in the `preferences` file.
 ## INPUT FOCUS
 
 Of all visible windows only one can be the active window.  This is the
-window which has input focus.  It is the primary receiver of keyboard
-and mouse events and hence one can interact with the application which
+window that has input focus.  It is the primary receiver of keyboard
+and mouse events and hence one can interact with the application that
 created that window.  A primary task of a window manager is to allow the
 user to switch input focus between different windows.  The primary means
 to do this is the mouse pointer.  By moving the mouse pointer over the
@@ -307,7 +307,7 @@ six focus models:
     to the desktop background the input focus remains with the last active
     window.  When a window receives focus it is raised.  When an application
     requests focus its task pane button flashes.  A new application or an
-    application which raises to the front automatically receives focus.
+    application that raises to the front automatically receives focus.
 
 - **3. Explicit-focus**
 
@@ -330,9 +330,7 @@ six focus models:
 
 - **6. Custom-mode**
 
-    A focus mode which is defined in detail by ten options in the
-    `preferences` file.
-    These are:
+    A focus mode that is defined by the following ten options:
     `ClickToFocus`,
     `FocusOnAppRaise`,
     `RequestFocusOnAppRaise`,
@@ -451,7 +449,7 @@ with the names 1, 2, 3 and 4 thus:
 
     WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
 
-This syntax is typical for **icewm** options which receive multiple
+This syntax is typical for **icewm** options that receive multiple
 values.  It is a list of comma-separated values each of which can be
 quoted.
 
@@ -490,7 +488,7 @@ Pressing `Enter` will execute the command.
 **AddressBarCommand**=`/bin/sh` will be used to execute the command.
 On `Control+Enter` the command is executed in a terminal
 as given by **TerminalCommand**.
-The address bar maintains a history which is navigable by the _Up_
+The address bar maintains a history that is navigable by the _Up_
 and _Down_ keys.
 It supports command completion using `Tab` or `Ctrl+I`.
 A rich set of editing operations is supported,
@@ -499,7 +497,7 @@ including cut-/copy-/paste-operations.
 ## WINDOW LIST
 
 The window list window shows a list of all workspaces. For each
-workspace it shows the window titles of the windows which are mapped
+workspace it shows the window titles of the windows that are mapped
 on it. The bottom entry reads `All Workspaces`. It holds the sticky
 windows. These windows are mapped in all workspaces.
 
@@ -566,7 +564,7 @@ The POP3S and IMAPS schemes use `openssl` for TLS/SSL encryption.
 Note that for IceWM to access Gmail you must first configure
 your Gmail account to enable POP3 or IMAP access.
 Make sure you have secure file permissions on your IceWM
-preferences file and the directory which contains it.
+preferences file and the directory that contains it.
 
 Reserved characters in the password, like _slash_, _at_ and _colon_
 can be specified using escape sequences with a hexadecimal encoding
@@ -654,7 +652,7 @@ for Ctrl+Alt.
 
 - **KeyWinRaise**=`Alt+F1`
 
-    Raises the window which currently has input focus.
+    Raises the window that currently has input focus.
 
 - **KeyWinOccupyAll**=`Alt+F2`
 
@@ -662,7 +660,7 @@ for Ctrl+Alt.
 
 - **KeyWinLower**=`Alt+F3`
 
-    Lowers the window which currently has input focus.
+    Lowers the window that currently has input focus.
 
 - **KeyWinClose**=`Alt+F4`
 
@@ -1157,7 +1155,7 @@ the given order, until it finds one:
     [icewm-session(1)](icewm-session) loads additional environment variables from the file
     `env`.  Each line is subjected to POSIX shell expansion by
     [wordexp(3)](https://manned.org/wordexp.3).  Comment lines starting by a hash-sign (`#`) are ignored.
-    [icewm-session(1)](icewm-session) will load those expanded lines which contain a name,
+    [icewm-session(1)](icewm-session) will load those expanded lines that contain a name,
     followed by an equals sign, followed by the value (which may be empty).
 
     See [icewm-env(5)](icewm-env).
@@ -1176,7 +1174,7 @@ the given order, until it finds one:
     manager related.  Each non-empty line starts with the word `key`.
     After one or more spaces follows a double-quoted string of the bound X11
     key combination like `Alt+Ctrl+Shift+X`.  Then after at least one space
-    follows a shell command-line which will be executed by **icewm** whenever
+    follows a shell command-line that will be executed by **icewm** whenever
     this key combination is pressed.  For example, the following line
     creates a hotkey to reload the **icewm** configuration:
 
@@ -1196,7 +1194,7 @@ the given order, until it finds one:
 - `preferences`
 
     Contains general settings like paths, colors and fonts, but also options
-    to control the **icewm** focus behaviour and the applets which are
+    to control the **icewm** focus behaviour and the applets that are
     started in the task bar.  The **icewm** installation will provide a
     default `preferences` file, which can be copied to the **icewm** user
     configuration directory and modified.
@@ -1206,7 +1204,7 @@ the given order, until it finds one:
 - `prefoverride`
 
     Settings which override the settings from a theme.  Some of the **icewm**
-    configuration options from the preferences file which control the
+    configuration options from the preferences file that control the
     look-and-feel may be overridden by the theme, if the theme designer
     thinks this is desirable.  However, this `prefoverride` file will again
     override this for a few specific options of your choosing.  It is safe
@@ -1218,7 +1216,7 @@ the given order, until it finds one:
 
     An automatically generated menu of applications.  This could be used by
     [wmconfig(1)](https://manned.org/wmconfig.1), menu or similar programs to give easy access to all the
-    desktop applications which are installed on the system.
+    desktop applications that are installed on the system.
 
     See [icewm-programs(5)](icewm-programs).
 
@@ -1248,10 +1246,10 @@ the given order, until it finds one:
     tip whenever the mouse cursor hovers over the toolbar icon.  This name
     may be a double quoted string.  Then follows the bare name of the icon
     to use without extensions.  This icon will be shown in the toolbar.  The
-    last component is a shell command-line which will be executed whenever
+    last component is a shell command-line that will be executed whenever
     the user presses the icon in the toolbar.  For example, the following
     line in toolbar will create a button with tool tip `Mozilla Firefox`
-    with the `firefox` icon which launches [firefox(1)](https://manned.org/firefox.1) when clicked:
+    with the `firefox` icon that launches [firefox(1)](https://manned.org/firefox.1) when clicked:
 
         prog  "Mozilla Firefox"  firefox  /usr/bin/firefox --private-window
 
@@ -1259,7 +1257,7 @@ the given order, until it finds one:
 
 - `winoptions`
 
-    Contains settings to control window appearance and behaviour which are
+    Contains settings to control window appearance and behaviour that are
     specific to applications or groups of applications.  Options can control
     the border, whether it appears on the task bar, the window list, the
     system tray and the workspaces.  Also its layer, geometry, whether it
@@ -1271,7 +1269,7 @@ the given order, until it finds one:
 
     Contains commands to be executed on **icewm** startup.  This is an
     executable script with commands to tweak X11 settings and launch some
-    applications which need to be active whenever **icewm** is started.
+    applications that need to be active whenever **icewm** is started.
     It is run by [icewm-session(1)](icewm-session) when **icewm** starts.
 
     See [icewm-startup(5)](icewm-startup).
@@ -1303,7 +1301,7 @@ the given order, until it finds one:
 
 - `icons`
 
-    Contains icons which are used to identify applications.  Usually these
+    Contains icons that are used to identify applications.  Usually these
     files are in the XPM format, but the PNG and SVG image formats are also
     supported.  The names of icon files may follow a specific naming
     pattern, like `app_32x32.xpm`.  They start with a base name, usually
@@ -1321,14 +1319,14 @@ the given order, until it finds one:
 
 - `mailbox`
 
-    Icons which are used to display different states of the mailbox applet
+    Icons that are used to display different states of the mailbox applet
     in the task bar.  There are five states and each has its own icon:
     `mail.xpm`, `newmail.xpm`, `unreadmail.xpm`, `nomail.xpm`,
     `errmail.xpm`.
 
 - `sounds`
 
-    Audio files which are played by [icesound(1)](icesound) on GUI events.  These
+    Audio files that are played by [icesound(1)](icesound) on GUI events.  These
     are: `startup.wav`, `shutdown.wav`, `restart.wav`, `launchApp.wav`,
     `workspaceChange.wav`, `windowOpen.wav`, `windowClose.wav`,
     `dialogOpen.wav`, `dialogClose.wav`, `windowMax.wav`,
@@ -1348,7 +1346,7 @@ the given order, until it finds one:
     A directory to store themes.  Each theme is stored in its own
     sub-directory in the `themes` directory. A theme contains at least a
     `default.theme` file, and optionally theme alternatives which are
-    additional files which have a `.theme` file name extension and which
+    additional files that have a `.theme` file name extension and that
     contain tweaks of the `default.theme` file.
     How to create a theme is explained in the
     [IceWM Theme Creation Howto](https://ice-wm.org/themes).
@@ -1370,7 +1368,7 @@ where the compositor will read it and adjust the opacity accordingly.
 The opacity can also be set in the [icewm-winoptions(5)](icewm-winoptions) file.
 [icesh(1)](icesh) can control the opacity level of running applications.
 
-The \_NET\_WM\_WINDOW\_TYPE properties which **icewm** sets on its windows
+The \_NET\_WM\_WINDOW\_TYPE properties that **icewm** sets on its windows
 are _DIALOG_, _NOTIFICATION_, _POPUP\_MENU_ and _TOOLTIP_. The output
 of `icesh windows` shows their WM\_CLASS values. These can be helpful
 to configure compton.

@@ -23,7 +23,7 @@ After one or more spaces follows a name, which is displayed in a tool
 tip whenever the mouse cursor hovers over the toolbar icon.  This name
 may be a double quoted string.  Then follows the bare name of the icon
 to use without extensions.  This icon will be shown in the toolbar.  The
-last component is a shell command line which will be executed whenever
+last component is a shell command line that will be executed whenever
 the user presses the icon in the toolbar.  For example, the following
 line in toolbar will create a button with tool tip `Mozilla Firefox`
 with the `firefox` icon which launches [firefox(1)](https://manned.org/firefox.1) when clicked:

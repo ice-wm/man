@@ -23,7 +23,7 @@ to all other processes, including [icewm(1)](icewm), via their environment.
 
 Each line is subjected to POSIX shell expansion by [wordexp(3)](https://manned.org/wordexp.3).
 Comment lines starting by a hash-sign (`#`) are ignored.
-[icewm-session(1)](icewm-session) will load those expanded lines which contain a name,
+[icewm-session(1)](icewm-session) will load those expanded lines that contain a name,
 followed by an equals sign, followed by the value (which may be empty).
 
 The word **unset** begins a line with names to be removed from the

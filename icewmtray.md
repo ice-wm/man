@@ -15,7 +15,7 @@ title: "icewmtray(1)"
 ## DESCRIPTION
 
 **icewmtray** provides a system tray for the IceWM panel.  It catches the
-system tray objects which are installed by various applications.
+system tray objects that are installed by various applications.
 
 ## OPTIONS
 

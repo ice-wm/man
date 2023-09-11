@@ -84,7 +84,7 @@ Where
 
 - \[**"**\]_title_\[**"**\]
 
-    This is the _title_ string associated with the menu item which is
+    This is the _title_ string associated with the menu item that is
     displayed in the menu.  When the _title_ contains spaces, the title
     must be surrounded by double quotes (`"`), although the _title_ may
     always be surrounded by double quotes if preferred.

@@ -54,6 +54,10 @@ become available in the icewm start menu.
 
     Write the output to _FILE_.
 
+- **-t**, **--terminal=NAME**
+
+    Use _NAME_ to start a terminal emulator that supports the '-e' option.
+
 - **--flat**
 
     Display apps from all categories in one level with the title containing
@@ -66,7 +70,7 @@ become available in the icewm start menu.
 
 - **-m filter**, **--match=filter**
 
-    Specifies a filter to show only apps which contain this as substring
+    Specifies a filter to show only apps that contain this as substring
     within their title.
 
 - **-M filter**, **--imatch=filter**
@@ -110,6 +114,8 @@ a comprehensive set of menus for easy access to `.desktop` files.
 
 **XDG\_DATA\_HOME** or **XDG\_DATA\_DIRS** are considered as suggested by XDG
 Base Directory Specification.
+
+**TERMINAL** may define a terminal emulator that supports the '-e' option.
 
 ## CONFORMING TO
 
