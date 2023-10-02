@@ -488,7 +488,11 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TaskBarShowWindowIcons**=1
 
-    Show icons of windows on the task bar.
+    Show icons of windows on task buttons of the task bar.
+
+- **TaskBarShowWindowTitles**=1
+
+    Show titles of windows on task buttons of the task bar.
 
 - **TaskBarShowStartMenu**=1
 

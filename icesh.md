@@ -759,6 +759,7 @@ do not require a window _select_ or _filter_ option:
 - **guievents**
 
     Monitor the **ICEWM\_GUI\_EVENT** property and report all changes.
+    Hit `Ctrl+C` to abort this and continue with the next command.
 
 - **delay** \[_time_\]
 

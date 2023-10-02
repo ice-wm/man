@@ -7,7 +7,7 @@ title: "icewmbg(1)"
 
 ## SYNOPSIS
 
-**icewmbg** \[_OPTIONS_\]
+**icewmbg** \[_OPTIONS_\] \[_ARGUMENTS_\]
 
 ## DESCRIPTION
 
@@ -50,6 +50,10 @@ If the value starts with an exclamation mark, as in _!FILE_,
 the images from the directory _FILE_ are permuted randomly.
 Image file names or directory names may have [glob(7)](https://manned.org/glob.7) wildcards,
 or they may start with a tilde or environment variable.
+
+- **-f**, **--fork**
+
+    Fork into the background and detach from the terminal.
 
 - **-p**, **--replace**
 
@@ -126,6 +130,10 @@ or they may start with a tilde or environment variable.
 
     Redirect all output to _FILE_.
     A leading tilde or environment variable is expanded.
+
+- **--postpreferences**
+
+    Print a list of all preference values that **icewmbg** will use.
 
 ## GENERAL OPTIONS
 
@@ -211,11 +219,11 @@ What happens for their combination is given by the following table:
 
     # For four unique desktop backgrounds for four workspaces do:
 
-    icewmbg -p -i image0,image1,image2,image3 &
+    icewmbg -f -p -i image0,image1,image2,image3
 
     # Or create a directory with the four images and do:
 
-    icewmbg -p -i /path/to/directory &
+    icewmbg -f -p -i /path/to/directory
 
     # The images should have proper image filename extensions.
 
@@ -260,6 +268,18 @@ See **--copying** for full copyright notice and copying permissions.
 **IceWM** is licensed under the GNU Library General Public License.
 See the `COPYING` file in the distribution or use the **--copying** flag
 to display copying permissions.
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 170:
+
+    You forgot a '=back' before '=head2'
+
+- Around line 175:
+
+    &#x3d;back without =over
 
 | ------------: | :--------- |
 | [Index](/man) | [![IceWM](/images/logom.jpg "ice-wm.org")](https://ice-wm.org "ice-wm.org") |

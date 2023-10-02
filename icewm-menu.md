@@ -25,7 +25,7 @@ Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](
 
 ## FORMAT
 
-The format of the file contains one of the following line syntax:
+The file contains lines with the following syntax:
 
 - **prog** \[**"**\]_title_\[**"**\] _icon_ _program_ _options_
 
@@ -57,8 +57,8 @@ The format of the file contains one of the following line syntax:
 
 - **menuprog** \[**"**\]_title_\[**"**\] _icon_ _program_ _options_
 
-    Specifies a program that will print sub-menu items on standard output
-    and will be collected and placed in the sub-menu at this point.
+    Specifies a program that will print sub-menu items on standard output,
+    which will be collected and placed in the sub-menu at this point.
 
 - **menuprogreload** \[**"**\]_title_\[**"**\] _icon_ _timeout_
 _program_ _options_
@@ -111,7 +111,7 @@ Where
     When used with the **menuprog** keyword, the _program_ must print on
     standard output the contents of the menu and is used for dynamic menus.
 
-    _options_ is the options and arguments passed to the _program_
+    _options_ are the options and arguments passed to the _program_
     verbatim.
 
 - _filename_
