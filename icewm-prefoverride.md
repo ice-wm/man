@@ -3,7 +3,7 @@ title: "icewm-prefoverride(5)"
 ---
 ## NAME
 
-    icewm-prefoverride - icewm override preferences configuration file
+    icewm-prefoverride - override themable preferences file
 
 ## SYNOPSIS
 
@@ -16,11 +16,11 @@ title: "icewm-prefoverride(5)"
 ## DESCRIPTION
 
 Settings that override the settings from a theme.  Some of the **icewm**
-configuration options from the preferences file that control the
-look-and-feel may be overridden by the theme, if the theme designer
-thinks this is desirable.  However, this `prefoverride` file will again
-override this for a few specific options of your choosing.  It is safe
-to leave this file empty initially.
+preferences that control the look may be set by the theme.
+However, the settings in this `prefoverride` file override that.
+It is safe to leave this file empty initially.
+Note that this file is meant for themable preferences and a few icewm
+startup settings cannot be set here, like `Splash`.
 
 ## FILES
 
