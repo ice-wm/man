@@ -999,21 +999,21 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
     Command to cancel logout.
 
-- **ShutdownCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl poweroff \|\| loginctl poweroff; } \|\|:""
+- **ShutdownCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl poweroff \|\| loginctl poweroff; }""
 
     Command to shutdown the system.
 
-- **RebootCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl reboot \|\| loginctl reboot; } \|\|:""
+- **RebootCommand**="/bin/sh -c "{ test -e /run/systemd/system && systemctl reboot \|\| loginctl reboot; }""
 
     Command to reboot the system.
 
 - **SuspendCommand**="test -e /run/systemd/system && systemctl suspend \|\| loginctl suspend"
 
-    Command to hibernate the system.
-
-- **SuspendCommand**="test -e /run/systemd/system && systemctl suspend \|\| loginctl suspend"
-
     Command to send the system to standby mode
+
+- **SuspendCommand**="test -e /run/systemd/system && systemctl hibernate \|\| loginctl hibernate"
+
+    Command to hibernate the system.
 
 - **CPUStatusCommand**="xterm -name top -title Process\\ Status -e top"
 

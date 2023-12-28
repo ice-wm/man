@@ -37,7 +37,10 @@ following four ways, which are identical:
     key "Ctrl+plus"         xterm
     key "Ctrl++"            xterm
 
-To bind the mouse use `Pointer_Button1` for button 1, and so on.
+To bind the mouse, use `Pointer_Button1` for button 1, and so on.
+This only works when the mouse is over the root window.
+See below for examples.
+
 The command `icesh keys` instructs icewm to reload this file.
 
 ## FORMAT
