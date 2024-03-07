@@ -3,7 +3,7 @@ title: "icewmbg(1)"
 ---
 ## NAME
 
-    icewmbg - a background settings manager for the IceWM window manager
+    icewmbg - a desktop background image manager for IceWM
 
 ## SYNOPSIS
 
@@ -17,8 +17,7 @@ its own background.
 
 When the background image changes, **icewmbg** can be notified to
 update the background.  When switching workspaces, it checks the image
-file modification time.  If the file has changed, it reloads the
-image from file.
+file modification time.  If it has changed, it reloads the image.
 
 **icewmbg** supports semitransparency.  Semitransparent background
 images and colours can be configured.
@@ -134,6 +133,10 @@ or they may start with a tilde or environment variable.
 - **--postpreferences**
 
     Print a list of all preference values that **icewmbg** will use.
+
+- **--verbose**
+
+    Print a log of actions and some events.
 
 ## GENERAL OPTIONS
 
@@ -273,11 +276,11 @@ to display copying permissions.
 
 Hey! **The above document had some coding errors, which are explained below:**
 
-- Around line 170:
+- Around line 173:
 
     You forgot a '=back' before '=head2'
 
-- Around line 175:
+- Around line 178:
 
     &#x3d;back without =over
 
