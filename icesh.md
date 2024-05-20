@@ -336,7 +336,7 @@ The following actions affect the selected window or windows.
 
 - **restore**
 
-    Restore the window to normal.
+    Restore the window to normal and clear urgency.
 
 - **hide**
 
@@ -364,7 +364,7 @@ The following actions affect the selected window or windows.
 
 - **urgent**
 
-    Set the urgent flag to flash the task button.
+    Set the urgency flag to flash the task button.
 
 - **resize** _WIDTH_ _HEIGHT_
 
@@ -747,6 +747,7 @@ do not require a window _select_ or _filter_ option:
 - **winoptions**
 
     Let icewm reload the `winoptions`.
+    This only affects new windows.
 
 - **keys**
 

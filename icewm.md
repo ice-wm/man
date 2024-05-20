@@ -178,6 +178,11 @@ The **icewm** program supports some additional options:
     **icewm** will search all the configuration directories for theme files
     and print a list of all found themes.
 
+- **-i**, **--install**=_THEME_
+
+    Install _THEME_ from icewm-extra and exit. When _THEME_ is _list_,
+    print a listing of available themes to install.
+
 - **-p**, **--postpreferences**
 
     This gives a long list of all the internal **icewm** options with their
@@ -480,19 +485,48 @@ also be changed by bringing the drag icon to the screen edge.
 
 ## ADDRESS BAR
 
-If **EnableAddressBar**=1 then **KeySysAddressBar**=`Alt+Ctrl+Space`
-activates the address bar in the task bar.
-If **ShowAddressBar**=1 it is always shown. This is a command-line in
-the task bar where a shell command can be typed.
-Pressing `Enter` will execute the command.
-**AddressBarCommand**=`/bin/sh` will be used to execute the command.
-On `Control+Enter` the command is executed in a terminal
+The task bar contains a command-line prompt called the address bar,
+if **EnableAddressBar**=1. It is always shown when **ShowAddressBar**=1,
+otherwise it is activated by **KeySysAddressBar**=`Alt+Ctrl+Space`.
+In it a shell command can be typed, which is executed by the
+**AddressBarCommand**=`/bin/sh` when pressing `Enter`.
+On `Control+Enter` this command is executed in a new terminal
 as given by **TerminalCommand**.
-The address bar maintains a history that is navigable by the _Up_
-and _Down_ keys.
-It supports command completion using `Tab` or `Ctrl+I`.
-A rich set of editing operations is supported,
-including cut-/copy-/paste-operations.
+
+Commands are executed relative to the working directory of icewm.
+This can be shown by executing `pwd`. It can be changed using the `cd`
+command. Without argument it defaults to the home directory. With one
+argument it is changed. This argument is expanded when it starts with a
+dollar or tilde. When it is equal to `-`, it reverts to the previous
+directory.
+
+The address bar has a history that is navigable by _Up_ and _Down_.
+It supports file completion using `Tab` or `Ctrl+I`, cut/copy/paste
+and these editing operations:
+
+- Ctrl+a: select all
+- Ctrl+backslash: deselect all
+- Ctrl+u: delete selected or to line start
+- Ctrl+v: paste selected
+- Ctrl+w: delete selected or previous word
+- Ctrl+x: cut selection
+- Ctrl+c: copy selection
+- Ctrl+i: completion
+- Ctrl+Left: back a word
+- Ctrl+Right: forward a word
+- Ctrl+Shift+Backspace: delete to beginning
+- Ctrl+Shift+Delete: delete to end
+- Ctrl+Delete: delete word
+- Ctrl+Backspace: delete previous word
+- Shift+Delete: cut selection
+- Shift+Insert: paste selected
+- Tab: completion
+- Left: move cursor left
+- Right: move cursor right
+- Home: move cursor to line start
+- End: move cursor to line end
+- Delete: delete next character
+- Backspace: delete previous character
 
 ## WINDOW LIST
 
@@ -608,7 +642,7 @@ To control keyboard layouts on the task bar, define in `preferences`
 the option **KeyboardLayouts** to a comma-separated list of your
 preferred keyboard layouts. For example:
 
-    KeyboardLayouts="de","fr","jp"
+    KeyboardLayouts = "de", "fr", "jp"
 
 A keyboard layout can simply be a name. Usually this is a two-letter
 country code. See the directory `/usr/share/X11/xkb/symbols` for
@@ -1301,14 +1335,13 @@ the given order, until it finds one:
 
 - `icons`
 
-    Contains icons that are used to identify applications.  Usually these
-    files are in the XPM format, but the PNG and SVG image formats are also
-    supported.  The names of icon files may follow a specific naming
-    pattern, like `app_32x32.xpm`.  They start with a base name, usually
-    this is just a single word.  Then follows an underscore, followed by a
-    size specification in the format `SIZExSIZE`.  This is followed by a
-    dot and the file extension, where the extension denotes the icon image
-    format.  Common sizes are 16, 32 and 48 for small, large and huge icons.
+    Contains icons for applications and keyboard layouts. These can be in
+    XPM, PNG or SVG format.  The filename of an _application icon_ may
+    follow a specific naming pattern, like `app_32x32.xpm`.  They start
+    with a base name, which usually is just a single word.  Then follows
+    an underscore, followed by a size specification, as in `SIZExSIZE`.
+    This is followed by a dot and the file extension, where the extension
+    denotes the icon image format.  Common sizes are 16, 32 and 48.
     This depends on the respective `IconSize` preferences options.
 
 - `ledclock`

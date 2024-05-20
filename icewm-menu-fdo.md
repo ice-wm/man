@@ -132,8 +132,9 @@ is configured with the **--enable-menus-fdo** option, which requires the
 
 ## SEE ALSO
 
-["Desktop Entry Specification"](https://standards.freedesktop.org/desktop-entry-spec/latest/),
-["Desktop Menu Specification"](https://specifications.freedesktop.org/menu-spec/latest/),
+[Base Directory Specification](https://www.freedesktop.org/wiki/Specifications/basedir-spec/),
+[Desktop Entry Specification](https://www.freedesktop.org/wiki/Specifications/desktop-entry-spec/),
+[Desktop Menu Specification](https://www.freedesktop.org/wiki/Specifications/menu-spec/),
 [icewm(1)](icewm),
 [icewm-menu(5)](icewm-menu),
 [icewm-preferences(5)](icewm-preferences),
