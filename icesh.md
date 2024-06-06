@@ -392,6 +392,8 @@ The following actions affect the selected window or windows.
     Move the selected window or windows to the screen position _X_ _Y_.
     To specify _X_ or _Y_ values relative to the right side or bottom side
     precede the value with an extra minus sign, like in `move -+10 --20`.
+    When _X_ or _Y_ end with a percent sign `%`, they refer to a percentage
+    of the desktop work area.
 
 - **moveby** _X_ _Y_
 

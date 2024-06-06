@@ -629,7 +629,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **MailBoxPath**=""
 
-    A colon separated list of paths of your mailboxes.
+    A list of paths of your mailboxes separated by spaces.
     If this is empty, $MAILPATH or $MAIL is used instead.
 
     Path to a mbox file. Remote mail boxes are accessed by specifying an URL

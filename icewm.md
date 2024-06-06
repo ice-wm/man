@@ -11,12 +11,12 @@ title: "icewm(1)"
 
 ## DESCRIPTION
 
-**icewm** is a window manager for the X11 window system.
-It aims to be small, fast and familiar to new users.
+**icewm** is a small and fast window manager for the X11 window system.  It
+is best started by [icewm-session(1)](icewm-session), which also starts [icewmbg(1)](icewmbg).
 
-**icewm** is called a re-parenting window manager,
-because it draws small frames around application windows.
-By dragging this frame with the mouse, windows are resized or moved.
+**icewm** is called _re-parenting_, because it draws frames around
+application windows.  Drag this frame with the mouse, to move or resize
+a window.
 
 Because windows may overlap, **icewm** is also a stacking window manager.
 Many windows may exist, some hidden behind others.
@@ -27,6 +27,7 @@ By switching between workspaces, the user can attend to different tasks,
 while keeping oversight.  This is supported by a task bar and a pager.
 
 The installation comes with several themes. Choose a theme via a menu.
+Install extra themes automatically with the **--install** option.
 
 **icewm** is compliant with the ICCCM and EWMH window manager specifications.
 
@@ -487,22 +488,29 @@ also be changed by bringing the drag icon to the screen edge.
 
 The task bar contains a command-line prompt called the address bar,
 if **EnableAddressBar**=1. It is always shown when **ShowAddressBar**=1,
-otherwise it is activated by **KeySysAddressBar**=`Alt+Ctrl+Space`.
-In it a shell command can be typed, which is executed by the
-**AddressBarCommand**=`/bin/sh` when pressing `Enter`.
-On `Control+Enter` this command is executed in a new terminal
-as given by **TerminalCommand**.
+otherwise it is activated by **KeySysAddressBar**=`Alt+Ctrl+space`.
+In it a shell command can be typed. On _Enter_ it is executed by the
+**AddressBarCommand**=`/bin/sh`.  On _Control+Enter_ this command is
+executed in a new terminal as given by **TerminalCommand**.
 
 Commands are executed relative to the working directory of icewm.
-This can be shown by executing `pwd`. It can be changed using the `cd`
-command. Without argument it defaults to the home directory. With one
-argument it is changed. This argument is expanded when it starts with a
-dollar or tilde. When it is equal to `-`, it reverts to the previous
-directory.
+This is shown by `pwd`. Change it with `cd`.  Without argument `cd`
+defaults to the home directory. With one argument it is changed.
+This argument is expanded when it starts with a dollar or tilde.
+When it is equal to `-`, it reverts to the previous directory.
 
 The address bar has a history that is navigable by _Up_ and _Down_.
-It supports file completion using `Tab` or `Ctrl+I`, cut/copy/paste
-and these editing operations:
+This history is saved in a file `ahistory` in your icewm directory
+and restored when icewm starts.
+
+Completion is supported using _Tab_ or _Ctrl+I_. The leading command
+is completed from directories in your PATH, while file arguments are
+expanded from the location in the file system. In addition usernames
+and environment variables can also be expanded. For example, `echo $TMP`
+and _Tab_ may expand to `echo $TMPDIR` and `echo ~ro` and _Tab_ may
+expand to `echo ~root`.
+
+The address bar implements cut/copy/paste and these editing operations:
 
 - Ctrl+a: select all
 - Ctrl+backslash: deselect all
@@ -748,7 +756,7 @@ for Ctrl+Alt.
 
     Hides the active window.
 
-- **KeyWinMenu**=`Alt+Space`
+- **KeyWinMenu**=`Alt+space`
 
     Posts the window menu.
 
@@ -852,7 +860,7 @@ for Ctrl+Alt.
 
     Opens the IceWM system window list in the center of the screen.
 
-- **KeySysAddressBar**=`Alt+Ctrl+Space`
+- **KeySysAddressBar**=`Alt+Ctrl+space`
 
     Opens the address bar in the task bar where a command can be typed.
 
