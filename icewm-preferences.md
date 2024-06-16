@@ -918,14 +918,14 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **TitleBarMaximizeButton**=1  \[0-5\]
 
-    Title bar mouse-button double click to maximize the window to full
+    Title bar mouse-button double-click to maximize the window to full
     screen with the frame border visible.
     Press Shift to maximize only in the vertical direction.
     Press Alt+Shift to maximize only in the horizontal direction.
 
 - **TitleBarRollupButton**=2  \[0-5\]
 
-    Title bar mouse-button double click to rollup the window.
+    Title bar mouse-button double-click to rollup the window.
     Press Shift to maximize in the horizontal direction.
 
 ## WORKSPACES

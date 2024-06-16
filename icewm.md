@@ -182,7 +182,8 @@ The **icewm** program supports some additional options:
 - **-i**, **--install**=_THEME_
 
     Install _THEME_ from icewm-extra and exit. When _THEME_ is _list_,
-    print a listing of available themes to install.
+    print a listing of available themes to install. This option requires
+    the presence of the _lzip_, _tar_ and _wget_ or _curl_ commands.
 
 - **-p**, **--postpreferences**
 
@@ -234,7 +235,7 @@ Press left, then Alt, then release left, moves only the focused window
 to other workspace, without changing the current workspace.
 
 The workspaces are defined in the `preferences` file.  To change a name
-for only this session, double click, edit the name and hit Enter.
+for only this session, double-click, edit the name and hit Enter.
 When `PagerShowPreview` is turned on, a small graphical window summary
 for each workspace is shown. They support drag-and-drop: dragging a
 Firefox tab to a workspace button changes the current workspace.
@@ -492,6 +493,7 @@ otherwise it is activated by **KeySysAddressBar**=`Alt+Ctrl+space`.
 In it a shell command can be typed. On _Enter_ it is executed by the
 **AddressBarCommand**=`/bin/sh`.  On _Control+Enter_ this command is
 executed in a new terminal as given by **TerminalCommand**.
+_Escape_ cancels editing the address bar command.
 
 Commands are executed relative to the working directory of icewm.
 This is shown by `pwd`. Change it with `cd`.  Without argument `cd`
@@ -1095,19 +1097,26 @@ You can control windows by a modified mouse button press:
     Drag the title bar with this button over another title bar.
     When they start to flash, release the button to merge the frame tabs.
 
-The title frame of a window also listens for mouse clicks.  Left double
-clicking maximizes the window (`TitleBarMaximizeButton=1`). Press
-Shift to only maximize vertically. Press Alt+Shift for horizontally.
-Middle double clicking rolls up the window (`TitleBarRollupButton=2`).
+The title frame of a window also listens for mouse clicks.  A left
+double-click maximizes the window (`TitleBarMaximizeButton=1`).
+When Shift is also pressed it only maximizes vertically.
+Press Alt+Shift to maximize horizontally.
+
+Middle double-clicking rolls up the window (`TitleBarRollupButton=2`).
 Also press Shift to maximize horizontally. If **TitleBarRollupButton**
 is either 4 or 5 then the scroll wheel controls rolling up or down.
-Pressing a mouse button and moving it will move the window.
-`Alt+Pointer_Button1` lowers the window.
+
+Press a mouse button on the title bar and drag it to move the window.
+A `Alt+Pointer_Button1` click lowers the window.
 
 When the mouse is on the window frame then a left click raises the
 window.  Dragging with the left button down resizes the window.
 Clicking the right button pops up the context menu.  Dragging with the
 right button moves the window.
+
+Double-clicking on the frame border (or corner) maximizes just that side
+of the window. Another double-click restores that side. Double-clicking
+on the border can also undo a maximization in that dimension.
 
 Clicking on the desktop activates a menu.  The middle button shows the
 window list (`DesktopWinListButton=2`).  The right button shows the
