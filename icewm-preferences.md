@@ -671,8 +671,9 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **DockApps**="right high desktop"
 
-    Support DockApps (right, left, center, down, high, above, below,
-    desktop, or empty to disable). Control with Ctrl+Mouse.
+    Support DockApps (right, left, center, down, high, above, dock, ontop,
+    normal, below, desktop, or empty to disable). The first five control
+    positioning, while the next six set the layer. Control with Ctrl+Mouse.
 
 - **XRRPrimaryScreenName**=""
 
@@ -1038,6 +1039,13 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 - **AddressBarCommand**=""
 
     Command to run for address bar entries.
+
+- **InputIgnorePrefix**="nohup\|(nice\[\[:space:\]\]+-n\[\[:space:\]\]\*\[\[:digit:\]\]+)\|sudo\|(LANG\|LC\_\[\[:alnum:\]\]\]\*)(=\|=\[^\[:space:\]\]+)"
+
+    Regular expression (POSIX Extended flavor) which marks the begin of a
+    command line in command input fields. Such prefixes are ignored while
+    the auto-completion action is performed, typically for commands acting
+    as pass-through wrapper, executing the specified command.
 
 ## WINDOW MENUS
 
@@ -1464,6 +1472,11 @@ values are shown following the equal sign.
 - **ColorQuickSwitchActive** = ""
 
     Rectangle around the active icon in the quick switch window.
+
+- **ColorQuickSwitchBorder** = ""
+
+    The color for the quick switch border. When empty, a one pixel wide
+    elevation border will be drawn, based on the quick switch background.
 
 - **ColorDefaultTaskBar** = "rgb:C0/C0/C0"
 

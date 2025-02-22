@@ -138,6 +138,11 @@ If needed, they can be repeated for successive actions.
 
     Selects the IceWM taskbar.
 
+- **-A**, **-Await**
+
+    Wait for one or more new client windows to appear and make that the new
+    selection.
+
 ## FILTER OPTIONS
 
 The following options _filter_ the currently selected set of windows.
@@ -820,10 +825,17 @@ happens after an `end` clause.
 
 Some of the window actions require one or two _EXPRESSION_ arguments.
 
-- **EXPRESSION** ::= _SYMBOL_ \| _EXPRESSION_ { `+` \| `\|` }
+- **EXPRESSION** ::= _SYMBOL_ \| _EXPRESSION_ { `+` \| `\|` \| `-` }
 _SYMBOL_
 
-Each _SYMBOL_ may be from one of the following applicable domains:
+This says that an expression is either a _SYMBOL_ or an expression
+which is combined with an operator to a _SYMBOL_. In other words,
+an expression is a sequence of symbols, which are combined using
+operators, where an operator may be a plus, a vertical bar or a minus.
+
+Each _SYMBOL_ may be either a number or a named symbol from one of the
+following applicable domains, depending upon the context in which it is
+used:
 
 - _Window layer_
 

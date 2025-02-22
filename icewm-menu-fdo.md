@@ -42,13 +42,12 @@ become available in the icewm start menu.
 
     Print a trailing separator.
 
-- **--no-sep-others**
-
-    Don't print the `Other` category last.
-
 - **--no-sub-cats**
 
-    Don't nest subcategories in submenus.
+    Don't nest subcategories in submenus. The correctness of the
+    pigeonholing depends on correct application description which shall
+    always specify a main category. Incorrectly tagged descriptions will be
+    sorted into the `Other` menu.
 
 - **-o**, **--output=FILE**
 
@@ -57,6 +56,42 @@ become available in the icewm start menu.
 - **-t**, **--terminal=NAME**
 
     Use _NAME_ to start a terminal emulator that supports the '-e' option.
+
+- **-s**, **--no-lone-app**
+
+    Attempt to detect a single application with no other content in lower
+    submenus and move this one to the parent submenu. This also detects
+    menus with just one submenu inside, attempting to move it's application
+    items to the parent menu where possible.
+
+- **-S**, **--no-lone-hint**
+
+    Decorate app entries moved by the **-s** option with a hint about the
+    original menu where it would be displayed otherwise. Implies **-s**.
+
+- **-d TIMEOUT**, **--deadline-apps=TIMEOUT**
+
+    Specifies a certain timeout value in milliseconds, so that the reading
+    of \*.desktop files (for applications) is aborted by that time (or soon
+    after). This can help to avoid extended blocking of the caller.
+    Also see **-D** for the subsequent operation.
+
+- **-D TIMEOUT**, **--deadline-all=TIMEOUT**
+
+    Specifies a total timeout in milliseconds after which the application
+    has to terminate, regardless of the final menu construction and
+    decoration reading (applied after \*.desktop file reading) was finished
+    or not. This would cause a printing of menu contents which were
+    calculated so far, therefore the timeout should be set a certain time
+    before the actual hard deadline by which the program should be
+    terminated. The output may lack translations and icons.
+
+- **-L MAX**, **--limit-max-len=MAX**
+
+    Cut the calculated program titles (after translation and adding
+    hints, see `-C` and `-g`) at `MAX` characters, followed by an
+    ellipsis. This can help to restrict the width of the menus in cases
+    where some entry length might get out of hand.
 
 - **--flat**
 
@@ -75,7 +110,8 @@ become available in the icewm start menu.
 
 - **-M filter**, **--imatch=filter**
 
-    Like `--match` but applied with any letter case.
+    Like `--match` but applied with any letter case. Might deliver
+    incorrect results with some locale settings.
 
 - **--match-sec**
 
@@ -106,29 +142,42 @@ executable in a **menuprog** entry in a [icewm-menu(5)](icewm-menu).
 ## EXAMPLES
 
 The following line in a [icewm-menu(5)](icewm-menu) file will dynamically generate
-a comprehensive set of menus for easy access to `.desktop` files.
+a comprehensive set of menus for easy access to `.desktop` files, added
+in a submenu called `Desktop Apps`.
 
     menuprog "Desktop Apps" folder icewm-menu-fdo
+
+It can also be embedded directly into the loading menu like in the
+following example. There could be a separator line added before or after
+(or both) in case where the program could generate useful content.
+
+    includeprog icewm-menu-fdo --seps
 
 ## ENVIRONMENT
 
 **XDG\_DATA\_HOME** or **XDG\_DATA\_DIRS** are considered as suggested by XDG
 Base Directory Specification.
 
-**TERMINAL** may define a terminal emulator that supports the '-e' option.
+**TERMINAL** may define a terminal emulator that supports the '-e'
+option. The option is ignored if the specified command could not be
+found and a default is used instead.
 
 ## CONFORMING TO
 
 **icewm-menu-fdo** complies roughly to the XDG `.desktop` file and menu
-specification, see ["Desktop Entry Specification"](https://standards.freedesktop.org/desktop-entry-spec/latest/), Version 1.2alpha,
-2015-03-06 and ["Desktop Menu Specification"](https://specifications.freedesktop.org/menu-spec/latest/), Version 1.1-draft, 31
-March 2011.
+specification, see ["Desktop Entry Specification"](https://standards.freedesktop.org/desktop-entry-spec/latest/) (Date: 2020-04-27,
+Version: Version 1.5) and ["Desktop Menu Specification"](https://specifications.freedesktop.org/menu-spec/latest/) (Date: 20 August
+2016, Version: Version 1.1).
 
 ## CAVEATS
 
 The **icewm-menu-fdo** program is only built when the [icewm(1)](icewm) package
-is configured with the **--enable-menus-fdo** option, which requires the
-**glib2-dev** package dependency.
+is configured with the **--enable-menus-fdo** option and only works with
+**--enable-i18n** option.
+
+Integration of XDG menu files is somewhat of varying quality, heavily
+depending on the correctness of metadata like translations and sections
+(menu category) hints.
 
 ## SEE ALSO
 

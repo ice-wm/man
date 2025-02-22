@@ -408,6 +408,33 @@ _Layer_.  From there choose one of seven window layers.  These are
 ordered from higher to lower.  Windows in higher layers appear over
 windows in lower layers.
 
+There are 16 layers in total, but most are seldom or never used. They
+are numbered from zero for the lowest layer to fifteen for the topmost.
+Their names with their layer number are: Desktop (0), Below (2), Normal
+(4), OnTop (6), Dock (8), AboveDock (10), Menu (12), Fullscreen (14) and
+AboveAll (15). By default every window appears in the _Normal_ layer.
+Then _Below_ and _OnTop_ are used frequently to position windows below
+or above most others. Icewm menus appear in the _Menu_ layer and the
+_Fullscreen_ layer is reserved for windows in the fullscreen mode. The
+default layer for each application can be set with a _winoption_.
+
+## DOCKED APPLICATIONS
+
+Icewm has native support for [Window Maker dockapps](https://dockapps.net).
+It has a Dock container called **DockApps**, which appears automatically
+when dockapps are started. The position and layer of this container are
+controlled by the `DockApps` preference. It is a space separated list
+of keywords. The keywords `right, left, center, down, high` control the
+position, while `above, dock, ontop, normal, below, desktop` set the
+layer. When **DockApps** is set to the empty string, support for dockapps
+is disabled. The dockapps in the container can be controlled using the
+mouse when the **Ctrl** key is pressed down. Drag with the left mouse
+button, close with the middle mouse button, select a menu with the right
+mouse button and rotate with the scroll wheel.
+
+If maximizing a window should not overlap the _DockApps_ container, put
+it in the _dock_ layer and set the preference **LimitByDockLayer=1**.
+
 ## TABBED WINDOWS
 
 A window frame may contain multiple client windows. Only one client can
@@ -1107,7 +1134,8 @@ Also press Shift to maximize horizontally. If **TitleBarRollupButton**
 is either 4 or 5 then the scroll wheel controls rolling up or down.
 
 Press a mouse button on the title bar and drag it to move the window.
-A `Alt+Pointer_Button1` click lowers the window.
+To drag a maximized window, keep the Shift key down.
+A `Alt+Pointer_Button1` click in the title bar lowers the window.
 
 When the mouse is on the window frame then a left click raises the
 window.  Dragging with the left button down resizes the window.
