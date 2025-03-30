@@ -606,6 +606,10 @@ The following actions affect the selected window or windows.
     Save an icon to a new file in the PAM image format. Digits are
     increased to generate a unique new filename for each window.
 
+- **usertime**
+
+    Show the time of last user interaction in milliseconds.
+
 - **click** _window-x_ _window-y_ _button_
 
     Send a button press and release event at position (_window-x_,
@@ -787,6 +791,10 @@ do not require a window _select_ or _filter_ option:
 - **pick**
 
     Choose a window by a mouse button click.
+
+- **x11time**
+
+    Show the current X11 server time in milliseconds.
 
 - **sync**
 
