@@ -175,8 +175,9 @@ implicitly assumed to filter all client windows.
 
 - **-p**, **-pid** _PID_
 
-    Filters clients by process ID. Clients with a \_NET\_WM\_PID property equal
-    to _PID_ are selected.
+    Filters clients by process ID. Clients are selected that have
+    a process ID of _PID_, when libXRes is at version 1.2, or
+    that have a \_NET\_WM\_PID property equal to _PID_.
 
 - **-u**, **-unmapped**
 
@@ -239,6 +240,10 @@ implicitly assumed to filter all client windows.
     be `All` for all monitors, `this` for the monitor where the
     active window is displayed, or a monitor number starting from zero.
     See the output of `randr` or `xinerama` below.
+
+- **-Z**, **-Zerminal**
+
+    Keep only terminals: clients that have forked a shell.
 
 ## GENERAL OPTIONS
 
@@ -763,6 +768,10 @@ do not require a window _select_ or _filter_ option:
 - **keys**
 
     Let icewm reload the `keys` file.
+
+- **toolbar**
+
+    Let icewm reload the `toolbar` file.
 
 - **refresh**
 

@@ -33,24 +33,16 @@ alternatives.  Alternatives are small tweaks of a theme.  These are
 specified in their own `.theme` file, which replaces `default.theme`.
 
 If no theme file exists then **icewm** will use the default setting of
-`Theme="default/default.theme"`.
+`Theme="icedesert/default.theme"`.
 
 ## EXAMPLES
 
-Following is my current `theme` file.  You can see from the comments
-that [icewm(1)](icewm) keeps a history of the previous ten theme settings.
+Following is a `theme` file.  The comments show that [icewm(1)](icewm) keeps
+a history of previous theme settings.
 
-    Theme="Unexicon-towers/default.theme"
-    #Theme="Unexicon-pedestals/default.theme"
-    ##Theme="Unexicon-penguins/default.theme"
-    ###Theme="Unexicon/default.theme"
-    ####Theme="Squared-for-debian/default.theme"
-    #####Theme="Squared-grey/default.theme"
-    ######Theme="Squared-green/default.theme"
-    #######Theme="Penguins/default.theme"
-    ########Theme="Squared-blue/default.theme"
-    #########Theme="default/default.theme"
-    ##########Theme="yellowmotif/default.theme"
+    Theme="CrystalBlue/default.theme"
+    #Theme="icedesert/default.theme"
+    ##Theme="default/default.theme"
 
 ## FILES
 

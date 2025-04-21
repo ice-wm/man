@@ -54,6 +54,10 @@ and controls the life cycle of related support applications.
 
     Also start icesound.
 
+- **--replace**
+
+    Replace an existing window manager.
+
 ## GENERAL OPTIONS
 
 - **-d**, **--display**=_DISPLAY_

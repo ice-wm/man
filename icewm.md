@@ -1312,8 +1312,7 @@ the given order, until it finds one:
     `default.theme`, but a theme may have alternatives.  Alternatives are
     small tweaks of a theme.  These are specified in their own `.theme`
     file, which replaces `default.theme`.  If no theme file exists then
-    **icewm** will use the default setting of
-    `Theme="default/default.theme"`.
+    **icewm** will use as default `Theme="icedesert/default.theme"`.
 
     See [icewm-theme(5)](icewm-theme).
 
