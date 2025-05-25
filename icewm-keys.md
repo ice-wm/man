@@ -41,6 +41,9 @@ To bind the mouse, use `Pointer_Button1` for button 1, and so on.
 This only works when the mouse is over the root window.
 See below for examples.
 
+Sometimes you may want to start an application just once. For this, use
+the `runonce` keyword, which accepts an additional resource argument.
+
 The command `icesh keys` instructs icewm to reload this file.
 
 ## FORMAT
@@ -70,6 +73,17 @@ Where,
     It may start with a tilde or an environment variable,
     which will be expanded.
     The _options_ are passed as arguments to the _program_.
+
+- **runonce**
+
+    Is an alternative to **key**. Its syntax is:
+
+    >     - **runonce** **"**_hotkey_**"** **"**_wmclass_**"** _program_ _options_
+
+    Here _wmclass_ is the resource name and/or class. The class must be
+    prefixed by a dot. The program is only run when no other application
+    window with the same _wmclass_ exists. Icewm ignores key repeat events
+    for this hotkey.
 
 - **switchkey**
 

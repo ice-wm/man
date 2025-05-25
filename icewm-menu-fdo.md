@@ -86,6 +86,10 @@ become available in the icewm start menu.
     before the actual hard deadline by which the program should be
     terminated. The output may lack translations and icons.
 
+- **-l LANGUAGE**, **--lang=LANGUAGE**
+
+    Instead of the environment variable `LANG` use LANGUAGE for the locale.
+
 - **-L MAX**, **--limit-max-len=MAX**
 
     Cut the calculated program titles (after translation and adding

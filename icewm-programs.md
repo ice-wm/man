@@ -34,10 +34,10 @@ The format of the file contains one of the following line syntax:
     selected.  This is for launching other window managers from within
     [icewm(1)](icewm).
 
-- **runonce** \[**"**\]_title_\[**"**\] _icon_ **"**\[_res\_name_\]\[**.**_res\_class_\]**"** _program_ _options_
+- **runonce** \[**"**\]_title_\[**"**\] _icon_ **"**\[_name_\]\[**.**_class_\]**"** _program_ _options_
 
     Specifies a program to execute when the menu item is selected; however,
-    if a window of the specified _res\_name_ and _res\_class_ is present,
+    if a window of the specified _name_ and _class_ is present,
     the program will not be run again.
 
 - **menu** \[**"**\]_title_\[**"**\] _icon_ **{**
@@ -94,12 +94,12 @@ Where
     Is the name of the icon file (with or without extension) or the full
     path to an icon file.
 
-- **"**\[_res\_name_\]\[**.**_res\_class_\]**"**
+- **"**\[_name_\]\[**.**_class_\]**"**
 
-    _res\_name_ is the resource name of a window launched by _program_ and
-    _res\_class_ is the resource class of the window.  Only one of
-    _res\_name_ or _res\_class_ need be specified.  This is used to identify
-    whether the program is already running and is for use with the
+    _name_ is the resource name of a window launched by _program_ and
+    _class_ is the resource class of the window.  Only one of
+    _name_ or _class_ need be specified.  This is used to determine
+    whether the program is already running. It is used with the
     **runonce** keyword.
 
 - _program_ _options_
