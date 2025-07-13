@@ -65,6 +65,9 @@ Where,
 Lines beginning with a hash (`#`) are comment lines.  Comment lines and
 blank lines are ignored.
 
+Please note that all keywords from [icewm-menu(5)](icewm-menu) are permitted here
+as well.
+
 ## EXAMPLES
 
 Following is an example that places a number of toolbar buttons on the

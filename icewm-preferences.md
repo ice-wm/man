@@ -986,7 +986,7 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 
 - **OpenCommand**=""
 
-    Open command.
+    Command to open a file or directory from the Start menu.
 
 - **TerminalCommand**="xterm"
 
