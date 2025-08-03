@@ -124,6 +124,9 @@ Following is the example `keys` file that ships with [icewm(1)](icewm):
     # display and select monitor setup configurations
     switchkey "Super+p" icewm-menu-xrandr
 
+    # display and select from all terminals
+    switchkey "Super+q"     icesh -Z switchmenu
+
 Following shows how to add mouse button bindings on the root window to
 change the current workspace rolling the mouse wheel on the desktop:
 

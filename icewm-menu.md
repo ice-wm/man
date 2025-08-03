@@ -16,57 +16,58 @@ title: "icewm-menu(5)"
 ## DESCRIPTION
 
 The `menu` file is responsible for configuring most of the [icewm(1)](icewm)
-root menu and start menu.
+root menu and the start menu.
 
-A menu of applications; usually customized by the user.  **icewm**
-provides the [icewm-menu-fdo(1)](icewm-menu-fdo) program to generate a default menu.
-Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1) (MenuMaker),
-[xde-menu(1)](https://manned.org/xde-menu.1), [xdgmenumaker(1)](https://manned.org/xdgmenumaker.1).
+A menu that gives access to applications; usually customized by the user.
+The [icewm-menu-fdo(1)](icewm-menu-fdo) program generates a default menu
+that contains most of the systems desktop applications.
+Similar programs are [xdg\_menu(1)](https://manned.org/xdg_menu.1), [mmaker(1)](https://manned.org/mmaker.1),
+[xde-menu(1)](https://manned.org/xde-menu.1) and [xdgmenumaker(1)](https://manned.org/xdgmenumaker.1).
 
 ## FORMAT
 
 The file contains lines with the following syntax:
 
-- **prog** \[**"**\]_title_\[**"**\] _icon_ _program_ _options_
+- **prog** **"**_title_**"** _icon_ _program_ _options_
 
     Specifies a program to execute when the menu item is selected.
 
-- **restart** \[**"**\]_title_\[**"**\] _icon_ _program_ _options_
+- **restart** **"**_title_**"** _icon_ _program_ _options_
 
     Specifies a program to replace the window manager when the menu item is
     selected.  This is for launching other window managers from within
     [icewm(1)](icewm).
 
-- **runonce** \[**"**\]_title_\[**"**\] _icon_ **"**\[_name_\]\[**.**_class_\]**"** _program_ _options_
+- **runonce** **"**_title_**"** _icon_ **"**\[_name_\]\[**.**_class_\]**"** _program_ _options_
 
     Specifies a program to execute when the menu item is selected; however,
     if a window of the specified _name_ and _class_ is present,
     the program will not be run again.
 
-- **menu** \[**"**\]_title_\[**"**\] _icon_ **{**
+- **menu** **"**_title_**"** _icon_ **{**
  # contained items
  **}**
 
     Specifies a sub-menu.  The lines that appear between the braces can be
     any menu item described here.
 
-- **menufile** \[**"**\]_title_\[**"**\] _icon_ \[**"**\]_filename_\[**"**\]
+- **menufile** **"**_title_**"** _icon_ **"**_filename_**"**
 
     Specifies a file from which to collect sub-menu items (lines) and place
     them at this point in the menu.
 
-- **menuprog** \[**"**\]_title_\[**"**\] _icon_ _program_ _options_
+- **menuprog** **"**_title_**"** _icon_ _program_ _options_
 
     Specifies a program that will print sub-menu items on standard output,
     which will be collected and placed in the sub-menu at this point.
 
-- **menuprogreload** \[**"**\]_title_\[**"**\] _icon_ _timeout_
+- **menuprogreload** **"**_title_**"** _icon_ _timeout_
 _program_ _options_
 
     Similar to **menuprog**, but after at least _timeout_ seconds
     the menu is regenerated.
 
-- **include** \[**"**\]_filename_\[**"**\]
+- **include** **"**_filename_**"**
 
     Read additional entries from the file _filename_
 
@@ -85,7 +86,7 @@ Where
 
     These are literal string keywords.
 
-- \[**"**\]_title_\[**"**\]
+- **"**_title_**"**
 
     This is the _title_ string associated with the menu item that is
     displayed in the menu.  When the _title_ contains spaces, the title

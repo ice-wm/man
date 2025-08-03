@@ -642,6 +642,72 @@ The following actions affect the selected window or windows.
 
     Reverse the order of the list of windows.
 
+- **switchmenu**
+
+    Output the list as a menu for icewm's QuickSwitch. This action is to be
+    used in a **switchkey** directive in the `keys` file.
+
+- **print** _format_
+
+    For each window in the selection, print a line according to _format_.
+    Here common backslash-escapes are recognized as well as the following
+    percent formatting options:
+
+    - **%**
+
+        A literal percent sign.
+
+    - **h**
+
+        The window height.
+
+    - **w**
+
+        The window width.
+
+    - **x**
+
+        The window x-position.
+
+    - **y**
+
+        The window y-position.
+
+    - **g**
+
+        The window geometry.
+
+    - **i**
+
+        The window identifying handle.
+
+    - **o**
+
+        An icon name.
+
+    - **p**
+
+        The process-ID of the window application.
+
+    - **c**
+
+        The WM\_CLASS property of the window.
+
+    - **m**
+
+        The WM\_CLIENT\_MACHINE property of the window.
+
+    - **t**
+
+        The window title.
+
+    - **W**
+
+        The current workspace of the window.
+
+    Each percent format option may start with a minus sign for
+    left-alignment and have a numeric field width.
+
 ## MANAGER ACTIONS
 
 The following actions control the IceWM window manager and therefore

@@ -246,13 +246,15 @@ that is running on the current workspace, or all workspaces if
 `TaskBarShowAllWindows=1`.  Each task button shows the
 application icon and the application title.  The active application is
 indicated by a pressed button.  This is the application that has input
-focus.  Pressing another button activates that application: it is
-brought to the foreground and receives input focus.  Other mouse
-controlled activities on the window buttons are: dragging window buttons
-with the left mouse button to rearrange the order, closing the application
-window with `Alt` + middle button, lowering the application window with
-`Ctrl` + middle button, or bringing the application window to the current
-workspace with `Shift` + middle button if `TaskBarShowAllWindows=1`.
+focus.  Clicking another button activates that application: it is
+brought to the foreground and receives input focus.  Clicking the button
+of an active application minimizes it.  To minimize an inactive application,
+click its button while `Ctrl` is down.
+
+The window buttons can be dragged with the left mouse button to rearrange
+their order. A window can be closed with `Alt` + middle button, lowered
+with `Ctrl` + middle button, or brought to the current workspace with
+`Shift` + middle button when `TaskBarShowAllWindows=1`.
 
 If there are not many application buttons then a stretch of plain task
 bar is visible.  Clicking on it with the right mouse button gives the
@@ -417,6 +419,12 @@ Then _Below_ and _OnTop_ are used frequently to position windows below
 or above most others. Icewm menus appear in the _Menu_ layer and the
 _Fullscreen_ layer is reserved for windows in the fullscreen mode. The
 default layer for each application can be set with a _winoption_.
+
+Windows placed in the _Dock_ layer can be set to be always visible by
+setting the `LimitByDockLayer` preference to 1. Then other windows are
+preferably not placed over such windows, unless they have explicit
+positioning information to do so. Maximized windows also don't overlap
+with these _DockLayer_ windows. The _DoNotCover_ winoption is similar.
 
 ## DOCKED APPLICATIONS
 
