@@ -1380,10 +1380,37 @@ the given order, until it finds one:
     `sizeT.xpm`, `sizeTL.xpm`, `sizeL.xpm`, `sizeBL.xpm`, `sizeB.xpm`,
     `sizeBR.xpm`, and 4 scroll cursors: `scrollL.xpm`, `scrollR.xpm`,
     `scrollU.xpm`, and `scrollD.xpm`.
+
     By default an XPM header defines four dimensions: width, height, colors
     and chars-per-pixel. For cursors this must be extended to six. The last
     two are the _x-hotspot_ and the _y-hotspot_. These define which point
     in the XPM image is the sensitive point for the mouse pointer.
+
+    Instead of XPM images, a theme may use Xcursor files instead.
+    These then don't have a filename extension.
+
+    When a theme doesn't define a cursor, icewm falls back to the system
+    cursor themes for Xcursor, if they are installed. This is configurable
+    by the following environment variables:
+
+    - XCURSOR\_PATH
+
+        Where to look for themed cursors.
+
+    - XCURSOR\_SIZE
+
+        The cursor size in pixels.
+
+    - XCURSOR\_THEME
+
+        The name of the cursor theme.
+
+    The last two can also be set as an X-resource:
+
+        Xcursor.size:       24
+        Xcursor.theme:      whiteglass
+
+    Otherwise core X11 cursors are used.
 
 - `icons`
 

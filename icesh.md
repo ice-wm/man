@@ -189,6 +189,11 @@ implicitly assumed to filter all client windows.
     Filter clients and keep only those that are currently viewable.
     These clients are mapped on the current workspace.
 
+- **-k**, **-kovered**
+
+    Filter clients and keep only those that are currently viewable and
+    that are at least partially covered by another viewable window.
+
 - **-G**, **-Gravity** _GRAVITY_
 
     Filters clients by the window gravity field of the WM\_NORMAL\_HINTS
