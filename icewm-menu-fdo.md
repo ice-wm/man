@@ -195,7 +195,7 @@ depending on the correctness of metadata like translations and sections
 
 ## BUGS
 
-Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/ice-wm/icewm/issues).
 
 ## AUTHOR
 

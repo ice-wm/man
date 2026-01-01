@@ -372,20 +372,29 @@ The selection can be changed by repeatedly pressing the Tab key, while
 keeping the Alt key down. If a Shift key is also down, the direction of
 traversal is reversed. Or use the scroll wheel of the mouse.  Or use
 one of the digit keys to select the corresponding window from the list.
-Arrow keys are also supported, as well as the Home and End key.
+By pressing the first letter of the application class name, the next
+such application is selected. All navigation keys are also supported.
 
 To make a selected window the active window, just release the Alt key,
 or hit the Return key, or click on it.  To cancel the QuickSwitch,
 press Escape or click outside of the QuickSwitch window.
 
 A selected window can be closed by Delete, `Alt+F4`, or the middle
-mouse button.  While the QuickSwitch window is up, one can still change
-workspace with the usual workspace hotkeys.
+mouse button.  The right mouse button opens the system menu for the
+selected window.  While the QuickSwitch window is up, one can still
+change workspace with the usual workspace hotkeys.
 
-The QuickSwitch has two distinct modes: vertical and horizontal.
-The window list can include all windows or be limited to the current
-workspace. There is an option to raise the selected candidate.
-See the many preferences available for the QuickSwitch.
+The QuickSwitch has three distinct modes: vertical, horizontal and
+preview.  The window list can include all windows or be limited to
+the current workspace.  There is an option to raise the selected
+candidate.  See the many preferences available for the QuickSwitch.
+
+The preview mode shows a small preview window for every application
+window that has been shown earlier by icewm. When the preview quick
+switch is active, this preview is continuously updated. This mode works
+best with a desktop background manager that updates the `_XROOTPMAP_ID`
+property on the root window, such as [icewmbg(1)](icewmbg), [nitrogen(1)](https://manned.org/nitrogen.1),
+[hsetroot(1)](https://manned.org/hsetroot.1) or [feh(1)](https://manned.org/feh.1).
 
 ## WINDOW PLACEMENT
 
@@ -1529,7 +1538,7 @@ See the file `COMPLIANCE` in the distribution for full details.
 
 ## BUGS
 
-Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/ice-wm/icewm/issues).
 
 ## AUTHOR
 

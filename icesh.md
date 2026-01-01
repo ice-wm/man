@@ -615,6 +615,7 @@ The following actions affect the selected window or windows.
 
     Save an icon to a new file in the PAM image format. Digits are
     increased to generate a unique new filename for each window.
+    The window must have a _\_NET\_WM\_ICON_ property.
 
 - **usertime**
 
@@ -735,6 +736,15 @@ do not require a window _select_ or _filter_ option:
 
     Print the number of workspaces if _COUNT_ is not given,
     otherwise set the number of workspaces to _COUNT_.
+
+- **getWorkspaceName** _INDEX_
+
+    Print the name of workspace _INDEX_, where _INDEX_ is
+    a workspace number starting from zero.
+
+- **getWorkspaceNames**
+
+    Print the name of all workspaces, one per line of output.
 
 - **setWorkspaceName** _INDEX_ _NAME_
 
@@ -1054,8 +1064,8 @@ Here is a different solution using conditionals.
 
     icesh -f if -P _NET_FRAME_EXTENTS=0 then bordered else borderless
 
-Here is a conditional to either toggle the visibility of a roxterm
-that has a WM\_ROLE value of `special` or start it with **runonce**.
+Here is a conditional to either toggle the visibility of a roxterm that
+has a WM\_WINDOW\_ROLE value of `special` or start it with **runonce**.
 
     icesh if -c roxterm.Roxterm -R special then \
         if -v then hide \
@@ -1112,7 +1122,7 @@ Some commands, like manager actions, are specific to IceWM.
 
 ## BUGS
 
-Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/ice-wm/icewm/issues).
 
 ## AUTHOR
 

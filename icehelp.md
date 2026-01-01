@@ -93,7 +93,7 @@ can also be opened by a right mouse button click.
 
 ## BUGS
 
-Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/ice-wm/icewm/issues).
 
 ## AUTHOR
 

@@ -258,7 +258,7 @@ What happens for their combination is given by the following table:
 
 ## BUGS
 
-Please report bugs at [Github](https://github.com/bbidulock/icewm/issues).
+Please report bugs at [Github](https://github.com/ice-wm/icewm/issues).
 
 ## AUTHOR
 

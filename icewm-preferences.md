@@ -339,6 +339,10 @@ The following preferences affect focus and general behavior of
 
     Time in seconds to remember the state of Alt+Tab.
 
+- **QuickSwitchPreview**=0
+
+    Use a QuickSwitch that shows previews of applications.
+
 - **QuickSwitchRaiseCandidate**=0
 
     Raise a selected window while Alt+Tabbing in the QuickSwitch.
@@ -354,10 +358,6 @@ The following preferences affect focus and general behavior of
 - **QuickSwitchSmallWindow**=0
 
     Create a smaller QuickSwitch window of 1/3 screen width.
-
-- **QuickSwitchMaxWidth**=0
-
-    Go trough all window titles and choose width of the longest one.
 
 - **QuickSwitchVertical**=1
 
@@ -614,10 +614,6 @@ The following preferences affect the [icewm(1)](icewm) task bar:
 - **ShapesProtectClientWindow**=1
 
     Don't cut client windows by shapes set trough frame corner pixmap.
-
-- **DoubleBuffer**=1
-
-    Use double buffering when redrawing the display.
 
 - **XRRDisable**=1
 
