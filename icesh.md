@@ -414,6 +414,10 @@ The following actions affect the selected window or windows.
 
     Displace window by _X_ _Y_ pixels.
 
+- **mousemove**
+
+    Start a mouse controlled movement of the window.
+
 - **center**
 
     Position the window in the center of the desktop work area.

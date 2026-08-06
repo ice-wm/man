@@ -91,6 +91,11 @@ Where,
     standard output the definition of a dynamic [icewm-menu(1)](icewm-menu).
     This menu will presented as a popup menu.
 
+To include a double quote literally, as part of your program arguments,
+escape it with a backslash.  A double-quoted string can be continued on
+the next line using a backslash-newline, but this is unnecessary as
+lines can be of arbitrary length.
+
 ## EXAMPLES
 
 Following is the example `keys` file that ships with [icewm(1)](icewm):
